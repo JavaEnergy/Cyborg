@@ -1,15 +1,47 @@
 h1 {
     color: blue;
 }
+h1 {
+  color: blue;
+}
 .header {
-    background-color: #222;
-    color: white;
-    padding: 1rem;
-    text-align: center;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+  width: 100%; /* Full width */
+  background-color: white;
+  color: #222;
+  padding: 1rem;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: 'Overpass-black';
+  font-size: 18px;
+  /* position: fixed;  */
+  box-sizing: border-box; /* Include padding in width */
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: #222;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.language-switch button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
   
   nav ul {
     list-style: none;
@@ -20,7 +52,7 @@ h1 {
   }
   
   nav a {
-    color: white;
+    color: #222;
     text-decoration: none;
   }
   

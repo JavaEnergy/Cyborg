@@ -31,7 +31,7 @@ const App = () => {
   return (
     <>
       <Header />
-      <div style={{ padding: '20px', minHeight: '80vh' }}>
+      <div>
         <Routes>
           <Route path="/:lng" element={<Home />} />
           <Route path="/:lng/about-us" element={<AboutUs />} />

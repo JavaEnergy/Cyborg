@@ -1,0 +1,17 @@
+.home-container {
+    background-image: url('../assets/images/codesurf-caia_image-alamy.jpg');
+    background-size: cover; /* Cover the entire div */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* No repetition */
+    height: 100vh; /* Full height of the viewport */
+    display: flex;
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+  }
+  
+  .content {
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+  }
+  

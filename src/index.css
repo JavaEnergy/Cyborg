@@ -41,3 +41,54 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+@font-face {
+	font-family: 'Syne-medium';
+	src: url('../src/assets/fonts/Syne-Medium.ttf') format('woff2'),
+		 url('../src/assets/fonts/Syne-Medium.ttf') format('woff');
+	
+  }
+  
+
+  @font-face {
+	font-family: 'Syne-bold';
+	src: url('../src/assets/fonts/Syne-Bold.ttf') format('woff2'),
+		 url('../src/assets/fonts/Syne-Bold.ttf') format('woff');
+	
+  }
+
+
+  @font-face {
+	font-family: 'Syne-regular';
+	src: url('../src/assets/fonts/Syne-Regular.ttf') format('woff2'),
+		 url('../src/assets/fonts/Syne-Regular.ttf') format('woff');
+	
+  }
+
+  @font-face {
+	font-family: 'Overpass-medium';
+	src: url('../src/assets/fonts/Overpass-Medium.ttf') format('woff2'),
+		 url('../src/assets/fonts/Overpass-Medium.ttf') format('woff');
+	
+  }
+  @font-face {
+	font-family: 'Overpass-bold';
+	src: url('../src/assets/fonts/Overpass-SemiBold.ttf') format('woff2'),
+		 url('../src/assets/fonts/Overpass-SemiBold.ttf') format('woff');
+	
+  }
+  @font-face {
+	font-family: 'Overpass-black';
+	src: url('../src/assets/fonts/Overpass-Bold.ttf') format('woff2'),
+		 url('../src/assets/fonts/Overpass-Bold.ttf') format('woff');
+	
+  }
+
+  /* Apply fonts globally */
+  body {
+	font-family: "Overpass-medium";
+  }
+  
+  h1, h2, h3 {
+	font-family: 'Syne-bold';
+  }
+  
