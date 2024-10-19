@@ -13,19 +13,18 @@ const resources = {
   de: { translation: translationDE },
 };
 
-// Configure i18next
 i18n
-  .use(LanguageDetector) // Use the language detector
-  .use(initReactI18next)  // Connect i18n to React
+  .use(LanguageDetector) // Detect language from browser or URL
+  .use(initReactI18next)  // Connect with React
   .init({
     resources,
-    fallbackLng: 'de', // If no match is found, use German as default
+    fallbackLng: 'de', // Default to German if no language is detected
     detection: {
-      order: ['querystring', 'localStorage', 'navigator'], // Priority order
-      caches: ['localStorage'], // Cache the detected language in localStorage
+      order: ['querystring', 'localStorage', 'navigator'], // Language detection order
+      caches: ['localStorage'], // Cache selected language in localStorage
     },
     interpolation: {
-      escapeValue: false, // React already handles escaping
+      escapeValue: false, // React handles escaping by default
     },
   });
 

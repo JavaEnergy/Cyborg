@@ -1,34 +1,43 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// src/App.jsx
+import React, { useEffect } from 'react';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Home from './pages/Home';
 import AboutUs from './pages/AboutUs';
-import './i18n'; // Import the i18n setup
-import { useTranslation } from 'react-i18next';
 import Footer from './components/Footer/Footer';
+import './i18n'; // Import i18n setup
+import { useTranslation } from 'react-i18next';
 
 const App = () => {
-  // const { i18n, t } = useTranslation(); // Get translation function and language changer
+  const { pathname } = useLocation(); // Current path
+  const { i18n } = useTranslation(); // i18n instance
 
-  // Language switch function
-  // const changeLanguage = (lng) => {
-  //   i18n.changeLanguage(lng);
-  // };
+  // Ensure the content language matches the URL path
+  useEffect(() => {
+    const languageFromPath = pathname.startsWith('/en') ? 'en' : 'de';
+    if (i18n.language !== languageFromPath) {
+      i18n.changeLanguage(languageFromPath); // Sync language with path
+    }
+  }, [pathname, i18n]);
+
+  // Redirect `/` to `/de` by default
+  if (pathname === '/') {
+    return <Navigate to="/de" replace />;
+  }
 
   return (
-    <Router>
+    <>
       <Header />
       <div style={{ padding: '20px', minHeight: '80vh' }}>
-        {/* Language Switch Buttons */}
-      
-
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/de" element={<Home />} />
+          <Route path="/de/ueber-uns" element={<AboutUs />} />
+          <Route path="/en" element={<Home />} />
+          <Route path="/en/about-us" element={<AboutUs />} />
         </Routes>
-        <Footer/>
       </div>
-    </Router>
+      <Footer />
+    </>
   );
 };
 
