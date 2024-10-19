@@ -4,12 +4,15 @@ import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Home from './pages/Home';
 import AboutUs from './pages/AboutUs';
+import Solutions from './pages/Solutions';
+import Services from './pages/Services';
+import ContactUs from './pages/ContactUs';
 import Footer from './components/Footer/Footer';
 import './i18n'; // Import i18n setup
 import { useTranslation } from 'react-i18next';
 
 const App = () => {
-  const { pathname } = useLocation(); // Current path
+  const { pathname } = useLocation(); // Get current path
   const { i18n } = useTranslation(); // i18n instance
 
   // Ensure the content language matches the URL path
@@ -30,10 +33,11 @@ const App = () => {
       <Header />
       <div style={{ padding: '20px', minHeight: '80vh' }}>
         <Routes>
-          <Route path="/de" element={<Home />} />
-          <Route path="/de/ueber-uns" element={<AboutUs />} />
-          <Route path="/en" element={<Home />} />
-          <Route path="/en/about-us" element={<AboutUs />} />
+          <Route path="/:lng" element={<Home />} />
+          <Route path="/:lng/about-us" element={<AboutUs />} />
+          <Route path="/:lng/solutions" element={<Solutions />} />
+          <Route path="/:lng/services" element={<Services />} />
+          <Route path="/:lng/contact-us" element={<ContactUs />} />
         </Routes>
       </div>
       <Footer />

@@ -1,16 +1,18 @@
 // src/pages/AboutUs.jsx
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 const AboutUs = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const [content, setContent] = useState('');
 
-  return (
-    <div>
-      <h2>{t('about_us')}</h2>
-      <p>{t('about_us_description')}</p>
-    </div>
-  );
+  useEffect(() => {
+    setContent(t('about_us')); // Update content when language changes
+  }, [i18n.language]);
+
+  if (!content) return <div>Loading...</div>; // Prevent white screen
+
+  return <h2>{content}</h2>;
 };
 
 export default AboutUs;
