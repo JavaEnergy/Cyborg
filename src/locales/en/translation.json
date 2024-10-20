@@ -1,19 +1,45 @@
 {
-  "about_us": "About Us",
-  "it_consulting": "IT Consulting",
-  "web_development": "Web Development",
-  "it_services": "IT Services",
-  "contact_us": "Contact Us",
-
-  "from_idea_to_implementation": "From Idea to Implementation",
-  "content_for_from_idea_to_implementation": "This section explains how we take ideas to implementation.",
-  
-  "it_strategy": "IT Strategy & Digitalization",
-  "content_for_it_strategy": "We help businesses align their IT strategy with business goals.",
-
-  "software_consulting": "Software Consulting",
-  "content_for_software_consulting": "Our software consulting services provide tailored solutions.",
-
-  "it_security": "IT Security & Audits",
-  "content_for_it_security": "We conduct audits and implement robust IT security systems."
+  "menu": {
+    "about_us": "About Us",
+    "it_consulting": "IT Consulting",
+    "web_development": "Web Development",
+    "it_services": "IT Services",
+    "contact_us": "Contact Us"
+  },
+  "it_consulting": {
+    "it_consulting": "IT Consulting",
+    "from_idea_to_implementation": "From Idea to Implementation",
+    "content_for_from_idea_to_implementation": "This section explains how we take ideas to implementation.",
+    "it_strategy": "IT Strategy & Digitalization",
+    "content_for_it_strategy": "We help businesses align their IT strategy with business goals.",
+    "software_consulting": "Software Consulting",
+    "content_for_software_consulting": "Our software consulting services provide tailored solutions.",
+    "it_security": "IT Security & Audits",
+    "content_for_it_security": "We conduct audits and implement robust IT security systems."
+  },
+  "web_development": {
+    "web_development": "Web Development",
+    "wordpress": "WordPress Development",
+    "content_for_wordpress": "We create custom WordPress websites.",
+    "react_applications": "React Applications",
+    "content_for_react_applications": "We build dynamic React applications.",
+    "angular_development": "Angular Development",
+    "content_for_angular_development": "Our team develops robust Angular applications.",
+    "e_commerce": "E-Commerce Solutions",
+    "content_for_e_commerce": "We provide complete e-commerce solutions.",
+    "custom_software": "Custom Software Solutions",
+    "content_for_custom_software": "We develop software tailored to your needs.",
+    "technologies_tools": "Technologies & Tools",
+    "content_for_technologies_tools": "We use the latest technologies and tools."
+  },
+  "it_services": {
+    "full_service_it": "Full-Service IT",
+    "content_for_full_service_it": "We offer comprehensive IT services.",
+    "server_management": "Server Management",
+    "content_for_server_management": "We manage and maintain your servers.",
+    "cloud_backup": "Cloud Solutions & Backup",
+    "content_for_cloud_backup": "Secure cloud solutions and backup services.",
+    "user_support": "User Support",
+    "content_for_user_support": "We provide support for your users."
+  }
 }

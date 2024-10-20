@@ -30,56 +30,107 @@ const Header = () => {
 
       <nav>
         <ul className="main-menu">
-          <li><Link to={`/${currentLang}/about-us`}>{t('about_us')}</Link></li>
+          <li>
+            <Link to={`/${currentLang}/about-us`}>{t('menu.about_us')}</Link>
+          </li>
 
           <li className="dropdown">
-            <span>{t('it_consulting')}</span>
+            <Link to={`/${currentLang}/it-consulting`} className="dropdown-link">
+              {t('menu.it_consulting')}
+            </Link>
             <ul className="submenu">
-              <li><Link to={`/${currentLang}/it-consulting#from-idea-to-implementation`}>{t('from_idea_to_implementation')}</Link></li>
-              <li><Link to={`/${currentLang}/it-consulting#it-strategy`}>{t('it_strategy')}</Link></li>
-              <li><Link to={`/${currentLang}/it-consulting#software-consulting`}>{t('software_consulting')}</Link></li>
-              <li><Link to={`/${currentLang}/it-consulting#it-security`}>{t('it_security')}</Link></li>
+              <li>
+                <Link to={`/${currentLang}/it-consulting#from-idea-to-implementation`}>
+                  {t('it_consulting.from_idea_to_implementation')}
+                </Link>
+              </li>
+              <li>
+                <Link to={`/${currentLang}/it-consulting#it-strategy`}>
+                  {t('it_consulting.it_strategy')}
+                </Link>
+              </li>
+              <li>
+                <Link to={`/${currentLang}/it-consulting#software-consulting`}>
+                  {t('it_consulting.software_consulting')}
+                </Link>
+              </li>
+              <li>
+                <Link to={`/${currentLang}/it-consulting#it-security`}>
+                  {t('it_consulting.it_security')}
+                </Link>
+              </li>
             </ul>
           </li>
 
           <li className="dropdown">
-            <span>{t('web_development')}</span>
+            <Link to={`/${currentLang}/web-development`} className="dropdown-link">
+              {t('menu.web_development')}
+            </Link>
             <ul className="submenu">
-              <li><Link to={`/${currentLang}/web-development#wordpress`}>{t('wordpress')}</Link></li>
-              <li><Link to={`/${currentLang}/web-development#react-applications`}>{t('react_applications')}</Link></li>
-              <li><Link to={`/${currentLang}/web-development#angular-development`}>{t('angular_development')}</Link></li>
-              <li><Link to={`/${currentLang}/web-development#e-commerce`}>{t('e_commerce')}</Link></li>
-              <li><Link to={`/${currentLang}/web-development#custom-software`}>{t('custom_software')}</Link></li>
-              <li><Link to={`/${currentLang}/web-development#technologies-tools`}>{t('technologies_tools')}</Link></li>
+              <li>
+                <Link to={`/${currentLang}/web-development#wordpress`}>
+                  {t('web_development.wordpress')}
+                </Link>
+              </li>
+              <li>
+                <Link to={`/${currentLang}/web-development#react-applications`}>
+                  {t('web_development.react_applications')}
+                </Link>
+              </li>
+              <li>
+                <Link to={`/${currentLang}/web-development#angular-development`}>
+                  {t('web_development.angular_development')}
+                </Link>
+              </li>
+              <li>
+                <Link to={`/${currentLang}/web-development#e-commerce`}>
+                  {t('web_development.e_commerce')}
+                </Link>
+              </li>
+              <li>
+                <Link to={`/${currentLang}/web-development#custom-software`}>
+                  {t('web_development.custom_software')}
+                </Link>
+              </li>
+              <li>
+                <Link to={`/${currentLang}/web-development#technologies-tools`}>
+                  {t('web_development.technologies_tools')}
+                </Link>
+              </li>
             </ul>
           </li>
 
           <li className="dropdown">
-            <span>{t('it_services')}</span>
+            <Link to={`/${currentLang}/it-services`} className="dropdown-link">
+              {t('menu.it_services')}
+            </Link>
             <ul className="submenu">
               <li>
                 <Link to={`/${currentLang}/it-services#full-service-it`}>
-                  {t('full_service_it')}
+                  {t('it_services.full_service_it')}
                 </Link>
               </li>
               <li>
                 <Link to={`/${currentLang}/it-services#server-management`}>
-                  {t('server_management')}
+                  {t('it_services.server_management')}
                 </Link>
               </li>
               <li>
                 <Link to={`/${currentLang}/it-services#cloud-backup`}>
-                  {t('cloud_backup')}
+                  {t('it_services.cloud_backup')}
                 </Link>
               </li>
               <li>
                 <Link to={`/${currentLang}/it-services#user-support`}>
-                  {t('user_support')}
+                  {t('it_services.user_support')}
                 </Link>
               </li>
             </ul>
           </li>
-          <li><Link to={`/${currentLang}/contact-us`}>{t('contact_us')}</Link></li>
+
+          <li>
+            <Link to={`/${currentLang}/contact-us`}>{t('menu.contact_us')}</Link>
+          </li>
         </ul>
       </nav>
 

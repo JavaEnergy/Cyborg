@@ -4,9 +4,9 @@ import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Home from './pages/Home';
 import AboutUs from './pages/AboutUs';
-import ITConsulting from './pages/ITConsulting'; // Import IT Consulting
+import ITConsulting from './pages/ITConsulting';
 import WebDevelopment from './pages/WebDevelopment';
-import Services from './pages/Services';
+import ITServices from './pages/ITServices'; // Make sure to import ITServices
 import ContactUs from './pages/ContactUs';
 import Footer from './components/Footer/Footer';
 import './i18n'; // Import i18n setup
@@ -36,7 +36,7 @@ const App = () => {
           <Route path="/:lng/about-us" element={<AboutUs />} />
           <Route path="/:lng/it-consulting" element={<ITConsulting />} />
           <Route path="/:lng/web-development" element={<WebDevelopment />} />
-          <Route path="/:lng/services" element={<Services />} />
+          <Route path="/:lng/it-services" element={<ITServices />} />
           <Route path="/:lng/contact-us" element={<ContactUs />} />
         </Routes>
       </div>

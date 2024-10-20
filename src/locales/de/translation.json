@@ -6,26 +6,40 @@
     "it_services": "IT-Services",
     "contact_us": "Kontakt"
   },
+  "it_consulting": {
+    "it_consulting": "IT-Beratung",
+    "from_idea_to_implementation": "Von der Idee zur Umsetzung",
+    "content_for_from_idea_to_implementation": "Diese Sektion erklärt, wie wir Ideen in die Realität umsetzen.",
+    "it_strategy": "IT-Strategie & Digitalisierung",
+    "content_for_it_strategy": "Wir helfen Unternehmen, ihre IT-Strategie mit den Geschäftszielen in Einklang zu bringen.",
+    "software_consulting": "Softwareberatung",
+    "content_for_software_consulting": "Unsere Softwareberatung bietet maßgeschneiderte Lösungen.",
+    "it_security": "IT-Sicherheit & Audits",
+    "content_for_it_security": "Wir führen Audits durch und implementieren robuste IT-Sicherheitssysteme."
+  },
   "web_development": {
+    "web_development": "Webentwicklung",
     "wordpress": "WordPress-Entwicklung",
+    "content_for_wordpress": "Wir erstellen individuelle WordPress-Websites.",
     "react_applications": "React-Anwendungen",
+    "content_for_react_applications": "Wir entwickeln dynamische React-Anwendungen.",
     "angular_development": "Angular-Entwicklung",
+    "content_for_angular_development": "Unser Team entwickelt robuste Angular-Anwendungen.",
     "e_commerce": "E-Commerce-Lösungen",
+    "content_for_e_commerce": "Wir bieten umfassende E-Commerce-Lösungen.",
     "custom_software": "Individuelle Softwarelösungen",
-    "technologies_tools": "Technologien & Tools"
+    "content_for_custom_software": "Wir entwickeln Software, die auf Ihre Bedürfnisse zugeschnitten ist.",
+    "technologies_tools": "Technologien & Tools",
+    "content_for_technologies_tools": "Wir verwenden die neuesten Technologien und Tools."
   },
   "it_services": {
     "full_service_it": "Full-Service IT",
+    "content_for_full_service_it": "Wir bieten umfassende IT-Dienstleistungen.",
     "server_management": "Server-Management",
+    "content_for_server_management": "Wir verwalten und warten Ihre Server.",
     "cloud_backup": "Cloud-Lösungen & Backup",
-    "user_support": "Benutzerunterstützung"
-  },
-  "blogs": {
-    "title1": "Wie Sie Ihre Website optimieren",
-    "title2": "Die Zukunft der Webentwicklung",
-    "title3": "Best Practices in der IT-Beratung",
-    "content1": "Dieser Blogbeitrag untersucht die besten Möglichkeiten, Ihre Website schneller zu machen.",
-    "content2": "Erfahren Sie mehr über die neuesten Trends in der Webentwicklung.",
-    "content3": "Erfahren Sie, wie Sie Ihre IT-Beratung optimieren können."
+    "content_for_cloud_backup": "Sichere Cloud-Lösungen und Backup-Services.",
+    "user_support": "Benutzerunterstützung",
+    "content_for_user_support": "Wir unterstützen Ihre Benutzer."
   }
 }
