@@ -92,3 +92,6 @@ table {
 	font-family: 'Syne-bold';
   }
   
+  html {
+	scroll-behavior: smooth;
+  }
