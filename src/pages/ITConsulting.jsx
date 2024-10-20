@@ -1,6 +1,7 @@
 // src/pages/ITConsulting.jsx
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import './ITConsulting.css';
 
 const ITConsulting = () => {
   const { t } = useTranslation();
@@ -9,25 +10,21 @@ const ITConsulting = () => {
     <div className="it-consulting">
       <h1>{t('it_consulting')}</h1>
 
-      {/* Section 1: From Idea to Implementation */}
-      <section id="idea-implementation">
+      <section id="from-idea-to-implementation">
         <h2>{t('from_idea_to_implementation')}</h2>
-        <p>{t('content_for_idea_implementation')}</p>
+        <p>{t('content_for_from_idea_to_implementation')}</p>
       </section>
 
-      {/* Section 2: IT Strategy & Digitalization */}
       <section id="it-strategy">
         <h2>{t('it_strategy')}</h2>
         <p>{t('content_for_it_strategy')}</p>
       </section>
 
-      {/* Section 3: Software Consulting */}
       <section id="software-consulting">
         <h2>{t('software_consulting')}</h2>
         <p>{t('content_for_software_consulting')}</p>
       </section>
 
-      {/* Section 4: IT Security & Audits */}
       <section id="it-security">
         <h2>{t('it_security')}</h2>
         <p>{t('content_for_it_security')}</p>

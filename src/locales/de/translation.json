@@ -1,21 +1,31 @@
 {
-  "about_us": "Über Uns",
-  "it_consulting": "IT-Beratung",
-  "from_idea_to_implementation": "Von der Idee bis zur Umsetzung",
-  "it_strategy": "IT-Strategie & Digitalisierung",
-  "software_consulting": "Softwareberatung",
-  "it_security": "IT-Sicherheit & Audits",
-  "web_development": "Webentwicklung",
-  "wordpress": "WordPress-Entwicklung",
-  "react_applications": "React-Anwendungen",
-  "angular_development": "Angular-Entwicklung",
-  "e_commerce": "E-Commerce-Lösungen",
-  "custom_software": "Individuelle Softwarelösungen",
-  "technologies_tools": "Technologien & Tools",
-  "it_services": "IT-Services",
-  "full_service_it": "Full-Service IT",
-  "server_management": "Server-Management",
-  "cloud_backup": "Cloud-Lösungen & Backup",
-  "user_support": "Benutzerunterstützung",
-  "contact_us": "Kontakt"
+  "menu": {
+    "about_us": "Über Uns",
+    "it_consulting": "IT-Beratung",
+    "web_development": "Webentwicklung",
+    "it_services": "IT-Services",
+    "contact_us": "Kontakt"
+  },
+  "web_development": {
+    "wordpress": "WordPress-Entwicklung",
+    "react_applications": "React-Anwendungen",
+    "angular_development": "Angular-Entwicklung",
+    "e_commerce": "E-Commerce-Lösungen",
+    "custom_software": "Individuelle Softwarelösungen",
+    "technologies_tools": "Technologien & Tools"
+  },
+  "it_services": {
+    "full_service_it": "Full-Service IT",
+    "server_management": "Server-Management",
+    "cloud_backup": "Cloud-Lösungen & Backup",
+    "user_support": "Benutzerunterstützung"
+  },
+  "blogs": {
+    "title1": "Wie Sie Ihre Website optimieren",
+    "title2": "Die Zukunft der Webentwicklung",
+    "title3": "Best Practices in der IT-Beratung",
+    "content1": "Dieser Blogbeitrag untersucht die besten Möglichkeiten, Ihre Website schneller zu machen.",
+    "content2": "Erfahren Sie mehr über die neuesten Trends in der Webentwicklung.",
+    "content3": "Erfahren Sie, wie Sie Ihre IT-Beratung optimieren können."
+  }
 }

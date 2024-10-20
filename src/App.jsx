@@ -2,28 +2,42 @@
 import React, { useEffect } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Header from './components/Header/Header';
-import ITConsulting from './pages/ITConsulting'; // Import IT Consulting page
 import Home from './pages/Home';
+import AboutUs from './pages/AboutUs';
+import ITConsulting from './pages/ITConsulting'; // Import IT Consulting
+import WebDevelopment from './pages/WebDevelopment';
+import Services from './pages/Services';
+import ContactUs from './pages/ContactUs';
 import Footer from './components/Footer/Footer';
 import './i18n'; // Import i18n setup
+import { useTranslation } from 'react-i18next';
 
 const App = () => {
   const { pathname } = useLocation();
+  const { i18n } = useTranslation();
 
   useEffect(() => {
     const languageFromPath = pathname.startsWith('/en') ? 'en' : 'de';
-    if (languageFromPath) {
-      document.documentElement.lang = languageFromPath;
+    if (i18n.language !== languageFromPath) {
+      i18n.changeLanguage(languageFromPath);
     }
-  }, [pathname]);
+  }, [pathname, i18n]);
+
+  if (pathname === '/') {
+    return <Navigate to="/de" replace />;
+  }
 
   return (
     <>
       <Header />
-      <div style={{ padding: '20px', minHeight: '80vh' }}>
+      <div>
         <Routes>
           <Route path="/:lng" element={<Home />} />
+          <Route path="/:lng/about-us" element={<AboutUs />} />
           <Route path="/:lng/it-consulting" element={<ITConsulting />} />
+          <Route path="/:lng/web-development" element={<WebDevelopment />} />
+          <Route path="/:lng/services" element={<Services />} />
+          <Route path="/:lng/contact-us" element={<ContactUs />} />
         </Routes>
       </div>
       <Footer />

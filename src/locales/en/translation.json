@@ -1,21 +1,19 @@
 {
   "about_us": "About Us",
   "it_consulting": "IT Consulting",
-  "from_idea_to_implementation": "From Idea to Implementation",
-  "it_strategy": "IT Strategy & Digitalization",
-  "software_consulting": "Software Consulting",
-  "it_security": "IT Security & Audits",
   "web_development": "Web Development",
-  "wordpress": "WordPress Development",
-  "react_applications": "React Applications",
-  "angular_development": "Angular Development",
-  "e_commerce": "E-commerce Solutions",
-  "custom_software": "Custom Software",
-  "technologies_tools": "Technologies & Tools",
   "it_services": "IT Services",
-  "full_service_it": "Full-Service IT",
-  "server_management": "Server Management",
-  "cloud_backup": "Cloud Solutions & Backup",
-  "user_support": "User Support",
-  "contact_us": "Contact Us"
+  "contact_us": "Contact Us",
+
+  "from_idea_to_implementation": "From Idea to Implementation",
+  "content_for_from_idea_to_implementation": "This section explains how we take ideas to implementation.",
+  
+  "it_strategy": "IT Strategy & Digitalization",
+  "content_for_it_strategy": "We help businesses align their IT strategy with business goals.",
+
+  "software_consulting": "Software Consulting",
+  "content_for_software_consulting": "Our software consulting services provide tailored solutions.",
+
+  "it_security": "IT Security & Audits",
+  "content_for_it_security": "We conduct audits and implement robust IT security systems."
 }
