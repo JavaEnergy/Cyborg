@@ -1,89 +1,135 @@
 /* General Header Styles */
 .header {
-  width: 100%; /* Full width */
+  width: 100%;
   background-color: white;
   color: #222;
-  padding: 1rem;
+  padding: 2rem;
   display: flex;
-  justify-content: space-between; /* Spread items */
+  justify-content: space-around;
   align-items: center;
-  box-sizing: border-box; /* Include padding in width */
+  box-sizing: border-box;
   font-family: 'Overpass-black', sans-serif;
-  font-size: 18px;
+  font-size: 20px; /* Updated from 18px to 20px */
 }
 
-/* Logo Styles */
 .logo-container img {
   width: 50px;
   height: auto;
 }
 
-/* Main Navigation Styles */
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 15px;
-  margin: 0;
-  padding: 0;
-}
-
+/* Reset Link Styles */
 nav a {
-  color: #222;
-  text-decoration: none;
-  font-size: 16px;
+  text-align: none; /* Remove underline */
+  position: relative;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+  text-decoration: none; 
 }
 
-nav a:hover {
-  text-decoration: underline;
+/* Default styles for main menu links */
+.main-menu > li > a {
+  color: #080808; /* Default text color */
+  font-weight: normal;
 }
 
-/* Dropdown Menu Styles */
-.main-menu .dropdown {
+/* Active styles for main menu links */
+.main-menu > li > a.active {
+  color: #D4B051; 
+  font-weight: bold;
+}
+
+/* Hover State for Main Menu Links (Including Active Links) */
+.main-menu > li > a:hover,
+.main-menu > li > a.active:hover,
+.dropdown.open > a {
+  color: #F0C040; /* Hover color for main menu links */
+}
+
+/* Default styles for sub-menu links */
+.submenu li a {
+  color: #555; /* Default sub-menu text color */
+ }
+
+/* Submenu Item Hover */
+.submenu li a:hover {
+  color: #D4B051; /* Hover color for sub-menu links */
+  font-weight: bold;
+}
+
+/* Main Menu Styles */
+.main-menu {
+  display: flex;
+  gap: 45px;
   position: relative;
 }
 
+/* Dropdown Container */
+.dropdown {
+  position: relative;
+}
+
+/* Submenu Styles */
 .submenu {
   display: none;
   position: absolute;
-  background-color: #f9f9f9;
+  background-color: white;
   border: 1px solid #ddd;
-  padding: 0.5rem;
-  margin-top: 5px;
-  list-style: none;
+  padding: 10px;
   min-width: 200px;
-  z-index: 100;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  visibility: hidden;
+  border-radius: 15px;
 }
 
+/* Submenu Items Styling */
 .submenu li {
   padding: 0.5rem 1rem;
-  color: #222;
+  transition: background-color 0.3s ease;
 }
 
-.dropdown:hover .submenu {
+/* Show Submenu on Hover */
+.dropdown:hover .submenu,
+.dropdown.open .submenu {
   display: block;
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(5px);
 }
 
 /* Language Switcher Styles */
 .language-switch {
   display: flex;
-  gap: 10px;
 }
 
-.language-switch button {
+/* .language-switch button {
   padding: 5px 10px;
   cursor: pointer;
   border: none;
   background-color: #555;
   color: white;
   border-radius: 5px;
+  transition: background-color 0.3s ease;
+  font-size: 18px; 
+} */
+button {
+  background: none;
+border: none;
+  cursor: pointer;
+  padding: 0;
 }
 
-.language-switch button:hover {
+/* Hover Effect for Language Switcher */
+/* .language-switch button:hover {
   background-color: #333;
-}
+} */
 
-
+/* Active Language Button */
+/* .language-switch button.active {
+  background-color: #D4B051;
+} */
 
 /* Responsive Styles */
 @media (max-width: 768px) {
@@ -92,7 +138,7 @@ nav a:hover {
     align-items: flex-start;
   }
 
-  nav ul {
+  .main-menu {
     flex-direction: column;
     gap: 10px;
   }

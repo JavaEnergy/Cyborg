@@ -1,14 +1,14 @@
-// src/components/Header/Header.jsx
-import React from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import './Header.css';
-import logo from '../../assets/images/301963638_404276911813423_143320338695708279_n.png';
+import logo from '../../assets/images/301963638_404276911813423_143320338695708279_n.png'; // Adjust path as necessary
 
 const Header = () => {
   const { t, i18n } = useTranslation();
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
   const navigate = useNavigate();
+  const [openDropdown, setOpenDropdown] = useState(null);
 
   const changeLanguage = (lng) => {
     const newPath = pathname.replace(/^\/(en|de)/, `/${lng}`);
@@ -22,6 +22,24 @@ const Header = () => {
     navigate(`/${currentLang}`, { replace: true });
   };
 
+  const toggleDropdown = (section) => {
+    setOpenDropdown(openDropdown === section ? null : section);
+  };
+
+  // Function to determine if the link is active
+  const isActiveLink = (link) => {
+    const [linkPathname, linkHash] = link.split('#');
+    const linkHashWithHash = linkHash ? '#' + linkHash : '';
+  
+    if (linkHashWithHash) {
+      // For links with a hash, only active if both pathname and hash match
+      return pathname === linkPathname && hash === linkHashWithHash;
+    } else {
+      // For links without a hash, active if pathname matches
+      return pathname === linkPathname;
+    }
+  };
+
   return (
     <header className="header">
       <div className="logo-container" onClick={goToHome} style={{ cursor: 'pointer' }}>
@@ -31,112 +49,196 @@ const Header = () => {
       <nav>
         <ul className="main-menu">
           <li>
-            <Link to={`/${currentLang}/about-us`}>{t('menu.about_us')}</Link>
+            <NavLink
+              to={`/${currentLang}/about-us`}
+              className={isActiveLink(`/${currentLang}/about-us`) ? 'active' : ''}
+            >
+              {t('menu.about_us')}
+            </NavLink>
           </li>
 
-          <li className="dropdown">
-            <Link to={`/${currentLang}/it-consulting`} className="dropdown-link">
+          {/* IT Consulting Dropdown */}
+          <li
+            className={`dropdown ${openDropdown === 'it-consulting' ? 'open' : ''}`}
+            onMouseEnter={() => toggleDropdown('it-consulting')}
+            onMouseLeave={() => setOpenDropdown(null)}
+          >
+            <NavLink
+              to={`/${currentLang}/it-consulting`}
+              className={isActiveLink(`/${currentLang}/it-consulting`) ? 'active' : ''}
+              aria-haspopup="true"
+              aria-expanded={openDropdown === 'it-consulting'}
+            >
               {t('menu.it_consulting')}
-            </Link>
+            </NavLink>
             <ul className="submenu">
               <li>
-                <Link to={`/${currentLang}/it-consulting#from-idea-to-implementation`}>
+                <NavLink
+                  to={`/${currentLang}/it-consulting#from-idea-to-implementation`}
+                  className={isActiveLink(`/${currentLang}/it-consulting#from-idea-to-implementation`) ? 'active' : ''}
+                >
                   {t('it_consulting.from_idea_to_implementation')}
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link to={`/${currentLang}/it-consulting#it-strategy`}>
+                <NavLink
+                  to={`/${currentLang}/it-consulting#it-strategy`}
+                  className={isActiveLink(`/${currentLang}/it-consulting#it-strategy`) ? 'active' : ''}
+                >
                   {t('it_consulting.it_strategy')}
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link to={`/${currentLang}/it-consulting#software-consulting`}>
+                <NavLink
+                  to={`/${currentLang}/it-consulting#software-consulting`}
+                  className={isActiveLink(`/${currentLang}/it-consulting#software-consulting`) ? 'active' : ''}
+                >
                   {t('it_consulting.software_consulting')}
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link to={`/${currentLang}/it-consulting#it-security`}>
+                <NavLink
+                  to={`/${currentLang}/it-consulting#it-security`}
+                  className={isActiveLink(`/${currentLang}/it-consulting#it-security`) ? 'active' : ''}
+ >
                   {t('it_consulting.it_security')}
-                </Link>
+                </NavLink>
               </li>
             </ul>
           </li>
 
-          <li className="dropdown">
-            <Link to={`/${currentLang}/web-development`} className="dropdown-link">
+          {/* Web Development Dropdown */}
+          <li
+            className={`dropdown ${openDropdown === 'web-development' ? 'open' : ''}`}
+            onMouseEnter={() => toggleDropdown('web-development')}
+            onMouseLeave={() => setOpenDropdown(null)}
+          >
+            <NavLink
+              to={`/${currentLang}/web-development`}
+              className={isActiveLink(`/${currentLang}/web-development`) ? 'active' : ''}
+              aria-haspopup="true"
+              aria-expanded={openDropdown === 'web-development'}
+            >
               {t('menu.web_development')}
-            </Link>
+            </NavLink>
             <ul className="submenu">
               <li>
-                <Link to={`/${currentLang}/web-development#wordpress`}>
+                <NavLink
+                  to={`/${currentLang}/web-development#wordpress`}
+                  className={isActiveLink(`/${currentLang}/web-development#wordpress`) ? 'active' : ''}
+                >
                   {t('web_development.wordpress')}
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link to={`/${currentLang}/web-development#react-applications`}>
+                <NavLink
+                  to={`/${currentLang}/web-development#react-applications`}
+                  className={isActiveLink(`/${currentLang}/web-development#react-applications`) ? 'active' : ''}
+                >
                   {t('web_development.react_applications')}
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link to={`/${currentLang}/web-development#angular-development`}>
+                <NavLink
+                  to={`/${currentLang}/web-development#angular-development`}
+                  className={isActiveLink(`/${currentLang}/web-development#angular-development`) ? 'active' : ''}
+                >
                   {t('web_development.angular_development')}
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link to={`/${currentLang}/web-development#e-commerce`}>
+                <NavLink
+                  to={`/${currentLang}/web-development#e-commerce`}
+                  className={isActiveLink(`/${currentLang}/web-development#e-commerce`) ? 'active' : ''}
+                >
                   {t('web_development.e_commerce')}
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link to={`/${currentLang}/web-development#custom-software`}>
+                <NavLink
+                  to={`/${currentLang}/web-development#custom-software`}
+                  className={isActiveLink(`/${currentLang}/web-development#custom-software`) ? 'active' : ''}
+                >
                   {t('web_development.custom_software')}
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link to={`/${currentLang}/web-development#technologies-tools`}>
+                <NavLink
+                  to={`/${currentLang}/web-development#technologies-tools`}
+                  className={isActiveLink(`/${currentLang}/web-development#technologies-tools`) ? 'active' : ''}
+                >
                   {t('web_development.technologies_tools')}
-                </Link>
+                </NavLink>
               </li>
             </ul>
           </li>
 
-          <li className="dropdown">
-            <Link to={`/${currentLang}/it-services`} className="dropdown-link">
+          {/* IT Services Dropdown */}
+          <li
+            className={`dropdown ${openDropdown === 'it-services' ? 'open' : ''}`}
+            onMouseEnter={() => toggleDropdown('it-services')}
+            onMouseLeave={() => setOpenDropdown(null)}
+          >
+            <NavLink
+              to={`/${currentLang}/it-services`}
+              className={isActiveLink(`/${currentLang}/it-services`) ? 'active' : ''}
+              aria-haspopup="true"
+              aria-expanded={openDropdown === 'it-services'}
+            >
               {t('menu.it_services')}
-            </Link>
+            </NavLink>
             <ul className="submenu">
               <li>
-                <Link to={`/${currentLang}/it-services#full-service-it`}>
+                <NavLink
+                  to={`/${currentLang}/it-services#full-service-it`}
+                  className={isActiveLink(`/${currentLang}/it-services#full-service-it`) ? 'active' : ''}
+                >
                   {t('it_services.full_service_it')}
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link to={`/${currentLang}/it-services#server-management`}>
+                <NavLink
+                  to={`/${currentLang}/it-services#server-management`}
+                  className={isActiveLink(`/${currentLang}/it-services#server-management`) ? 'active' : ''}
+                >
                   {t('it_services.server_management')}
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link to={`/${currentLang}/it-services#cloud-backup`}>
+                <NavLink
+                  to={`/${currentLang}/it-services#cloud-backup`}
+                  className={isActiveLink(`/${currentLang}/it-services#cloud-backup`) ? 'active' : ''}
+                >
                   {t('it_services.cloud_backup')}
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link to={`/${currentLang}/it-services#user-support`}>
+                <NavLink
+                  to={`/${currentLang}/it-services#user-support`}
+                  className={isActiveLink(`/${currentLang}/it-services#user-support`) ? 'active' : ''}
+                >
                   {t('it_services.user_support')}
-                </Link>
+                </NavLink>
               </li>
             </ul>
           </li>
 
           <li>
-            <Link to={`/${currentLang}/contact-us`}>{t('menu.contact_us')}</Link>
+            <NavLink
+              to={`/${currentLang}/contact-us`}
+              className={isActiveLink(`/${currentLang}/contact-us`) ? 'active' : ''}
+            >
+              {t('menu.contact_us')}
+            </NavLink>
           </li>
         </ul>
       </nav>
 
       <div className="language-switch">
-        <button onClick={() => changeLanguage('de')}>Deutsch</button>
-        <button onClick={() => changeLanguage('en')}>English</button>
+      <button className={currentLang === 'de' ? 'active' : ''} onClick={() => changeLanguage('de')}>
+  <img src="/src/assets/images/germany_round_icon_64 (1).png" alt="German Flag" />
+  </button>       
+   <button className={currentLang === 'en' ? 'active' : ''} onClick={() => changeLanguage('en')}><img src="/src/assets/images/united_kingdom_round_icon_64.png" alt="UK Flag" /></button>
       </div>
     </header>
   );
