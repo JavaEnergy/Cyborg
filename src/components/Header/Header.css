@@ -1,5 +1,8 @@
 /* General Header Styles */
 .header {
+  position: fixed; /* Make header fixed at the top */
+  top: 0;
+  left: 0;
   width: 100%;
   background-color: white;
   color: #222;
@@ -9,20 +12,36 @@
   align-items: center;
   box-sizing: border-box;
   font-family: 'Overpass-black', sans-serif;
-  font-size: 20px; /* Updated from 18px to 20px */
+  font-size: 20px;
+  transition: all 0.3s ease; /* Smooth transition for padding and background */
+  z-index: 10;
 }
 
+/* Header Style When Scrolled */
+.header.scrolled {
+  background-color: rgba(0, 0, 0, 0.8); /* Darker background on scroll */
+  color: white;
+  padding: 1rem; /* Reduce padding when scrolled */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+}
+
+/* Logo Styling */
 .logo-container img {
   width: 50px;
   height: auto;
+  transition: width 0.3s ease; /* Smooth transition for logo size */
+}
+
+/* Logo Size When Scrolled */
+.header.scrolled .logo-container img {
+  width: 40px; /* Reduce logo size when scrolled */
 }
 
 /* Reset Link Styles */
 nav a {
-  text-align: none; /* Remove underline */
+  text-decoration: none; /* Remove underline */
   position: relative;
   transition: color 0.3s ease, text-decoration 0.3s ease;
-  text-decoration: none; 
 }
 
 /* Default styles for main menu links */
@@ -33,7 +52,7 @@ nav a {
 
 /* Active styles for main menu links */
 .main-menu > li > a.active {
-  color: #D4B051; 
+  color: #D4B051;
   font-weight: bold;
 }
 
@@ -47,7 +66,7 @@ nav a {
 /* Default styles for sub-menu links */
 .submenu li a {
   color: black; /* Default sub-menu text color */
- }
+}
 
 /* Submenu Item Hover */
 .submenu li a:hover {
@@ -83,6 +102,10 @@ nav a {
   visibility: hidden;
   border-radius: 15px;
   z-index: 5;
+  transition: all 0.3s ease; /* Smooth transition for submenu */
+}
+.header.scrolled .main-menu > li > a {
+  color: white; /* Text color white when scrolled */
 }
 
 /* Submenu Items Styling */
@@ -105,32 +128,12 @@ nav a {
   display: flex;
 }
 
-/* .language-switch button {
-  padding: 5px 10px;
-  cursor: pointer;
-  border: none;
-  background-color: #555;
-  color: white;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-  font-size: 18px; 
-} */
 button {
   background: none;
-border: none;
+  border: none;
   cursor: pointer;
   padding: 0;
 }
-
-/* Hover Effect for Language Switcher */
-/* .language-switch button:hover {
-  background-color: #333;
-} */
-
-/* Active Language Button */
-/* .language-switch button.active {
-  background-color: #D4B051;
-} */
 
 /* Responsive Styles */
 @media (max-width: 768px) {

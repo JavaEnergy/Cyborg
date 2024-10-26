@@ -1,14 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import './Header.css';
-import logo from '../../assets/images/301963638_404276911813423_143320338695708279_n.png'; // Adjust path as necessary
+import logo from '../../assets/images/301963638_404276911813423_143320338695708279_n.png';
 
 const Header = () => {
   const { t, i18n } = useTranslation();
   const { pathname, hash } = useLocation();
   const navigate = useNavigate();
   const [openDropdown, setOpenDropdown] = useState(null);
+  const [isScrolled, setIsScrolled] = useState(false); // Added isScrolled state
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50); // Track scroll position
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const changeLanguage = (lng) => {
     const newPath = pathname.replace(/^\/(en|de)/, `/${lng}`);
@@ -26,22 +35,14 @@ const Header = () => {
     setOpenDropdown(openDropdown === section ? null : section);
   };
 
-  // Function to determine if the link is active
   const isActiveLink = (link) => {
     const [linkPathname, linkHash] = link.split('#');
-    const linkHashWithHash = linkHash ? '#' + linkHash : '';
-  
-    if (linkHashWithHash) {
-      // For links with a hash, only active if both pathname and hash match
-      return pathname === linkPathname && hash === linkHashWithHash;
-    } else {
-      // For links without a hash, active if pathname matches
-      return pathname === linkPathname;
-    }
+    const linkHashWithHash = linkHash ? `#${linkHash}` : '';
+    return pathname === linkPathname && hash === linkHashWithHash;
   };
 
   return (
-    <header className="header">
+    <header className={`header ${isScrolled ? 'scrolled' : ''}`}> {/* Added dynamic class */}
       <div className="logo-container" onClick={goToHome} style={{ cursor: 'pointer' }}>
         <img src={logo} alt="Logo" />
       </div>
@@ -75,7 +76,9 @@ const Header = () => {
               <li>
                 <NavLink
                   to={`/${currentLang}/it-consulting#from-idea-to-implementation`}
-                  className={isActiveLink(`/${currentLang}/it-consulting#from-idea-to-implementation`) ? 'active' : ''}
+                  className={
+                    isActiveLink(`/${currentLang}/it-consulting#from-idea-to-implementation`) ? 'active' : ''
+                  }
                 >
                   {t('it_consulting.from_idea_to_implementation')}
                 </NavLink>
@@ -83,7 +86,9 @@ const Header = () => {
               <li>
                 <NavLink
                   to={`/${currentLang}/it-consulting#it-strategy`}
-                  className={isActiveLink(`/${currentLang}/it-consulting#it-strategy`) ? 'active' : ''}
+                  className={
+                    isActiveLink(`/${currentLang}/it-consulting#it-strategy`) ? 'active' : ''
+                  }
                 >
                   {t('it_consulting.it_strategy')}
                 </NavLink>
@@ -91,7 +96,9 @@ const Header = () => {
               <li>
                 <NavLink
                   to={`/${currentLang}/it-consulting#software-consulting`}
-                  className={isActiveLink(`/${currentLang}/it-consulting#software-consulting`) ? 'active' : ''}
+                  className={
+                    isActiveLink(`/${currentLang}/it-consulting#software-consulting`) ? 'active' : ''
+                  }
                 >
                   {t('it_consulting.software_consulting')}
                 </NavLink>
@@ -99,8 +106,10 @@ const Header = () => {
               <li>
                 <NavLink
                   to={`/${currentLang}/it-consulting#it-security`}
-                  className={isActiveLink(`/${currentLang}/it-consulting#it-security`) ? 'active' : ''}
- >
+                  className={
+                    isActiveLink(`/${currentLang}/it-consulting#it-security`) ? 'active' : ''
+                  }
+                >
                   {t('it_consulting.it_security')}
                 </NavLink>
               </li>
@@ -125,7 +134,9 @@ const Header = () => {
               <li>
                 <NavLink
                   to={`/${currentLang}/web-development#wordpress`}
-                  className={isActiveLink(`/${currentLang}/web-development#wordpress`) ? 'active' : ''}
+                  className={
+                    isActiveLink(`/${currentLang}/web-development#wordpress`) ? 'active' : ''
+                  }
                 >
                   {t('web_development.wordpress')}
                 </NavLink>
@@ -133,7 +144,9 @@ const Header = () => {
               <li>
                 <NavLink
                   to={`/${currentLang}/web-development#react-applications`}
-                  className={isActiveLink(`/${currentLang}/web-development#react-applications`) ? 'active' : ''}
+                  className={
+                    isActiveLink(`/${currentLang}/web-development#react-applications`) ? 'active' : ''
+                  }
                 >
                   {t('web_development.react_applications')}
                 </NavLink>
@@ -141,7 +154,9 @@ const Header = () => {
               <li>
                 <NavLink
                   to={`/${currentLang}/web-development#angular-development`}
-                  className={isActiveLink(`/${currentLang}/web-development#angular-development`) ? 'active' : ''}
+                  className={
+                    isActiveLink(`/${currentLang}/web-development#angular-development`) ? 'active' : ''
+                  }
                 >
                   {t('web_development.angular_development')}
                 </NavLink>
@@ -149,7 +164,9 @@ const Header = () => {
               <li>
                 <NavLink
                   to={`/${currentLang}/web-development#e-commerce`}
-                  className={isActiveLink(`/${currentLang}/web-development#e-commerce`) ? 'active' : ''}
+                  className={
+                    isActiveLink(`/${currentLang}/web-development#e-commerce`) ? 'active' : ''
+                  }
                 >
                   {t('web_development.e_commerce')}
                 </NavLink>
@@ -157,7 +174,9 @@ const Header = () => {
               <li>
                 <NavLink
                   to={`/${currentLang}/web-development#custom-software`}
-                  className={isActiveLink(`/${currentLang}/web-development#custom-software`) ? 'active' : ''}
+                  className={
+                    isActiveLink(`/${currentLang}/web-development#custom-software`) ? 'active' : ''
+                  }
                 >
                   {t('web_development.custom_software')}
                 </NavLink>
@@ -165,7 +184,9 @@ const Header = () => {
               <li>
                 <NavLink
                   to={`/${currentLang}/web-development#technologies-tools`}
-                  className={isActiveLink(`/${currentLang}/web-development#technologies-tools`) ? 'active' : ''}
+                  className={
+                    isActiveLink(`/${currentLang}/web-development#technologies-tools`) ? 'active' : ''
+                  }
                 >
                   {t('web_development.technologies_tools')}
                 </NavLink>
@@ -191,7 +212,9 @@ const Header = () => {
               <li>
                 <NavLink
                   to={`/${currentLang}/it-services#full-service-it`}
-                  className={isActiveLink(`/${currentLang}/it-services#full-service-it`) ? 'active' : ''}
+                  className={
+                    isActiveLink(`/${currentLang}/it-services#full-service-it`) ? 'active' : ''
+                  }
                 >
                   {t('it_services.full_service_it')}
                 </NavLink>
@@ -199,7 +222,9 @@ const Header = () => {
               <li>
                 <NavLink
                   to={`/${currentLang}/it-services#server-management`}
-                  className={isActiveLink(`/${currentLang}/it-services#server-management`) ? 'active' : ''}
+                  className={
+                    isActiveLink(`/${currentLang}/it-services#server-management`) ? 'active' : ''
+                  }
                 >
                   {t('it_services.server_management')}
                 </NavLink>
@@ -207,7 +232,9 @@ const Header = () => {
               <li>
                 <NavLink
                   to={`/${currentLang}/it-services#cloud-backup`}
-                  className={isActiveLink(`/${currentLang}/it-services#cloud-backup`) ? 'active' : ''}
+                  className={
+                    isActiveLink(`/${currentLang}/it-services#cloud-backup`) ? 'active' : ''
+                  }
                 >
                   {t('it_services.cloud_backup')}
                 </NavLink>
@@ -215,7 +242,9 @@ const Header = () => {
               <li>
                 <NavLink
                   to={`/${currentLang}/it-services#user-support`}
-                  className={isActiveLink(`/${currentLang}/it-services#user-support`) ? 'active' : ''}
+                  className={
+                    isActiveLink(`/${currentLang}/it-services#user-support`) ? 'active' : ''
+                  }
                 >
                   {t('it_services.user_support')}
                 </NavLink>
@@ -235,10 +264,18 @@ const Header = () => {
       </nav>
 
       <div className="language-switch">
-      <button className={currentLang === 'de' ? 'active' : ''} onClick={() => changeLanguage('de')}>
-  <img src="/src/assets/images/germany_round_icon_64 (1).png" alt="German Flag" />
-  </button>       
-   <button className={currentLang === 'en' ? 'active' : ''} onClick={() => changeLanguage('en')}><img src="/src/assets/images/united_kingdom_round_icon_64.png" alt="UK Flag" /></button>
+        <button
+          className={currentLang === 'de' ? 'active' : ''}
+          onClick={() => changeLanguage('de')}
+        >
+          <img src="/src/assets/images/germany_round_icon_64 (1).png" alt="German Flag" />
+        </button>
+        <button
+          className={currentLang === 'en' ? 'active' : ''}
+          onClick={() => changeLanguage('en')}
+        >
+          <img src="/src/assets/images/united_kingdom_round_icon_64.png" alt="UK Flag" />
+        </button>
       </div>
     </header>
   );
