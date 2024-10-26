@@ -46,7 +46,7 @@ nav a {
 
 /* Default styles for sub-menu links */
 .submenu li a {
-  color: #555; /* Default sub-menu text color */
+  color: black; /* Default sub-menu text color */
  }
 
 /* Submenu Item Hover */

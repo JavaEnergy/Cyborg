@@ -36,14 +36,14 @@
 /* Headings and Text Styling */
 .content h1 {
   font-family: 'Overpass-black';
-  font-size: 5.5rem;
+  font-size: 6rem;
   color: white;
   text-align: center;
   margin-bottom: 8rem;
 }
 
 .content h2 {
-  font-size: 2rem;
+  font-size: 3rem;
   margin: 1.5rem 0 1rem;
   color: white;
   text-align: center;
@@ -54,4 +54,5 @@
   line-height: 1.8; /* Slightly increased for readability */
   color: white;
   text-align: justify;
+  font-family: "Overpass-medium";
 }

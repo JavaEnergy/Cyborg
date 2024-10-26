@@ -10,16 +10,16 @@ const Home = () => {
     <div className="home-container">
       <div className="content">
         <h1>{t('home.title')}</h1>
-        <h2>{t('home.subtitle')}</h2>
+        {/* <h2>{t('home.subtitle')}</h2>
 
         <section className="vision-mission">
           <p>{t('home.vision_content')}</p>
-        </section>
+        </section> */}
 
-        <section className="it-wish">
+        {/* <section className="it-wish">
           <h2>{t('home.wish_title')}</h2>
           <p>{t('home.wish_content')}</p>
-        </section>
+        </section> */}
       </div>
     </div>
   );
