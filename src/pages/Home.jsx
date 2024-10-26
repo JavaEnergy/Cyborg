@@ -9,8 +9,17 @@ const Home = () => {
   return (
     <div className="home-container">
       <div className="content">
-        <h2>{t('home')}</h2>
-        <p>{t('welcome_message')}</p>
+        <h1>{t('home.title')}</h1>
+        <h2>{t('home.subtitle')}</h2>
+
+        <section className="vision-mission">
+          <p>{t('home.vision_content')}</p>
+        </section>
+
+        <section className="it-wish">
+          <h2>{t('home.wish_title')}</h2>
+          <p>{t('home.wish_content')}</p>
+        </section>
       </div>
     </div>
   );

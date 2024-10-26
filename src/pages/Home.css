@@ -1,17 +1,57 @@
+/* Home Page Styling */
 .home-container {
-    background-image: url('../assets/images/codesurf-caia_image-alamy.jpg');
-    background-size: cover; /* Cover the entire div */
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* No repetition */
-    height: 100vh; /* Full height of the viewport */
-    display: flex;
-    align-items: center; /* Center content vertically */
-    justify-content: center; /* Center content horizontally */
-  }
-  
-  .content {
-    text-align: center;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
-  }
-  
+  position: relative; /* Allows pseudo-element positioning */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Vertically center content */
+  min-height: 100vh;
+  padding: 20px;
+  background-image: url('../assets/images/codesurf-caia_image-alamy.jpg'); /* Update with your image path */
+  background-size: cover; /* Ensure the image covers the entire container */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Avoid repeating the image */
+  background-attachment: fixed; /* Keep the background fixed on scroll */
+}
+
+/* Dark Overlay */
+.home-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); 
+}
+
+/* Content Box */
+.content {
+  position: relative; 
+  z-index: 2;
+  font-family: 'Overpass-black';
+  max-width: 800px;
+  border-radius: 10px; 
+}
+
+/* Headings and Text Styling */
+.content h1 {
+  font-family: 'Overpass-black';
+  font-size: 5.5rem;
+  color: white;
+  text-align: center;
+  margin-bottom: 8rem;
+}
+
+.content h2 {
+  font-size: 2rem;
+  margin: 1.5rem 0 1rem;
+  color: white;
+  text-align: center;
+}
+
+.content p {
+  font-size: 1.2rem;
+  line-height: 1.8; /* Slightly increased for readability */
+  color: white;
+  text-align: justify;
+}

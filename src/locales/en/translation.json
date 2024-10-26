@@ -7,6 +7,14 @@
     "contact_us": "Contact Us"
   },
   "footer_copyright": "All rights reserved.",
+  "home": {
+    "title": "Transforming Ideas into Digital Reality",
+    "subtitle": "Your Vision, Our Mission",
+    "vision_title": "Your Vision, Our Mission",
+    "vision_content": "At Cyborg, we turn your IT aspirations into success stories. By seamlessly blending business acumen with cutting-edge technology, we empower your growth and elevate your projects to new heights.",
+    "wish_title": "Ready to Make Your IT Wish Come True?",
+    "wish_content": "Tell us your IT desires, and we'll bring them to life with precision and excellence. Let's embark on a journey where your vision meets our expertise."
+  },
 
   "it_consulting": {
     "it_consulting": "IT Consulting",

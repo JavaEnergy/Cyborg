@@ -7,7 +7,13 @@
     "contact_us": "Kontakt"
   },
   "footer_copyright": "All rights reserved.",
-
+"home": {
+    "title": "Von der Idee zur digitalen Realität ",
+    "subtitle": "Ihre Vision ist unsere Mission",
+    "vision_content": "Bei Cyborg verwandeln wir Ihre IT-Vorstellungen in Erfolgsgeschichten. Durch die perfekte Verbindung von Geschäftssinn und modernster Technologie fördern wir Ihr Wachstum und heben Ihre Projekte auf die nächste Stufe.",
+    "wish_title": "Bereit, Ihren IT-Wunsch wahr werden zu lassen?",
+    "wish_content": "Teilen Sie uns Ihre IT-Wünsche mit, und wir setzen sie mit Präzision und Exzellenz um. Lassen Sie uns gemeinsam auf eine Reise gehen, bei der Ihre Vision auf unsere Expertise trifft."
+  },
   "it_consulting": {
     "it_consulting": "IT-Beratung",
     "from_idea_to_implementation": "Von der Idee zur Umsetzung",
