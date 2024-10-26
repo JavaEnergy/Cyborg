@@ -59,7 +59,7 @@ nav a {
 /* Hover State for Main Menu Links (Including Active Links) */
 .main-menu > li > a:hover,
 .main-menu > li > a.active:hover,
-.dropdown.open > a {
+.dropdown.open > a, .header.scrolled .main-menu > li > a:hover {
   color: #F0C040; /* Hover color for main menu links */
 }
 
