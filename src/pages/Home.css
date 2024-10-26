@@ -1,58 +1,74 @@
 /* Home Page Styling */
-.home-container {
-  position: relative; /* Allows pseudo-element positioning */
+.hero {
+  position: relative;
   display: flex;
   justify-content: center;
-  align-items: center; /* Vertically center content */
+  align-items: center;
   min-height: 100vh;
   padding: 20px;
-  background-image: url('../assets/images/codesurf-caia_image-alamy.jpg'); /* Update with your image path */
-  background-size: cover; /* Ensure the image covers the entire container */
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Avoid repeating the image */
-  background-attachment: fixed; /* Keep the background fixed on scroll */
+  background-image: url('../assets/images/codesurf-caia_image-alamy.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
-/* Dark Overlay */
-.home-container::before {
+.hero::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6); 
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
-/* Content Box */
-.content {
-  position: relative; 
+.hero-content {
+  position: relative;
   z-index: 2;
-  font-family: 'Overpass-black';
-  max-width: 800px;
-  border-radius: 10px; 
+  text-align: center;
+  color: white;
 }
 
-/* Headings and Text Styling */
-.content h1 {
+.hero-content h1 {
   font-family: 'Overpass-black';
   font-size: 6rem;
-  color: white;
-  text-align: center;
-  margin-bottom: 8rem;
+  margin-bottom: 2rem;
 }
 
-.content h2 {
+.main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.image-container {
+  flex: 1;
+  margin-right: 40px;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+}
+
+.text-container {
+  flex: 1;
+}
+
+.text-container h2 {
   font-size: 3rem;
-  margin: 1.5rem 0 1rem;
-  color: white;
-  text-align: center;
+  margin-bottom: 20px;
 }
 
-.content p {
+.text-container p {
   font-size: 1.2rem;
-  line-height: 1.8; /* Slightly increased for readability */
-  color: white;
-  text-align: justify;
-  font-family: "Overpass-medium";
+  line-height: 1.8;
+  color: #333; /* Adjust color as needed */
+}
+
+.vision-section,
+.wish-section {
+  margin-bottom: 30px;
 }
