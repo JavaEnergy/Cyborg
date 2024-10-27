@@ -2,6 +2,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import './Home.css'; // Import the CSS for styling
+import image from '../assets/images/codesurf-caia_image-alamy.jpg'
 
 const Home = () => {
   const { t } = useTranslation();
@@ -15,7 +16,7 @@ const Home = () => {
       </div>
       <div className="main-content">
         <div className="image-container">
-          <img src="/src/assets/images/codesurf-caia_image-alamy.jpg" alt="" />
+          <img src={image} alt="" />
         </div>
         <div className="text-container">
           <h2>{t('home.subtitle')}</h2>

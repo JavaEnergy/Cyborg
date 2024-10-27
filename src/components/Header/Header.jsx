@@ -3,6 +3,9 @@ import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import './Header.css';
 import logo from '../../assets/images/301963638_404276911813423_143320338695708279_n.png';
+import logode from '../../assets/images/germany_round_icon_64 (1).png'
+import logouk from '../../assets/images/united_kingdom_round_icon_64.png'
+
 
 const Header = () => {
   const { t, i18n } = useTranslation();
@@ -268,13 +271,14 @@ const Header = () => {
           className={currentLang === 'de' ? 'active' : ''}
           onClick={() => changeLanguage('de')}
         >
-          <img src="/src/assets/images/germany_round_icon_64 (1).png" alt="German Flag" />
+
+          <img src={logode} alt="German Flag" />
         </button>
         <button
           className={currentLang === 'en' ? 'active' : ''}
           onClick={() => changeLanguage('en')}
         >
-          <img src="/src/assets/images/united_kingdom_round_icon_64.png" alt="UK Flag" />
+          <img src={logouk} alt="UK Flag" />
         </button>
       </div>
     </header>
