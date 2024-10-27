@@ -7,12 +7,34 @@
     "contact_us": "Kontakt"
   },
   "footer_copyright": "All rights reserved.",
-"home": {
-    "title": "Von der Idee zur digitalen Realität ",
+  "home": {
+    "title": "Von der Idee zur digitalen Realität",
     "subtitle": "Ihre Vision ist unsere Mission",
     "vision_content": "Bei Cyborg verwandeln wir Ihre IT-Vorstellungen in Erfolgsgeschichten. Durch die perfekte Verbindung von Geschäftssinn und modernster Technologie fördern wir Ihr Wachstum und heben Ihre Projekte auf die nächste Stufe.",
     "wish_title": "Bereit, Ihren IT-Wunsch wahr werden zu lassen?",
-    "wish_content": "Teilen Sie uns Ihre IT-Wünsche mit, und wir setzen sie mit Präzision und Exzellenz um. Lassen Sie uns gemeinsam auf eine Reise gehen, bei der Ihre Vision auf unsere Expertise trifft."
+    "wish_content": "Teilen Sie uns Ihre IT-Wünsche mit, und wir setzen sie mit Präzision und Exzellenz um. Lassen Sie uns gemeinsam auf eine Reise gehen, bei der Ihre Vision auf unsere Expertise trifft.",
+    "services_title": "Unsere Dienstleistungen",
+    "service_it_consulting_title": "IT-Beratung",
+    "service_it_consulting_description": "Strategische IT-Lösungen zur Förderung Ihres Geschäfts.",
+    "service_web_development_title": "Webentwicklung",
+    "service_web_development_description": "Erstellung responsiver und ansprechender Websites, die auf Ihre Bedürfnisse zugeschnitten sind.",
+    "service_it_services_title": "IT-Services",
+    "service_it_services_description": "Umfassende IT-Unterstützung und Management für reibungslose Abläufe.",
+    "projects_title": "Unsere Projekte",
+    "project_one_title": "Projekt Eins",
+    "project_one_description": "Eine kurze Beschreibung von Projekt Eins.",
+    "contact_title": "Kontaktieren Sie uns",
+    "contact_name_placeholder": "Ihr Name",
+    "contact_email_placeholder": "Ihre E-Mail",
+    "contact_message_placeholder": "Ihre Nachricht",
+    "contact_submit_button": "Nachricht senden",
+    "faq_title": "Häufig gestellte Fragen",
+    "faq_question_1": "Welche Dienstleistungen bieten Sie an?",
+    "faq_answer_1": "Wir bieten IT-Beratung, Webentwicklung und IT-Services an.",
+    "faq_question_2": "Wie kann ich Sie kontaktieren?",
+    "faq_answer_2": "Sie können das Kontaktformular auf dieser Seite verwenden oder uns direkt eine E-Mail senden.",
+    "faq_question_3": "Bieten Sie kundenspezifische Lösungen an?",
+    "faq_answer_3": "Ja, wir passen unsere Dienstleistungen an Ihre spezifischen Bedürfnisse an."
   },
   "it_consulting": {
     "it_consulting": "IT-Beratung",

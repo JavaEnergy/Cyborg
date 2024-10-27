@@ -7,13 +7,34 @@
     "contact_us": "Contact Us"
   },
   "footer_copyright": "All rights reserved.",
-  "home": {
+ "home": {
     "title": "Transforming Ideas into Digital Reality",
     "subtitle": "Your Vision, Our Mission",
-    "vision_title": "Your Vision, Our Mission",
     "vision_content": "At Cyborg, we turn your IT aspirations into success stories. By seamlessly blending business acumen with cutting-edge technology, we empower your growth and elevate your projects to new heights.",
     "wish_title": "Ready to Make Your IT Wish Come True?",
-    "wish_content": "Tell us your IT desires, and we'll bring them to life with precision and excellence. Let's embark on a journey where your vision meets our expertise."
+    "wish_content": "Tell us your IT desires, and we'll bring them to life with precision and excellence. Let's embark on a journey where your vision meets our expertise.",
+    "services_title": "Our Services",
+    "service_it_consulting_title": "IT Consulting",
+    "service_it_consulting_description": "Providing strategic IT solutions to drive your business forward.",
+    "service_web_development_title": "Web Development",
+    "service_web_development_description": "Crafting responsive and engaging websites tailored to your needs.",
+    "service_it_services_title": "IT Services",
+    "service_it_services_description": "Comprehensive IT support and management for seamless operations.",
+    "projects_title": "Our Projects",
+    "project_one_title": "Project One",
+    "project_one_description": "A brief description of Project One.",
+    "contact_title": "Get in Touch",
+    "contact_name_placeholder": "Your Name",
+    "contact_email_placeholder": "Your Email",
+    "contact_message_placeholder": "Your Message",
+    "contact_submit_button": "Send Message",
+    "faq_title": "Frequently Asked Questions",
+    "faq_question_1": "What services do you offer?",
+    "faq_answer_1": "We offer IT consulting, web development, and IT services.",
+    "faq_question_2": "How can I contact you?",
+    "faq_answer_2": "You can use the contact form on this page or email us directly.",
+    "faq_question_3": "Do you provide custom solutions?",
+    "faq_answer_3": "Yes, we tailor our services to meet your specific needs."
   },
 
   "it_consulting": {
