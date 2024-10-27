@@ -27,4 +27,6 @@ i18n
     },
   });
 
+  //com 
+  
 export default i18n;
