@@ -1,11 +1,10 @@
-// Home.jsx
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import './Home.css'; // Import the CSS for styling
 import image from '../assets/images/codesurf-caia_image-alamy.jpg';
 
 const Home = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   // State for FAQ interactivity
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
@@ -19,11 +18,14 @@ const Home = () => {
     // Handle form submission logic here
   };
 
+  // Determine if current language is German
+  const isGerman = i18n.language === 'de';
+
   return (
     <>
       <div className="hero">
         <div className="hero-content">
-          <h1>{t('home.title')}</h1>
+          <h1 className={isGerman ? 'de' : ''}>{t('home.title')}</h1>
         </div>
       </div>
 
@@ -50,18 +52,12 @@ const Home = () => {
       <section className="services-overview">
         <h2>{t('home.services_title')}</h2>
         <div className="services-list">
-          <div className="service-item">
-            <h3>{t('home.service_it_consulting_title')}</h3>
-            <p>{t('home.service_it_consulting_description')}</p>
-          </div>
-          <div className="service-item">
-            <h3>{t('home.service_web_development_title')}</h3>
-            <p>{t('home.service_web_development_description')}</p>
-          </div>
-          <div className="service-item">
-            <h3>{t('home.service_it_services_title')}</h3>
-            <p>{t('home.service_it_services_description')}</p>
-          </div>
+          {['it_consulting', 'web_development', 'it_services'].map((service) => (
+            <div className="service-item" key={service}>
+              <h3>{t(`home.service_${service}_title`)}</h3>
+              <p>{t(`home.service_${service}_description`)}</p>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -69,22 +65,12 @@ const Home = () => {
       <section className="projects-section">
         <h2>{t('home.projects_title')}</h2>
         <div className="projects-list">
-          <div className="project-item">
-            <h3>{t('home.project_one_title')}</h3>
-            <p>{t('home.project_one_description')}</p>
-          </div>
-          <div className="project-item">
-            <h3>{t('home.project_one_title')}</h3>
-            <p>{t('home.project_one_description')}</p>
-          </div>
-          <div className="project-item">
-            <h3>{t('home.project_one_title')}</h3>
-            <p>{t('home.project_one_description')}</p>
-          </div>
-          <div className="project-item">
-            <h3>{t('home.project_one_title')}</h3>
-            <p>{t('home.project_one_description')}</p>
-          </div>
+          {[1, 2, 3, 4].map((project) => (
+            <div className="project-item" key={project}>
+              <h3>{t(`home.project_${project}_title`)}</h3>
+              <p>{t(`home.project_${project}_description`)}</p>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -125,7 +111,7 @@ const Home = () => {
               <h3 onClick={() => toggleFaq(index)}>
                 {t(`home.faq_question_${item}`)}
               </h3>
-              <p>{t(`home.faq_answer_${item}`)}</p>
+              {openFaqIndex === index && <p>{t(`home.faq_answer_${item}`)}</p>}
             </div>
           ))}
         </div>
