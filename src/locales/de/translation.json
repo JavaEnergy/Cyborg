@@ -34,7 +34,14 @@
     "faq_question_2": "Wie kann ich Sie kontaktieren?",
     "faq_answer_2": "Sie können das Kontaktformular auf dieser Seite verwenden oder uns direkt eine E-Mail senden.",
     "faq_question_3": "Bieten Sie kundenspezifische Lösungen an?",
-    "faq_answer_3": "Ja, wir passen unsere Dienstleistungen an Ihre spezifischen Bedürfnisse an."
+    "faq_answer_3": "Ja, wir passen unsere Dienstleistungen an Ihre spezifischen Bedürfnisse an.",
+    "project_1_title": "Projekt Eins",
+    "project_1_description": "Beschreibung für Projekt Eins.",
+    "project_2_title": "Projekt Zwei",
+    "project_2_description": "Beschreibung für Projekt Zwei.",
+    "project_3_title": "Projekt Drei",
+    "project_3_description": "Beschreibung für Projekt Drei.",
+    "project_view_more": "Mehr Erfahren"
   },
   "it_consulting": {
     "it_consulting": "IT-Beratung",

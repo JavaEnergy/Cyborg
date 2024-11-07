@@ -1,13 +1,56 @@
-import  { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import './Home.css'; // Import the CSS for styling
+import './Home.css';
 import image from '../assets/images/codesurf-caia_image-alamy.jpg';
+import { NavLink } from 'react-router-dom';
+import itConsultingIcon from '../assets/images/it Consulting.png';
+import webDevelopmentIcon from '../assets/images/web Development.png';
+import itServicesIcon from '../assets/images/it Services.png';
+import initSpiderEffect from '../assets/codes/interactive spider'; // Correct path for import
 
 const Home = () => {
   const { t, i18n } = useTranslation();
-
-  // State for FAQ interactivity
+  const [hoveredHero, setHoveredHero] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
+
+  useEffect(() => {
+    let cleanup; // For storing the cleanup function
+    if (hoveredHero) {
+      let canvas = document.getElementById('spider-canvas');
+      if (!canvas) {
+        // Create canvas if it doesn't exist
+        canvas = document.createElement('canvas');
+        canvas.id = 'spider-canvas';
+        canvas.style.position = 'fixed';
+        canvas.style.top = '0';
+        canvas.style.left = '0';
+        canvas.style.width = '100%';
+        canvas.style.height = '100%';
+        canvas.style.pointerEvents = 'none';
+        canvas.style.zIndex = '9999';
+        document.body.appendChild(canvas);
+      } else {
+        canvas.style.display = 'block'; // Show canvas
+      }
+      cleanup = initSpiderEffect(); // Initialize spider effect
+    } else {
+      // Hide canvas when not hovered
+      const canvas = document.getElementById('spider-canvas');
+      if (canvas) {
+        canvas.style.display = 'none';
+      }
+      if (cleanup) cleanup(); // Call cleanup function
+    }
+
+    // Cleanup when component unmounts or hovered changes
+    return () => {
+      if (cleanup) cleanup();
+      const canvas = document.getElementById('spider-canvas');
+      if (canvas) {
+        canvas.style.display = 'none';
+      }
+    };
+  }, [hoveredHero]);
 
   const toggleFaq = (index) => {
     setOpenFaqIndex(openFaqIndex === index ? null : index);
@@ -15,15 +58,19 @@ const Home = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission logic here
+    // Handle form submission logic
   };
 
-  // Determine if current language is German
-  const isGerman = i18n.language === 'de';
+  const currentLang = i18n.language;
+  const isGerman = currentLang === 'de';
 
   return (
     <>
-      <div className="hero">
+      <div
+        className="hero"
+        onMouseEnter={() => setHoveredHero(true)}
+        onMouseLeave={() => setHoveredHero(false)}
+      >
         <div className="hero-content">
           <h1 className={isGerman ? 'de' : ''}>{t('home.title')}</h1>
         </div>
@@ -31,7 +78,7 @@ const Home = () => {
 
       <div className="main-content">
         <div className="image-container">
-          <img src={image} alt="" />
+          <img src={image} alt="Coding Surf" />
         </div>
 
         <div className="text-container">
@@ -52,12 +99,23 @@ const Home = () => {
       <section className="services-overview">
         <h2>{t('home.services_title')}</h2>
         <div className="services-list">
-          {['it_consulting', 'web_development', 'it_services'].map((service) => (
-            <div className="service-item" key={service}>
-              <h3>{t(`home.service_${service}_title`)}</h3>
-              <p>{t(`home.service_${service}_description`)}</p>
-            </div>
-          ))}
+          <NavLink to={`/${currentLang}/it-consulting`} className="service-item">
+            <img src={itConsultingIcon} alt="IT Consulting" />
+            <h3>{t('home.service_it_consulting_title')}</h3>
+            <p>{t('home.service_it_consulting_description')}</p>
+          </NavLink>
+
+          <NavLink to={`/${currentLang}/web-development`} className="service-item">
+            <img src={webDevelopmentIcon} alt="Web Development" />
+            <h3>{t('home.service_web_development_title')}</h3>
+            <p>{t('home.service_web_development_description')}</p>
+          </NavLink>
+
+          <NavLink to={`/${currentLang}/it-services`} className="service-item">
+            <img src={itServicesIcon} alt="IT Services" />
+            <h3>{t('home.service_it_services_title')}</h3>
+            <p>{t('home.service_it_services_description')}</p>
+          </NavLink>
         </div>
       </section>
 
@@ -65,16 +123,19 @@ const Home = () => {
       <section className="projects-section">
         <h2>{t('home.projects_title')}</h2>
         <div className="projects-list">
-          {[1, 2, 3, 4].map((project) => (
-            <div className="project-item" key={project}>
-              <h3>{t(`home.project_${project}_title`)}</h3>
-              <p>{t(`home.project_${project}_description`)}</p>
+          {[1, 2, 3].map((item) => (
+            <div className="project-item" key={item}>
+              <div className="project-content">
+                <h3>{t(`home.project_${item}_title`)}</h3>
+                <p>{t(`home.project_${item}_description`)}</p>
+                <button>{t('home.project_view_more')}</button>
+              </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Contact Us/Get in Touch Form */}
+      {/* Contact Section */}
       <section className="contact-section">
         <h2>{t('home.contact_title')}</h2>
         <form className="contact-form" onSubmit={handleSubmit}>

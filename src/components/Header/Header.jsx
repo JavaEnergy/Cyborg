@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from 'react';
+// Header.jsx
+// eslint-disable-next-line no-unused-vars
+import React, { useState, useEffect, forwardRef } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import './Header.css';
 import logo from '../../assets/images/301963638_404276911813423_143320338695708279_n.png';
-import logode from '../../assets/images/germany_round_icon_64 (1).png'
-import logouk from '../../assets/images/united_kingdom_round_icon_64.png'
+import logode from '../../assets/images/germany_round_icon_64 (1).png';
+import logouk from '../../assets/images/united_kingdom_round_icon_64.png';
 
-
-const Header = () => {
+const Header = forwardRef((props, ref) => {
   const { t, i18n } = useTranslation();
   const { pathname, hash } = useLocation();
   const navigate = useNavigate();
@@ -45,7 +46,8 @@ const Header = () => {
   };
 
   return (
-    <header className={`header ${isScrolled ? 'scrolled' : ''}`}> {/* Added dynamic class */}
+    <header ref={ref} className={`header ${isScrolled ? 'scrolled' : ''}`}>
+      {/* Attach ref here */}
       <div className="logo-container" onClick={goToHome} style={{ cursor: 'pointer' }}>
         <img src={logo} alt="Logo" />
       </div>
@@ -80,7 +82,9 @@ const Header = () => {
                 <NavLink
                   to={`/${currentLang}/it-consulting#from-idea-to-implementation`}
                   className={
-                    isActiveLink(`/${currentLang}/it-consulting#from-idea-to-implementation`) ? 'active' : ''
+                    isActiveLink(`/${currentLang}/it-consulting#from-idea-to-implementation`)
+                      ? 'active'
+                      : ''
                   }
                 >
                   {t('it_consulting.from_idea_to_implementation')}
@@ -100,7 +104,9 @@ const Header = () => {
                 <NavLink
                   to={`/${currentLang}/it-consulting#software-consulting`}
                   className={
-                    isActiveLink(`/${currentLang}/it-consulting#software-consulting`) ? 'active' : ''
+                    isActiveLink(`/${currentLang}/it-consulting#software-consulting`)
+                      ? 'active'
+                      : ''
                   }
                 >
                   {t('it_consulting.software_consulting')}
@@ -148,7 +154,9 @@ const Header = () => {
                 <NavLink
                   to={`/${currentLang}/web-development#react-applications`}
                   className={
-                    isActiveLink(`/${currentLang}/web-development#react-applications`) ? 'active' : ''
+                    isActiveLink(`/${currentLang}/web-development#react-applications`)
+                      ? 'active'
+                      : ''
                   }
                 >
                   {t('web_development.react_applications')}
@@ -158,7 +166,9 @@ const Header = () => {
                 <NavLink
                   to={`/${currentLang}/web-development#angular-development`}
                   className={
-                    isActiveLink(`/${currentLang}/web-development#angular-development`) ? 'active' : ''
+                    isActiveLink(`/${currentLang}/web-development#angular-development`)
+                      ? 'active'
+                      : ''
                   }
                 >
                   {t('web_development.angular_development')}
@@ -188,7 +198,9 @@ const Header = () => {
                 <NavLink
                   to={`/${currentLang}/web-development#technologies-tools`}
                   className={
-                    isActiveLink(`/${currentLang}/web-development#technologies-tools`) ? 'active' : ''
+                    isActiveLink(`/${currentLang}/web-development#technologies-tools`)
+                      ? 'active'
+                      : ''
                   }
                 >
                   {t('web_development.technologies_tools')}
@@ -271,7 +283,6 @@ const Header = () => {
           className={currentLang === 'de' ? 'active' : ''}
           onClick={() => changeLanguage('de')}
         >
-
           <img src={logode} alt="German Flag" />
         </button>
         <button
@@ -283,6 +294,8 @@ const Header = () => {
       </div>
     </header>
   );
-};
+});
+
+Header.displayName = 'Header'; 
 
 export default Header;

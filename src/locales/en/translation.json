@@ -34,7 +34,14 @@
     "faq_question_2": "How can I contact you?",
     "faq_answer_2": "You can use the contact form on this page or email us directly.",
     "faq_question_3": "Do you provide custom solutions?",
-    "faq_answer_3": "Yes, we tailor our services to meet your specific needs."
+    "faq_answer_3": "Yes, we tailor our services to meet your specific needs.",
+    "project_1_title": "Project One",
+    "project_1_description": "Description for project one.",
+    "project_2_title": "Project Two",
+    "project_2_description": "Description for project two.",
+    "project_3_title": "Project Three",
+    "project_3_description": "Description for project three.",
+    "project_view_more": "View More"
   },
 
   "it_consulting": {

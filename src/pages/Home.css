@@ -28,6 +28,7 @@
   z-index: 2;
   text-align: center;
   color: #D4B051;
+  cursor: default;
 }
 
 .hero-content h1 {
@@ -83,32 +84,49 @@
 }
 
 .services-overview {
-margin: 50px;
+  padding: 60px 20px;
+  background-color: #f9f9f9;
 }
 
 .services-overview h2 {
-  font-size: 2rem;
-  margin-bottom: 30px;
-  color: #D4B051; /* Use your accent color */
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  color: #D4B051;
   text-align: center;
 }
 
 .services-list {
   display: flex;
-  justify-content: space-between;
-  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
 }
-
 .service-item {
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 10px;
+  display: block;
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Inherit text color */
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 15px;
   text-align: center;
+  width: 300px;
+  transition: transform 0.3s, box-shadow 0.3s;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.service-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.service-item img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 20px;
+}
+
 .service-item h3 {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   margin-bottom: 15px;
   color: #222;
 }
@@ -116,16 +134,17 @@ margin: 50px;
 .service-item p {
   font-size: 1rem;
   color: #555;
+  line-height: 1.5;
 }
-
+/* Our Projects Section */
 .projects-section {
-  padding: 50px 20px;
-  background-color: #f5f5f5;
+  padding: 60px 20px;
+  background-color: #fff;
 }
 
 .projects-section h2 {
-  font-size: 2rem;
-  margin-bottom: 30px;
+  font-size: 2.5rem;
+  margin-bottom: 50px;
   color: #D4B051;
   text-align: center;
 }
@@ -134,27 +153,56 @@ margin: 50px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 40px;
 }
 
 .project-item {
-  flex: 1 1 calc(33% - 40px);
   background-color: #fff;
-  padding: 30px 20px;
   border-radius: 10px;
-  text-align: left;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.project-item h3 {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-  color: #222;
+#spider-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Allows clicks through the canvas */
+  z-index: 9999;
 }
 
-.project-item p {
+.project-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.project-content h3 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.project-content p {
   font-size: 1rem;
   color: #555;
+  line-height: 1.5;
+}
+
+.project-content button {
+  margin-top: 10px;
+  background-color: #D4B051;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.project-content button:hover {
+  background-color: #b89242;
 }
 
 /* Contact Us Section */
@@ -256,14 +304,18 @@ margin: 50px;
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .projects-list,
-  .services-list {
+  .projects-list {
     flex-direction: column;
     align-items: center;
   }
+  .services-list {
+    gap: 30px;
+  }
 
-  .project-item,
   .service-item {
+    width: 45%;
+  }
+  .project-item {
     flex: 1 1 100%;
     max-width: 500px;
   }
@@ -272,6 +324,6 @@ margin: 50px;
 
 @media (max-width: 768px) {
   .service-item {
-    flex: 1 1 100%;
+    width: 100%;
   }
 }
