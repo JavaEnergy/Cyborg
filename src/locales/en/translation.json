@@ -79,5 +79,24 @@
     "content_for_cloud_backup": "Secure cloud solutions and backup services.",
     "user_support": "User Support",
     "content_for_user_support": "We provide support for your users."
+  },
+  "about_us": {
+    "hero_title": "Empowering Your Business Through Innovation",
+    "intro_title": "What Sets Us Apart",
+    "intro_text": "Our unwavering dedication to understanding each client's unique needs. We delve deep into the core of your operations to deliver tailored solutions that drive success.",
+    "about_title": "About Us",
+    "about_text": "We are a forward-thinking IT company committed to providing high-quality services at competitive prices. Our fresh perspective allows us to innovate and adapt swiftly to the ever-changing technological landscape.",
+    "mission_title": "Our Mission",
+    "mission_text": "To bridge the gap between technology and business, offering solutions that empower companies to reach new heights.",
+    "faq_title": "Frequently Asked Questions",
+    "faq_question_1": "How can we start a project with you?",
+    "faq_answer_1": "Simply reach out to us via email or phone, and we'll schedule an initial consultation to discuss your needs.",
+    "faq_question_2": "What industries do you specialize in?",
+    "faq_answer_2": "We work across various industries, including finance, healthcare, retail, and more, tailoring solutions to each sector's unique challenges.",
+    "faq_question_3": "Do you offer support after project completion?",
+    "faq_answer_3": "Yes, we provide ongoing support and maintenance to ensure your solutions continue to perform optimally."
   }
+
+  
+  
 }

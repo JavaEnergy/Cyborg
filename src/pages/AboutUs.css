@@ -1,0 +1,138 @@
+/* src/pages/AboutUs.css */
+
+/* General Styles */
+.about-us {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+  }
+  
+  /* Hero Section */
+  .hero-section {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .hero-section h1 {
+    color: #fff;
+    font-size: 3em;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Introduction Section */
+  .introduction-section {
+    padding: 60px 20px;
+    text-align: center;
+  }
+  
+  .introduction-section h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  .introduction-section p {
+    font-size: 1.2em;
+    line-height: 1.6;
+  }
+  
+  /* About Us Section */
+  .about-section,
+  .mission-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 60px 20px;
+  }
+  
+  .about-section .about-content,
+  .mission-section .mission-content {
+    flex: 1 1 50%;
+    padding: 20px;
+  }
+  
+  .about-section .about-image,
+  .mission-section .mission-image {
+    flex: 1 1 50%;
+    padding: 20px;
+  }
+  
+  .about-section .about-image img,
+  .mission-section .mission-image img {
+    width: 100%;
+    height: auto;
+  }
+  
+  /* FAQ Section */
+  .faq-section {
+    background-color: #f9f9f9;
+    padding: 60px 20px;
+  }
+  
+  .faq-section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .faq-item {
+    margin-bottom: 20px;
+  }
+  
+  .faq-item h3 {
+    font-size: 1.5em;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .faq-item p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    display: none;
+  }
+  
+  .faq-item.active p {
+    display: block;
+  }
+
+  .faq-item p {
+    transition: max-height 0.3s ease;
+    overflow: hidden;
+    max-height: 0;
+  }
+  
+  .faq-item.active p {
+    max-height: 500px; /* Adjust as necessary */
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .about-section,
+    .mission-section {
+      flex-direction: column;
+    }
+  
+    .about-section .about-content,
+    .mission-section .mission-content,
+    .about-section .about-image,
+    .mission-section .mission-image {
+      flex: 1 1 100%;
+    }
+  
+    .hero-section {
+      height: 60vh;
+    }
+  
+    .hero-section h1 {
+      font-size: 2em;
+    }
+  }
+  
