@@ -113,5 +113,19 @@
     "faq_a3": "Durch effizientes Arbeiten und die Nutzung der neuesten Technologien reduzieren wir Gemeinkosten, ohne die Qualität zu beeinträchtigen. Unser Fokus liegt darauf, Ihnen Wert zu liefern.",
     "faq_q4": "Auf welche Branchen sind Sie spezialisiert?",
     "faq_a4": "Unser vielseitiges Team verfügt über Expertise in verschiedenen Branchen, einschließlich Finanzen, Gesundheitswesen, E-Commerce und mehr. Wir sind anpassungsfähig und freuen uns darauf, die einzigartigen Herausforderungen Ihres Sektors zu verstehen und zu meistern."
+  },
+  "about_us": {
+    "hero_title": "Ihr Geschäft durch Innovation stärken",
+    "about_title": "Über uns",
+    "about_text": "Unser unerschütterliches Engagement, die einzigartigen Bedürfnisse jedes Kunden zu verstehen, ermöglicht es uns, maßgeschneiderte Lösungen zu liefern, die Erfolg bringen.",
+    "mission_title": "Unsere Mission",
+    "mission_text": "Die Lücke zwischen Technologie und Geschäft zu überbrücken und Lösungen anzubieten, die Unternehmen befähigen, neue Höhen zu erreichen.",
+    "faq_title": "Häufig gestellte Fragen",
+    "faq_question_1": "Wie können wir ein Projekt mit Ihnen starten?",
+    "faq_answer_1": "Kontaktieren Sie uns einfach per E-Mail oder Telefon, und wir vereinbaren ein erstes Beratungsgespräch, um Ihre Bedürfnisse zu besprechen.",
+    "faq_question_2": "Auf welche Branchen sind Sie spezialisiert?",
+    "faq_answer_2": "Wir arbeiten branchenübergreifend und passen Lösungen an die einzigartigen Herausforderungen jedes Sektors an.",
+    "faq_question_3": "Bieten Sie Unterstützung nach Projektabschluss an?",
+    "faq_answer_3": "Ja, wir bieten kontinuierlichen Support und Wartung, um sicherzustellen, dass Ihre Lösungen weiterhin optimal funktionieren."
   }
 }

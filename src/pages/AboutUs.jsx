@@ -1,81 +1,76 @@
 // src/pages/AboutUs.jsx
-
-import { useState } from 'react';
+import  { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import Layout from '../components/Layout';
-import './AboutUs.css'; // Ensure this CSS file exists
-// import heroImage from '../assets/images/about-us-hero.jpg'; // Replace with your actual image path
+import './AboutUs.css'; // Ensure you have this CSS file
+import image1 from '../assets/images/abus.png'; // Replace with your actual image paths
+import image2 from '../assets/images/abus.png'; // Use a different image if needed
 
 const AboutUs = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const [openFaqIndex, setOpenFaqIndex] = useState(null);
 
-  // Add useState hook to manage the active FAQ index
-  const [activeFaqIndex, setActiveFaqIndex] = useState(null);
-
-  // Define the toggleFaq function
   const toggleFaq = (index) => {
-    setActiveFaqIndex(activeFaqIndex === index ? null : index);
+    setOpenFaqIndex(openFaqIndex === index ? null : index);
   };
 
+  const currentLang = i18n.language;
+  const isGerman = currentLang === 'de';
+
   return (
-    <Layout>
-      <div className="about-us">
-        {/* Hero Section */}
-        <section
-          className="hero-section"
-          // style={{ backgroundImage: `url(${heroImage})` }}
-        >
-          <h1>{t('about_us.hero_title')}</h1>
-        </section>
+    <>
+      {/* Hero Section */}
+      <div className="about-hero">
+        <div className="about-hero-content">
+          <h1 className={isGerman ? 'de' : ''}>{t('about_us.hero_title')}</h1>
+        </div>
+      </div>
 
-        {/* Introduction Section */}
-        <section className="introduction-section">
-          <div className="intro-content">
-            <h2>{t('about_us.intro_title')}</h2>
-            <p>{t('about_us.intro_text')}</p>
-          </div>
-        </section>
-
-        {/* About Us Section */}
-        <section className="about-section">
-          <div className="about-content">
+      {/* First Section: Text on Left, Image on Right */}
+      <section className="about-content-section">
+        <div className="about-content-container">
+          <div className="about-text-content">
             <h2>{t('about_us.about_title')}</h2>
             <p>{t('about_us.about_text')}</p>
           </div>
-          <div className="about-image">
-            {/* <img src={require('../assets/images/about-image1.jpg')} alt="About Us" /> */}
+          <div className="about-image-content">
+            <img src={image1} alt="About Us" id='firstimg' />
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Our Mission Section */}
-        <section className="mission-section">
-          <div className="mission-image">
-            {/* <img src={require('../assets/images/mission-image.jpg')} alt="Our Mission" /> */}
+      {/* Second Section: Image on Left, Content on Right */}
+      <section className="about-content-section">
+        <div className="about-content-container reverse">
+          <div className="about-image-content">
+            <img src={image2} alt="Our Mission" className="circle-image" />
           </div>
-          <div className="mission-content">
+          <div className="about-text-content">
             <h2>{t('about_us.mission_title')}</h2>
             <p>{t('about_us.mission_text')}</p>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* FAQ Section */}
-        <section className="faq-section">
-          <h2>{t('about_us.faq_title')}</h2>
-          <div className="faq-list">
-            {[1, 2, 3].map((item, index) => (
-              <div
-                className={`faq-item ${activeFaqIndex === index ? 'active' : ''}`}
-                key={index}
-                onClick={() => toggleFaq(index)} // Ensure toggleFaq is correctly referenced here
-              >
-                <h3>{t(`about_us.faq_question_${item}`)}</h3>
+      {/* FAQ Section */}
+      <section className="about-faq-section">
+        <h2>{t('about_us.faq_title')}</h2>
+        <div className="about-faq-list">
+          {[1, 2, 3].map((item, index) => (
+            <div
+              className={`about-faq-item ${openFaqIndex === index ? 'open' : ''}`}
+              key={index}
+            >
+              <h3 onClick={() => toggleFaq(index)}>
+                {t(`about_us.faq_question_${item}`)}
+              </h3>
+              {openFaqIndex === index && (
                 <p>{t(`about_us.faq_answer_${item}`)}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-      </div>
-    </Layout>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+    </>
   );
 };
 

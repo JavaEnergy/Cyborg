@@ -95,8 +95,20 @@
     "faq_answer_2": "We work across various industries, including finance, healthcare, retail, and more, tailoring solutions to each sector's unique challenges.",
     "faq_question_3": "Do you offer support after project completion?",
     "faq_answer_3": "Yes, we provide ongoing support and maintenance to ensure your solutions continue to perform optimally."
+  },
+  "about_us": {
+    "hero_title": "Empowering Your Business Through Innovation",
+    "about_title": "About Us",
+    "about_text": "Our unwavering dedication to understanding each client's unique needs allows us to deliver tailored solutions that drive success.",
+    "mission_title": "Our Mission",
+    "mission_text": "To bridge the gap between technology and business, offering solutions that empower companies to reach new heights.",
+    "faq_title": "Frequently Asked Questions",
+    "faq_question_1": "How can we start a project with you?",
+    "faq_answer_1": "Simply reach out to us via email or phone, and we'll schedule an initial consultation to discuss your needs.",
+    "faq_question_2": "What industries do you specialize in?",
+    "faq_answer_2": "We work across various industries, tailoring solutions to each sector's unique challenges.",
+    "faq_question_3": "Do you offer support after project completion?",
+    "faq_answer_3": "Yes, we provide ongoing support and maintenance to ensure your solutions continue to perform optimally."
   }
-
-  
   
 }
