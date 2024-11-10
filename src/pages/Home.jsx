@@ -1,3 +1,4 @@
+// src/pages/Home.jsx
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import './Home.css';
@@ -76,7 +77,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="main-content">
+      <div className="home-main-content">
         <div className="image-container">
           <img src={image} alt="Coding Surf" />
         </div>

@@ -1,5 +1,5 @@
 // Header.jsx
-import React, { useState, useEffect, forwardRef } from 'react';
+import  { useState, useEffect, forwardRef } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import { useTranslation } from 'react-i18next';

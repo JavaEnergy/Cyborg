@@ -41,12 +41,13 @@
 }
 
 .hero-content h1.de {
-  font-size: 5.5rem; 
-  line-height: 1.2; 
+  font-size: 5.5rem;
+  line-height: 1.2;
   word-spacing: -0.02em;
 }
 
-.main-content {
+/* Renamed class to prevent conflicts */
+.home-main-content {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -101,6 +102,7 @@
   justify-content: center;
   gap: 40px;
 }
+
 .service-item {
   display: block;
   text-decoration: none; /* Remove underline */
@@ -136,6 +138,7 @@
   color: #555;
   line-height: 1.5;
 }
+
 /* Our Projects Section */
 .projects-section {
   padding: 60px 20px;
@@ -178,7 +181,6 @@
   transform: translateY(-10px);
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
   cursor: default;
-
 }
 
 .project-content h3 {
@@ -315,17 +317,10 @@
   }
 
   .service-item {
-    width: 45%;
+    width: 100%;
   }
   .project-item {
     flex: 1 1 100%;
     max-width: 500px;
-  }
-}
-
-
-@media (max-width: 768px) {
-  .service-item {
-    width: 100%;
   }
 }

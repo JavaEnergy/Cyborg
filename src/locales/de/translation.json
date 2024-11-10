@@ -7,6 +7,11 @@
     "contact_us": "Kontakt"
   },
   "footer_copyright": "All rights reserved.",
+  "common": {
+    "get_started": "Jetzt Starten",
+    "learn_more": "Mehr Erfahren",
+    "contact_us": "Kontaktieren Sie Uns"
+  },
   "home": {
     "title": "Von der Idee zur digitalen Realität",
     "subtitle": "Ihre Vision ist unsere Mission",
@@ -23,6 +28,13 @@
     "projects_title": "Unsere Projekte",
     "project_one_title": "Projekt Eins",
     "project_one_description": "Eine kurze Beschreibung von Projekt Eins.",
+    "project_1_title": "Projekt Eins",
+    "project_1_description": "Beschreibung für Projekt Eins.",
+    "project_2_title": "Projekt Zwei",
+    "project_2_description": "Beschreibung für Projekt Zwei.",
+    "project_3_title": "Projekt Drei",
+    "project_3_description": "Beschreibung für Projekt Drei.",
+    "project_view_more": "Mehr Erfahren",
     "contact_title": "Kontaktieren Sie uns",
     "contact_name_placeholder": "Ihr Name",
     "contact_email_placeholder": "Ihre E-Mail",
@@ -34,25 +46,30 @@
     "faq_question_2": "Wie kann ich Sie kontaktieren?",
     "faq_answer_2": "Sie können das Kontaktformular auf dieser Seite verwenden oder uns direkt eine E-Mail senden.",
     "faq_question_3": "Bieten Sie kundenspezifische Lösungen an?",
-    "faq_answer_3": "Ja, wir passen unsere Dienstleistungen an Ihre spezifischen Bedürfnisse an.",
-    "project_1_title": "Projekt Eins",
-    "project_1_description": "Beschreibung für Projekt Eins.",
-    "project_2_title": "Projekt Zwei",
-    "project_2_description": "Beschreibung für Projekt Zwei.",
-    "project_3_title": "Projekt Drei",
-    "project_3_description": "Beschreibung für Projekt Drei.",
-    "project_view_more": "Mehr Erfahren"
+    "faq_answer_3": "Ja, wir passen unsere Dienstleistungen an Ihre spezifischen Bedürfnisse an."
   },
   "it_consulting": {
     "it_consulting": "IT-Beratung",
     "from_idea_to_implementation": "Von der Idee zur Umsetzung",
-    "content_for_from_idea_to_implementation": "Diese Sektion erklärt, wie wir Ideen in die Realität umsetzen.",
+    "content_for_from_idea_to_implementation": "Haben Sie eine Idee, die Sie zum Leben erwecken möchten? Wir helfen Ihnen, Ihre Konzepte in digitale Realität umzusetzen. Egal, ob Sie eine neue Website erstellen oder Funktionen zu Ihrer bestehenden hinzufügen möchten, unser Team begleitet Sie bei jedem Schritt.",
     "it_strategy": "IT-Strategie & Digitalisierung",
-    "content_for_it_strategy": "Wir helfen Unternehmen, ihre IT-Strategie mit den Geschäftszielen in Einklang zu bringen.",
+    "content_for_it_strategy": "Sie sind sich nicht sicher, welche Technologie Ihren Bedürfnissen entspricht? Wir bieten fachkundige Beratung, um Ihnen bei der Auswahl der richtigen Tools und Frameworks wie React, WordPress oder Angular zu helfen, um Ihre Geschäftsziele zu erreichen.",
     "software_consulting": "Softwareberatung",
-    "content_for_software_consulting": "Unsere Softwareberatung bietet maßgeschneiderte Lösungen.",
+    "content_for_software_consulting": "Unsere Softwareberatungsdienste analysieren die Bedürfnisse Ihres Unternehmens, um technologische Lösungen zu schaffen, die Ihre Abläufe verbessern. Von der Webentwicklung bis zu mobilen Apps stellen wir sicher, dass Ihre Technologieinvestitionen zum Erfolg führen.",
     "it_security": "IT-Sicherheit & Audits",
-    "content_for_it_security": "Wir führen Audits durch und implementieren robuste IT-Sicherheitssysteme."
+    "content_for_it_security": "Schützen Sie Ihr Unternehmen vor Cyberbedrohungen wie gefälschten Formularen, Angriffen oder Klickbetrug. Wir bieten umfassende IT-Sicherheitsdienste, um Ihre Daten zu schützen und einen reibungslosen Betrieb zu gewährleisten.",
+    "software_development_consulting": "Softwareentwicklungsberatung",
+    "software_development_consulting_description": "Maßgeschneiderte Softwarelösungen für Ihre einzigartigen Geschäftsanforderungen.",
+    "web_consulting": "Webberatung",
+    "web_consulting_description": "Verbessern Sie Ihre Online-Präsenz mit modernen, benutzerfreundlichen Websites.",
+    "mobile_consulting": "Mobile Beratung",
+    "mobile_consulting_description": "Entwicklung ansprechender mobiler Anwendungen für iOS und Android.",
+    "saas_consulting": "SaaS-Beratung",
+    "saas_consulting_description": "Nutzen Sie SaaS-Lösungen, um Ihre Abläufe zu optimieren.",
+    "cloud_consulting": "Cloud-Beratung",
+    "cloud_consulting_description": "Optimieren Sie Ihre Infrastruktur mit Cloud-Technologien.",
+    "ready_to_transform": "Bereit, Ihr Geschäft zu transformieren?"
+  
   },
   "web_development": {
     "web_development": "Webentwicklung",

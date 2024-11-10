@@ -7,6 +7,11 @@
     "contact_us": "Contact"
   },
   "footer_copyright": "All rights reserved.",
+  "common": {
+    "get_started": "Get Started",
+    "learn_more": "Learn More",
+    "contact_us": "Contact Us"
+  },
   "home": {
     "title": "Transforming Ideas into Digital Reality",
     "subtitle": "Your Vision is Our Mission",
@@ -23,6 +28,13 @@
     "projects_title": "Our Projects",
     "project_one_title": "Project One",
     "project_one_description": "A brief description of Project One.",
+    "project_1_title": "Project One",
+    "project_1_description": "Description for Project One.",
+    "project_2_title": "Project Two",
+    "project_2_description": "Description for Project Two.",
+    "project_3_title": "Project Three",
+    "project_3_description": "Description for Project Three.",
+    "project_view_more": "Learn More",
     "contact_title": "Contact Us",
     "contact_name_placeholder": "Your Name",
     "contact_email_placeholder": "Your Email",
@@ -34,25 +46,30 @@
     "faq_question_2": "How can I contact you?",
     "faq_answer_2": "You can use the contact form on this page or email us directly.",
     "faq_question_3": "Do you offer custom solutions?",
-    "faq_answer_3": "Yes, we tailor our services to your specific needs.",
-    "project_1_title": "Project One",
-    "project_1_description": "Description for Project One.",
-    "project_2_title": "Project Two",
-    "project_2_description": "Description for Project Two.",
-    "project_3_title": "Project Three",
-    "project_3_description": "Description for Project Three.",
-    "project_view_more": "Learn More"
+    "faq_answer_3": "Yes, we tailor our services to your specific needs."
   },
   "it_consulting": {
     "it_consulting": "IT Consulting",
     "from_idea_to_implementation": "From Idea to Implementation",
-    "content_for_from_idea_to_implementation": "This section explains how we turn ideas into reality.",
+    "content_for_from_idea_to_implementation": "Have an idea that you want to bring to life? We help transform your concepts into digital reality. Whether you want to create a new website or add features to your existing one, our team guides you through every step.",
     "it_strategy": "IT Strategy & Digitalization",
-    "content_for_it_strategy": "We help businesses align their IT strategy with business goals.",
+    "content_for_it_strategy": "Not sure which technology fits your needs? We provide expert advice to help you choose the right tools and frameworks like React, WordPress, or Angular to achieve your business goals.",
     "software_consulting": "Software Consulting",
-    "content_for_software_consulting": "Our software consulting provides tailored solutions.",
+    "content_for_software_consulting": "Our software consulting services analyze your company's needs to create technology solutions that enhance your operations. From website development to mobile apps, we ensure your technology investments lead to success.",
     "it_security": "IT Security & Audits",
-    "content_for_it_security": "We conduct audits and implement robust IT security systems."
+    "content_for_it_security": "Protect your business from cyber threats like fake forms, attacks, or click fraud. We offer comprehensive IT security services to safeguard your data and ensure your operations run smoothly.",
+    "software_development_consulting": "Software Development Consulting",
+    "software_development_consulting_description": "Customized software solutions tailored to your unique business needs.",
+    "web_consulting": "Web Consulting",
+    "web_consulting_description": "Enhance your online presence with modern, user-friendly websites.",
+    "mobile_consulting": "Mobile Consulting",
+    "mobile_consulting_description": "Develop engaging mobile applications for iOS and Android.",
+    "saas_consulting": "SaaS Consulting",
+    "saas_consulting_description": "Leverage SaaS solutions to streamline your operations.",
+    "cloud_consulting": "Cloud Consulting",
+    "cloud_consulting_description": "Optimize your infrastructure with cloud technologies.",
+    "ready_to_transform": "Ready to Transform Your Business?"
+  
   },
   "web_development": {
     "web_development": "Web Development",
@@ -82,17 +99,6 @@
   "about_us": {
     "hero_title": "Welcome to Cyborg",
     "hero_subtitle": "Innovative IT Solutions Tailored for You",
-    "about_title": "About Us",
-    "about_text": "Our unwavering dedication to understanding each client's unique needs allows us to deliver tailored solutions that drive success.",
-    "mission_title": "Our Mission",
-    "mission_text": "To bridge the gap between technology and business, offering solutions that empower companies to reach new heights.",
-    "faq_title": "Frequently Asked Questions",
-    "faq_question_1": "How can we start a project with you?",
-    "faq_answer_1": "Simply reach out to us via email or phone, and we'll schedule an initial consultation to discuss your needs.",
-    "faq_question_2": "What industries do you specialize in?",
-    "faq_answer_2": "We work across various industries, tailoring solutions to each sector's unique challenges.",
-    "faq_question_3": "Do you offer support after project completion?",
-    "faq_answer_3": "Yes, we provide ongoing support and maintenance to ensure your solutions continue to perform optimally.",
     "who_we_are_title": "Who We Are",
     "who_we_are_content": "At Cyborg, we are a forward-thinking startup dedicated to delivering cutting-edge IT solutions. Our fresh entry into the industry equips us with innovative ideas and an unbounded passion for technology. We believe that our newness allows us to offer unique perspectives, agile solutions, and personalized attention that established companies might overlook.",
     "our_mission_title": "Our Mission",
@@ -114,6 +120,7 @@
     "how_we_work_step4_desc": "Our expert team implements your project, keeping you updated throughout.",
     "how_we_work_step5_title": "Ongoing Support",
     "how_we_work_step5_desc": "Post-launch, we provide continuous support to ensure sustained success.",
+    "faq_title": "Frequently Asked Questions",
     "faq_q1": "How can your newness benefit my project?",
     "faq_a1": "Our fresh approach means we're highly motivated to impress and excel. We embrace innovative solutions and are flexible to adapt to your unique needs, offering personal service and dedication that drives success.",
     "faq_q2": "Do you really offer 24/7 support?",
@@ -121,6 +128,16 @@
     "faq_q3": "How do you maintain high quality at competitive prices?",
     "faq_a3": "By working efficiently and leveraging the latest technologies, we reduce overhead without compromising on quality. Our focus is on delivering value to you.",
     "faq_q4": "What industries do you specialize in?",
-    "faq_a4": "Our diverse team has expertise across various industries, including finance, healthcare, e-commerce, and more. We're adaptable and eager to understand and tackle the unique challenges of your sector."
+    "faq_a4": "Our diverse team has expertise across various industries, including finance, healthcare, e-commerce, and more. We're adaptable and eager to understand and tackle the unique challenges of your sector.",
+    "about_title": "About Us",
+    "about_text": "Our unwavering dedication to understanding each client's unique needs allows us to deliver tailored solutions that drive success.",
+    "mission_title": "Our Mission",
+    "mission_text": "To bridge the gap between technology and business, offering solutions that empower companies to reach new heights.",
+    "faq_question_1": "How can we start a project with you?",
+    "faq_answer_1": "Simply reach out to us via email or phone, and we'll schedule an initial consultation to discuss your needs.",
+    "faq_question_2": "What industries do you specialize in?",
+    "faq_answer_2": "We work across various industries, tailoring solutions to each sector's unique challenges.",
+    "faq_question_3": "Do you offer support after project completion?",
+    "faq_answer_3": "Yes, we provide ongoing support and maintenance to ensure your solutions continue to perform optimally."
   }
 }
