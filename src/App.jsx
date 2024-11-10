@@ -12,6 +12,7 @@ import Footer from './components/Footer/Footer';
 import './i18n'; // Import i18n setup
 import { useTranslation } from 'react-i18next';
 
+
 const App = () => {
   const { pathname } = useLocation();
   const { i18n } = useTranslation();

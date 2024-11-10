@@ -1,5 +1,5 @@
 // src/pages/AboutUs.jsx
-import  { useState } from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import './AboutUs.css'; // Ensure you have this CSS file
 import image1 from '../assets/images/abus.png'; // Replace with your actual image paths
@@ -16,12 +16,18 @@ const AboutUs = () => {
   const currentLang = i18n.language;
   const isGerman = currentLang === 'de';
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Handle form submission logic
+  };
+
   return (
     <>
       {/* Hero Section */}
       <div className="about-hero">
         <div className="about-hero-content">
           <h1 className={isGerman ? 'de' : ''}>{t('about_us.hero_title')}</h1>
+          <p>{t('about_us.hero_subtitle')}</p>
         </div>
       </div>
 
@@ -33,7 +39,7 @@ const AboutUs = () => {
             <p>{t('about_us.about_text')}</p>
           </div>
           <div className="about-image-content">
-            <img src={image1} alt="About Us" id='firstimg' />
+            <img src={image1} alt="About Us" id="firstimg" />
           </div>
         </div>
       </section>
@@ -70,6 +76,32 @@ const AboutUs = () => {
           ))}
         </div>
       </section>
+
+         {/* Contact Section */}
+         <section className="contact-section">
+        <h2>{t('home.contact_title')}</h2>
+        <form className="contact-form" onSubmit={handleSubmit}>
+          <input
+            type="text"
+            name="name"
+            placeholder={t('home.contact_name_placeholder')}
+            required
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder={t('home.contact_email_placeholder')}
+            required
+          />
+          <textarea
+            name="message"
+            placeholder={t('home.contact_message_placeholder')}
+            required
+          ></textarea>
+          <button type="submit">{t('home.contact_submit_button')}</button>
+        </form>
+      </section>
+
     </>
   );
 };

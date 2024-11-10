@@ -1,7 +1,7 @@
 // Header.jsx
-// eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect, forwardRef } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import { useTranslation } from 'react-i18next';
 import './Header.css';
 import logo from '../../assets/images/301963638_404276911813423_143320338695708279_n.png';
@@ -13,11 +13,11 @@ const Header = forwardRef((props, ref) => {
   const { pathname, hash } = useLocation();
   const navigate = useNavigate();
   const [openDropdown, setOpenDropdown] = useState(null);
-  const [isScrolled, setIsScrolled] = useState(false); // Added isScrolled state
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50); // Track scroll position
+      setIsScrolled(window.scrollY > 50);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -41,13 +41,14 @@ const Header = forwardRef((props, ref) => {
 
   const isActiveLink = (link) => {
     const [linkPathname, linkHash] = link.split('#');
+    const currentPathname = pathname.replace(/\/$/, '');
+    const linkPath = linkPathname.replace(/\/$/, '');
     const linkHashWithHash = linkHash ? `#${linkHash}` : '';
-    return pathname === linkPathname && hash === linkHashWithHash;
+    return currentPathname === linkPath && hash === linkHashWithHash;
   };
 
   return (
     <header ref={ref} className={`header ${isScrolled ? 'scrolled' : ''}`}>
-      {/* Attach ref here */}
       <div className="logo-container" onClick={goToHome} style={{ cursor: 'pointer' }}>
         <img src={logo} alt="Logo" />
       </div>
@@ -79,7 +80,8 @@ const Header = forwardRef((props, ref) => {
             </NavLink>
             <ul className="submenu">
               <li>
-                <NavLink
+                <HashLink
+                  smooth
                   to={`/${currentLang}/it-consulting#from-idea-to-implementation`}
                   className={
                     isActiveLink(`/${currentLang}/it-consulting#from-idea-to-implementation`)
@@ -88,20 +90,22 @@ const Header = forwardRef((props, ref) => {
                   }
                 >
                   {t('it_consulting.from_idea_to_implementation')}
-                </NavLink>
+                </HashLink>
               </li>
               <li>
-                <NavLink
+                <HashLink
+                  smooth
                   to={`/${currentLang}/it-consulting#it-strategy`}
                   className={
                     isActiveLink(`/${currentLang}/it-consulting#it-strategy`) ? 'active' : ''
                   }
                 >
                   {t('it_consulting.it_strategy')}
-                </NavLink>
+                </HashLink>
               </li>
               <li>
-                <NavLink
+                <HashLink
+                  smooth
                   to={`/${currentLang}/it-consulting#software-consulting`}
                   className={
                     isActiveLink(`/${currentLang}/it-consulting#software-consulting`)
@@ -110,17 +114,18 @@ const Header = forwardRef((props, ref) => {
                   }
                 >
                   {t('it_consulting.software_consulting')}
-                </NavLink>
+                </HashLink>
               </li>
               <li>
-                <NavLink
+                <HashLink
+                  smooth
                   to={`/${currentLang}/it-consulting#it-security`}
                   className={
                     isActiveLink(`/${currentLang}/it-consulting#it-security`) ? 'active' : ''
                   }
                 >
                   {t('it_consulting.it_security')}
-                </NavLink>
+                </HashLink>
               </li>
             </ul>
           </li>
@@ -141,17 +146,19 @@ const Header = forwardRef((props, ref) => {
             </NavLink>
             <ul className="submenu">
               <li>
-                <NavLink
+                <HashLink
+                  smooth
                   to={`/${currentLang}/web-development#wordpress`}
                   className={
                     isActiveLink(`/${currentLang}/web-development#wordpress`) ? 'active' : ''
                   }
                 >
                   {t('web_development.wordpress')}
-                </NavLink>
+                </HashLink>
               </li>
               <li>
-                <NavLink
+                <HashLink
+                  smooth
                   to={`/${currentLang}/web-development#react-applications`}
                   className={
                     isActiveLink(`/${currentLang}/web-development#react-applications`)
@@ -160,10 +167,11 @@ const Header = forwardRef((props, ref) => {
                   }
                 >
                   {t('web_development.react_applications')}
-                </NavLink>
+                </HashLink>
               </li>
               <li>
-                <NavLink
+                <HashLink
+                  smooth
                   to={`/${currentLang}/web-development#angular-development`}
                   className={
                     isActiveLink(`/${currentLang}/web-development#angular-development`)
@@ -172,30 +180,33 @@ const Header = forwardRef((props, ref) => {
                   }
                 >
                   {t('web_development.angular_development')}
-                </NavLink>
+                </HashLink>
               </li>
               <li>
-                <NavLink
+                <HashLink
+                  smooth
                   to={`/${currentLang}/web-development#e-commerce`}
                   className={
                     isActiveLink(`/${currentLang}/web-development#e-commerce`) ? 'active' : ''
                   }
                 >
                   {t('web_development.e_commerce')}
-                </NavLink>
+                </HashLink>
               </li>
               <li>
-                <NavLink
+                <HashLink
+                  smooth
                   to={`/${currentLang}/web-development#custom-software`}
                   className={
                     isActiveLink(`/${currentLang}/web-development#custom-software`) ? 'active' : ''
                   }
                 >
                   {t('web_development.custom_software')}
-                </NavLink>
+                </HashLink>
               </li>
               <li>
-                <NavLink
+                <HashLink
+                  smooth
                   to={`/${currentLang}/web-development#technologies-tools`}
                   className={
                     isActiveLink(`/${currentLang}/web-development#technologies-tools`)
@@ -204,7 +215,7 @@ const Header = forwardRef((props, ref) => {
                   }
                 >
                   {t('web_development.technologies_tools')}
-                </NavLink>
+                </HashLink>
               </li>
             </ul>
           </li>
@@ -225,44 +236,48 @@ const Header = forwardRef((props, ref) => {
             </NavLink>
             <ul className="submenu">
               <li>
-                <NavLink
+                <HashLink
+                  smooth
                   to={`/${currentLang}/it-services#full-service-it`}
                   className={
                     isActiveLink(`/${currentLang}/it-services#full-service-it`) ? 'active' : ''
                   }
                 >
                   {t('it_services.full_service_it')}
-                </NavLink>
+                </HashLink>
               </li>
               <li>
-                <NavLink
+                <HashLink
+                  smooth
                   to={`/${currentLang}/it-services#server-management`}
                   className={
                     isActiveLink(`/${currentLang}/it-services#server-management`) ? 'active' : ''
                   }
                 >
                   {t('it_services.server_management')}
-                </NavLink>
+                </HashLink>
               </li>
               <li>
-                <NavLink
+                <HashLink
+                  smooth
                   to={`/${currentLang}/it-services#cloud-backup`}
                   className={
                     isActiveLink(`/${currentLang}/it-services#cloud-backup`) ? 'active' : ''
                   }
                 >
                   {t('it_services.cloud_backup')}
-                </NavLink>
+                </HashLink>
               </li>
               <li>
-                <NavLink
+                <HashLink
+                  smooth
                   to={`/${currentLang}/it-services#user-support`}
                   className={
                     isActiveLink(`/${currentLang}/it-services#user-support`) ? 'active' : ''
                   }
                 >
                   {t('it_services.user_support')}
-                </NavLink>
+                </HashLink>
               </li>
             </ul>
           </li>
@@ -296,6 +311,6 @@ const Header = forwardRef((props, ref) => {
   );
 });
 
-Header.displayName = 'Header'; 
+Header.displayName = 'Header';
 
 export default Header;

@@ -1,6 +1,6 @@
 /* General Header Styles */
 .header {
-  position: fixed; /* Make header fixed at the top */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -13,65 +13,87 @@
   box-sizing: border-box;
   font-family: 'Overpass-black', sans-serif;
   font-size: 20px;
-  transition: all 0.3s ease; /* Smooth transition for padding and background */
+  transition: padding 0.3s ease, background-color 0.3s ease;
   z-index: 10;
 }
 
 /* Header Style When Scrolled */
 .header.scrolled {
-  background-color: rgba(0, 0, 0, 0.8); /* Darker background on scroll */
+  background-color: rgba(0, 0, 0, 0.8);
   color: white;
-  padding: 1rem; /* Reduce padding when scrolled */
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+  padding: 1rem;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Change Main Menu Link Color When Scrolled */
+.header.scrolled .main-menu > li > a {
+  color: white;
 }
 
 /* Logo Styling */
 .logo-container img {
   width: 50px;
   height: auto;
-  transition: width 0.3s ease; /* Smooth transition for logo size */
+  transition: width 0.3s ease;
 }
 
 /* Logo Size When Scrolled */
 .header.scrolled .logo-container img {
-  width: 40px; /* Reduce logo size when scrolled */
+  width: 40px;
 }
 
 /* Reset Link Styles */
 nav a {
-  text-decoration: none; /* Remove underline */
+  text-decoration: none;
   position: relative;
-  transition: color 0.3s ease, text-decoration 0.3s ease;
+  transition: color 0.3s ease;
 }
 
-/* Default styles for main menu links */
+/* Default Styles for Main Menu Links */
 .main-menu > li > a {
-  color: #080808; /* Default text color */
+  color: #080808;
   font-weight: normal;
 }
 
-/* Active styles for main menu links */
+/* Active Styles for Main Menu Links */
 .main-menu > li > a.active {
   color: #D4B051;
   font-weight: bold;
 }
 
-/* Hover State for Main Menu Links (Including Active Links) */
-.main-menu > li > a:hover,
-.main-menu > li > a.active:hover,
-.dropdown.open > a, .header.scrolled .main-menu > li > a:hover {
-  color: #F0C040; /* Hover color for main menu links */
+.header.scrolled .main-menu > li > a.active {
+  color: #D4B051;
+  font-weight: bold;
 }
 
-/* Default styles for sub-menu links */
+/* Active Styles for Submenu Links */
+.submenu li a.active,
+.header.scrolled .submenu li a.active {
+  color: #D4B051;
+  font-weight: bold;
+}
+
+/* Hover State for Main Menu Links */
+.main-menu > li > a:hover,
+.main-menu > li > a.active:hover,
+.dropdown.open > a,
+.header.scrolled .main-menu > li > a:hover {
+  color: #F0C040;
+}
+
+/* Default Styles for Submenu Links */
 .submenu li a {
-  color: black; /* Default sub-menu text color */
+  color: black;
+  padding: 0.5rem 1rem;
+  display: block;
+  white-space: nowrap; /* Prevent text wrapping */
 }
 
 /* Submenu Item Hover */
 .submenu li a:hover {
-  color: #D4B051; /* Hover color for sub-menu links */
+  color: #D4B051;
   font-weight: bold;
+  background-color: #f9f9f9;
 }
 
 /* Main Menu Styles */
@@ -79,6 +101,9 @@ nav a {
   display: flex;
   gap: 45px;
   position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 /* Dropdown Container */
@@ -88,39 +113,32 @@ nav a {
 
 /* Submenu Styles */
 .submenu {
-  display: none;
   position: absolute;
   background-color: white;
   border: 1px solid #ddd;
-  padding: 10px;
-  min-width: 200px;
+  padding: 10px 0;
+  min-width: 250px; /* Increased width */
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  top: 100%;
+  top: calc(100% + 5px); /* Adjusted positioning */
   left: 50%;
   transform: translateX(-50%);
   opacity: 0;
   visibility: hidden;
   border-radius: 15px;
-  z-index: 5;
-  transition: all 0.3s ease; /* Smooth transition for submenu */
-}
-.header.scrolled .main-menu > li > a {
-  color: white; /* Text color white when scrolled */
+  z-index: 1000; /* Increased z-index */
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 /* Submenu Items Styling */
 .submenu li {
-  padding: 0.5rem 1rem;
-  transition: background-color 0.3s ease;
+  list-style: none;
 }
 
-/* Show Submenu on Hover */
-.dropdown:hover .submenu,
+/* Show Submenu When Open */
 .dropdown.open .submenu {
-  display: block;
   opacity: 1;
   visibility: visible;
-  transform: translateX(-50%) translateY(5px);
+  transform: translateX(-50%) translateY(0);
 }
 
 /* Language Switcher Styles */
@@ -128,7 +146,7 @@ nav a {
   display: flex;
 }
 
-button {
+.language-switch button {
   background: none;
   border: none;
   cursor: pointer;
@@ -140,11 +158,27 @@ button {
   .header {
     flex-direction: column;
     align-items: flex-start;
+    padding: 1rem;
   }
 
   .main-menu {
     flex-direction: column;
     gap: 10px;
+    width: 100%;
+  }
+
+  .dropdown .submenu {
+    position: static;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    box-shadow: none;
+    border: none;
+    padding: 0;
+  }
+
+  .submenu li a {
+    padding-left: 20px;
   }
 
   .language-switch {
