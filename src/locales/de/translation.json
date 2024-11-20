@@ -69,7 +69,6 @@
     "cloud_consulting": "Cloud-Beratung",
     "cloud_consulting_description": "Optimieren Sie Ihre Infrastruktur mit Cloud-Technologien.",
     "ready_to_transform": "Bereit, Ihr Geschäft zu transformieren?"
-  
   },
   "web_development": {
     "web_development": "Webentwicklung",
@@ -88,8 +87,9 @@
     "technologies_tools": "Technologien & Tools",
     "content_for_technologies_tools": "Wir verwenden die neuesten Technologien und Tools, um die besten Ergebnisse zu liefern.",
     "ready_to_transform": "Bereit, Ihr Geschäft zu transformieren?",
-    "cta_description": "Partnern Sie mit uns, um Ihre digitale Präsenz auf die nächste Stufe zu heben.",
-     "it_services": {
+    "cta_description": "Partnern Sie mit uns, um Ihre digitale Präsenz auf die nächste Stufe zu heben."
+  },
+  "it_services": {
     "full_service_it": "Full-Service IT",
     "content_for_full_service_it": "Wir bieten umfassende IT-Dienstleistungen.",
     "server_management": "Server-Management",
@@ -142,6 +142,5 @@
     "faq_answer_2": "Wir arbeiten branchenübergreifend und passen Lösungen an die einzigartigen Herausforderungen jedes Sektors an.",
     "faq_question_3": "Bieten Sie Unterstützung nach Projektabschluss an?",
     "faq_answer_3": "Ja, wir bieten kontinuierlichen Support und Wartung, um sicherzustellen, dass Ihre Lösungen weiterhin optimal funktionieren."
-  }
   }
 }
