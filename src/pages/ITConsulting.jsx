@@ -1,6 +1,7 @@
 // src/pages/ITConsulting.jsx
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useLocation } from 'react-router-dom';
 import {
   Container,
   Typography,
@@ -17,7 +18,6 @@ import {
   Code,
 } from '@mui/icons-material';
 import { motion } from 'framer-motion';
-import { Parallax } from 'react-parallax';
 import Layout from '../components/Layout';
 import './ITConsulting.css';
 
@@ -33,7 +33,30 @@ import saasConsultingImage from '../assets/images/abus.png';
 import cloudConsultingImage from '../assets/images/abus.png';
 
 const ITConsulting = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const location = useLocation();
+  const currentLang = i18n.language;
+
+  // Store the previous pathname to detect changes
+  const prevPathnameRef = React.useRef(location.pathname);
+
+  // Scroll to top when the pathname changes (excluding language changes)
+  useEffect(() => {
+    const prevPathname = prevPathnameRef.current;
+    const currentPathname = location.pathname;
+
+    // Function to remove language codes from the path for comparison
+    const stripLangFromPath = (path) => path.replace(/^\/(en|de)/, '');
+
+    if (
+      stripLangFromPath(prevPathname) !== stripLangFromPath(currentPathname) &&
+      !location.hash
+    ) {
+      window.scrollTo(0, 0);
+    }
+
+    prevPathnameRef.current = currentPathname;
+  }, [location]);
 
   // Animation variants
   const sectionVariants = {

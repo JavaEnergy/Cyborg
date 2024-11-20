@@ -130,95 +130,95 @@ const Header = forwardRef((props, ref) => {
             </ul>
           </li>
 
-          {/* Web Development Dropdown */}
-          <li
-            className={`dropdown ${openDropdown === 'web-development' ? 'open' : ''}`}
-            onMouseEnter={() => toggleDropdown('web-development')}
-            onMouseLeave={() => setOpenDropdown(null)}
-          >
-            <NavLink
-              to={`/${currentLang}/web-development`}
-              className={isActiveLink(`/${currentLang}/web-development`) ? 'active' : ''}
-              aria-haspopup="true"
-              aria-expanded={openDropdown === 'web-development'}
-            >
-              {t('menu.web_development')}
-            </NavLink>
-            <ul className="submenu">
-              <li>
-                <HashLink
-                  smooth
-                  to={`/${currentLang}/web-development#wordpress`}
-                  className={
-                    isActiveLink(`/${currentLang}/web-development#wordpress`) ? 'active' : ''
-                  }
-                >
-                  {t('web_development.wordpress')}
-                </HashLink>
-              </li>
-              <li>
-                <HashLink
-                  smooth
-                  to={`/${currentLang}/web-development#react-applications`}
-                  className={
-                    isActiveLink(`/${currentLang}/web-development#react-applications`)
-                      ? 'active'
-                      : ''
-                  }
-                >
-                  {t('web_development.react_applications')}
-                </HashLink>
-              </li>
-              <li>
-                <HashLink
-                  smooth
-                  to={`/${currentLang}/web-development#angular-development`}
-                  className={
-                    isActiveLink(`/${currentLang}/web-development#angular-development`)
-                      ? 'active'
-                      : ''
-                  }
-                >
-                  {t('web_development.angular_development')}
-                </HashLink>
-              </li>
-              <li>
-                <HashLink
-                  smooth
-                  to={`/${currentLang}/web-development#e-commerce`}
-                  className={
-                    isActiveLink(`/${currentLang}/web-development#e-commerce`) ? 'active' : ''
-                  }
-                >
-                  {t('web_development.e_commerce')}
-                </HashLink>
-              </li>
-              <li>
-                <HashLink
-                  smooth
-                  to={`/${currentLang}/web-development#custom-software`}
-                  className={
-                    isActiveLink(`/${currentLang}/web-development#custom-software`) ? 'active' : ''
-                  }
-                >
-                  {t('web_development.custom_software')}
-                </HashLink>
-              </li>
-              <li>
-                <HashLink
-                  smooth
-                  to={`/${currentLang}/web-development#technologies-tools`}
-                  className={
-                    isActiveLink(`/${currentLang}/web-development#technologies-tools`)
-                      ? 'active'
-                      : ''
-                  }
-                >
-                  {t('web_development.technologies_tools')}
-                </HashLink>
-              </li>
-            </ul>
-          </li>
+       {/* Web Development Dropdown */}
+<li
+  className={`dropdown ${openDropdown === 'web-development' ? 'open' : ''}`}
+  onMouseEnter={() => toggleDropdown('web-development')}
+  onMouseLeave={() => setOpenDropdown(null)}
+>
+  <NavLink
+    to={`/${currentLang}/web-development`}
+    className={isActiveLink(`/${currentLang}/web-development`) ? 'active' : ''}
+    aria-haspopup="true"
+    aria-expanded={openDropdown === 'web-development'}
+  >
+    {t('menu.web_development')}
+  </NavLink>
+  <ul className="submenu">
+    <li>
+      <HashLink
+        smooth
+        to={`/${currentLang}/web-development#wordpress`}
+        className={
+          isActiveLink(`/${currentLang}/web-development#wordpress`) ? 'active' : ''
+        }
+      >
+        {t('web_development.wordpress')}
+      </HashLink>
+    </li>
+    <li>
+      <HashLink
+        smooth
+        to={`/${currentLang}/web-development#react-applications`}
+        className={
+          isActiveLink(`/${currentLang}/web-development#react-applications`)
+            ? 'active'
+            : ''
+        }
+      >
+        {t('web_development.react_applications')}
+      </HashLink>
+    </li>
+    <li>
+      <HashLink
+        smooth
+        to={`/${currentLang}/web-development#angular-development`}
+        className={
+          isActiveLink(`/${currentLang}/web-development#angular-development`)
+            ? 'active'
+            : ''
+        }
+      >
+        {t('web_development.angular_development')}
+      </HashLink>
+    </li>
+    <li>
+      <HashLink
+        smooth
+        to={`/${currentLang}/web-development#e-commerce`}
+        className={
+          isActiveLink(`/${currentLang}/web-development#e-commerce`) ? 'active' : ''
+        }
+      >
+        {t('web_development.e_commerce')}
+      </HashLink>
+    </li>
+    <li>
+      <HashLink
+        smooth
+        to={`/${currentLang}/web-development#custom-software`}
+        className={
+          isActiveLink(`/${currentLang}/web-development#custom-software`) ? 'active' : ''
+        }
+      >
+        {t('web_development.custom_software')}
+      </HashLink>
+    </li>
+    <li>
+      <HashLink
+        smooth
+        to={`/${currentLang}/web-development#technologies-tools`}
+        className={
+          isActiveLink(`/${currentLang}/web-development#technologies-tools`)
+            ? 'active'
+            : ''
+        }
+      >
+        {t('web_development.technologies_tools')}
+      </HashLink>
+    </li>
+  </ul>
+</li>
 
           {/* IT Services Dropdown */}
           <li

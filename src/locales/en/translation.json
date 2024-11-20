@@ -71,20 +71,24 @@
     "ready_to_transform": "Ready to Transform Your Business?"
   
   },
-  "web_development": {
+ "web_development": {
     "web_development": "Web Development",
+    "our_services": "Our Services",
+    "services_intro": "We offer a wide range of web development services:",
     "wordpress": "WordPress Development",
-    "content_for_wordpress": "We create custom WordPress websites.",
+    "content_for_wordpress": "We create custom WordPress websites tailored to your needs.",
     "react_applications": "React Applications",
     "content_for_react_applications": "We develop dynamic React applications.",
     "angular_development": "Angular Development",
     "content_for_angular_development": "Our team builds robust Angular applications.",
     "e_commerce": "E-Commerce Solutions",
-    "content_for_e_commerce": "We offer comprehensive e-commerce solutions.",
+    "content_for_e_commerce": "We provide comprehensive e-commerce solutions.",
     "custom_software": "Custom Software Solutions",
-    "content_for_custom_software": "We develop software tailored to your needs.",
+    "content_for_custom_software": "We develop software tailored to your specific requirements.",
     "technologies_tools": "Technologies & Tools",
-    "content_for_technologies_tools": "We use the latest technologies and tools."
+    "content_for_technologies_tools": "We use the latest technologies and tools to deliver the best results.",
+    "ready_to_transform": "Ready to Transform Your Business?",
+    "cta_description": "Partner with us to take your digital presence to the next level."
   },
   "it_services": {
     "full_service_it": "Full-Service IT",

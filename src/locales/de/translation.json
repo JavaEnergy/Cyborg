@@ -73,6 +73,8 @@
   },
   "web_development": {
     "web_development": "Webentwicklung",
+    "our_services": "Unsere Dienstleistungen",
+    "services_intro": "Wir bieten eine breite Palette an Webentwicklungsdiensten an:",
     "wordpress": "WordPress-Entwicklung",
     "content_for_wordpress": "Wir erstellen individuelle WordPress-Websites.",
     "react_applications": "React-Anwendungen",
@@ -84,9 +86,10 @@
     "custom_software": "Individuelle Softwarelösungen",
     "content_for_custom_software": "Wir entwickeln Software, die auf Ihre Bedürfnisse zugeschnitten ist.",
     "technologies_tools": "Technologien & Tools",
-    "content_for_technologies_tools": "Wir verwenden die neuesten Technologien und Tools."
-  },
-  "it_services": {
+    "content_for_technologies_tools": "Wir verwenden die neuesten Technologien und Tools, um die besten Ergebnisse zu liefern.",
+    "ready_to_transform": "Bereit, Ihr Geschäft zu transformieren?",
+    "cta_description": "Partnern Sie mit uns, um Ihre digitale Präsenz auf die nächste Stufe zu heben.",
+     "it_services": {
     "full_service_it": "Full-Service IT",
     "content_for_full_service_it": "Wir bieten umfassende IT-Dienstleistungen.",
     "server_management": "Server-Management",
@@ -139,5 +142,6 @@
     "faq_answer_2": "Wir arbeiten branchenübergreifend und passen Lösungen an die einzigartigen Herausforderungen jedes Sektors an.",
     "faq_question_3": "Bieten Sie Unterstützung nach Projektabschluss an?",
     "faq_answer_3": "Ja, wir bieten kontinuierlichen Support und Wartung, um sicherzustellen, dass Ihre Lösungen weiterhin optimal funktionieren."
+  }
   }
 }
