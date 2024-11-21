@@ -105,73 +105,71 @@ const WebDevelopment = () => {
 
   return (
     <Layout>
-      <div className="web-development">
-        {/* Hero Section */}
-        <div className="web-development-hero">
-          <Typography variant="h2" component="h1" align="center" color="white">
-            {t('web_development.web_development')}
-          </Typography>
-        </div>
+    <div className="web-development">
+      {/* Hero Section */}
+      <div className="web-development-hero">
+        <Typography variant="h2" component="h1" align="center" color="white">
+          {t('web_development.web_development')}
+        </Typography>
+      </div>
 
-        <Container maxWidth="lg">
-          {/* Software Consulting */}
-          <motion.section
-            id="software-consulting"
-            className="consulting-section"
-            variants={sectionVariants}
-            initial="hidden"
-            animate="visible"
-            custom={3}
-          >
-            <Typography variant="h4" component="h2" gutterBottom align="center">
-              {t('it_consulting.software_consulting')}
-            </Typography>
-            <Typography variant="body1" align="center" paragraph>
-              {t('it_consulting.content_for_software_consulting')}
-            </Typography>
-            {/* Services Cards */}
-            <motion.div initial="hidden" animate="visible">
-              <Grid container spacing={4} justifyContent="center">
-                {services.map((service, index) => (
-                  <Grid
-                    item
-                    xs={12}
-                    sm={6}
-                    md={4}
-                    key={index}
-                    // Place id on a div inside Grid item
-                  >
-                    <div id={service.id}>
-                      <motion.div variants={cardVariants}>
-                        <Card
-                          component={motion.div}
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                          className="service-card"
-                        >
-                          <div className="service-icon">{service.icon}</div>
-                          <CardMedia
-                            component="img"
-                            height="140"
-                            image={service.image}
-                            alt={service.title}
-                          />
-                          <CardContent className="MuiCardContent-root">
-                            <Typography variant="h6" component="h3" gutterBottom>
-                              {service.title}
-                            </Typography>
-                            <Typography variant="body2" className="card-description">
-                              {service.description}
-                            </Typography>
-                          </CardContent>
-                        </Card>
-                      </motion.div>
-                    </div>
-                  </Grid>
-                ))}
-              </Grid>
-            </motion.div>
-          </motion.section>
+      <Container maxWidth="lg">
+        {/* Services Section */}
+        <motion.section
+          id="software-consulting"
+          className="consulting-section"
+          variants={sectionVariants}
+          initial="hidden"
+          animate="visible"
+          custom={3}
+        >
+          <Typography variant="h4" component="h2" gutterBottom align="center">
+            {t('web_development.services_title')}
+          </Typography>
+          <Typography variant="body1" align="center" paragraph>
+            {t('web_development.services_description')}
+          </Typography>
+          {/* Services Cards */}
+          <motion.div initial="hidden" animate="visible">
+            <Grid container spacing={4} justifyContent="center">
+              {services.map((service, index) => (
+                <Grid
+                  item
+                  xs={12}
+                  sm={6}
+                  md={4}
+                  key={index}
+                  id={service.id}
+                >
+                  <motion.div variants={cardVariants}>
+                    <Card
+                      component={motion.div}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="service-card"
+                    >
+                      <div className="service-icon">{service.icon}</div>
+                      <CardMedia
+                        component="img"
+                        height="140"
+                        image={service.image}
+                        alt={service.title}
+                      />
+                      <CardContent className="card-content">
+                        <Typography variant="h6" component="h3" gutterBottom>
+                          {service.title}
+                        </Typography>
+                        <Typography variant="body2" className="card-description">
+                          {service.description}
+                        </Typography>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                </Grid>
+              ))}
+            </Grid>
+          </motion.div>
+        </motion.section>
 
           {/* Technologies & Tools Section */}
           <motion.section

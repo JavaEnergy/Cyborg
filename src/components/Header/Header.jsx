@@ -24,7 +24,7 @@ const Header = forwardRef((props, ref) => {
   }, []);
 
   const changeLanguage = (lng) => {
-    const newPath = pathname.replace(/^\/(en|de)/, `/${lng}`);
+    const newPath = pathname.replace(/^\/(en|de)/, `/${lng}`) + hash;
     i18n.changeLanguage(lng);
     navigate(newPath, { replace: true });
   };
