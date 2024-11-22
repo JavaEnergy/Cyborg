@@ -1,5 +1,5 @@
 // Header.jsx
-import  { useState, useEffect, forwardRef } from 'react';
+import { useState, useEffect, forwardRef } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import { useTranslation } from 'react-i18next';
@@ -40,11 +40,16 @@ const Header = forwardRef((props, ref) => {
   };
 
   const isActiveLink = (link) => {
-    const [linkPathname, linkHash] = link.split('#');
+    const linkPathname = link.split('#')[0];
     const currentPathname = pathname.replace(/\/$/, '');
     const linkPath = linkPathname.replace(/\/$/, '');
-    const linkHashWithHash = linkHash ? `#${linkHash}` : '';
-    return currentPathname === linkPath && hash === linkHashWithHash;
+    return currentPathname === linkPath;
+  };
+
+  const isActiveSubmenuLink = (link) => {
+    // Check if the current URL hash matches the link's hash
+    const linkHash = link.split('#')[1] ? `#${link.split('#')[1]}` : '';
+    return hash === linkHash && isActiveLink(link);
   };
 
   return (
@@ -84,7 +89,7 @@ const Header = forwardRef((props, ref) => {
                   smooth
                   to={`/${currentLang}/it-consulting#from-idea-to-implementation`}
                   className={
-                    isActiveLink(`/${currentLang}/it-consulting#from-idea-to-implementation`)
+                    isActiveSubmenuLink(`/${currentLang}/it-consulting#from-idea-to-implementation`)
                       ? 'active'
                       : ''
                   }
@@ -97,7 +102,7 @@ const Header = forwardRef((props, ref) => {
                   smooth
                   to={`/${currentLang}/it-consulting#it-strategy`}
                   className={
-                    isActiveLink(`/${currentLang}/it-consulting#it-strategy`) ? 'active' : ''
+                    isActiveSubmenuLink(`/${currentLang}/it-consulting#it-strategy`) ? 'active' : ''
                   }
                 >
                   {t('it_consulting.it_strategy')}
@@ -108,7 +113,7 @@ const Header = forwardRef((props, ref) => {
                   smooth
                   to={`/${currentLang}/it-consulting#software-consulting`}
                   className={
-                    isActiveLink(`/${currentLang}/it-consulting#software-consulting`)
+                    isActiveSubmenuLink(`/${currentLang}/it-consulting#software-consulting`)
                       ? 'active'
                       : ''
                   }
@@ -121,7 +126,7 @@ const Header = forwardRef((props, ref) => {
                   smooth
                   to={`/${currentLang}/it-consulting#it-security`}
                   className={
-                    isActiveLink(`/${currentLang}/it-consulting#it-security`) ? 'active' : ''
+                    isActiveSubmenuLink(`/${currentLang}/it-consulting#it-security`) ? 'active' : ''
                   }
                 >
                   {t('it_consulting.it_security')}
@@ -130,95 +135,97 @@ const Header = forwardRef((props, ref) => {
             </ul>
           </li>
 
-       {/* Web Development Dropdown */}
-<li
-  className={`dropdown ${openDropdown === 'web-development' ? 'open' : ''}`}
-  onMouseEnter={() => toggleDropdown('web-development')}
-  onMouseLeave={() => setOpenDropdown(null)}
->
-  <NavLink
-    to={`/${currentLang}/web-development`}
-    className={isActiveLink(`/${currentLang}/web-development`) ? 'active' : ''}
-    aria-haspopup="true"
-    aria-expanded={openDropdown === 'web-development'}
-  >
-    {t('menu.web_development')}
-  </NavLink>
-  <ul className="submenu">
-    <li>
-      <HashLink
-        smooth
-        to={`/${currentLang}/web-development#wordpress`}
-        className={
-          isActiveLink(`/${currentLang}/web-development#wordpress`) ? 'active' : ''
-        }
-      >
-        {t('web_development.wordpress')}
-      </HashLink>
-    </li>
-    <li>
-      <HashLink
-        smooth
-        to={`/${currentLang}/web-development#react-applications`}
-        className={
-          isActiveLink(`/${currentLang}/web-development#react-applications`)
-            ? 'active'
-            : ''
-        }
-      >
-        {t('web_development.react_applications')}
-      </HashLink>
-    </li>
-    <li>
-      <HashLink
-        smooth
-        to={`/${currentLang}/web-development#angular-development`}
-        className={
-          isActiveLink(`/${currentLang}/web-development#angular-development`)
-            ? 'active'
-            : ''
-        }
-      >
-        {t('web_development.angular_development')}
-      </HashLink>
-    </li>
-    <li>
-      <HashLink
-        smooth
-        to={`/${currentLang}/web-development#e-commerce`}
-        className={
-          isActiveLink(`/${currentLang}/web-development#e-commerce`) ? 'active' : ''
-        }
-      >
-        {t('web_development.e_commerce')}
-      </HashLink>
-    </li>
-    <li>
-      <HashLink
-        smooth
-        to={`/${currentLang}/web-development#custom-software`}
-        className={
-          isActiveLink(`/${currentLang}/web-development#custom-software`) ? 'active' : ''
-        }
-      >
-        {t('web_development.custom_software')}
-      </HashLink>
-    </li>
-    <li>
-      <HashLink
-        smooth
-        to={`/${currentLang}/web-development#technologies-tools`}
-        className={
-          isActiveLink(`/${currentLang}/web-development#technologies-tools`)
-            ? 'active'
-            : ''
-        }
-      >
-        {t('web_development.technologies_tools')}
-      </HashLink>
-    </li>
-  </ul>
-</li>
+          {/* Web Development Dropdown */}
+          <li
+            className={`dropdown ${openDropdown === 'web-development' ? 'open' : ''}`}
+            onMouseEnter={() => toggleDropdown('web-development')}
+            onMouseLeave={() => setOpenDropdown(null)}
+          >
+            <NavLink
+              to={`/${currentLang}/web-development`}
+              className={isActiveLink(`/${currentLang}/web-development`) ? 'active' : ''}
+              aria-haspopup="true"
+              aria-expanded={openDropdown === 'web-development'}
+            >
+              {t('menu.web_development')}
+            </NavLink>
+            <ul className="submenu">
+              <li>
+                <HashLink
+                  smooth
+                  to={`/${currentLang}/web-development#wordpress`}
+                  className={
+                    isActiveSubmenuLink(`/${currentLang}/web-development#wordpress`) ? 'active' : ''
+                  }
+                >
+                  {t('web_development.wordpress')}
+                </HashLink>
+              </li>
+              <li>
+                <HashLink
+                  smooth
+                  to={`/${currentLang}/web-development#react-applications`}
+                  className={
+                    isActiveSubmenuLink(`/${currentLang}/web-development#react-applications`)
+                      ? 'active'
+                      : ''
+                  }
+                >
+                  {t('web_development.react_applications')}
+                </HashLink>
+              </li>
+              <li>
+                <HashLink
+                  smooth
+                  to={`/${currentLang}/web-development#angular-development`}
+                  className={
+                    isActiveSubmenuLink(`/${currentLang}/web-development#angular-development`)
+                      ? 'active'
+                      : ''
+                  }
+                >
+                  {t('web_development.angular_development')}
+                </HashLink>
+              </li>
+              <li>
+                <HashLink
+                  smooth
+                  to={`/${currentLang}/web-development#e-commerce`}
+                  className={
+                    isActiveSubmenuLink(`/${currentLang}/web-development#e-commerce`) ? 'active' : ''
+                  }
+                >
+                  {t('web_development.e_commerce')}
+                </HashLink>
+              </li>
+              <li>
+                <HashLink
+                  smooth
+                  to={`/${currentLang}/web-development#custom-software`}
+                  className={
+                    isActiveSubmenuLink(`/${currentLang}/web-development#custom-software`)
+                      ? 'active'
+                      : ''
+                  }
+                >
+                  {t('web_development.custom_software')}
+                </HashLink>
+              </li>
+              <li>
+                <HashLink
+                  smooth
+                  to={`/${currentLang}/web-development#technologies-tools`}
+                  className={
+                    isActiveSubmenuLink(`/${currentLang}/web-development#technologies-tools`)
+                      ? 'active'
+                      : ''
+                  }
+                >
+                  {t('web_development.technologies_tools')}
+                </HashLink>
+              </li>
+            </ul>
+          </li>
 
           {/* IT Services Dropdown */}
           <li
@@ -240,7 +247,9 @@ const Header = forwardRef((props, ref) => {
                   smooth
                   to={`/${currentLang}/it-services#full-service-it`}
                   className={
-                    isActiveLink(`/${currentLang}/it-services#full-service-it`) ? 'active' : ''
+                    isActiveSubmenuLink(`/${currentLang}/it-services#full-service-it`)
+                      ? 'active'
+                      : ''
                   }
                 >
                   {t('it_services.full_service_it')}
@@ -251,7 +260,9 @@ const Header = forwardRef((props, ref) => {
                   smooth
                   to={`/${currentLang}/it-services#server-management`}
                   className={
-                    isActiveLink(`/${currentLang}/it-services#server-management`) ? 'active' : ''
+                    isActiveSubmenuLink(`/${currentLang}/it-services#server-management`)
+                      ? 'active'
+                      : ''
                   }
                 >
                   {t('it_services.server_management')}
@@ -262,7 +273,9 @@ const Header = forwardRef((props, ref) => {
                   smooth
                   to={`/${currentLang}/it-services#cloud-backup`}
                   className={
-                    isActiveLink(`/${currentLang}/it-services#cloud-backup`) ? 'active' : ''
+                    isActiveSubmenuLink(`/${currentLang}/it-services#cloud-backup`)
+                      ? 'active'
+                      : ''
                   }
                 >
                   {t('it_services.cloud_backup')}
@@ -273,7 +286,9 @@ const Header = forwardRef((props, ref) => {
                   smooth
                   to={`/${currentLang}/it-services#user-support`}
                   className={
-                    isActiveLink(`/${currentLang}/it-services#user-support`) ? 'active' : ''
+                    isActiveSubmenuLink(`/${currentLang}/it-services#user-support`)
+                      ? 'active'
+                      : ''
                   }
                 >
                   {t('it_services.user_support')}

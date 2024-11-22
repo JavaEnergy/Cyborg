@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import './Home.css';
-import image from '../assets/images/codesurf-caia_image-alamy.jpg';
+import image from '../assets/images/bg.jpg';
 import { NavLink } from 'react-router-dom';
 import itConsultingIcon from '../assets/images/it Consulting.png';
 import webDevelopmentIcon from '../assets/images/web Development.png';
