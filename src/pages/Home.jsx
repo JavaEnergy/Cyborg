@@ -6,7 +6,7 @@ import image from '../assets/images/bg.jpg';
 import { NavLink } from 'react-router-dom';
 import itConsultingIcon from '../assets/images/it Consulting.png';
 import webDevelopmentIcon from '../assets/images/web Development.png';
-import itServicesIcon from '../assets/images/it Services.png';
+import itServicesIcon from '../assets/images/Zoho.png';
 import initSpiderEffect from '../assets/codes/interactive spider'; // Correct path for import
 
 const Home = () => {
@@ -112,8 +112,8 @@ const Home = () => {
             <p>{t('home.service_web_development_description')}</p>
           </NavLink>
 
-          <NavLink to={`/${currentLang}/it-services`} className="service-item">
-            <img src={itServicesIcon} alt="IT Services" />
+          <NavLink to={`/${currentLang}/zoho-consulting`} className="service-item">
+            <img id='zoho' src={itServicesIcon} alt="IT Services" />
             <h3>{t('home.service_it_services_title')}</h3>
             <p>{t('home.service_it_services_description')}</p>
           </NavLink>
