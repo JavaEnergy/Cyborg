@@ -6,7 +6,7 @@ import Home from './pages/Home';
 import AboutUs from './pages/AboutUs';
 import ITConsulting from './pages/ITConsulting';
 import WebDevelopment from './pages/WebDevelopment';
-import ITServices from './pages/ITServices';
+import ZohoConsulting from './pages/ZohoConsulting';
 import ContactUs from './pages/ContactUs';
 import Footer from './components/Footer/Footer';
 import './i18n'; // Import i18n setup
@@ -39,7 +39,7 @@ const App = () => {
           <Route path="/:lng/about-us" element={<AboutUs />} />
           <Route path="/:lng/it-consulting" element={<ITConsulting />} />
           <Route path="/:lng/web-development" element={<WebDevelopment />} />
-          <Route path="/:lng/it-services" element={<ITServices />} />
+          <Route path="/:lang/zoho-consulting" element={<ZohoConsulting />} />
           <Route path="/:lng/contact-us" element={<ContactUs />} />
           {/* Add a fallback route if needed */}
           <Route path="*" element={<Navigate to="/de" replace />} />

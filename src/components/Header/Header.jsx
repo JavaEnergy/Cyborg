@@ -227,76 +227,75 @@ const Header = forwardRef((props, ref) => {
             </ul>
           </li>
 
-          {/* IT Services Dropdown */}
-          <li
-            className={`dropdown ${openDropdown === 'it-services' ? 'open' : ''}`}
-            onMouseEnter={() => toggleDropdown('it-services')}
-            onMouseLeave={() => setOpenDropdown(null)}
+     {/* Zoho Consulting Dropdown */}
+     <li
+          className={`dropdown ${openDropdown === 'zoho-consulting' ? 'open' : ''}`}
+          onMouseEnter={() => toggleDropdown('zoho-consulting')}
+          onMouseLeave={() => setOpenDropdown(null)}
+        >
+          <NavLink
+            to={`/${currentLang}/zoho-consulting`}
+            className={isActiveLink(`/${currentLang}/zoho-consulting`) ? 'active' : ''}
+            aria-haspopup="true"
+            aria-expanded={openDropdown === 'zoho-consulting'}
           >
-            <NavLink
-              to={`/${currentLang}/it-services`}
-              className={isActiveLink(`/${currentLang}/it-services`) ? 'active' : ''}
-              aria-haspopup="true"
-              aria-expanded={openDropdown === 'it-services'}
-            >
-              {t('menu.it_services')}
-            </NavLink>
-            <ul className="submenu">
-              <li>
-                <HashLink
-                  smooth
-                  to={`/${currentLang}/it-services#full-service-it`}
-                  className={
-                    isActiveSubmenuLink(`/${currentLang}/it-services#full-service-it`)
-                      ? 'active'
-                      : ''
-                  }
-                >
-                  {t('it_services.full_service_it')}
-                </HashLink>
-              </li>
-              <li>
-                <HashLink
-                  smooth
-                  to={`/${currentLang}/it-services#server-management`}
-                  className={
-                    isActiveSubmenuLink(`/${currentLang}/it-services#server-management`)
-                      ? 'active'
-                      : ''
-                  }
-                >
-                  {t('it_services.server_management')}
-                </HashLink>
-              </li>
-              <li>
-                <HashLink
-                  smooth
-                  to={`/${currentLang}/it-services#cloud-backup`}
-                  className={
-                    isActiveSubmenuLink(`/${currentLang}/it-services#cloud-backup`)
-                      ? 'active'
-                      : ''
-                  }
-                >
-                  {t('it_services.cloud_backup')}
-                </HashLink>
-              </li>
-              <li>
-                <HashLink
-                  smooth
-                  to={`/${currentLang}/it-services#user-support`}
-                  className={
-                    isActiveSubmenuLink(`/${currentLang}/it-services#user-support`)
-                      ? 'active'
-                      : ''
-                  }
-                >
-                  {t('it_services.user_support')}
-                </HashLink>
-              </li>
-            </ul>
-          </li>
-
+            {t('menu.zoho_consulting')}
+          </NavLink>
+          <ul className="submenu">
+            <li>
+              <HashLink
+                smooth
+                to={`/${currentLang}/zoho-consulting#zoho-crm`}
+                className={
+                  isActiveSubmenuLink(`/${currentLang}/zoho-consulting#zoho-crm`)
+                    ? 'active'
+                    : ''
+                }
+              >
+                {t('zoho_consulting.zoho_crm')}
+              </HashLink>
+            </li>
+            <li>
+              <HashLink
+                smooth
+                to={`/${currentLang}/zoho-consulting#zoho-books`}
+                className={
+                  isActiveSubmenuLink(`/${currentLang}/zoho-consulting#zoho-books`)
+                    ? 'active'
+                    : ''
+                }
+              >
+                {t('zoho_consulting.zoho_books')}
+              </HashLink>
+            </li>
+            <li>
+              <HashLink
+                smooth
+                to={`/${currentLang}/zoho-consulting#zoho-projects`}
+                className={
+                  isActiveSubmenuLink(`/${currentLang}/zoho-consulting#zoho-projects`)
+                    ? 'active'
+                    : ''
+                }
+              >
+                {t('zoho_consulting.zoho_projects')}
+              </HashLink>
+            </li>
+            <li>
+              <HashLink
+                smooth
+                to={`/${currentLang}/zoho-consulting#custom-development`}
+                className={
+                  isActiveSubmenuLink(`/${currentLang}/zoho-consulting#custom-development`)
+                    ? 'active'
+                    : ''
+                }
+              >
+                {t('zoho_consulting.custom_development')}
+              </HashLink>
+            </li>
+          </ul>
+        </li>
           <li>
             <NavLink
               to={`/${currentLang}/contact-us`}

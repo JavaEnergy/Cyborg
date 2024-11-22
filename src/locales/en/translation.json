@@ -4,7 +4,9 @@
     "it_consulting": "IT Consulting",
     "web_development": "Web Development",
     "it_services": "IT Services",
-    "contact_us": "Contact"
+    "contact_us": "Contact",
+    "zoho_consulting": "Zoho Software"
+
   },
   "footer_copyright": "All rights reserved.",
   "common": {
@@ -143,5 +145,27 @@
     "faq_answer_2": "We work across various industries, tailoring solutions to each sector's unique challenges.",
     "faq_question_3": "Do you offer support after project completion?",
     "faq_answer_3": "Yes, we provide ongoing support and maintenance to ensure your solutions continue to perform optimally."
+  },
+  "zoho_consulting": {
+    "title": "Zoho Consulting",
+    "intro_title": "What is Zoho?",
+    "intro_description": "Zoho is a comprehensive suite of cloud-based applications designed to enhance your business operations. With over 40 integrated apps, Zoho provides solutions for CRM, finance, project management, collaboration, and much more.",
+    "services_title": "Our Zoho Consulting Services",
+    "services_description": "We specialize in implementing and customizing Zoho applications to meet your specific business needs. Our services include:",
+    "service_1": "Zoho CRM implementation and customization",
+    "service_2": "Zoho Books setup for streamlined accounting",
+    "service_3": "Zoho Projects integration for efficient project management",
+    "service_4": "Custom application development within the Zoho ecosystem",
+    "cta_title": "Ready to Transform Your Business with Zoho?",
+    "cta_description": "Contact us today to discuss how we can help you leverage Zoho's powerful suite of applications.",
+    "contact_us": "Contact Us",
+    "zoho_crm": "Zoho CRM",
+    "zoho_books": "Zoho Books",
+    "zoho_projects": "Zoho Projects",
+    "custom_development": "Custom Development",
+    "zoho_crm_description": "We provide implementation and customization of Zoho CRM to effectively manage your customer relationships.",
+    "zoho_books_description": "Setup and optimization of Zoho Books for seamless financial management and accounting.",
+    "zoho_projects_description": "Integration of Zoho Projects for efficient project planning and collaboration.",
+    "custom_development_description": "Development of customized solutions within the Zoho ecosystem to meet your unique business needs."
   }
 }

@@ -4,7 +4,9 @@
     "it_consulting": "IT-Beratung",
     "web_development": "Webentwicklung",
     "it_services": "IT-Services",
-    "contact_us": "Kontakt"
+    "contact_us": "Kontakt",
+    "zoho_consulting": "Zoho Software"
+
   },
   "footer_copyright": "All rights reserved.",
   "common": {
@@ -142,5 +144,27 @@
     "faq_answer_2": "Wir arbeiten branchenübergreifend und passen Lösungen an die einzigartigen Herausforderungen jedes Sektors an.",
     "faq_question_3": "Bieten Sie Unterstützung nach Projektabschluss an?",
     "faq_answer_3": "Ja, wir bieten kontinuierlichen Support und Wartung, um sicherzustellen, dass Ihre Lösungen weiterhin optimal funktionieren."
+  },
+  "zoho_consulting": {
+    "title": "Zoho-Beratung",
+    "intro_title": "Was ist Zoho?",
+    "intro_description": "Zoho ist eine umfassende Suite von cloudbasierten Anwendungen, die darauf abzielen, Ihre Geschäftsprozesse zu optimieren. Mit über 40 integrierten Apps bietet Zoho Lösungen für CRM, Finanzen, Projektmanagement, Zusammenarbeit und vieles mehr.",
+    "services_title": "Unsere Zoho-Beratungsdienste",
+    "services_description": "Wir sind spezialisiert auf die Implementierung und Anpassung von Zoho-Anwendungen, um Ihre spezifischen Geschäftsanforderungen zu erfüllen. Unsere Dienstleistungen umfassen:",
+    "service_1": "Implementierung und Anpassung von Zoho CRM",
+    "service_2": "Einrichtung von Zoho Books für effizientes Rechnungswesen",
+    "service_3": "Integration von Zoho Projects für effektives Projektmanagement",
+    "service_4": "Entwicklung kundenspezifischer Anwendungen innerhalb des Zoho-Ökosystems",
+    "cta_title": "Bereit, Ihr Geschäft mit Zoho zu transformieren?",
+    "cta_description": "Kontaktieren Sie uns noch heute, um zu besprechen, wie wir Ihnen helfen können, die leistungsstarke Suite von Zoho-Anwendungen zu nutzen.",
+    "contact_us": "Kontaktieren Sie uns",
+    "zoho_crm": "Zoho CRM",
+    "zoho_books": "Zoho Books",
+    "zoho_projects": "Zoho Projects",
+    "custom_development": "Kundenspezifische Entwicklung",
+    "zoho_crm_description": "Wir bieten Implementierung und Anpassung von Zoho CRM, um Ihre Kundenbeziehungen effektiv zu verwalten.",
+    "zoho_books_description": "Einrichtung und Optimierung von Zoho Books für ein nahtloses Finanzmanagement und Buchhaltung.",
+    "zoho_projects_description": "Integration von Zoho Projects für eine effiziente Projektplanung und Zusammenarbeit.",
+    "custom_development_description": "Entwicklung maßgeschneiderter Lösungen innerhalb des Zoho-Ökosystems, um Ihre einzigartigen Geschäftsanforderungen zu erfüllen."
   }
 }
