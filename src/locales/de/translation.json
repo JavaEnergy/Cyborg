@@ -166,5 +166,19 @@
     "zoho_books_description": "Einrichtung und Optimierung von Zoho Books für ein nahtloses Finanzmanagement und Buchhaltung.",
     "zoho_projects_description": "Integration von Zoho Projects für eine effiziente Projektplanung und Zusammenarbeit.",
     "custom_development_description": "Entwicklung maßgeschneiderter Lösungen innerhalb des Zoho-Ökosystems, um Ihre einzigartigen Geschäftsanforderungen zu erfüllen."
+  },
+  "contact_us": {
+    "title": "Kontaktieren Sie uns",
+    "subtitle": "Wir würden uns freuen, von Ihnen zu hören. Bitte füllen Sie das untenstehende Formular aus.",
+    "name": "Name",
+    "email": "E-Mail",
+    "subject": "Betreff",
+    "message": "Nachricht",
+    "submit": "Nachricht senden",
+    "address_title": "Unser Büro",
+    "address_line1": "Hauptstraße 123",
+    "address_line2": "Stadt, Bundesland, PLZ",
+    "phone": "Telefon: (123) 456-7890",
+    "email_contact": "E-Mail: info@beispiel.de"
   }
 }

@@ -167,5 +167,19 @@
     "zoho_books_description": "Setup and optimization of Zoho Books for seamless financial management and accounting.",
     "zoho_projects_description": "Integration of Zoho Projects for efficient project planning and collaboration.",
     "custom_development_description": "Development of customized solutions within the Zoho ecosystem to meet your unique business needs."
+  },
+  "contact_us": {
+    "title": "Get in Touch",
+    "subtitle": "We'd love to hear from you. Please fill out the form below.",
+    "name": "Name",
+    "email": "Email",
+    "subject": "Subject",
+    "message": "Message",
+    "submit": "Send Message",
+    "address_title": "Our Office",
+    "address_line1": "123 Main Street",
+    "address_line2": "City, State, ZIP",
+    "phone": "Phone: (123) 456-7890",
+    "email_contact": "Email: info@example.com"
   }
 }
