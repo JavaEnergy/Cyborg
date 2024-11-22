@@ -33,7 +33,7 @@ const ZohoConsulting = () => {
     event.preventDefault();
     // Handle form submission logic here
   };
-  
+
   return (
     <Layout>
       <div className="zoho-consulting">
@@ -138,7 +138,7 @@ const ZohoConsulting = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            custom={5}
+            custom={4}
           >
             <Typography variant="h4" component="h2" gutterBottom>
               {t('zoho_consulting.custom_development')}
@@ -155,7 +155,7 @@ const ZohoConsulting = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            custom={6}
+            custom={4}
           >
             <div className="cta-content">
               <Typography variant="h4" align="center" gutterBottom>
@@ -183,7 +183,7 @@ const ZohoConsulting = () => {
   initial="hidden"
   whileInView="visible"
   viewport={{ once: true }}
-  custom={6}
+  custom={3}
 >
   <Typography variant="h4" component="h2" align="center" gutterBottom>
     {t('home.contact_title')}

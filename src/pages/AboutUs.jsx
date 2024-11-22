@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import './AboutUs.css'; // Ensure you have this CSS file
 import image1 from '../assets/images/abus.png'; // Replace with your actual image paths
 import image2 from '../assets/images/abus.png'; // Use a different image if needed
+import { motion } from 'framer-motion'; // Import Framer Motion
 
 const AboutUs = () => {
   const { t, i18n } = useTranslation();
@@ -21,19 +22,48 @@ const AboutUs = () => {
     // Handle form submission logic
   };
 
+  // Animation variants
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: (custom = 0) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: custom * 0.2, // Adjusted delay
+        duration: 0.6,
+        ease: 'easeOut',
+      },
+    }),
+  };
+
   return (
     <>
       {/* Hero Section */}
       <div className="about-hero">
-        <div className="about-hero-content">
-          <h1 className={isGerman ? 'de' : ''}>{t('about_us.hero_title')}</h1>
-          {/* Removed the subtitle */}
-          {/* <p>{t('about_us.hero_subtitle')}</p> */}
+        {/* Wrapper div to handle additional transforms if needed */}
+        <div className="about-hero-content-wrapper">
+          <motion.div
+            className="about-hero-content"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+          >
+            <h1 className={isGerman ? 'de' : ''}>{t('about_us.hero_title')}</h1>
+            {/* Removed the subtitle */}
+            {/* <p>{t('about_us.hero_subtitle')}</p> */}
+          </motion.div>
         </div>
       </div>
 
       {/* First Section: Image on Left, Text on Right */}
-      <section className="about-content-section">
+      <motion.section
+        className="about-content-section"
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        custom={0}
+      >
         <div className="about-content-container">
           <div className="about-image-content">
             <img src={image1} alt="About Us" id="firstimg" />
@@ -43,10 +73,17 @@ const AboutUs = () => {
             <p>{t('about_us.about_text')}</p>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Second Section: Image on Right, Text on Left */}
-      <section className="about-content-section">
+      <motion.section
+        className="about-content-section"
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        custom={1}
+      >
         <div className="about-content-container reverse">
           <div className="about-text-content">
             <h2>{t('about_us.mission_title')}</h2>
@@ -56,10 +93,17 @@ const AboutUs = () => {
             <img src={image2} alt="Our Mission" className="circle-image" />
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* FAQ Section */}
-      <section className="about-faq-section">
+      <motion.section
+        className="about-faq-section"
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        custom={2}
+      >
         <h2>{t('about_us.faq_title')}</h2>
         <div className="about-faq-list">
           {[1, 2, 3].map((item, index) => (
@@ -70,14 +114,32 @@ const AboutUs = () => {
               <h3 onClick={() => toggleFaq(index)}>
                 {t(`about_us.faq_question_${item}`)}
               </h3>
-              <p>{t(`about_us.faq_answer_${item}`)}</p>
+              <motion.p
+                initial={{ height: 0, opacity: 0 }}
+                animate={
+                  openFaqIndex === index
+                    ? { height: 'auto', opacity: 1 }
+                    : { height: 0, opacity: 0 }
+                }
+                transition={{ duration: 0.3 }}
+                className="faq-answer"
+              >
+                {t(`about_us.faq_answer_${item}`)}
+              </motion.p>
             </div>
           ))}
         </div>
-      </section>
+      </motion.section>
 
       {/* Contact Section */}
-      <section className="contact-section">
+      <motion.section
+        className="contact-section"
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        custom={3}
+      >
         <h2>{t('home.contact_title')}</h2>
         <form className="contact-form" onSubmit={handleSubmit}>
           <input
@@ -99,7 +161,7 @@ const AboutUs = () => {
           ></textarea>
           <button type="submit">{t('home.contact_submit_button')}</button>
         </form>
-      </section>
+      </motion.section>
     </>
   );
 };

@@ -8,15 +8,16 @@ import itConsultingIcon from '../assets/images/it Consulting.png';
 import webDevelopmentIcon from '../assets/images/web Development.png';
 import itServicesIcon from '../assets/images/Zoho.png';
 import initSpiderEffect from '../assets/codes/interactive spider'; // Correct path for import
+import { motion } from 'framer-motion'; // Import Framer Motion
 
 const Home = () => {
   const { t, i18n } = useTranslation();
-  const [hoveredHero, setHoveredHero] = useState(false);
+  const [hovered, setHovered] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
 
   useEffect(() => {
     let cleanup; // For storing the cleanup function
-    if (hoveredHero) {
+    if (hovered) {
       let canvas = document.getElementById('spider-canvas');
       if (!canvas) {
         // Create canvas if it doesn't exist
@@ -51,7 +52,7 @@ const Home = () => {
         canvas.style.display = 'none';
       }
     };
-  }, [hoveredHero]);
+  }, [hovered]);
 
   const toggleFaq = (index) => {
     setOpenFaqIndex(openFaqIndex === index ? null : index);
@@ -65,24 +66,57 @@ const Home = () => {
   const currentLang = i18n.language;
   const isGerman = currentLang === 'de';
 
+  // Animation variants
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: (custom) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: custom * 0.3,
+        duration: 0.5,
+        ease: 'easeOut',
+      },
+    }),
+  };
+
   return (
-    <>
-      <div
-        className="hero"
-        onMouseEnter={() => setHoveredHero(true)}
-        onMouseLeave={() => setHoveredHero(false)}
-      >
-        <div className="hero-content">
+    <div
+      className="home-page"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <div className="hero">
+        <motion.div
+          className="hero-content"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
           <h1 className={isGerman ? 'de' : ''}>{t('home.title')}</h1>
-        </div>
+        </motion.div>
       </div>
 
       <div className="home-main-content">
-        <div className="image-container">
+        <motion.div
+          className="image-container"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={sectionVariants}
+          custom={1}
+        >
           <img src={image} alt="Coding Surf" />
-        </div>
+        </motion.div>
 
-        <div className="text-container">
+        <motion.div
+          className="text-container"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={sectionVariants}
+          custom={2}
+        >
           <h2>{t('home.subtitle')}</h2>
 
           <section className="vision-section">
@@ -93,11 +127,18 @@ const Home = () => {
             <h2>{t('home.wish_title')}</h2>
             <p>{t('home.wish_content')}</p>
           </section>
-        </div>
+        </motion.div>
       </div>
 
       {/* Services Overview Section */}
-      <section className="services-overview">
+      <motion.section
+        className="services-overview"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={sectionVariants}
+        custom={3}
+      >
         <h2>{t('home.services_title')}</h2>
         <div className="services-list">
           <NavLink to={`/${currentLang}/it-consulting`} className="service-item">
@@ -113,15 +154,22 @@ const Home = () => {
           </NavLink>
 
           <NavLink to={`/${currentLang}/zoho-consulting`} className="service-item">
-            <img id='zoho' src={itServicesIcon} alt="IT Services" />
+            <img id="zoho" src={itServicesIcon} alt="Zoho Consulting" />
             <h3>{t('home.service_it_services_title')}</h3>
             <p>{t('home.service_it_services_description')}</p>
           </NavLink>
         </div>
-      </section>
+      </motion.section>
 
       {/* Our Projects Section */}
-      <section className="projects-section">
+      <motion.section
+        className="projects-section"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={sectionVariants}
+        custom={3}
+      >
         <h2>{t('home.projects_title')}</h2>
         <div className="projects-list">
           {[1, 2, 3].map((item) => (
@@ -134,10 +182,17 @@ const Home = () => {
             </div>
           ))}
         </div>
-      </section>
+      </motion.section>
 
       {/* Contact Section */}
-      <section className="contact-section">
+      <motion.section
+        className="contact-section"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={sectionVariants}
+        custom={3}
+      >
         <h2>{t('home.contact_title')}</h2>
         <form className="contact-form" onSubmit={handleSubmit}>
           <input
@@ -159,10 +214,17 @@ const Home = () => {
           ></textarea>
           <button type="submit">{t('home.contact_submit_button')}</button>
         </form>
-      </section>
+      </motion.section>
 
       {/* FAQ Section */}
-      <section className="faq-section">
+      <motion.section
+        className="faq-section"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={sectionVariants}
+        custom={3}
+      >
         <h2>{t('home.faq_title')}</h2>
         <div className="faq-list">
           {[1, 2, 3].map((item, index) => (
@@ -177,8 +239,8 @@ const Home = () => {
             </div>
           ))}
         </div>
-      </section>
-    </>
+      </motion.section>
+    </div>
   );
 };
 

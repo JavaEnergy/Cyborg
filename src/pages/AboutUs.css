@@ -3,38 +3,27 @@
 /* Hero Section */
 .about-hero {
   position: relative;
-  height: 50vh; /* Adjusted height */
+  height: 50vh;
   background-image: url('../assets/images/abus.png'); /* Ensure the path is correct */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-.about-hero-content {
+.about-hero-content-wrapper {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
 }
 
 .about-hero-content h1 {
   color: #fff;
   font-size: 2.5em;
-  text-align: center;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   font-weight: bold;
-  animation: fadeInDown 1s ease-in-out;
-}
-
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 /* Content Sections */
@@ -47,8 +36,9 @@
   align-items: center;
   flex-wrap: wrap;
   margin-bottom: 40px;
-  flex-direction: row; /* Set default flex-direction to row */
+  flex-direction: row; /* Default direction */
 }
+
 
 
 #firstimg {
@@ -134,17 +124,14 @@
   background: #eaeaea;
 }
 
-.about-faq-item p {
+.faq-answer {
+  overflow: hidden;
   font-size: 1.1em;
   line-height: 1.6;
-  max-height: 0;
-  overflow: hidden;
   padding: 0 10px;
-  transition: max-height 0.3s ease, padding 0.3s ease;
 }
 
-.about-faq-item.open p {
-  max-height: 500px; /* Adjust as needed */
+.about-faq-item.open .faq-answer {
   padding: 10px;
 }
 
@@ -160,6 +147,10 @@
 
   .about-hero {
     height: 20vh;
+  }
+
+  .about-hero-content-wrapper {
+    transform: translate(-50%, -50%);
   }
 
   .about-hero-content h1 {

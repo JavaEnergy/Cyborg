@@ -191,7 +191,7 @@ const WebDevelopment = () => {
             variants={sectionVariants}
             initial="hidden"
             animate="visible"
-            custom={2}
+            custom={5}
           >
             <Typography variant="h4" component="h2" gutterBottom align="center">
               {t('web_development.technologies_tools')}
@@ -212,7 +212,7 @@ const WebDevelopment = () => {
             variants={sectionVariants}
             initial="hidden"
             animate="visible"
-            custom={3}
+            custom={5}
           >
             <div className="cta-content">
               <Typography variant="h4" align="center" gutterBottom>

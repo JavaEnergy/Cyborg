@@ -243,7 +243,7 @@ const ITConsulting = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            custom={4}
+            custom={3}
           >
             <Grid container spacing={4} alignItems="center">
               <Grid item xs={12} md={6}>
@@ -271,7 +271,7 @@ const ITConsulting = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            custom={5}
+            custom={3}
           >
             <Typography variant="h5" align="center" gutterBottom>
               {t('it_consulting.ready_to_transform')}
@@ -285,7 +285,7 @@ const ITConsulting = () => {
   initial="hidden"
   whileInView="visible"
   viewport={{ once: true }}
-  custom={6}
+  custom={3}
 >
   <Typography variant="h4" component="h2" align="center" gutterBottom>
     {t('home.contact_title')}
