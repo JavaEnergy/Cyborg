@@ -8,7 +8,7 @@ import ITConsulting from './pages/ITConsulting';
 import WebDevelopment from './pages/WebDevelopment';
 import ZohoConsulting from './pages/ZohoConsulting';
 import ContactUs from './pages/ContactUs';
-import Legal from './pages/Legal'; // Import Legal page
+import Legal from './pages/legal'; // Import Legal page
 import Footer from './components/Footer/Footer';
 import './i18n'; // Import i18n setup
 import { useTranslation } from 'react-i18next';
