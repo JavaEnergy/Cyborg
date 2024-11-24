@@ -1,5 +1,5 @@
 // src/pages/Home.jsx
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import './Home.css';
 import image from '../assets/images/bg.jpg';
@@ -15,6 +15,39 @@ const Home = () => {
   const [hovered, setHovered] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
 
+  // Refs for excluded sections
+  const contactRef = useRef(null);
+  const faqRef = useRef(null);
+
+  // Handle mouse movements to determine if over excluded sections
+  useEffect(() => {
+    const handleMouseMove = (event) => {
+      const contact = contactRef.current;
+      const faq = faqRef.current;
+
+      // Check if mouse is over Contact Us or FAQ sections
+      if (
+        (contact && contact.contains(event.target)) ||
+        (faq && faq.contains(event.target))
+      ) {
+        // Mouse is over excluded sections
+        setHovered(false);
+      } else {
+        // Mouse is outside excluded sections
+        setHovered(true);
+      }
+    };
+
+    // Add event listener
+    window.addEventListener('mousemove', handleMouseMove);
+
+    // Cleanup on unmount
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
+
+  // Initialize or cleanup spider effect based on hovered state
   useEffect(() => {
     let cleanup; // For storing the cleanup function
     if (hovered) {
@@ -69,23 +102,20 @@ const Home = () => {
   // Animation variants
   const sectionVariants = {
     hidden: { opacity: 0, y: 50 },
-    visible: (custom) => ({
+    visible: (custom = 0) => ({
       opacity: 1,
       y: 0,
       transition: {
-        delay: custom * 0.3,
-        duration: 0.5,
+        delay: custom * 0.2, // Adjusted delay for faster animations
+        duration: 0.6,
         ease: 'easeOut',
       },
     }),
   };
 
   return (
-    <div
-      className="home-page"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
+    <div className="home-page">
+      {/* Hero Section */}
       <div className="hero">
         <motion.div
           className="hero-content"
@@ -97,6 +127,7 @@ const Home = () => {
         </motion.div>
       </div>
 
+      {/* Main Content */}
       <div className="home-main-content">
         <motion.div
           className="image-container"
@@ -130,37 +161,47 @@ const Home = () => {
         </motion.div>
       </div>
 
-      {/* Services Overview Section */}
-      <motion.section
+            {/* Services Overview Section */}
+            <motion.section
         className="services-overview"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
         variants={sectionVariants}
         custom={3}
+        id="services" // Added id for anchor link
       >
         <h2>{t('home.services_title')}</h2>
         <div className="services-list">
-          <NavLink to={`/${currentLang}/it-consulting`} className="service-item">
-            <img src={itConsultingIcon} alt="IT Consulting" />
+          <NavLink
+            to={`/${currentLang}/it-consulting`}
+            className="service-item"
+          >
+            <img src={itConsultingIcon} alt={t('home.service_it_consulting_title')} />
             <h3>{t('home.service_it_consulting_title')}</h3>
             <p>{t('home.service_it_consulting_description')}</p>
           </NavLink>
 
-          <NavLink to={`/${currentLang}/web-development`} className="service-item">
-            <img src={webDevelopmentIcon} alt="Web Development" />
+          <NavLink
+            to={`/${currentLang}/web-development`}
+            className="service-item"
+          >
+            <img src={webDevelopmentIcon} alt={t('home.service_web_development_title')} />
             <h3>{t('home.service_web_development_title')}</h3>
             <p>{t('home.service_web_development_description')}</p>
           </NavLink>
 
-          <NavLink to={`/${currentLang}/zoho-consulting`} className="service-item">
-            <img id="zoho" src={itServicesIcon} alt="Zoho Consulting" />
+          <NavLink
+            to={`/${currentLang}/zoho-consulting`}
+            className="service-item"
+          >
+            <img id="zoho" src={itServicesIcon} alt={t('home.service_it_services_title')} />
             <h3>{t('home.service_it_services_title')}</h3>
             <p>{t('home.service_it_services_description')}</p>
           </NavLink>
         </div>
       </motion.section>
-
+      
       {/* Our Projects Section */}
       <motion.section
         className="projects-section"
@@ -168,7 +209,7 @@ const Home = () => {
         whileInView="visible"
         viewport={{ once: true }}
         variants={sectionVariants}
-        custom={3}
+        custom={4}
       >
         <h2>{t('home.projects_title')}</h2>
         <div className="projects-list">
@@ -187,11 +228,12 @@ const Home = () => {
       {/* Contact Section */}
       <motion.section
         className="contact-section"
+        variants={sectionVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        variants={sectionVariants}
-        custom={3}
+        custom={5}
+        ref={contactRef} // Assign ref to Contact Us section
       >
         <h2>{t('home.contact_title')}</h2>
         <form className="contact-form" onSubmit={handleSubmit}>
@@ -219,11 +261,12 @@ const Home = () => {
       {/* FAQ Section */}
       <motion.section
         className="faq-section"
+        variants={sectionVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        variants={sectionVariants}
-        custom={3}
+        custom={6}
+        ref={faqRef} // Assign ref to FAQ section
       >
         <h2>{t('home.faq_title')}</h2>
         <div className="faq-list">

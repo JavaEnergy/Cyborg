@@ -1,12 +1,122 @@
-.footer h1 {
-    color: red; 
+/* src/components/Footer.css */
+
+.footer {
+  background-color: #222;
+  color: #fff;
+  padding: 60px 20px;
+  font-family: 'Arial, sans-serif';
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-section {
+  flex: 1 1 200px;
+  margin: 20px;
+}
+
+.footer-section h3 {
+  font-size: 1.5em;
+  margin-bottom: 15px;
+  color: #f4b400;
+}
+
+.footer-section p,
+.footer-section li,
+.footer-section a {
+  font-size: 1em;
+  color: #bbb;
+  text-decoration: none;
+}
+
+.footer-section a:hover {
+  color: #f4b400;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.social-media a {
+  color: #bbb;
+  margin-right: 15px;
+  transition: color 0.3s ease;
+}
+
+.social-media a:hover {
+  color: #f4b400;
+}
+
+.awards {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.awards img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.awards-title {
+  margin-top: 10px;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  border-top: 1px solid #444;
+  padding-top: 20px;
+  font-size: 0.9em;
+  color: #bbb;
+}
+/* Social Icons */
+.social-icons {
+  display: flex;
+  align-items: center;
+}
+
+.social-icons a {
+  color: #bbb;
+  margin-right: 15px;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #f4b400;
+}
+
+/* 24/7 Contact Notice */
+.contactable-notice {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #f4b400;
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
   }
-  
-  .footer {
-    background-color: #333;
-    color: white;
+
+  .footer-section {
+    margin: 20px 0;
     text-align: center;
-    padding: 2rem;
-    bottom: 0;
   }
-  
+
+  .awards {
+    justify-content: center;
+  }
+}

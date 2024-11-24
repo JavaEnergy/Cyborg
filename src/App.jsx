@@ -8,6 +8,7 @@ import ITConsulting from './pages/ITConsulting';
 import WebDevelopment from './pages/WebDevelopment';
 import ZohoConsulting from './pages/ZohoConsulting';
 import ContactUs from './pages/ContactUs';
+import Legal from './pages/Legal'; // Import Legal page
 import Footer from './components/Footer/Footer';
 import './i18n'; // Import i18n setup
 import { useTranslation } from 'react-i18next';
@@ -18,12 +19,14 @@ const App = () => {
   const { i18n } = useTranslation();
 
   useEffect(() => {
+    // Determine the language from the path
     const languageFromPath = pathname.startsWith('/en') ? 'en' : 'de';
     if (i18n.language !== languageFromPath) {
       i18n.changeLanguage(languageFromPath);
     }
   }, [pathname, i18n]);
 
+  // Redirect root to default language (e.g., German)
   if (pathname === '/') {
     return <Navigate to="/de" replace />;
   }
@@ -31,17 +34,17 @@ const App = () => {
   return (
     <>
       <Header />
-      <ScrollToTop /> {/* Moved outside of Routes */}
+      <ScrollToTop /> {/* Ensures scrolling to top on route change */}
       <div>
         <Routes>
-          {/* Removed ScrollToTop from here */}
-          <Route path="/:lng" element={<Home />} />
-          <Route path="/:lng/about-us" element={<AboutUs />} />
-          <Route path="/:lng/it-consulting" element={<ITConsulting />} />
-          <Route path="/:lng/web-development" element={<WebDevelopment />} />
+          <Route path="/:lang" element={<Home />} />
+          <Route path="/:lang/about-us" element={<AboutUs />} />
+          <Route path="/:lang/it-consulting" element={<ITConsulting />} />
+          <Route path="/:lang/web-development" element={<WebDevelopment />} />
           <Route path="/:lang/zoho-consulting" element={<ZohoConsulting />} />
-          <Route path="/:lng/contact-us" element={<ContactUs />} />
-          {/* Add a fallback route if needed */}
+          <Route path="/:lang/contact-us" element={<ContactUs />} />
+          <Route path="/:lang/legal" element={<Legal />} /> {/* Added Legal route */}
+          {/* Fallback route */}
           <Route path="*" element={<Navigate to="/de" replace />} />
         </Routes>
       </div>
