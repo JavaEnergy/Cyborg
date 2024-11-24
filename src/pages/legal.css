@@ -30,15 +30,33 @@
     animation: fadeInLeft 0.8s ease-out;
   }
   
+  .legal-page h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
   .legal-page p {
     font-size: 1.1em;
     line-height: 1.8;
     color: #666;
     margin-bottom: 30px;
+    white-space: pre-wrap; /* To preserve line breaks */
     animation: fadeInRight 0.8s ease-out;
   }
   
-  /* Animations */
+  .legal-page ol,
+  .legal-page ul {
+    margin-left: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .legal-page ol li,
+  .legal-page ul li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+  }
+  
   @keyframes fadeInDown {
     from {
       opacity: 0;
@@ -84,6 +102,10 @@
   
     .legal-page h2 {
       font-size: 1.5em;
+    }
+  
+    .legal-page h3 {
+      font-size: 1.2em;
     }
   
     .legal-page p {
