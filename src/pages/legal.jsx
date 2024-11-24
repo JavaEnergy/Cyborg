@@ -1,7 +1,7 @@
 // src/pages/Legal.jsx
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import './Legal.css'; // Ensure this CSS file exists and is styled appropriately
+import './legal.css'; 
 import { motion } from 'framer-motion';
 
 const Legal = () => {
