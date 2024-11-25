@@ -191,10 +191,10 @@
     "message": "Message",
     "submit": "Send Message",
     "address_title": "Our Office",
-    "address_line1": "123 Main Street",
-    "address_line2": "City, State, ZIP",
-    "phone": "Phone: (123) 456-7890",
-    "email_contact": "Email: info@example.com"
+    "address_line1": "",
+    "address_line2": "",
+    "phone": "Phone: (+995) 598-707973",
+    "email_contact": "Email: info@cyborg.com"
   },
   "legal": {
     "title": "Privacy Policy and Terms of Use",

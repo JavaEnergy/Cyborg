@@ -186,11 +186,11 @@
     "subject": "Betreff",
     "message": "Nachricht",
     "submit": "Nachricht senden",
-    "address_title": "Unser Büro",
-    "address_line1": "Hauptstraße 123",
-    "address_line2": "Stadt, Bundesland, PLZ",
-    "phone": "Telefon: (123) 456-7890",
-    "email_contact": "E-Mail: info@beispiel.de"
+    "address_title": "",
+    "address_line1": "",
+    "address_line2": "",
+    "phone": "Telefon: (+995) 598-707973",
+    "email_contact": "E-Mail: info@cyborg.de"
   },
   "legal": {
     "title": "Datenschutzerklärung und Nutzungsbedingungen",
