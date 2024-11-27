@@ -36,7 +36,7 @@
   font-size: 6rem; /* Default for English */
   line-height: 1.1;
   margin-bottom: 2rem;
-  width: 1100px;
+  max-width: 90%;
   word-break: break-word; /* Ensure long words break properly */
 }
 
@@ -49,14 +49,16 @@
 /* Renamed class to prevent conflicts */
 .home-main-content {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   padding: 40px;
+  flex-wrap: wrap;
 }
 
 .image-container {
-  flex: 1;
-  margin-right: 40px;
+  flex: 1 1 500px;
+  margin: 20px;
 }
 
 .image-container img {
@@ -65,16 +67,17 @@
 }
 
 .text-container {
-  flex: 1;
+  flex: 1 1 500px;
+  margin: 20px;
 }
 
 .text-container h2 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   margin-bottom: 20px;
 }
 
 .text-container p {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   line-height: 1.8;
   color: #333; /* Adjust color as needed */
 }
@@ -128,8 +131,7 @@
 }
 
 #zoho {
-  width: 300px;
-
+  width: 100%;
 }
 
 .service-item h3 {
@@ -168,6 +170,8 @@
   background-color: #fff;
   border-radius: 10px;
   padding: 20px;
+  box-sizing: border-box;
+  width: 300px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -189,7 +193,7 @@
 }
 
 .project-content h3 {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   color: #333;
   margin-bottom: 10px;
 }
@@ -281,7 +285,7 @@
 }
 
 .faq-item h3 {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   color: #222;
   cursor: pointer;
   position: relative;
@@ -312,20 +316,138 @@
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
-  .projects-list {
-    flex-direction: column;
-    align-items: center;
+@media (max-width: 1200px) {
+  .hero-content h1 {
+    font-size: 5rem;
   }
+
+  .text-container h2 {
+    font-size: 2.2rem;
+  }
+
+  .services-overview h2,
+  .projects-section h2 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .hero-content h1 {
+    font-size: 4rem;
+  }
+
+  .text-container h2 {
+    font-size: 2rem;
+  }
+
+  .home-main-content {
+    flex-direction: column;
+    padding: 50px;
+  }
+
+
+  .image-container,
+  .text-container {
+    margin: 0 0 20px 0;
+  }
+
+  .services-overview h2,
+  .projects-section h2 {
+    font-size: 2rem;
+  }
+
+  .services-overview,
+  .projects-section,
+  .faq-section {
+    padding: 60px;
+  }
+
   .services-list {
     gap: 30px;
   }
+}
 
-  .service-item {
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 3rem;
+  }
+
+  .text-container h2 {
+    font-size: 1.8rem;
+  }
+
+  .services-overview h2,
+  .projects-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .service-item,
+  .project-item {
     width: 100%;
   }
-  .project-item {
-    flex: 1 1 100%;
-    max-width: 500px;
+
+  .service-item img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .project-content h3 {
+    font-size: 1.4rem;
+  }
+
+  #zoho {
+    width: 40%;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero {
+    padding: 10px;
+  }
+
+  .text-container h2 {
+    font-size: 1.5rem;
+  }
+
+  .text-container p {
+    font-size: 1rem;
+  }
+
+  .services-overview h2,
+  .projects-section h2,
+  .contact-section h2,
+  .faq-section h2 {
+    font-size: 1.5rem;
+  }
+  #zoho {
+    width: 40%;
+  }
+
+  .service-item h3,
+  .project-content h3,
+  .faq-item h3 {
+    font-size: 1.2rem;
+  }
+
+  .service-item p,
+  .project-content p,
+  .text-container p,
+  .faq-item p {
+    font-size: 0.9rem;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
+  .contact-form button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
   }
 }

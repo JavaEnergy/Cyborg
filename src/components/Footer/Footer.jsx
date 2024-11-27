@@ -38,7 +38,7 @@ const Footer = () => {
           <h3>{t('footer.social')}</h3>
           <div className="social-icons">
             <a
-              href="https://www.linkedin.com/in/your-linkedin-profile"
+              href="https://www.linkedin.com/company/cyborg-it-l%C3%B6sungen/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
