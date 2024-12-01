@@ -1,10 +1,11 @@
 // src/pages/AboutUs.jsx
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import './AboutUs.css'; // Ensure you have this CSS file
+import './AboutUs.css';
 import image1 from '../assets/images/abus.png'; // Replace with your actual image paths
 import image2 from '../assets/images/abus.png'; // Use a different image if needed
-import { motion } from 'framer-motion'; // Import Framer Motion
+import { motion } from 'framer-motion';
+import Layout from '../components/Layout'; // Import the Layout component
 
 const AboutUs = () => {
   const { t, i18n } = useTranslation();
@@ -37,7 +38,7 @@ const AboutUs = () => {
   };
 
   return (
-    <>
+    <Layout>
       {/* Hero Section */}
       <div className="about-hero">
         {/* Wrapper div to handle additional transforms if needed */}
@@ -49,8 +50,6 @@ const AboutUs = () => {
             transition={{ duration: 1 }}
           >
             <h1 className={isGerman ? 'de' : ''}>{t('about_us.hero_title')}</h1>
-            {/* Removed the subtitle */}
-            {/* <p>{t('about_us.hero_subtitle')}</p> */}
           </motion.div>
         </div>
       </div>
@@ -162,7 +161,7 @@ const AboutUs = () => {
           <button type="submit">{t('home.contact_submit_button')}</button>
         </form>
       </motion.section>
-    </>
+    </Layout>
   );
 };
 
