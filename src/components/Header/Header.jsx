@@ -129,6 +129,14 @@ const Header = forwardRef((props, ref) => {
                 </li>
               </ul>
               <div className="language-switch">
+                <div>
+                <div className="logo-container" onClick={goToHome} style={{ cursor: 'pointer' }}>
+          <img src={logo} alt="Logo" />
+        </div>
+                </div>
+                <div>
+
+               
                 <button
                   className={currentLang === 'de' ? 'active' : ''}
                   onClick={() => {
@@ -147,6 +155,7 @@ const Header = forwardRef((props, ref) => {
                 >
                   <img src={logouk} alt="UK Flag" />
                 </button>
+                </div>
               </div>
             </nav>
           </>
