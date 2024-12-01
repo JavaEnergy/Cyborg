@@ -203,6 +203,10 @@ nav a.active {
   .nav.mobile-nav.open {
     transform: translateX(0);
   }
+.header-container {
+  justify-content: end;
+  gap: 20px;
+}
 
   .nav.mobile-nav .main-menu {
     display: flex;
