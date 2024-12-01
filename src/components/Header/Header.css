@@ -220,7 +220,7 @@ nav a.active {
     width: 100%;
     padding: 1rem 0;
     border-bottom: 1px solid #eee;
-    color: #222;
+    /* color: #222; */
   }
 
   .nav.mobile-nav .main-menu > li > a:hover {
