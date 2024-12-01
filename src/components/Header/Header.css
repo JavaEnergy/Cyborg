@@ -53,7 +53,7 @@ nav a.active {
 }
 
 .header.scrolled nav a {
-  color: white;
+  /* color: white; */
 }
 
 /* Main Menu Styles */
@@ -97,12 +97,21 @@ nav a.active {
   color: #222;
 }
 
+/* Active Styles for Subtitles */
+.submenu li a.active {
+  color: #D4B051; /* Active color for subtitles */
+  font-weight: bold;
+}
+
+/* Hover State for Subtitles */
 .submenu li a:hover {
   background-color: #f9f9f9;
   color: #D4B051;
+  font-weight: bold;
 }
 
-.dropdown:hover .submenu {
+.dropdown:hover .submenu,
+.dropdown.open .submenu {
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(0);
@@ -122,14 +131,12 @@ nav a.active {
 }
 
 .language-switch img {
-  width: 24px;
-  height: 24px;
+  width: 40px;
+  height: 40px;
   transition: filter 0.3s ease;
 }
 
-.header.scrolled .language-switch img {
-  filter: brightness(0) invert(1);
-}
+
 
 /* Hamburger Menu Styles */
 .hamburger {
@@ -228,14 +235,11 @@ nav a.active {
   /* Adjust colors when scrolled */
   .header.scrolled nav a,
   .header.scrolled .nav.mobile-nav .main-menu > li > a {
-    color: white;
+    /* color: white; */
   }
 
   .header.scrolled .hamburger-line {
     background-color: white;
   }
 
-  .header.scrolled .language-switch img {
-    filter: brightness(0) invert(1);
-  }
 }

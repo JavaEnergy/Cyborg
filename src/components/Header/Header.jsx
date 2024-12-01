@@ -15,6 +15,7 @@ const Header = forwardRef((props, ref) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [openDropdown, setOpenDropdown] = useState(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -164,14 +165,15 @@ const Header = forwardRef((props, ref) => {
 
                 {/* IT Consulting Dropdown */}
                 <li
-                  className="dropdown"
-                  onMouseEnter={() => setIsMobileMenuOpen('it-consulting')}
-                  onMouseLeave={() => setIsMobileMenuOpen(false)}
+                  className={`dropdown ${openDropdown === 'it-consulting' ? 'open' : ''}`}
+                  onMouseEnter={() => setOpenDropdown('it-consulting')}
+                  onMouseLeave={() => setOpenDropdown(null)}
                 >
                   <NavLink
                     to={`/${currentLang}/it-consulting`}
                     className={isActiveLink(`/${currentLang}/it-consulting`) ? 'active' : ''}
                     aria-haspopup="true"
+                    aria-expanded={openDropdown === 'it-consulting'}
                   >
                     {t('menu.it_consulting')}
                   </NavLink>
@@ -229,14 +231,15 @@ const Header = forwardRef((props, ref) => {
 
                 {/* Web Development Dropdown */}
                 <li
-                  className="dropdown"
-                  onMouseEnter={() => setIsMobileMenuOpen('web-development')}
-                  onMouseLeave={() => setIsMobileMenuOpen(false)}
+                  className={`dropdown ${openDropdown === 'web-development' ? 'open' : ''}`}
+                  onMouseEnter={() => setOpenDropdown('web-development')}
+                  onMouseLeave={() => setOpenDropdown(null)}
                 >
                   <NavLink
                     to={`/${currentLang}/web-development`}
                     className={isActiveLink(`/${currentLang}/web-development`) ? 'active' : ''}
                     aria-haspopup="true"
+                    aria-expanded={openDropdown === 'web-development'}
                   >
                     {t('menu.web_development')}
                   </NavLink>
@@ -320,14 +323,15 @@ const Header = forwardRef((props, ref) => {
 
                 {/* Zoho Consulting Dropdown */}
                 <li
-                  className="dropdown"
-                  onMouseEnter={() => setIsMobileMenuOpen('zoho-consulting')}
-                  onMouseLeave={() => setIsMobileMenuOpen(false)}
+                  className={`dropdown ${openDropdown === 'zoho-consulting' ? 'open' : ''}`}
+                  onMouseEnter={() => setOpenDropdown('zoho-consulting')}
+                  onMouseLeave={() => setOpenDropdown(null)}
                 >
                   <NavLink
                     to={`/${currentLang}/zoho-consulting`}
                     className={isActiveLink(`/${currentLang}/zoho-consulting`) ? 'active' : ''}
                     aria-haspopup="true"
+                    aria-expanded={openDropdown === 'zoho-consulting'}
                   >
                     {t('menu.zoho_consulting')}
                   </NavLink>
@@ -337,9 +341,7 @@ const Header = forwardRef((props, ref) => {
                         smooth
                         to={`/${currentLang}/zoho-consulting#zoho-crm`}
                         className={
-                          isActiveSubmenuLink(`/${currentLang}/zoho-consulting#zoho-crm`)
-                            ? 'active'
-                            : ''
+                          isActiveSubmenuLink(`/${currentLang}/zoho-consulting#zoho-crm`) ? 'active' : ''
                         }
                       >
                         {t('zoho_consulting.zoho_crm')}
@@ -350,9 +352,7 @@ const Header = forwardRef((props, ref) => {
                         smooth
                         to={`/${currentLang}/zoho-consulting#zoho-books`}
                         className={
-                          isActiveSubmenuLink(`/${currentLang}/zoho-consulting#zoho-books`)
-                            ? 'active'
-                            : ''
+                          isActiveSubmenuLink(`/${currentLang}/zoho-consulting#zoho-books`) ? 'active' : ''
                         }
                       >
                         {t('zoho_consulting.zoho_books')}
@@ -363,9 +363,7 @@ const Header = forwardRef((props, ref) => {
                         smooth
                         to={`/${currentLang}/zoho-consulting#zoho-projects`}
                         className={
-                          isActiveSubmenuLink(`/${currentLang}/zoho-consulting#zoho-projects`)
-                            ? 'active'
-                            : ''
+                          isActiveSubmenuLink(`/${currentLang}/zoho-consulting#zoho-projects`) ? 'active' : ''
                         }
                       >
                         {t('zoho_consulting.zoho_projects')}
@@ -376,9 +374,7 @@ const Header = forwardRef((props, ref) => {
                         smooth
                         to={`/${currentLang}/zoho-consulting#custom-development`}
                         className={
-                          isActiveSubmenuLink(`/${currentLang}/zoho-consulting#custom-development`)
-                            ? 'active'
-                            : ''
+                          isActiveSubmenuLink(`/${currentLang}/zoho-consulting#custom-development`) ? 'active' : ''
                         }
                       >
                         {t('zoho_consulting.custom_development')}
