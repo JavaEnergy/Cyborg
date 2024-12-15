@@ -1,3 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap");
+
+:root {
+  --bg: transparent; /* Make background transparent to blend into navbar */
+  --clr-1: #00c2ff;
+  --clr-2: #33ff8c;
+  --clr-3: #ffc640;
+  --clr-4: #e54cff;
+  --blur: 0.5rem;
+  --fs: 1.2rem; /* Smaller font size */
+  --ls: -1px;
+}
+
 /* General Header Styles */
 .header {
   position: fixed;
@@ -27,15 +40,200 @@
   justify-content: space-around;
 }
 
+.logo-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Adjust the IT Solutions title placement and size */
+.it-title {
+  display: none;
+  font-size: var(--fs);
+  font-weight: 800;
+  letter-spacing: var(--ls);
+  position: absolute;
+  bottom: -35px; /* Position slightly below the logo */
+  left: 50%;
+  transform: translateX(-50%);
+  overflow: hidden;
+  margin: 0;
+  color: #000; /* Adjust color if needed (currently black text) */
+  font-family: "Inter", "DM Sans", Arial, sans-serif;
+  white-space: nowrap;
+}
+
 /* Logo Styling */
 .logo-container img {
-  width: 50px;
+  width: 250px; /* Adjusted smaller width to fit the navbar */
   height: auto;
   transition: width 0.3s ease;
 }
 
 .header.scrolled .logo-container img {
-  width: 40px;
+  width: 250px;
+}
+
+/* Aurora Effect */
+.it-aurora {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  mix-blend-mode: screen; /* Change blend mode to show on white background */
+  pointer-events: none;
+}
+
+.it-aurora__item {
+  overflow: hidden;
+  position: absolute;
+  width: 10vw; /* Smaller size */
+  height: 10vw; /* Smaller size */
+  background-color: var(--clr-1);
+  border-radius: 37% 29% 27% 27% / 28% 25% 41% 37%;
+  filter: blur(var(--blur));
+  mix-blend-mode: overlay;
+}
+
+.it-aurora__item:nth-of-type(1) {
+  top: -100%;
+  animation: aurora-border 6s ease-in-out infinite,
+    aurora-1 5s ease-in-out infinite alternate;
+}
+
+.it-aurora__item:nth-of-type(2) {
+  background-color: var(--clr-3);
+  right: 0;
+  top: -30%;
+  animation: aurora-border 6s ease-in-out infinite,
+    aurora-2 5s ease-in-out infinite alternate;
+}
+
+.it-aurora__item:nth-of-type(3) {
+  background-color: var(--clr-2);
+  left: 0;
+  bottom: -30%;
+  animation: aurora-border 6s ease-in-out infinite,
+    aurora-3 3s ease-in-out infinite alternate;
+}
+
+.it-aurora__item:nth-of-type(4) {
+  background-color: var(--clr-4);
+  right: 0;
+  bottom: -100%;
+  animation: aurora-border 6s ease-in-out infinite,
+    aurora-4 13s ease-in-out infinite alternate;
+}
+
+@keyframes aurora-1 {
+  0% {
+    top: 0;
+    right: 0;
+  }
+
+  50% {
+    top: 50%;
+    right: 50%;
+  }
+
+  75% {
+    top: 60%;
+    right: 20%;
+  }
+
+  100% {
+    top: 0;
+    right: 0;
+  }
+}
+
+@keyframes aurora-2 {
+  0% {
+    top: -50%;
+    left: 0%;
+  }
+
+  60% {
+    top: 60%;
+    left: 30%;
+  }
+
+  85% {
+    top: 20%;
+    left: 10%;
+  }
+
+  100% {
+    top: -50%;
+    left: 0%;
+  }
+}
+
+@keyframes aurora-3 {
+  0% {
+    bottom: -10%;
+    left: 0;
+  }
+
+  40% {
+    bottom: 50%;
+    left: 25%;
+  }
+
+  65% {
+    bottom: 20%;
+    left: 10%;
+  }
+
+  100% {
+    bottom: -10%;
+    left: 0;
+  }
+}
+
+@keyframes aurora-4 {
+  0% {
+    bottom: -100%;
+    right: 0;
+  }
+
+  50% {
+    bottom: 0%;
+    right: 20%;
+  }
+
+  90% {
+    bottom: 30%;
+    right: 10%;
+  }
+
+  100% {
+    bottom: -100%;
+    right: 0;
+  }
+}
+
+@keyframes aurora-border {
+  0% {
+    border-radius: 37% 29% 27% 27% / 28% 25% 41% 37%;
+  }
+
+  25% {
+    border-radius: 47% 29% 39% 49% / 61% 19% 66% 26%;
+  }
+
+  50% {
+    border-radius: 57% 23% 47% 72% / 63% 17% 66% 33%;
+  }
+
+  75% {
+    border-radius: 28% 49% 29% 100% / 93% 20% 64% 25%;
+  }
+
+  100% {
+    border-radius: 37% 29% 27% 27% / 28% 25% 41% 37%;
+  }
 }
 
 /* Reset Link Styles */
@@ -52,14 +250,10 @@ nav a.active {
   font-weight: bold;
 }
 
-.header.scrolled nav a {
-  /* color: white; */
-}
-
 /* Main Menu Styles */
 .main-menu {
   display: flex;
-  gap: 45px;
+  gap: 30px; /* Slightly smaller gap for more compact menu */
   list-style: none;
   margin: 0;
   padding: 0;
@@ -75,14 +269,14 @@ nav a.active {
   background-color: white;
   border: 1px solid #ddd;
   padding: 10px 0;
-  min-width: 250px;
+  min-width: 200px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   top: calc(100% + 5px);
   left: 50%;
   transform: translateX(-50%);
   opacity: 0;
   visibility: hidden;
-  border-radius: 15px;
+  border-radius: 10px;
   z-index: 1000;
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
@@ -95,12 +289,6 @@ nav a.active {
   display: block;
   padding: 0.5rem 1rem;
   color: #222;
-}
-
-/* Active Styles for Subtitles */
-.submenu li a.active {
-  color: #D4B051; /* Active color for subtitles */
-  font-weight: bold;
 }
 
 /* Hover State for Subtitles */
@@ -131,12 +319,10 @@ nav a.active {
 }
 
 .language-switch img {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   transition: filter 0.3s ease;
 }
-
-
 
 /* Hamburger Menu Styles */
 .hamburger {
@@ -203,10 +389,11 @@ nav a.active {
   .nav.mobile-nav.open {
     transform: translateX(0);
   }
-.header-container {
-  justify-content: space-between;
-  gap: 20px;
-}
+
+  .header-container {
+    justify-content: space-between;
+    gap: 20px;
+  }
 
   .nav.mobile-nav .main-menu {
     display: flex;
@@ -220,7 +407,6 @@ nav a.active {
     width: 100%;
     padding: 1rem 0;
     border-bottom: 1px solid #eee;
-    /* color: #222; */
   }
 
   .nav.mobile-nav .main-menu > li > a:hover {
@@ -231,12 +417,12 @@ nav a.active {
     margin-top: auto;
     justify-content: center; 
     display: flex; 
-    gap: 62px;
+    gap: 40px;
   }
 
   .language-switch img {
-    width: 50px;
-    height: 50px;
+    width: 35px;
+    height: 35px;
   }
 
   /* Hide submenus on mobile */
@@ -244,14 +430,14 @@ nav a.active {
     display: none;
   }
 
-  /* Adjust colors when scrolled */
-  .header.scrolled nav a,
-  .header.scrolled .nav.mobile-nav .main-menu > li > a {
-    /* color: white; */
+  .it-title {
+    position: static;
+    margin-top: 1rem;
+    font-size: 1rem;
   }
 
-  .header.scrolled .hamburger-line {
-    background-color: white;
+  .it-aurora__item {
+    width: 15vw;
+    height: 15vw;
   }
-
 }

@@ -19,10 +19,9 @@ const Footer = () => {
         {/* Contact Information */}
         <div className="footer-section contact-info">
           <h3>{t('footer.contact_info')}</h3>
-          <p>Jordan – Amman</p>
-          <p>Q.Mesbah St. Building 14</p>
-          <p>+995 598 70 79 73</p>
-          <p>+971 (04) 454 1159</p>
+          {/* <p>Jordan – Amman</p>
+          <p>Q.Mesbah St. Building 14</p> */}
+          <p>+995 598 70 79 73</p> <p>(WhatsApp)</p>
           <p>
             Email:{' '}
             <a href="mailto:info@cyborg.com">info@cyborg.com</a>

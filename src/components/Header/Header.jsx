@@ -1,10 +1,9 @@
-// Header.jsx
 import { useState, useEffect, forwardRef } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import { useTranslation } from 'react-i18next';
 import './Header.css';
-import logo from '../../assets/images/301963638_404276911813423_143320338695708279_n.png';
+import logo from '../../assets/images/logo/logo 1.png';
 import logode from '../../assets/images/germany_round_icon_64 (1).png';
 import logouk from '../../assets/images/united_kingdom_round_icon_64.png';
 
@@ -66,6 +65,16 @@ const Header = forwardRef((props, ref) => {
       <div className="header-container">
         <div className="logo-container" onClick={goToHome} style={{ cursor: 'pointer' }}>
           <img src={logo} alt="Logo" />
+          {/* IT Solutions with dark aurora effect below the logo */}
+          <h1 className="it-title">
+            IT Solutions
+            <div className="it-aurora">
+              <div className="it-aurora__item"></div>
+              <div className="it-aurora__item"></div>
+              <div className="it-aurora__item"></div>
+              <div className="it-aurora__item"></div>
+            </div>
+          </h1>
         </div>
 
         {isMobile ? (
@@ -130,31 +139,29 @@ const Header = forwardRef((props, ref) => {
               </ul>
               <div className="language-switch">
                 <div>
-                <div className="logo-container" onClick={goToHome} style={{ cursor: 'pointer' }}>
-          <img src={logo} alt="Logo" />
-        </div>
+                  <div className="logo-container" onClick={goToHome} style={{ cursor: 'pointer' }}>
+                    <img src={logo} alt="Logo" />
+                  </div>
                 </div>
                 <div>
-
-               
-                <button
-                  className={currentLang === 'de' ? 'active' : ''}
-                  onClick={() => {
-                    changeLanguage('de');
-                    setIsMobileMenuOpen(false);
-                  }}
-                >
-                  <img src={logode} alt="German Flag" />
-                </button>
-                <button
-                  className={currentLang === 'en' ? 'active' : ''}
-                  onClick={() => {
-                    changeLanguage('en');
-                    setIsMobileMenuOpen(false);
-                  }}
-                >
-                  <img src={logouk} alt="UK Flag" />
-                </button>
+                  <button
+                    className={currentLang === 'de' ? 'active' : ''}
+                    onClick={() => {
+                      changeLanguage('de');
+                      setIsMobileMenuOpen(false);
+                    }}
+                  >
+                    <img src={logode} alt="German Flag" />
+                  </button>
+                  <button
+                    className={currentLang === 'en' ? 'active' : ''}
+                    onClick={() => {
+                      changeLanguage('en');
+                      setIsMobileMenuOpen(false);
+                    }}
+                  >
+                    <img src={logouk} alt="UK Flag" />
+                  </button>
                 </div>
               </div>
             </nav>

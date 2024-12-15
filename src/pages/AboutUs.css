@@ -30,7 +30,9 @@
 .about-content-section {
   padding: 60px 20px; /* Adjusted padding for better responsiveness */
 }
-
+.second {
+  padding-left: 150px;
+}
 .about-content-container {
   display: flex;
   align-items: center;
@@ -39,7 +41,7 @@
 }
 
 .about-content-container.reverse {
-  flex-direction: row-reverse;
+  flex-direction: row;
 }
 
 #firstimg {
@@ -200,7 +202,7 @@
   }
 
   .about-content-container.reverse {
-    flex-direction: column-reverse;
+    flex-direction: column;
   }
 
   .about-hero {

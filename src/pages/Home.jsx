@@ -202,28 +202,76 @@ const Home = () => {
         </div>
       </motion.section>
       
-      {/* Our Projects Section */}
+
+      {/* projects-section */}
       <motion.section
-        className="projects-section"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={sectionVariants}
-        custom={4}
-      >
-        <h2>{t('home.projects_title')}</h2>
-        <div className="projects-list">
-          {[1, 2, 3].map((item) => (
-            <div className="project-item" key={item}>
-              <div className="project-content">
-                <h3>{t(`home.project_${item}_title`)}</h3>
-                <p>{t(`home.project_${item}_description`)}</p>
-                <button>{t('home.project_view_more')}</button>
-              </div>
+  className="projects-section"
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true }}
+  variants={sectionVariants}
+  custom={4}
+>
+  <h2>{t('home.projects_title')}</h2>
+  <div className="projects-list">
+    {[1, 2, 3].map((item) => (
+      <div className={`project-item project-${item}`} key={item}>
+        <div className="project-content">
+          <h3>{t(`home.project_${item}_title`)}</h3>
+          <p>{t(`home.project_${item}_description`)}</p>
+
+          {item === 1 && (
+            <div className="project-iframe-container" style={{ marginTop: '1rem' }}>
+              <iframe
+                src="https://product-card-plum-mu.vercel.app"
+                width="100%"
+                height="700"
+                style={{ border: 'none' }}
+                title="Product Card Preview"
+              ></iframe>
             </div>
-          ))}
+          )}
+
+          {item === 3 && (
+            <div className="project-iframe-container" style={{ marginTop: '1rem' }}>
+              <iframe
+                src="https://clock-teal-tau.vercel.app/"
+                width="100%"
+                height="400"
+                style={{ border: 'none' }}
+                title="Quiz App Preview"
+              ></iframe>
+            </div>
+          )}
+
+          {item === 1 && (
+            <a 
+              href="https://product-card-plum-mu.vercel.app" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              <button>{t('home.project_view_more')}</button>
+            </a>
+          )}
+
+          {item === 3 && (
+            <a 
+              href="https://quiz-application-puce-six.vercel.app" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              <button>{t('home.project_view_more')}</button>
+            </a>
+          )}
+
+          {item !== 1 && item !== 3 && (
+            <button>{t('home.project_view_more')}</button>
+          )}
         </div>
-      </motion.section>
+      </div>
+    ))}
+  </div>
+</motion.section>
 
       {/* Contact Section */}
       <motion.section

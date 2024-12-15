@@ -83,7 +83,7 @@ const AboutUs = () => {
         viewport={{ once: true }}
         custom={1}
       >
-        <div className="about-content-container reverse">
+        <div className="about-content-container reverse second">
           <div className="about-text-content">
             <h2>{t('about_us.mission_title')}</h2>
             <p>{t('about_us.mission_text')}</p>
