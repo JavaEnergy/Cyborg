@@ -256,7 +256,7 @@ const Home = () => {
 
           {item === 3 && (
             <a 
-              href="https://quiz-application-puce-six.vercel.app" 
+              href="https://clock-teal-tau.vercel.app/" 
               target="_blank" 
               rel="noopener noreferrer"
             >
