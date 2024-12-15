@@ -4,8 +4,8 @@ import { HashLink } from 'react-router-hash-link';
 import { useTranslation } from 'react-i18next';
 import './Header.css';
 import logo from '../../assets/images/logo/logo 1.png';
-import logode from '../../assets/images/germany_round_icon_64 (1).png';
-import logouk from '../../assets/images/united_kingdom_round_icon_64.png';
+import logode from '../../assets/images/germany_round_icon_640.png';
+import logouk from '../../assets/images/united_kingdom_round_icon_640.png';
 
 const Header = forwardRef((props, ref) => {
   const { t, i18n } = useTranslation();
@@ -60,12 +60,43 @@ const Header = forwardRef((props, ref) => {
     return hash === linkHash && isActiveLink(link);
   };
 
+  // Close mobile menu when clicking outside the header
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        isMobileMenuOpen &&
+        ref.current &&
+        !ref.current.contains(event.target) &&
+        !event.target.closest('.hamburger')
+      ) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isMobileMenuOpen, ref]);
+
   return (
     <header ref={ref} className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="header-container">
+        {/* Mobile order: Hamburger -> Logo -> Language icons */}
+        {isMobile && (
+          <button
+            className={`hamburger ${isMobileMenuOpen ? 'open' : ''}`}
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle navigation menu"
+          >
+            <span className="hamburger-line"></span>
+            <span className="hamburger-line"></span>
+            <span className="hamburger-line"></span>
+          </button>
+        )}
+
         <div className="logo-container" onClick={goToHome} style={{ cursor: 'pointer' }}>
           <img src={logo} alt="Logo" />
-          {/* IT Solutions with dark aurora effect below the logo */}
           <h1 className="it-title">
             IT Solutions
             <div className="it-aurora">
@@ -77,96 +108,24 @@ const Header = forwardRef((props, ref) => {
           </h1>
         </div>
 
-        {isMobile ? (
-          <>
+        {isMobile && (
+          <div className="language-switch mobile-language-switch">
             <button
-              className={`hamburger ${isMobileMenuOpen ? 'open' : ''}`}
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              aria-label="Toggle navigation menu"
+              className={currentLang === 'de' ? 'active' : ''}
+              onClick={() => changeLanguage('de')}
             >
-              <span className="hamburger-line"></span>
-              <span className="hamburger-line"></span>
-              <span className="hamburger-line"></span>
+              <img src={logode} alt="German Flag" />
             </button>
+            <button
+              className={currentLang === 'en' ? 'active' : ''}
+              onClick={() => changeLanguage('en')}
+            >
+              <img src={logouk} alt="UK Flag" />
+            </button>
+          </div>
+        )}
 
-            <nav className={`nav mobile-nav ${isMobileMenuOpen ? 'open' : ''}`}>
-              <ul className="main-menu">
-                <li>
-                  <NavLink
-                    to={`/${currentLang}/about-us`}
-                    className={isActiveLink(`/${currentLang}/about-us`) ? 'active' : ''}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {t('menu.about_us')}
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to={`/${currentLang}/it-consulting`}
-                    className={isActiveLink(`/${currentLang}/it-consulting`) ? 'active' : ''}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {t('menu.it_consulting')}
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to={`/${currentLang}/web-development`}
-                    className={isActiveLink(`/${currentLang}/web-development`) ? 'active' : ''}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {t('menu.web_development')}
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to={`/${currentLang}/zoho-consulting`}
-                    className={isActiveLink(`/${currentLang}/zoho-consulting`) ? 'active' : ''}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {t('menu.zoho_consulting')}
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to={`/${currentLang}/contact-us`}
-                    className={isActiveLink(`/${currentLang}/contact-us`) ? 'active' : ''}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {t('menu.contact_us')}
-                  </NavLink>
-                </li>
-              </ul>
-              <div className="language-switch">
-                <div>
-                  <div className="logo-container" onClick={goToHome} style={{ cursor: 'pointer' }}>
-                    <img src={logo} alt="Logo" />
-                  </div>
-                </div>
-                <div>
-                  <button
-                    className={currentLang === 'de' ? 'active' : ''}
-                    onClick={() => {
-                      changeLanguage('de');
-                      setIsMobileMenuOpen(false);
-                    }}
-                  >
-                    <img src={logode} alt="German Flag" />
-                  </button>
-                  <button
-                    className={currentLang === 'en' ? 'active' : ''}
-                    onClick={() => {
-                      changeLanguage('en');
-                      setIsMobileMenuOpen(false);
-                    }}
-                  >
-                    <img src={logouk} alt="UK Flag" />
-                  </button>
-                </div>
-              </div>
-            </nav>
-          </>
-        ) : (
+        {!isMobile && (
           <>
             <nav>
               <ul className="main-menu">
@@ -212,7 +171,9 @@ const Header = forwardRef((props, ref) => {
                         smooth
                         to={`/${currentLang}/it-consulting#it-strategy`}
                         className={
-                          isActiveSubmenuLink(`/${currentLang}/it-consulting#it-strategy`) ? 'active' : ''
+                          isActiveSubmenuLink(`/${currentLang}/it-consulting#it-strategy`)
+                            ? 'active'
+                            : ''
                         }
                       >
                         {t('it_consulting.it_strategy')}
@@ -236,7 +197,9 @@ const Header = forwardRef((props, ref) => {
                         smooth
                         to={`/${currentLang}/it-consulting#it-security`}
                         className={
-                          isActiveSubmenuLink(`/${currentLang}/it-consulting#it-security`) ? 'active' : ''
+                          isActiveSubmenuLink(`/${currentLang}/it-consulting#it-security`)
+                            ? 'active'
+                            : ''
                         }
                       >
                         {t('it_consulting.it_security')}
@@ -409,7 +372,8 @@ const Header = forwardRef((props, ref) => {
                 </li>
               </ul>
             </nav>
-            <div className="language-switch">
+            {/* Language Switcher for Desktop */}
+            <div className="language-switch desktop-language-switch">
               <button
                 className={currentLang === 'de' ? 'active' : ''}
                 onClick={() => changeLanguage('de')}
@@ -426,6 +390,59 @@ const Header = forwardRef((props, ref) => {
           </>
         )}
       </div>
+
+      {/* Slide-Down Mobile Menu */}
+      {isMobile && (
+        <div className={`mobile-menu-slide ${isMobileMenuOpen ? 'open' : ''}`}>
+          <ul className="mobile-main-menu">
+            <li>
+              <NavLink
+                to={`/${currentLang}/about-us`}
+                className={isActiveLink(`/${currentLang}/about-us`) ? 'active' : ''}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {t('menu.about_us')}
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to={`/${currentLang}/it-consulting`}
+                className={isActiveLink(`/${currentLang}/it-consulting`) ? 'active' : ''}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {t('menu.it_consulting')}
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to={`/${currentLang}/web-development`}
+                className={isActiveLink(`/${currentLang}/web-development`) ? 'active' : ''}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {t('menu.web_development')}
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to={`/${currentLang}/zoho-consulting`}
+                className={isActiveLink(`/${currentLang}/zoho-consulting`) ? 'active' : ''}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {t('menu.zoho_consulting')}
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to={`/${currentLang}/contact-us`}
+                className={isActiveLink(`/${currentLang}/contact-us`) ? 'active' : ''}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {t('menu.contact_us')}
+              </NavLink>
+            </li>
+          </ul>
+        </div>
+      )}
     </header>
   );
 });
