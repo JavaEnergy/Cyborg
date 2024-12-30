@@ -10,8 +10,8 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import EmailIcon from '@mui/icons-material/Email';
 
 // Import logo images
-import logo from '../../assets/images/logo/Cyborg logo O-05.png';
-import logoDark from '../../assets/images/logo/Cyborg logo O-06.png'; // Dark logo for scrolled state
+import logo from '../../assets/images/logo/Cyborg-logo-9-09.png';
+import logoDark from '../../assets/images/logo/Cyborg-logo 10-10.png'; // Dark logo for scrolled state
 import logode from '../../assets/images/germany_round_icon_640.png';
 import logouk from '../../assets/images/united_kingdom_round_icon_640.png';
 

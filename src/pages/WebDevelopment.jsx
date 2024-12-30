@@ -1,5 +1,5 @@
 // src/pages/WebDevelopment.jsx
-import React from 'react';
+import React, { useRef } from 'react'; // **Updated Line:** Import useRef
 import { useTranslation } from 'react-i18next';
 import {
   Container,
@@ -28,6 +28,7 @@ import angularImage from '../assets/images/abusbg.jpg';
 import ecommerceImage from '../assets/images/abusbg.jpg';
 import customSoftwareImage from '../assets/images/abusbg.jpg';
 import technologiesImage from '../assets/images/abusbg.jpg';
+import ContactForm from '../components/ContactForm'; // Import ContactForm
 
 const WebDevelopment = () => {
   const { t, i18n } = useTranslation();
@@ -69,6 +70,9 @@ const WebDevelopment = () => {
       },
     },
   };
+
+  // **Added Line:** Define contactRef
+  const contactRef = useRef(null);
 
   // Services data
   const services = [
@@ -132,7 +136,8 @@ const WebDevelopment = () => {
             className="consulting-section"
             variants={sectionVariants}
             initial="hidden"
-            animate="visible"
+            whileInView="visible"
+            viewport={{ once: true }}
             custom={3}
           >
             <Typography variant="h4" component="h2" gutterBottom align="center">
@@ -233,37 +238,20 @@ const WebDevelopment = () => {
             </div>
           </motion.div>
 
-          {/* Contact Section */}
+          {/* **Added Block: Contact Section** */}
           <motion.section
             className="contact-section"
             variants={sectionVariants}
             initial="hidden"
-            animate="visible"
-            custom={4}
+            whileInView="visible"
+            viewport={{ once: true }}
+            custom={5}
+            ref={contactRef} // Assign ref to Contact Us section
           >
-            <Typography variant="h4" component="h2" align="center" gutterBottom>
+            <Typography variant="h2" component="h2" gutterBottom>
               {t('home.contact_title')}
             </Typography>
-            <form className="contact-form" onSubmit={handleSubmit}>
-              <input
-                type="text"
-                name="name"
-                placeholder={t('home.contact_name_placeholder')}
-                required
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder={t('home.contact_email_placeholder')}
-                required
-              />
-              <textarea
-                name="message"
-                placeholder={t('home.contact_message_placeholder')}
-                required
-              ></textarea>
-              <button type="submit">{t('home.contact_submit_button')}</button>
-            </form>
+            <ContactForm />
           </motion.section>
         </Container>
       </div>

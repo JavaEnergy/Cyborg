@@ -289,5 +289,14 @@
     "contact_us_content": "Wenn Sie Fragen oder Kommentare zu diesen Nutzungsbedingungen haben, kontaktieren Sie uns bitte unter info@cyborg.com.\n\nWir können die Bedingungen gelegentlich aktualisieren, wobei Änderungen sofort nach der Veröffentlichung wirksam werden, sofern nicht anders angegeben. Wir empfehlen, die Bedingungen regelmäßig auf Aktualisierungen zu überprüfen. Wenn Sie den Bedingungen nicht zustimmen, beenden Sie die Nutzung der Website bitte sofort.\n\nVielen Dank für Ihre Aufmerksamkeit und die Nutzung unserer Website!",
     
     "updated_date": "Zuletzt aktualisiert: 11. November 2024"
+  },
+  "contact": {
+    "name_placeholder": "Ihr Name",
+    "email_placeholder": "Ihre E-Mail",
+    "message_placeholder": "Ihre Nachricht",
+    "send_button": "Senden",
+    "sending": "Senden...",
+    "success_message": "Vielen Dank für Ihre Nachricht. Wir werden uns in Kürze bei Ihnen melden.",
+    "error_message": "Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es später erneut."
   }
 }

@@ -1,15 +1,19 @@
 // src/pages/AboutUs.jsx
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import './AboutUs.css';
 import image1 from '../assets/images/abus.png'; // Replace with your actual image paths
 import image2 from '../assets/images/abus.png'; // Use a different image if needed
 import { motion } from 'framer-motion';
 import Layout from '../components/Layout'; // Import the Layout component
+import ContactForm from '../components/ContactForm'; // Import ContactForm
 
 const AboutUs = () => {
   const { t, i18n } = useTranslation();
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
+
+  // Just add a ref for the contact section:
+  const contactRef = useRef(null);
 
   const toggleFaq = (index) => {
     setOpenFaqIndex(openFaqIndex === index ? null : index);
@@ -137,29 +141,11 @@ const AboutUs = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        custom={3}
+        custom={5}
+        ref={contactRef}
       >
         <h2>{t('home.contact_title')}</h2>
-        <form className="contact-form" onSubmit={handleSubmit}>
-          <input
-            type="text"
-            name="name"
-            placeholder={t('home.contact_name_placeholder')}
-            required
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder={t('home.contact_email_placeholder')}
-            required
-          />
-          <textarea
-            name="message"
-            placeholder={t('home.contact_message_placeholder')}
-            required
-          ></textarea>
-          <button type="submit">{t('home.contact_submit_button')}</button>
-        </form>
+        <ContactForm />
       </motion.section>
     </Layout>
   );

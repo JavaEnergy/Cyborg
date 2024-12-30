@@ -9,6 +9,7 @@ import webDevelopmentIcon from '../assets/images/web Development.png';
 import itServicesIcon from '../assets/images/Zoho.png';
 import initSpiderEffect from '../assets/codes/interactive spider'; // Correct path for import
 import { motion } from 'framer-motion'; // Import Framer Motion
+import ContactForm from '../components/ContactForm'; // Import ContactForm
 
 const Home = () => {
   const { t, i18n } = useTranslation();
@@ -18,6 +19,13 @@ const Home = () => {
   // Refs for excluded sections
   const contactRef = useRef(null);
   const faqRef = useRef(null);
+
+  // Log environment variables inside the component for debugging
+  useEffect(() => {
+    console.log('Service ID:', import.meta.env.VITE_EMAILJS_SERVICE_ID);
+    console.log('Template ID:', import.meta.env.VITE_EMAILJS_TEMPLATE_ID);
+    console.log('Public Key:', import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
+  }, []);
 
   // Handle mouse movements to determine if over excluded sections
   useEffect(() => {
@@ -91,11 +99,6 @@ const Home = () => {
     setOpenFaqIndex(openFaqIndex === index ? null : index);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission logic
-  };
-
   const currentLang = i18n.language;
   const isGerman = currentLang === 'de';
 
@@ -161,8 +164,8 @@ const Home = () => {
         </motion.div>
       </div>
 
-            {/* Services Overview Section */}
-            <motion.section
+      {/* Services Overview Section */}
+      <motion.section
         className="services-overview"
         initial="hidden"
         whileInView="visible"
@@ -173,105 +176,93 @@ const Home = () => {
       >
         <h2>{t('home.services_title')}</h2>
         <div className="services-list">
-          <NavLink
-            to={`/${currentLang}/it-consulting`}
-            className="service-item"
-          >
+          <NavLink to={`/${currentLang}/it-consulting`} className="service-item">
             <img src={itConsultingIcon} alt={t('home.service_it_consulting_title')} />
             <h3>{t('home.service_it_consulting_title')}</h3>
             <p>{t('home.service_it_consulting_description')}</p>
           </NavLink>
 
-          <NavLink
-            to={`/${currentLang}/web-development`}
-            className="service-item"
-          >
+          <NavLink to={`/${currentLang}/web-development`} className="service-item">
             <img src={webDevelopmentIcon} alt={t('home.service_web_development_title')} />
             <h3>{t('home.service_web_development_title')}</h3>
             <p>{t('home.service_web_development_description')}</p>
           </NavLink>
 
-          <NavLink
-            to={`/${currentLang}/zoho-consulting`}
-            className="service-item"
-          >
+          <NavLink to={`/${currentLang}/zoho-consulting`} className="service-item">
             <img id="zoho" src={itServicesIcon} alt={t('home.service_it_services_title')} />
             <h3>{t('home.service_it_services_title')}</h3>
             <p>{t('home.service_it_services_description')}</p>
           </NavLink>
         </div>
       </motion.section>
-      
 
-      {/* projects-section */}
+      {/* Projects Section */}
       <motion.section
-  className="projects-section"
-  initial="hidden"
-  whileInView="visible"
-  viewport={{ once: true }}
-  variants={sectionVariants}
-  custom={4}
->
-  <h2>{t('home.projects_title')}</h2>
-  <div className="projects-list">
-    {[1, 2, 3].map((item) => (
-      <div className={`project-item project-${item}`} key={item}>
-        <div className="project-content">
-          <h3>{t(`home.project_${item}_title`)}</h3>
-          <p>{t(`home.project_${item}_description`)}</p>
+        className="projects-section"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={sectionVariants}
+        custom={4}
+      >
+        <h2>{t('home.projects_title')}</h2>
+        <div className="projects-list">
+          {[1, 2, 3].map((item) => (
+            <div className={`project-item project-${item}`} key={item}>
+              <div className="project-content">
+                <h3>{t(`home.project_${item}_title`)}</h3>
+                <p>{t(`home.project_${item}_description`)}</p>
 
-          {item === 1 && (
-            <div className="project-iframe-container" style={{ marginTop: '1rem' }}>
-              <iframe
-                src="https://product-card-plum-mu.vercel.app"
-                width="100%"
-                height="700"
-                style={{ border: 'none' }}
-                title="Product Card Preview"
-              ></iframe>
+                {item === 1 && (
+                  <div className="project-iframe-container" style={{ marginTop: '1rem' }}>
+                    <iframe
+                      src="https://product-card-plum-mu.vercel.app"
+                      width="100%"
+                      height="700"
+                      style={{ border: 'none' }}
+                      title="Product Card Preview"
+                    ></iframe>
+                  </div>
+                )}
+
+                {item === 3 && (
+                  <div className="project-iframe-container" style={{ marginTop: '1rem' }}>
+                    <iframe
+                      src="https://clock-teal-tau.vercel.app/"
+                      width="100%"
+                      height="400"
+                      style={{ border: 'none' }}
+                      title="Quiz App Preview"
+                    ></iframe>
+                  </div>
+                )}
+
+                {item === 1 && (
+                  <a
+                    href="https://product-card-plum-mu.vercel.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <button>{t('home.project_view_more')}</button>
+                  </a>
+                )}
+
+                {item === 3 && (
+                  <a
+                    href="https://clock-teal-tau.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <button>{t('home.project_view_more')}</button>
+                  </a>
+                )}
+
+                {item !== 1 && item !== 3 && <button>{t('home.project_view_more')}</button>}
+              </div>
             </div>
-          )}
-
-          {item === 3 && (
-            <div className="project-iframe-container" style={{ marginTop: '1rem' }}>
-              <iframe
-                src="https://clock-teal-tau.vercel.app/"
-                width="100%"
-                height="400"
-                style={{ border: 'none' }}
-                title="Quiz App Preview"
-              ></iframe>
-            </div>
-          )}
-
-          {item === 1 && (
-            <a 
-              href="https://product-card-plum-mu.vercel.app" 
-              target="_blank" 
-              rel="noopener noreferrer"
-            >
-              <button>{t('home.project_view_more')}</button>
-            </a>
-          )}
-
-          {item === 3 && (
-            <a 
-              href="https://clock-teal-tau.vercel.app/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-            >
-              <button>{t('home.project_view_more')}</button>
-            </a>
-          )}
-
-          {item !== 1 && item !== 3 && (
-            <button>{t('home.project_view_more')}</button>
-          )}
+          ))}
         </div>
-      </div>
-    ))}
-  </div>
-</motion.section>
+      </motion.section>
 
       {/* Contact Section */}
       <motion.section
@@ -284,26 +275,7 @@ const Home = () => {
         ref={contactRef} // Assign ref to Contact Us section
       >
         <h2>{t('home.contact_title')}</h2>
-        <form className="contact-form" onSubmit={handleSubmit}>
-          <input
-            type="text"
-            name="name"
-            placeholder={t('home.contact_name_placeholder')}
-            required
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder={t('home.contact_email_placeholder')}
-            required
-          />
-          <textarea
-            name="message"
-            placeholder={t('home.contact_message_placeholder')}
-            required
-          ></textarea>
-          <button type="submit">{t('home.contact_submit_button')}</button>
-        </form>
+        <ContactForm />
       </motion.section>
 
       {/* FAQ Section */}
@@ -319,13 +291,8 @@ const Home = () => {
         <h2>{t('home.faq_title')}</h2>
         <div className="faq-list">
           {[1, 2, 3].map((item, index) => (
-            <div
-              className={`faq-item ${openFaqIndex === index ? 'open' : ''}`}
-              key={index}
-            >
-              <h3 onClick={() => toggleFaq(index)}>
-                {t(`home.faq_question_${item}`)}
-              </h3>
+            <div className={`faq-item ${openFaqIndex === index ? 'open' : ''}`} key={index}>
+              <h3 onClick={() => toggleFaq(index)}>{t(`home.faq_question_${item}`)}</h3>
               {openFaqIndex === index && <p>{t(`home.faq_answer_${item}`)}</p>}
             </div>
           ))}

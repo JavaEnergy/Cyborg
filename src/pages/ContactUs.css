@@ -1,87 +1,115 @@
-/* src/pages/ContactUs.css */
-
 /* Hero Section */
 .contact-hero {
-    position: relative;
-    height: 50vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url('../assets/images/contact-hero.jpg'); /* Replace with your image */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: white;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+  position: relative;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../assets/images/contact-hero.jpg'); /* Replace with your image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+.contact-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.contact-hero h1,
+.contact-hero h2 {
+  position: relative;
+  z-index: 2;
+  font-family: 'Overpass-black', sans-serif;
+  font-size: 3.5rem;
+  margin: 0; /* Ensure no default margin on headings */
+}
+
+/* Status Message */
+.status-message {
+  margin-top: 10px;
+  font-size: 1rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.status-message.success {
+  color: green;
+}
+
+.status-message.error {
+  color: red;
+}
+
+
+@media (max-width: 768px) {
+  .contact-hero {
+    height: 30vh;
   }
-  
-  .contact-hero::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    z-index: 1;
-  }
-  
+
   .contact-hero h1,
   .contact-hero h2 {
-    position: relative;
-    z-index: 2;
-    font-family: 'Overpass-black', sans-serif;
-    font-size: 3.5rem;
+    font-size: 2rem;
   }
-  
-  @media (max-width: 768px) {
-    .contact-hero {
-      height: 30vh;
-    }
-  
-    .contact-hero h1,
-    .contact-hero h2 {
-      font-size: 2rem;
-    }
-  }
-  
-  /* Contact Form Section */
+}
+
+/* Contact Form Section */
+.contact-section {
+  margin: 60px auto; /* Balanced top/bottom margin */
+  max-width: 1200px; /* Prevent overly wide content on large screens */
+  padding: 0 20px;    /* Some horizontal padding for smaller devices */
+}
+
+.contact-form {
+  margin-top: 40px;
+}
+
+.contact-form .MuiTextField-root {
+  margin-bottom: 20px;
+}
+
+.contact-form .MuiButton-root {
+  background-color: #d4b051;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form .MuiButton-root:hover {
+  background-color: #b89242;
+}
+
+/* Status message under the form (if you display it via <p> or <Typography>) */
+.status-message {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Additional Info / Map Section */
+.additional-info-section {
+  margin-bottom: 60px;
+  margin-top: 40px; /* If you want some top spacing, optional */
+}
+
+.map-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
   .contact-section {
-    margin-bottom: 60px;
-  }
-  
-  .contact-form {
     margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 0 10px; /* Slightly narrower padding on very small screens */
   }
-  
-  .contact-form .MuiTextField-root {
-    margin-bottom: 20px;
-  }
-  
-  .contact-form .MuiButton-root {
-    background-color: #d4b051;
-  }
-  
-  .contact-form .MuiButton-root:hover {
-    background-color: #b89242;
-  }
-  
-  /* Additional Info Section */
-  .additional-info-section {
-    margin-bottom: 60px;
-  }
-  
-  .map-container {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    border-radius: 8px;
-  }
-  
-  @media (max-width: 768px) {
-    .contact-section {
-      margin-top: 40px;
-      margin-bottom: 40px;
-    }
-  }
-  
+}

@@ -1,5 +1,5 @@
 // src/pages/ITConsulting.jsx
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 import {
@@ -31,6 +31,7 @@ import webConsultingImage from '../assets/images/abus.png';
 import mobileConsultingImage from '../assets/images/abus.png';
 import saasConsultingImage from '../assets/images/abus.png';
 import cloudConsultingImage from '../assets/images/abus.png';
+import ContactForm from '../components/ContactForm'; // Import ContactForm
 
 const ITConsulting = () => {
   const { t, i18n } = useTranslation();
@@ -72,6 +73,9 @@ const ITConsulting = () => {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
   };
+
+  // **Added Lines: Define contactRef**
+  const contactRef = useRef(null);
 
   // Services data
   const services = [
@@ -118,10 +122,10 @@ const ITConsulting = () => {
       <div className="it-consulting">
         {/* Hero Section with Parallax Effect */}
         <div className="it-consulting-hero">
-      <Typography variant="h2" component="h1" align="center" color="white">
-        {t('it_consulting.it_consulting')}
-      </Typography>
-    </div>
+          <Typography variant="h2" component="h1" align="center" color="white">
+            {t('it_consulting.it_consulting')}
+          </Typography>
+        </div>
 
         <Container maxWidth="lg">
           {/* From Idea to Implementation */}
@@ -278,40 +282,21 @@ const ITConsulting = () => {
             </Typography>
           </motion.div>
 
-      {/* Contact Section */}
-<motion.section
-  className="contact-section"
-  variants={sectionVariants}
-  initial="hidden"
-  whileInView="visible"
-  viewport={{ once: true }}
-  custom={3}
->
-  <Typography variant="h4" component="h2" align="center" gutterBottom>
-    {t('home.contact_title')}
-  </Typography>
-  <form className="contact-form" onSubmit={handleSubmit}>
-    <input
-      type="text"
-      name="name"
-      placeholder={t('home.contact_name_placeholder')}
-      required
-    />
-    <input
-      type="email"
-      name="email"
-      placeholder={t('home.contact_email_placeholder')}
-      required
-    />
-    <textarea
-      name="message"
-      placeholder={t('home.contact_message_placeholder')}
-      required
-    ></textarea>
-    <button type="submit">{t('home.contact_submit_button')}</button>
-  </form>
-</motion.section>
-
+          {/* **Added Block: Contact Section** */}
+          <motion.section
+            className="contact-section"
+            variants={sectionVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            custom={5}
+            ref={contactRef} // Assign ref to Contact Us section
+          >
+            <Typography variant="h2" component="h2" gutterBottom>
+              {t('home.contact_title')}
+            </Typography>
+            <ContactForm />
+          </motion.section>
         </Container>
       </div>
     </Layout>

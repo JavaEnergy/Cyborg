@@ -1,10 +1,12 @@
 // src/pages/ZohoConsulting.jsx
-import React from 'react';
+import React, { useRef } from 'react'; // **Updated Line:** Import useRef
 import { useTranslation } from 'react-i18next';
 import { Container, Typography, Grid, Button } from '@mui/material';
 import { motion } from 'framer-motion';
 import Layout from '../components/Layout';
 import './ZohoConsulting.css';
+
+import ContactForm from '../components/ContactForm'; // Import ContactForm
 
 // Import images
 import zohoHeroImage from '../assets/images/bg.jpg'; // Replace with your actual image
@@ -14,6 +16,9 @@ import zohoImplementationImage from '../assets/images/bg.jpg'; // Image for impl
 const ZohoConsulting = () => {
   const { t, i18n } = useTranslation();
   const currentLang = i18n.language;
+
+  // **Added Line:** Define contactRef inside the component
+  const contactRef = useRef(null);
 
   // Animation variants
   const sectionVariants = {
@@ -29,10 +34,8 @@ const ZohoConsulting = () => {
     }),
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Handle form submission logic here
-  };
+  // **Removed Redundant handleSubmit Function**
+  // The ContactForm component handles form submissions internally.
 
   return (
     <Layout>
@@ -138,7 +141,7 @@ const ZohoConsulting = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            custom={4}
+            custom={5}
           >
             <Typography variant="h4" component="h2" gutterBottom>
               {t('zoho_consulting.custom_development')}
@@ -155,7 +158,7 @@ const ZohoConsulting = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            custom={4}
+            custom={6}
           >
             <div className="cta-content">
               <Typography variant="h4" align="center" gutterBottom>
@@ -176,40 +179,21 @@ const ZohoConsulting = () => {
             </div>
           </motion.div>
 
-          {/* Contact Section */}
-<motion.section
-  className="contact-section"
-  variants={sectionVariants}
-  initial="hidden"
-  whileInView="visible"
-  viewport={{ once: true }}
-  custom={3}
->
-  <Typography variant="h4" component="h2" align="center" gutterBottom>
-    {t('home.contact_title')}
-  </Typography>
-  <form className="contact-form" onSubmit={handleSubmit}>
-    <input
-      type="text"
-      name="name"
-      placeholder={t('home.contact_name_placeholder')}
-      required
-    />
-    <input
-      type="email"
-      name="email"
-      placeholder={t('home.contact_email_placeholder')}
-      required
-    />
-    <textarea
-      name="message"
-      placeholder={t('home.contact_message_placeholder')}
-      required
-    ></textarea>
-    <button type="submit">{t('home.contact_submit_button')}</button>
-  </form>
-</motion.section>
-
+          {/* **Added Block: Contact Section** */}
+          <motion.section
+            className="contact-section"
+            variants={sectionVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            custom={7}
+            ref={contactRef} // Assign ref to Contact Us section
+          >
+            <Typography variant="h2" component="h2" gutterBottom align="center">
+              {t('home.contact_title')}
+            </Typography>
+            <ContactForm />
+          </motion.section>
         </Container>
       </div>
     </Layout>
