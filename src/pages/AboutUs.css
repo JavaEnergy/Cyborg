@@ -90,11 +90,13 @@
   object-fit: cover;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
-
-/* FAQ Section */
 .about-faq-section {
   padding: 60px 20px;
-  background-color: #f9f9f9;
+  background: linear-gradient(135deg, #f9f9f9 0%, #ececec 100%);
+  border-radius: 10px;
+  margin: 40px auto;
+  max-width: 1200px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .about-faq-section h2 {
@@ -105,38 +107,50 @@
 }
 
 .about-faq-list {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
 }
 
+/* Einzelner FAQ-Punkt */
 .about-faq-item {
   margin-bottom: 20px;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 15px;
+  overflow: hidden; /* Damit die Animation (height=0 -> auto) weicher ist */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  transition: box-shadow 0.3s ease;
+}
+
+.about-faq-item:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .about-faq-item h3 {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   cursor: pointer;
-  margin-bottom: 0;
-  padding: 10px;
+  margin: 0;
+  padding: 15px 20px;
   background: #f1f1f1;
-  border-radius: 5px;
+  transition: background 0.3s ease;
 }
 
 .about-faq-item h3:hover {
-  background: #eaeaea;
+  background: #e8e8e8;
 }
 
 .faq-answer {
   overflow: hidden;
   font-size: 1.1rem;
   line-height: 1.6;
-  padding: 0 10px;
+  margin: 0; /* wichtig, sonst entsteht extra Abstand */
+  padding: 0 20px;
+  color: #333;
+  white-space: pre-line;
 }
 
+/* Wenn offen, etwas mehr Padding unten */
 .about-faq-item.open .faq-answer {
-  padding: 10px;
+  padding-bottom: 15px;
 }
 
 /* Contact Form */

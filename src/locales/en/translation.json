@@ -29,11 +29,11 @@
 
 
   "home": {
-    "title": "Transforming Ideas into Digital Reality",
-    "subtitle": "Your Vision is Our Mission",
-    "vision_content": "At Cyborg, we transform your IT visions into success stories. By perfectly combining business acumen with cutting-edge technology, we fuel your growth and elevate your projects to the next level.",
-    "wish_title": "Ready to Make Your IT Wish Come True?",
-    "wish_content": "Share your IT wishes with us, and we will realize them with precision and excellence. Let's embark on a journey where your vision meets our expertise.",
+    "title": "CYBORG\nHigh-Quality, Cost-Effective IT Solutions, 24/7.",
+    "subtitle": "Your Vision, Our Expertise",
+    "vision_content": "We are Cyborg, a fusion of human ingenuity and machine precision.",
+    "vision_content2": "Based in Georgia, we offer cost-effective solutions without the added expense of European taxes.",
+    "wish_content": "Our team of skilled professionals is available 24/7 to bring your ideas to life.",
     "services_title": "Our Services",
     "service_it_consulting_title": "IT Consulting",
     "service_it_consulting_description": "Strategic IT solutions to drive your business.",
@@ -150,16 +150,35 @@
     "faq_q4": "What industries do you specialize in?",
     "faq_a4": "Our diverse team has expertise across various industries, including finance, healthcare, e-commerce, and more. We're adaptable and eager to understand and tackle the unique challenges of your sector.",
     "about_title": "About Us",
-    "about_text": "Our unwavering dedication to understanding each client's unique needs allows us to deliver tailored solutions that drive success.",
-    "mission_title": "Our Mission",
-    "mission_text": "To bridge the gap between technology and business, offering solutions that empower companies to reach new heights.",
-    "faq_question_1": "How can we start a project with you?",
-    "faq_answer_1": "Simply reach out to us via email or phone, and we'll schedule an initial consultation to discuss your needs.",
-    "faq_question_2": "What industries do you specialize in?",
-    "faq_answer_2": "We work across various industries, tailoring solutions to each sector's unique challenges.",
-    "faq_question_3": "Do you offer support after project completion?",
-    "faq_answer_3": "Yes, we provide ongoing support and maintenance to ensure your solutions continue to perform optimally."
-  },
+    "about_text": "In a world defined by rapid technological advancement, we are the architects of the future.",
+    "about_text2": "We are Cyborg, a fusion of human ingenuity and machine precision. ",
+    "about_text3": "As an outsourcing company equipped with skilled professionals, our services include IT solutions, Web development, and software consulting,to empower our clients to achieve their visions. ",
+    "mission_text": "Based in Georgia, we offer cost-effective solutions without additional taxes that are mandatory in EU.",
+    "mission_text2": "We speak your language, whether it’s German, or English, ensuring seamless communication, 24/7;",
+    "mission_text3": "And we are committed to delivering excellence, every step of the way.",
+    "mission_title": "Cyborg: High-Quality, Cost-Effective IT Solutions, 24/7.",
+    "faq_question_1": "How long does a typical project take?",
+    "faq_answer_1": "The project duration depends on its complexity. Once we understand your requirements, we will provide a detailed schedule.",
+
+    "faq_question_2": "How do you handle project changes or unexpected requirements?",
+    "faq_answer_2": "We are flexible. If your project needs change, we will adjust our plans accordingly.",
+
+    "faq_question_3": "How do you ensure data security and privacy?",
+    "faq_answer_3": "We take data security very seriously. We use advanced security measures to protect your information.",
+
+    "faq_question_4": "How often do I get updates on my project?",
+    "faq_answer_4": "We keep you updated regularly, either through weekly meetings or email updates.",
+
+    "faq_question_5": "Are there any additional fees or taxes, and why is no VAT charged?",
+  "faq_answer_5": "No, the price we quote is your final price. We are based in Georgia and are not subject to German VAT (value-added tax).\n\nIn summary:\n- Private customers (B2C) in Germany, Austria, or Switzerland pay no additional taxes or fees.\n- Business customers (B2B) in D-A-CH may, in some cases, apply the reverse-charge mechanism. This means that your company reports the VAT directly to the respective tax office.\n\nIn detail:\n- Our services are provided in Georgia, so no VAT is applicable for customers in D-A-CH. We pay our taxes in accordance with Georgian law.\n- For business customers (B2B) in Germany, Austria, and Switzerland, the reverse-charge mechanism typically applies: You, as the recipient of the service, calculate the VAT yourself and remit it to the respective tax office. At the same time, you can usually claim it back as input tax, resulting in no actual tax burden.\n\nIf you have any further questions, please feel free to contact us directly."
+
+    ,"faq_question_6": "Do you offer maintenance and support after project completion?",
+    "faq_answer_6": "Yes, we offer ongoing maintenance and support to ensure your systems continue to run smoothly.",
+
+    "faq_question_7": "How can I reach you?",
+    "faq_answer_7": "You can reach us by email at info@cyborg.com, via WhatsApp at +995 598 70 79 73, or using the contact form on our website."
+
+    },
   "zoho_consulting": {
     "title": "Zoho Consulting",
     "intro_title": "What is Zoho?",

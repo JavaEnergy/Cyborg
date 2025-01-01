@@ -155,12 +155,14 @@ const Home = () => {
 
           <section className="vision-section">
             <p>{t('home.vision_content')}</p>
+            <br />
+            <p>{t('home.vision_content2')}</p>
+            <br />
+            <p>{t('home.wish_content')}</p>
+
           </section>
 
-          <section className="wish-section">
-            <h2>{t('home.wish_title')}</h2>
-            <p>{t('home.wish_content')}</p>
-          </section>
+    
         </motion.div>
       </div>
 
@@ -264,22 +266,8 @@ const Home = () => {
         </div>
       </motion.section>
 
-      {/* Contact Section */}
-      <motion.section
-        className="contact-section"
-        variants={sectionVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        custom={5}
-        ref={contactRef} // Assign ref to Contact Us section
-      >
-        <h2>{t('home.contact_title')}</h2>
-        <ContactForm />
-      </motion.section>
-
-      {/* FAQ Section */}
-      <motion.section
+       {/* FAQ Section */}
+       <motion.section
         className="faq-section"
         variants={sectionVariants}
         initial="hidden"
@@ -298,6 +286,22 @@ const Home = () => {
           ))}
         </div>
       </motion.section>
+
+      {/* Contact Section */}
+      <motion.section
+        className="contact-section"
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        custom={5}
+        ref={contactRef} // Assign ref to Contact Us section
+      >
+        <h2>{t('home.contact_title')}</h2>
+        <ContactForm />
+      </motion.section>
+
+     
     </div>
   );
 };

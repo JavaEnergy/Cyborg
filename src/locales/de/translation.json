@@ -15,11 +15,11 @@
     "contact_us": "Kontaktieren Sie Uns"
   },
   "home": {
-    "title": "Von der Idee zur digitalen Realität",
-    "subtitle": "Ihre Vision ist unsere Mission",
-    "vision_content": "Bei Cyborg verwandeln wir Ihre IT-Vorstellungen in Erfolgsgeschichten. Durch die perfekte Verbindung von Geschäftssinn und modernster Technologie fördern wir Ihr Wachstum und heben Ihre Projekte auf die nächste Stufe.",
-    "wish_title": "Bereit, Ihren IT-Wunsch wahr werden zu lassen?",
-    "wish_content": "Teilen Sie uns Ihre IT-Wünsche mit, und wir setzen sie mit Präzision und Exzellenz um. Lassen Sie uns gemeinsam auf eine Reise gehen, bei der Ihre Vision auf unsere Expertise trifft.",
+    "title":  "CYBORG\nHochwertige, kostengünstige IT-Lösungen, rund um die Uhr",
+    "subtitle": "Ihre Vision, unsere Expertise",
+    "vision_content": "Wir sind Cyborg, eine Fusion aus menschlicher Kreativität und maschineller Präzision.",
+    "vision_content2": "Mit Sitz in Georgien bieten wir kostengünstige Lösungen ohne die zusätzlichen Kosten europäischer Steuern.",
+    "wish_content": "Unser Team aus erfahrenen Fachleuten steht Ihnen rund um die Uhr zur Verfügung, um Ihre Ideen Wirklichkeit werden zu lassen.",
     "services_title": "Unsere Dienstleistungen",
     "service_it_consulting_title": "IT-Beratung",
     "service_it_consulting_description": "Strategische IT-Lösungen zur Förderung Ihres Geschäfts.",
@@ -146,16 +146,35 @@
     "faq_q4": "Auf welche Branchen sind Sie spezialisiert?",
     "faq_a4": "Unser vielseitiges Team verfügt über Expertise in verschiedenen Branchen, einschließlich Finanzen, Gesundheitswesen, E-Commerce und mehr. Wir sind anpassungsfähig und freuen uns darauf, die einzigartigen Herausforderungen Ihres Sektors zu verstehen und zu meistern.",
     "about_title": "Über uns",
-    "about_text": "Unser unerschütterliches Engagement, die einzigartigen Bedürfnisse jedes Kunden zu verstehen, ermöglicht es uns, maßgeschneiderte Lösungen zu liefern, die Erfolg bringen.",
-    "mission_title": "Unsere Mission",
-    "mission_text": "Die Lücke zwischen Technologie und Geschäft zu überbrücken und Lösungen anzubieten, die Unternehmen befähigen, neue Höhen zu erreichen.",
-    "faq_question_1": "Wie können wir ein Projekt mit Ihnen starten?",
-    "faq_answer_1": "Kontaktieren Sie uns einfach per E-Mail oder Telefon, und wir vereinbaren ein erstes Beratungsgespräch, um Ihre Bedürfnisse zu besprechen.",
-    "faq_question_2": "Auf welche Branchen sind Sie spezialisiert?",
-    "faq_answer_2": "Wir arbeiten branchenübergreifend und passen Lösungen an die einzigartigen Herausforderungen jedes Sektors an.",
-    "faq_question_3": "Bieten Sie Unterstützung nach Projektabschluss an?",
-    "faq_answer_3": "Ja, wir bieten kontinuierlichen Support und Wartung, um sicherzustellen, dass Ihre Lösungen weiterhin optimal funktionieren."
-  },
+    "about_text": "In einer Welt, die von rasantem technologischen Fortschritt geprägt ist, sind wir die Architekten der Zukunft.",
+    "about_text2": "Wir sind Cyborg, eine Fusion aus menschlicher Kreativität und maschineller Präzision. ",
+    "about_text3": "Als Outsourcing-Unternehmen mit erfahrenen Fachleuten bieten wir IT-Lösungen, Webentwicklung und Softwareberatung, um unsere Kunden bei der Verwirklichung ihrer Visionen zu unterstützen. ",
+    "mission_text": "Mit Sitz in Georgien bieten wir kostengünstige Lösungen ohne zusätzliche Steuern, die in der EU obligatorisch sind.",
+    "mission_text2": "Wir sprechen Ihre Sprache, sei es Deutsch oder Englisch, und gewährleisten so eine nahtlose Kommunikation rund um die Uhr.",
+    "mission_text3": "Wir verpflichten uns, in jedem Schritt höchste Qualität zu liefern.",
+    "mission_title": "Cyborg: Hochwertige, kostengünstige IT-Lösungen, rund um die Uhr.",
+    "faq_question_1": "Wie lange dauert ein typisches Projekt?",
+    "faq_answer_1": "Die Projektlaufzeit hängt von der Komplexität ab. Sobald wir Ihre Anforderungen verstanden haben, erstellen wir Ihnen einen detaillierten Zeitplan.",
+  
+    "faq_question_2": "Wie managen Sie Projektänderungen oder unerwartete Anforderungen?",
+    "faq_answer_2": "Wir sind sehr flexibel. Wenn sich Ihre Wünsche ändern, passen wir unseren Projektplan an. Dazu gehören sowohl neue Anforderungen an den Funktionsumfang als auch Anpassungen an Zeitplan oder Budget. Wir besprechen alle Änderungen transparent mit Ihnen.",
+  
+    "faq_question_3": "Wie gewährleisten Sie Datensicherheit und -schutz?",
+    "faq_answer_3": "Datensicherheit nehmen wir sehr ernst. Wir nutzen fortschrittliche Sicherheitsmaßnahmen, regelmäßige Backups und verschlüsselte Übertragungswege, um Ihre Daten zu schützen. Auf Wunsch beraten wir Sie gerne zusätzlich zu Themen wie DSGVO und Hosting-Standort.",
+  
+    "faq_question_4": "Wie oft erhalte ich Updates zu meinem Projekt?",
+    "faq_answer_4": "Wir halten Sie regelmäßig auf dem Laufenden – je nach Projektgröße zum Beispiel durch wöchentliche Meetings oder E-Mail-Updates. So haben Sie immer den Überblick über Fortschritt und nächste Schritte.",
+  
+    "faq_question_5": "Fallen zusätzliche Gebühren und Steuern an, und warum wird keine Mehrwertsteuer berechnet?",
+    "faq_answer_5": "Nein, der von uns genannte Preis ist Ihr Endpreis. Wir sind in Georgien ansässig und unterliegen nicht der deutschen Umsatzsteuer (Mehrwertsteuer).\n\nKurz gesagt:\n- Privatkunden (B2C) in Deutschland, Österreich oder der Schweiz zahlen keine weiteren Steuern oder Gebühren.\n- Geschäftskunden (B2B) in D-A-CH wenden in manchen Fällen das Reverse-Charge-Verfahren an. Dabei meldet Ihr Unternehmen die Umsatzsteuer selbst an das jeweilige Finanzamt.\n\nAusführlich:\n- Unsere Leistungen werden in Georgien erbracht, daher fällt für Kunden in D-A-CH keine Mehrwertsteuer an. Wir zahlen unsere Steuern nach den Vorgaben des georgischen Rechts.\n- Für Geschäftskunden (B2B) in Deutschland, Österreich und der Schweiz greift üblicherweise das Reverse-Charge-Verfahren: Sie als Leistungsempfänger berechnen die Umsatzsteuer selbst und führen sie an Ihr zuständiges Finanzamt ab. Gleichzeitig können Sie diese meist als Vorsteuer geltend machen, sodass in der Regel keine tatsächliche Steuerlast entsteht.\n\nFalls Sie weitere Fragen haben, sprechen Sie uns gern direkt an."
+  
+    ,"faq_question_6": "Bieten Sie Wartungs- und Supportleistungen nach Projektabschluss an?",
+    "faq_answer_6": "Ja, wir bieten laufende Wartungs- und Supportleistungen an, um sicherzustellen, dass Ihre Systeme reibungslos funktionieren. Dazu gehören Fehlerbehebungen, Sicherheitsupdates und auf Wunsch regelmäßige Optimierungen.",
+  
+    "faq_question_7": "Wie kann ich Sie erreichen?",
+    "faq_answer_7": "Sie können uns per E-Mail an info@cyborg.com, per WhatsApp unter +995 598 70 79 73 oder über das Formular auf unserer Kontaktseite erreichen. Falls Sie weitere Fragen oder Sonderwünsche haben, melden Sie sich jederzeit – wir helfen Ihnen gerne weiter."
+  
+    },
   "zoho_consulting": {
     "title": "Zoho-Beratung",
     "intro_title": "Was ist Zoho?",

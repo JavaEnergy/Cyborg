@@ -22,11 +22,6 @@ const AboutUs = () => {
   const currentLang = i18n.language;
   const isGerman = currentLang === 'de';
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission logic
-  };
-
   // Animation variants
   const sectionVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -34,7 +29,7 @@ const AboutUs = () => {
       opacity: 1,
       y: 0,
       transition: {
-        delay: custom * 0.2, // Adjusted delay
+        delay: custom * 0.2,
         duration: 0.6,
         ease: 'easeOut',
       },
@@ -45,7 +40,6 @@ const AboutUs = () => {
     <Layout>
       {/* Hero Section */}
       <div className="about-hero">
-        {/* Wrapper div to handle additional transforms if needed */}
         <div className="about-hero-content-wrapper">
           <motion.div
             className="about-hero-content"
@@ -74,6 +68,10 @@ const AboutUs = () => {
           <div className="about-text-content">
             <h2>{t('about_us.about_title')}</h2>
             <p>{t('about_us.about_text')}</p>
+            <br />
+            <p>{t('about_us.about_text2')}</p>
+            <br />
+            <p>{t('about_us.about_text3')}</p>
           </div>
         </div>
       </motion.section>
@@ -89,8 +87,13 @@ const AboutUs = () => {
       >
         <div className="about-content-container reverse second">
           <div className="about-text-content">
-            <h2>{t('about_us.mission_title')}</h2>
             <p>{t('about_us.mission_text')}</p>
+            <br />
+            <p>{t('about_us.mission_text2')}</p>
+            <br />
+            <p>{t('about_us.mission_text3')}</p>
+            <br />
+            <h2>{t('about_us.mission_title')}</h2>
           </div>
           <div className="about-image-content">
             <img src={image2} alt="Our Mission" className="circle-image" />
@@ -109,7 +112,8 @@ const AboutUs = () => {
       >
         <h2>{t('about_us.faq_title')}</h2>
         <div className="about-faq-list">
-          {[1, 2, 3].map((item, index) => (
+          {/* Erweitere die FAQ-Liste um die #8 */}
+          {[1, 2, 3, 4, 5, 6, 7].map((item, index) => (
             <div
               className={`about-faq-item ${openFaqIndex === index ? 'open' : ''}`}
               key={index}

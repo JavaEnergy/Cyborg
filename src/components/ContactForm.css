@@ -39,9 +39,12 @@
     background-color: #0056b3;
   }
   
-  .status-message {
-    margin-top: 1rem;
-    font-weight: bold;
+
+  .status-message.success {
     color: green;
+  }
+  
+  .status-message.error {
+    color: red;
   }
   
