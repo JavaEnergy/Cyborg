@@ -266,26 +266,45 @@ const Home = () => {
         </div>
       </motion.section>
 
-       {/* FAQ Section */}
-       <motion.section
-        className="faq-section"
-        variants={sectionVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        custom={6}
-        ref={faqRef} // Assign ref to FAQ section
-      >
-        <h2>{t('home.faq_title')}</h2>
-        <div className="faq-list">
-          {[1, 2, 3].map((item, index) => (
-            <div className={`faq-item ${openFaqIndex === index ? 'open' : ''}`} key={index}>
-              <h3 onClick={() => toggleFaq(index)}>{t(`home.faq_question_${item}`)}</h3>
-              {openFaqIndex === index && <p>{t(`home.faq_answer_${item}`)}</p>}
+       {/* FAQ Sektion */}
+          <motion.section
+            className="about-faq-section"
+            variants={sectionVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            custom={2}
+          >
+            <h2>{t('about_us.faq_title')}</h2>
+            <div className="about-faq-list">
+              {/* Erweiterte FAQ-Liste mit #8 */}
+              {[1, 2, 3, 4, 5, 6, 7].map((item, index) => (
+                <div
+                  className={`about-faq-item ${openFaqIndex === index ? 'open' : ''}`}
+                  key={index}
+                >
+                  <h3 onClick={() => toggleFaq(index)}>
+                    <span>{t(`about_us.faq_question_${item}`)}</span>
+                    <span className="faq-icon">
+                      {openFaqIndex === index ? '−' : '+'}
+                    </span>
+                  </h3>
+                  <motion.p
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={
+                      openFaqIndex === index
+                        ? { height: 'auto', opacity: 1 }
+                        : { height: 0, opacity: 0 }
+                    }
+                    transition={{ duration: 0.3 }}
+                    className="faq-answer"
+                  >
+                    {t(`about_us.faq_answer_${item}`)}
+                  </motion.p>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      </motion.section>
+          </motion.section>
 
       {/* Contact Section */}
       <motion.section

@@ -9,17 +9,19 @@ import {
   Card,
   CardContent,
   CardMedia,
+  Button,
 } from '@mui/material';
 import {
-  Security,
   Cloud,
   Web,
   PhoneIphone,
   Code,
+  Email, // Import Email icon
 } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 import Layout from '../components/Layout';
 import './ITConsulting.css';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 // Import images
 import heroImage from '../assets/images/abus.png';
@@ -74,8 +76,17 @@ const ITConsulting = () => {
     visible: { opacity: 1, y: 0 },
   };
 
-  // **Added Lines: Define contactRef**
+
+    const navigate = useNavigate(); // Initialize useNavigate
+  
+  // Define contactRef
   const contactRef = useRef(null);
+
+    // CTA button click handler
+    const handleCTAButtonClick = () => {
+      navigate(`/${currentLang}/contact-us`);
+    };
+  
 
   // Services data
   const services = [
@@ -121,7 +132,10 @@ const ITConsulting = () => {
     <Layout>
       <div className="it-consulting">
         {/* Hero Section with Parallax Effect */}
-        <div className="it-consulting-hero">
+        <div
+          className="it-consulting-hero"
+          style={{ backgroundImage: `url(${heroImage})` }}
+        >
           <Typography variant="h2" component="h1" align="center" color="white">
             {t('it_consulting.it_consulting')}
           </Typography>
@@ -280,9 +294,27 @@ const ITConsulting = () => {
             <Typography variant="h5" align="center" gutterBottom>
               {t('it_consulting.ready_to_transform')}
             </Typography>
+            <Typography variant="body1" align="center" paragraph>
+              {t('it_consulting.take_next_step')}
+            </Typography>
+            <div className="cta-button">
+              <Button
+                variant="contained"
+                color="secondary" // Changed to secondary for better contrast
+                size="large"
+                startIcon={<Email />} // Use the Email icon here
+                onClick={handleCTAButtonClick} // Updated onClick handler
+                component={motion.button}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                aria-label={t('it_consulting.contact_us')}
+              >
+                {t('it_consulting.contact_us')}
+              </Button>
+            </div>
           </motion.div>
 
-          {/* **Added Block: Contact Section** */}
+          {/* Contact Section */}
           <motion.section
             className="contact-section"
             variants={sectionVariants}

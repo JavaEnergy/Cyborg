@@ -66,25 +66,27 @@
   },
   "it_consulting": {
     "it_consulting": "IT Consulting",
-    "from_idea_to_implementation": "From Idea to Implementation",
-    "content_for_from_idea_to_implementation": "Have an idea that you want to bring to life? We help transform your concepts into digital reality. Whether you want to create a new website or add features to your existing one, our team guides you through every step.",
-    "it_strategy": "IT Strategy & Digitalization",
-    "content_for_it_strategy": "Not sure which technology fits your needs? We provide expert advice to help you choose the right tools and frameworks like React, WordPress, or Angular to achieve your business goals.",
+    "from_idea_to_implementation": "From Idea to Reality",
+"content_for_from_idea_to_implementation": "Need tech advice?\n\nWe'll help you choose the right tools and technologies"
+    ,"it_strategy": "IT strategy and digitalization",
+    "content_for_it_strategy": "Need tech advice?\n\nWe'll help you choose the right tools and technologies.",
     "software_consulting": "Software Consulting",
-    "content_for_software_consulting": "Our software consulting services analyze your company's needs to create technology solutions that enhance your operations. From website development to mobile apps, we ensure your technology investments lead to success.",
+    "content_for_software_consulting": "Software solutions that fit your business perfectly.",
     "it_security": "IT Security & Audits",
-    "content_for_it_security": "Protect your business from cyber threats like fake forms, attacks, or click fraud. We offer comprehensive IT security services to safeguard your data and ensure your operations run smoothly.",
+    "content_for_it_security": "Protect your business from cyber threats like fake forms, attacks, or click fraud.",
     "software_development_consulting": "Software Development Consulting",
     "software_development_consulting_description": "Customized software solutions tailored to your unique business needs.",
     "web_consulting": "Web Consulting",
-    "web_consulting_description": "Enhance your online presence with modern, user-friendly websites.",
+    "web_consulting_description": "Create a strong online presence.",
     "mobile_consulting": "Mobile Consulting",
-    "mobile_consulting_description": "Develop engaging mobile applications for iOS and Android.",
+    "mobile_consulting_description": "Develop engaging mobile apps.",
     "saas_consulting": "SaaS Consulting",
-    "saas_consulting_description": "Leverage SaaS solutions to streamline your operations.",
+    "saas_consulting_description": "Optimize your business processes with SaaS.",
     "cloud_consulting": "Cloud Consulting",
-    "cloud_consulting_description": "Optimize your infrastructure with cloud technologies.",
-    "ready_to_transform": "Ready to Transform Your Business?"
+    "cloud_consulting_description": "Cloud solutions, simplified.",
+    "ready_to_transform": "Ready to Transform Your Business?",
+    "take_next_step": "Take the next step towards digital excellence with our expert IT consulting services."
+
   
   },
  "web_development": {
@@ -104,7 +106,18 @@
     "technologies_tools": "Technologies & Tools",
     "content_for_technologies_tools": "We use the latest technologies and tools to deliver the best results.",
     "ready_to_transform": "Ready to Transform Your Business?",
-    "cta_description": "Partner with us to take your digital presence to the next level."
+    "cta_description": "Partner with us to take your digital presence to the next level.",
+    "services_title": "Your vision, our mission",
+    "which_tool_title": "Which Tool Should You Choose?",
+    "which_tool_intro": "Not sure if WordPress, React, or Angular is right for you? Explore below:",
+    "faq_wordpress_title": "When to Use WordPress?",
+    "faq_wordpress_content": "Ideal for blogs or small-to-medium sites needing a powerful CMS without heavy coding.",
+    "faq_react_title": "When to Use React?",
+    "faq_react_content": "Great for building interactive, dynamic single-page apps requiring high performance.",
+    "faq_angular_title": "When to Use Angular?",
+    "faq_angular_content": "Perfect for large-scale, enterprise applications where strong structure is essential.",
+    "contact_us": "Contact Us"
+  
   },
   "it_services": {
     "full_service_it": "Full-Service IT",
@@ -177,7 +190,8 @@
 
     "faq_question_7": "How can I reach you?",
     "faq_answer_7": "You can reach us by email at info@cyborg.com, via WhatsApp at +995 598 70 79 73, or using the contact form on our website."
-
+,"faq_contact_btn": "Contact Us",
+    "faq_offer_btn": "Request a Quote"
     },
   "zoho_consulting": {
     "title": "Zoho Consulting",

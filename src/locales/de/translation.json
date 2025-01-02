@@ -49,6 +49,7 @@
     "faq_answer_2": "Sie können das Kontaktformular auf dieser Seite verwenden oder uns direkt eine E-Mail senden.",
     "faq_question_3": "Bieten Sie kundenspezifische Lösungen an?",
     "faq_answer_3": "Ja, wir passen unsere Dienstleistungen an Ihre spezifischen Bedürfnisse an."
+    
   },
   "footer": {
     "contact_info": "Kontaktinformationen",
@@ -63,12 +64,12 @@
   },
   "it_consulting": {
     "it_consulting": "IT-Beratung",
-    "from_idea_to_implementation": "Von der Idee zur Umsetzung",
-    "content_for_from_idea_to_implementation": "Haben Sie eine Idee, die Sie zum Leben erwecken möchten? Wir helfen Ihnen, Ihre Konzepte in digitale Realität umzusetzen. Egal, ob Sie eine neue Website erstellen oder Funktionen zu Ihrer bestehenden hinzufügen möchten, unser Team begleitet Sie bei jedem Schritt.",
-    "it_strategy": "IT-Strategie & Digitalisierung",
-    "content_for_it_strategy": "Sie sind sich nicht sicher, welche Technologie Ihren Bedürfnissen entspricht? Wir bieten fachkundige Beratung, um Ihnen bei der Auswahl der richtigen Tools und Frameworks wie React, WordPress oder Angular zu helfen, um Ihre Geschäftsziele zu erreichen.",
+    "from_idea_to_implementation": "Von der Idee zur Realität",
+    "content_for_from_idea_to_implementation": "Haben Sie eine Idee?\n\n Wir verwirklichen sie. Von Websites bis hin zu mobilen Apps - wir haben alles im Griff.",
+    "it_strategy": "IT-Strategie und Digitalisierung  ",
+    "content_for_it_strategy": "Brauchen Sie technische Beratung?\n\n  Wir helfen Ihnen bei der Auswahl der richtigen Tools und Technologien.",
     "software_consulting": "Softwareberatung",
-    "content_for_software_consulting": "Unsere Softwareberatungsdienste analysieren die Bedürfnisse Ihres Unternehmens, um technologische Lösungen zu schaffen, die Ihre Abläufe verbessern. Von der Webentwicklung bis zu mobilen Apps stellen wir sicher, dass Ihre Technologieinvestitionen zum Erfolg führen.",
+    "content_for_software_consulting": "Softwarelösungen für Ihre individuellen Bedürfnisse.",
     "it_security": "IT-Sicherheit & Audits",
     "content_for_it_security": "Schützen Sie Ihr Unternehmen vor Cyberbedrohungen wie gefälschten Formularen, Angriffen oder Klickbetrug. Wir bieten umfassende IT-Sicherheitsdienste, um Ihre Daten zu schützen und einen reibungslosen Betrieb zu gewährleisten.",
     "software_development_consulting": "Softwareentwicklungsberatung",
@@ -78,10 +79,12 @@
     "mobile_consulting": "Mobile Beratung",
     "mobile_consulting_description": "Entwicklung ansprechender mobiler Anwendungen für iOS und Android.",
     "saas_consulting": "SaaS-Beratung",
-    "saas_consulting_description": "Nutzen Sie SaaS-Lösungen, um Ihre Abläufe zu optimieren.",
+    "saas_consulting_description": "Nutzen Sie SaaS-Lösungen, um Ihre Geschäftsprozesse zu optimieren.",
     "cloud_consulting": "Cloud-Beratung",
     "cloud_consulting_description": "Optimieren Sie Ihre Infrastruktur mit Cloud-Technologien.",
-    "ready_to_transform": "Bereit, Ihr Geschäft zu transformieren?"
+    "ready_to_transform": "Bereit, Ihr Geschäft zu transformieren?",
+    "contact_us": "Kontaktieren Sie uns",
+    "take_next_step": "Machen Sie den nächsten Schritt zur digitalen Exzellenz mit unseren Experten für IT-Beratung."
   },
   "web_development": {
     "web_development": "Webentwicklung",
@@ -100,7 +103,18 @@
     "technologies_tools": "Technologien & Tools",
     "content_for_technologies_tools": "Wir verwenden die neuesten Technologien und Tools, um die besten Ergebnisse zu liefern.",
     "ready_to_transform": "Bereit, Ihr Geschäft zu transformieren?",
-    "cta_description": "Partnern Sie mit uns, um Ihre digitale Präsenz auf die nächste Stufe zu heben."
+    "cta_description": "Partnern Sie mit uns, um Ihre digitale Präsenz auf die nächste Stufe zu heben.",
+    "contact_us": "Kontaktieren Sie uns",
+     "services_title": "Ihre Vision, unsere Mission",
+     "which_tool_title": "Welches Tool sollten Sie wählen?",
+     "which_tool_intro": "Sind Sie unsicher, ob WordPress, React oder Angular das Richtige für Sie ist? Erfahren Sie mehr unten:",
+     "faq_wordpress_title": "Wann sollte man WordPress verwenden?",
+     "faq_wordpress_content": "Ideal für Blogs oder kleine bis mittelgroße Websites, die ein leistungsstarkes CMS ohne großen Programmieraufwand benötigen.",
+     "faq_react_title": "Wann sollte man React verwenden?",
+     "faq_react_content": "Perfekt für interaktive, dynamische Single-Page-Apps, die hohe Leistung erfordern.",
+     "faq_angular_title": "Wann sollte man Angular verwenden?",
+     "faq_angular_content": "Optimal für groß angelegte Unternehmensanwendungen, bei denen eine starke Struktur entscheidend ist."
+
   },
   "it_services": {
     "full_service_it": "Full-Service IT",
@@ -173,7 +187,8 @@
   
     "faq_question_7": "Wie kann ich Sie erreichen?",
     "faq_answer_7": "Sie können uns per E-Mail an info@cyborg.com, per WhatsApp unter +995 598 70 79 73 oder über das Formular auf unserer Kontaktseite erreichen. Falls Sie weitere Fragen oder Sonderwünsche haben, melden Sie sich jederzeit – wir helfen Ihnen gerne weiter."
-  
+  ,"faq_contact_btn": "Jetzt kontaktieren",
+    "faq_offer_btn": "Angebot anfragen"
     },
   "zoho_consulting": {
     "title": "Zoho-Beratung",

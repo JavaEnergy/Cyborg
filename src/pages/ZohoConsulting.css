@@ -90,12 +90,9 @@
   
   .cta-button {
     margin-top: 20px;
-    background-color: #d4b051;
   }
   
-  .cta-button:hover {
-    background-color: #b89242;
-  }
+
 
   /* Contact Form */
 .contact-form {

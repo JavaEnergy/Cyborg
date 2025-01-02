@@ -2,17 +2,17 @@
 import React, { useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import './AboutUs.css';
-import image1 from '../assets/images/abus.png'; // Replace with your actual image paths
-import image2 from '../assets/images/abus.png'; // Use a different image if needed
+import image1 from '../assets/images/abus.png'; // Ersetze mit deinen tatsächlichen Bildpfaden
+import image2 from '../assets/images/abus.png'; // Verwende ein anderes Bild, falls nötig
 import { motion } from 'framer-motion';
-import Layout from '../components/Layout'; // Import the Layout component
-import ContactForm from '../components/ContactForm'; // Import ContactForm
+import Layout from '../components/Layout'; // Importiere das Layout-Komponente
+import ContactForm from '../components/ContactForm'; // Importiere das ContactForm-Komponente
 
 const AboutUs = () => {
   const { t, i18n } = useTranslation();
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
 
-  // Just add a ref for the contact section:
+  // Ref für den Kontaktbereich (Scroll-Funktion)
   const contactRef = useRef(null);
 
   const toggleFaq = (index) => {
@@ -52,7 +52,7 @@ const AboutUs = () => {
         </div>
       </div>
 
-      {/* First Section: Image on Left, Text on Right */}
+      {/* Erste Content-Sektion: Bild links, Text rechts */}
       <motion.section
         className="about-content-section"
         variants={sectionVariants}
@@ -76,7 +76,7 @@ const AboutUs = () => {
         </div>
       </motion.section>
 
-      {/* Second Section: Image on Right, Text on Left */}
+      {/* Zweite Content-Sektion: Bild rechts, Text links */}
       <motion.section
         className="about-content-section"
         variants={sectionVariants}
@@ -101,7 +101,7 @@ const AboutUs = () => {
         </div>
       </motion.section>
 
-      {/* FAQ Section */}
+      {/* FAQ Sektion */}
       <motion.section
         className="about-faq-section"
         variants={sectionVariants}
@@ -112,14 +112,17 @@ const AboutUs = () => {
       >
         <h2>{t('about_us.faq_title')}</h2>
         <div className="about-faq-list">
-          {/* Erweitere die FAQ-Liste um die #8 */}
+          {/* Erweiterte FAQ-Liste mit #8 */}
           {[1, 2, 3, 4, 5, 6, 7].map((item, index) => (
             <div
               className={`about-faq-item ${openFaqIndex === index ? 'open' : ''}`}
               key={index}
             >
               <h3 onClick={() => toggleFaq(index)}>
-                {t(`about_us.faq_question_${item}`)}
+                <span>{t(`about_us.faq_question_${item}`)}</span>
+                <span className="faq-icon">
+                  {openFaqIndex === index ? '−' : '+'}
+                </span>
               </h3>
               <motion.p
                 initial={{ height: 0, opacity: 0 }}
@@ -138,7 +141,7 @@ const AboutUs = () => {
         </div>
       </motion.section>
 
-      {/* Contact Section */}
+      {/* Kontakt Sektion */}
       <motion.section
         className="contact-section"
         variants={sectionVariants}

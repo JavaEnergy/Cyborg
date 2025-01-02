@@ -7,7 +7,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url('../assets/images/bg.jpg');
+  background-image: url('../assets/images/bg.jpg'); /* Update with your hero image */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -72,6 +72,8 @@
 .webdev-section p {
   margin-bottom: 20px;
 }
+
+/* Cards (Services) */
 .service-card {
   display: flex;
   flex-direction: column;
@@ -85,8 +87,9 @@
   margin-top: 10px;
 }
 
-.card-media {
+.card-media  {
   transition: transform 0.3s ease-in-out;
+  object-fit: contain !important; /* Added object-fit: contain */
 }
 
 .service-card:hover .card-media {
@@ -106,12 +109,53 @@
 .card-description {
   flex-grow: 1;
 }
+
+/* FAQ Section */
+.faq-section {
+  margin: 0 auto;
+  max-width: 800px;
+  margin-top: 30px;
+  border-radius: 30px;
+}
+
+.faq-accordion {
+  background-color: #f9f9f9; /* Light background for FAQs */
+  margin-bottom: 10px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.faq-accordion .MuiAccordionSummary-root {
+  padding: 0 20px;
+}
+
+.faq-accordion .MuiAccordionSummary-content {
+  margin: 10px 0;
+}
+
+.faq-accordion .MuiAccordionDetails-root {
+  padding: 0 20px 20px 20px;
+}
+
+.faq-accordion .MuiTypography-root {
+  font-size: 1.1rem;
+}
+
+.faq-accordion .MuiAccordionSummary-expandIconWrapper.Mui-expanded {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease-in-out;
+}
+
+.faq-accordion .MuiAccordionSummary-expandIconWrapper {
+  transition: transform 0.3s ease-in-out;
+}
+
 /* CTA Section */
 .cta-section {
   position: relative;
   padding: 80px 20px;
   margin-top: 60px;
-  background-image: url('../assets/images/cta-background.jpg');
+  background-image: url('../assets/images/cta-background.jpg'); /* Update with your CTA background image */
   background-size: cover;
   background-position: center;
   color: white;
@@ -136,14 +180,30 @@
 
 .cta-button {
   margin-top: 20px;
-  background-color: #d4b051;
 }
 
-.cta-button:hover {
-  background-color: #b89242;
+/* Style the CTA Button */
+.cta-button .MuiButton-root {
+  padding: 12px 30px;
+  font-size: 1rem;
+  background-color: #9c27b0; /* Purple Button Background */
+  color: #ffffff; /* White Text for Contrast */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button .MuiButton-root:hover {
+  background-color: #7b1fa2; /* Darker Purple on Hover */
+  color: #ffffff; /* White Text on Hover */
 }
 
 /* Contact Form */
+.contact-section {
+  margin-top: 60px;
+}
+
 .contact-form {
   max-width: 600px;
   margin: 0 auto;
@@ -167,16 +227,17 @@
 }
 
 .contact-form button {
-  background-color: #d4b051;
+  background-color: #9c27b0; /* Match CTA Button Color */
   color: white;
   padding: 12px 30px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .contact-form button:hover {
-  background-color: #b89242;
+  background-color: #7b1fa2; /* Darker Purple on Hover */
 }
 
 /* Responsive Adjustments */
@@ -205,5 +266,11 @@
 
   .cta-section h6 {
     font-size: 1.2rem;
+  }
+
+  .cta-button .MuiButton-root {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 1rem;
   }
 }

@@ -1,5 +1,5 @@
 // src/pages/WebDevelopment.jsx
-import React, { useRef } from 'react'; // **Updated Line:** Import useRef
+import React, { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
   Container,
@@ -9,6 +9,9 @@ import {
   CardContent,
   CardMedia,
   Button,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
 } from '@mui/material';
 import {
   Web as WebIcon,
@@ -16,36 +19,42 @@ import {
   ShoppingCart as ECommerceIcon,
   Build as BuildIcon,
 } from '@mui/icons-material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
+
 import Layout from '../components/Layout';
 import './WebDevelopment.css';
-import useScrollSpy from '../hooks/useScrollSpy'; // Import the hook
-
-// Import images
-import wordpressImage from '../assets/images/abusbg.jpg';
-import reactImage from '../assets/images/abusbg.jpg';
-import angularImage from '../assets/images/abusbg.jpg';
-import ecommerceImage from '../assets/images/abusbg.jpg';
-import customSoftwareImage from '../assets/images/abusbg.jpg';
-import technologiesImage from '../assets/images/abusbg.jpg';
+import useScrollSpy from '../hooks/useScrollSpy'; // Import the custom hook
 import ContactForm from '../components/ContactForm'; // Import ContactForm
+
+// Import images (ensure these paths are correct)
+import wordpressImage from '../assets/images/wordpress.jpg';
+import reactImage from '../assets/images/react.png';
+import angularImage from '../assets/images/angular.png';
+import ecommerceImage from '../assets/images/e commerce.png'; // Corrected filename
+import customSoftwareImage from '../assets/images/custom.png';
+// Removed technologiesImage as the section is being replaced
 
 const WebDevelopment = () => {
   const { t, i18n } = useTranslation();
   const currentLang = i18n.language;
 
+  const navigate = useNavigate(); // Initialize useNavigate
+
+  // Define the sections for scroll spy
   const sectionIds = [
     'wordpress',
     'react-applications',
     'angular-development',
     'e-commerce',
     'custom-software',
-    'technologies-tools',
+    'tool-comparison-faq', // Updated section ID
   ];
 
   useScrollSpy(sectionIds);
 
-  // Animation variants
+  // Animation variants for sections
   const sectionVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: (custom) => ({
@@ -59,6 +68,7 @@ const WebDevelopment = () => {
     }),
   };
 
+  // Animation variants for cards
   const cardVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -71,7 +81,7 @@ const WebDevelopment = () => {
     },
   };
 
-  // **Added Line:** Define contactRef
+  // Define contactRef for smooth scrolling
   const contactRef = useRef(null);
 
   // Services data
@@ -116,7 +126,12 @@ const WebDevelopment = () => {
   // Contact form submission handler
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Handle form submission logic here
+    // Handle form submission logic here (e.g., send data to API)
+  };
+
+  // CTA button click handler
+  const handleCTAButtonClick = () => {
+    navigate(`/${currentLang}/contact-us`);
   };
 
   return (
@@ -143,9 +158,6 @@ const WebDevelopment = () => {
             <Typography variant="h4" component="h2" gutterBottom align="center">
               {t('web_development.services_title')}
             </Typography>
-            <Typography variant="body1" align="center" paragraph>
-              {t('web_development.services_description')}
-            </Typography>
             <motion.div initial="hidden" animate="visible">
               <Grid container spacing={4} justifyContent="center" alignItems="stretch">
                 {services.map((service, index) => (
@@ -163,7 +175,7 @@ const WebDevelopment = () => {
                         component={motion.div}
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
-                        classes={{ root: 'service-card' }}
+                        className="service-card"
                       >
                         <div className="service-icon">{service.icon}</div>
                         <CardMedia
@@ -189,26 +201,94 @@ const WebDevelopment = () => {
             </motion.div>
           </motion.section>
 
-          {/* Technologies & Tools Section */}
+          {/* FAQ/Comparison Section */}
           <motion.section
-            id="technologies-tools"
+            id="tool-comparison-faq"
             className="webdev-section"
             variants={sectionVariants}
             initial="hidden"
-            animate="visible"
-            custom={5}
+            whileInView="visible"
+            viewport={{ once: true }}
+            custom={4}
           >
             <Typography variant="h4" component="h2" gutterBottom align="center">
-              {t('web_development.technologies_tools')}
+              {t('web_development.which_tool_title')}
             </Typography>
             <Typography variant="body1" align="center" paragraph>
-              {t('web_development.content_for_technologies_tools')}
+              {t('web_development.which_tool_intro')}
             </Typography>
-            <img
-              src={technologiesImage}
-              alt="Technologies & Tools"
-              className="section-image"
-            />
+
+            {/* FAQ Accordions with Animations */}
+            <div className="faq-section">
+              {/* WordPress Accordion */}
+              <Accordion className="faq-accordion">
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="wordpress-content"
+                  id="wordpress-header"
+                >
+                  <Typography variant="h6">{t('web_development.faq_wordpress_title')}</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Typography variant="body1">
+                      {t('web_development.faq_wordpress_content')}
+                    </Typography>
+                  </motion.div>
+                </AccordionDetails>
+              </Accordion>
+
+              {/* React Accordion */}
+              <Accordion className="faq-accordion">
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="react-content"
+                  id="react-header"
+                >
+                  <Typography variant="h6">{t('web_development.faq_react_title')}</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Typography variant="body1">
+                      {t('web_development.faq_react_content')}
+                    </Typography>
+                  </motion.div>
+                </AccordionDetails>
+              </Accordion>
+
+              {/* Angular Accordion */}
+              <Accordion className="faq-accordion">
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="angular-content"
+                  id="angular-header"
+                >
+                  <Typography variant="h6">{t('web_development.faq_angular_title')}</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Typography variant="body1">
+                      {t('web_development.faq_angular_content')}
+                    </Typography>
+                  </motion.div>
+                </AccordionDetails>
+              </Accordion>
+            </div>
           </motion.section>
 
           {/* CTA Section */}
@@ -216,7 +296,8 @@ const WebDevelopment = () => {
             className="cta-section"
             variants={sectionVariants}
             initial="hidden"
-            animate="visible"
+            whileInView="visible"
+            viewport={{ once: true }}
             custom={5}
           >
             <div className="cta-content">
@@ -230,22 +311,26 @@ const WebDevelopment = () => {
                 variant="contained"
                 color="secondary"
                 size="large"
-                href={`/${currentLang}/contact-us`}
+                onClick={handleCTAButtonClick} // Updated onClick handler
                 className="cta-button"
+                component={motion.button}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                aria-label={t('web_development.contact_us')}
               >
                 {t('web_development.contact_us')}
               </Button>
             </div>
           </motion.div>
 
-          {/* **Added Block: Contact Section** */}
+          {/* Contact Section */}
           <motion.section
             className="contact-section"
             variants={sectionVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            custom={5}
+            custom={6}
             ref={contactRef} // Assign ref to Contact Us section
           >
             <Typography variant="h2" component="h2" gutterBottom>

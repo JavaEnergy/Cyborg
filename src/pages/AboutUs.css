@@ -1,10 +1,11 @@
-/* src/pages/AboutUs.css */
-
-/* Hero Section */
+/* =======================================
+   HERO SECTION
+======================================= */
 .about-hero {
   position: relative;
   height: 50vh;
-  background-image: url('../assets/images/abus.png'); /* Ensure the path is correct */
+  /* Hintergrundbild für die Hero-Sektion */
+  background-image: url('../assets/images/abus.png'); /* Pfad ggf. anpassen */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -21,18 +22,22 @@
 
 .about-hero-content h1 {
   color: #fff;
-  font-size: 3rem; /* Increased for better visibility */
+  font-size: 3rem; /* Größer für bessere Sichtbarkeit */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   font-weight: bold;
 }
 
-/* Content Sections */
+/* =======================================
+   CONTENT SECTIONS
+======================================= */
 .about-content-section {
-  padding: 60px 20px; /* Adjusted padding for better responsiveness */
+  padding: 60px 20px; /* Genug Abstand für bessere Lesbarkeit */
 }
+
 .second {
-  padding-left: 150px;
+  padding-left: 150px; /* Beispielweise etwas zusätzlicher Platz */
 }
+
 .about-content-container {
   display: flex;
   align-items: center;
@@ -78,11 +83,11 @@
 .about-image-content img {
   width: 100%;
   height: auto;
-  max-width: 500px; /* Limit the maximum width for large screens */
+  max-width: 500px; /* Begrenzung auf großen Bildschirmen */
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Circular Image Styling */
+/* Kreisförmiges Bild */
 .circle-image {
   width: 250px;
   height: 250px;
@@ -90,6 +95,66 @@
   object-fit: cover;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
+/* CTA Section */
+.cta-section {
+  background-color: #007BFF; /* Dark Blue Background */
+  color: #ffffff; /* White Text for Contrast */
+  padding: 60px 20px; /* Increased Padding for Better Spacing */
+  margin-top: 60px;
+  text-align: center;
+  border-radius: 8px; /* Slightly Increased Border Radius */
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2); /* Optional Overlay for Depth */
+  z-index: 0;
+}
+
+.cta-section h5 {
+  font-size: 2rem; /* Increased Font Size */
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-section p {
+  font-size: 1.2rem; /* Adequate Font Size for Readability */
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-section .cta-button {
+  position: relative;
+  z-index: 1;
+}
+
+.cta-section .cta-button .MuiButton-root {
+  padding: 12px 30px;
+  font-size: 1rem;
+  background-color: #ffffff; /* White Button for Contrast */
+  color: #007BFF; /* Blue Text to Match Background */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cta-section .cta-button .MuiButton-root:hover {
+  background-color: #0056b3; /* Darker Blue on Hover */
+  color: #ffffff; /* White Text on Hover */
+}
+/* =======================================
+   FAQ SECTION
+======================================= */
 .about-faq-section {
   padding: 60px 20px;
   background: linear-gradient(135deg, #f9f9f9 0%, #ececec 100%);
@@ -114,7 +179,7 @@
 /* Einzelner FAQ-Punkt */
 .about-faq-item {
   margin-bottom: 20px;
-  overflow: hidden; /* Damit die Animation (height=0 -> auto) weicher ist */
+  overflow: hidden; /* Für die Animation (height=0 -> auto) */
   border: 1px solid #ddd;
   border-radius: 8px;
   background-color: #fff;
@@ -126,6 +191,9 @@
 }
 
 .about-faq-item h3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-size: 1.3rem;
   cursor: pointer;
   margin: 0;
@@ -138,11 +206,17 @@
   background: #e8e8e8;
 }
 
+.faq-icon {
+  font-size: 1.5rem;
+  margin-left: 10px;
+  transition: transform 0.3s ease;
+}
+
 .faq-answer {
   overflow: hidden;
   font-size: 1.1rem;
   line-height: 1.6;
-  margin: 0; /* wichtig, sonst entsteht extra Abstand */
+  margin: 0; /* Sonst entsteht extra Abstand */
   padding: 0 20px;
   color: #333;
   white-space: pre-line;
@@ -153,7 +227,9 @@
   padding-bottom: 15px;
 }
 
-/* Contact Form */
+/* =======================================
+   CONTACT SECTION
+======================================= */
 .contact-section {
   padding: 60px 20px;
   background-color: #fff;
@@ -195,7 +271,9 @@
   background-color: #b89242;
 }
 
-/* Responsive Design */
+/* =======================================
+   RESPONSIVE DESIGN
+======================================= */
 @media (max-width: 992px) {
   .about-hero-content h1 {
     font-size: 2.5rem;
@@ -238,6 +316,23 @@
 
   .about-text-content p {
     font-size: 0.95rem;
+  }
+  .cta-section {
+    padding: 40px 15px;
+  }
+
+  .cta-section h5 {
+    font-size: 1.5rem;
+  }
+
+  .cta-section p {
+    font-size: 1rem;
+  }
+
+  .cta-section .cta-button .MuiButton-root {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 1rem;
   }
 }
 
