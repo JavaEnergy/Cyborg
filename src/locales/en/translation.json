@@ -183,7 +183,7 @@
     "faq_answer_4": "We keep you updated regularly, either through weekly meetings or email updates.",
 
     "faq_question_5": "Are there any additional fees or taxes, and why is no VAT charged?",
-  "faq_answer_5": "No, the price we quote is your final price. We are based in Georgia and are not subject to German VAT (value-added tax).\n\nIn summary:\n- Private customers (B2C) in Germany, Austria, or Switzerland pay no additional taxes or fees.\n- Business customers (B2B) in D-A-CH may, in some cases, apply the reverse-charge mechanism. This means that your company reports the VAT directly to the respective tax office.\n\nIn detail:\n- Our services are provided in Georgia, so no VAT is applicable for customers in D-A-CH. We pay our taxes in accordance with Georgian law.\n- For business customers (B2B) in Germany, Austria, and Switzerland, the reverse-charge mechanism typically applies: You, as the recipient of the service, calculate the VAT yourself and remit it to the respective tax office. At the same time, you can usually claim it back as input tax, resulting in no actual tax burden.\n\nIf you have any further questions, please feel free to contact us directly."
+  "faq_answer_5": "No, the price we quote is your final price. We are based in Georgia and are not subject to EU VAT (value-added tax).\n\nIn summary:\n- Private customers (B2C) in Germany, Austria, or Switzerland pay no additional taxes or fees.\n- Business customers (B2B) in D-A-CH apply the reverse-charge mechanism. This means that your company reports the VAT directly to the respective tax office.\n\nIn detail:\n- Our services are provided in Georgia, so no VAT is applicable for customers in D-A-CH. We pay our taxes in accordance with Georgian law.\n- For business customers (B2B) in Germany, Austria, and Switzerland, the reverse-charge mechanism typically applies: You, as the recipient of the service, calculate the VAT yourself and remit it to the respective tax office. At the same time, you can usually claim it back as input tax, resulting in no actual tax burden.\n\nIf you have any further questions, please feel free to contact us directly."
 
     ,"faq_question_6": "Do you offer maintenance and support after project completion?",
     "faq_answer_6": "Yes, we offer ongoing maintenance and support to ensure your systems continue to run smoothly.",
@@ -197,27 +197,34 @@
     "title": "Zoho Consulting",
     "intro_title": "What is Zoho?",
     "intro_description": "Zoho is a comprehensive suite of cloud-based applications designed to enhance your business operations. With over 40 integrated apps, Zoho provides solutions for CRM, finance, project management, collaboration, and much more.",
-    "services_title": "Our Zoho Consulting Services",
-    "services_description": "We specialize in implementing and customizing Zoho applications to meet your specific business needs. Our services include:",
-    "service_1": "Zoho CRM implementation and customization",
-    "service_2": "Zoho Books setup for streamlined accounting",
-    "service_3": "Zoho Projects integration for efficient project management",
-    "service_4": "Custom application development within the Zoho ecosystem",
-    "cta_title": "Ready to Transform Your Business with Zoho?",
-    "cta_description": "Contact us today to discuss how we can help you leverage Zoho's powerful suite of applications.",
-    "contact_us": "Contact Us",
     "zoho_crm": "Zoho CRM",
-    "zoho_books": "Zoho Books",
-    "zoho_projects": "Zoho Projects",
+    "zoho_crm_description": "Streamline your sales process and manage customer relationships effectively.",
+    "zoho_crm_more_info": "Zoho CRM helps you connect with your customers, automate sales processes, and enhance your business relationships. It offers powerful tools for lead management, sales automation, and analytics to drive your business growth.",
+
+    "zoho_marketing": "Zoho Marketing",
+    "zoho_marketing_description": "Automate your marketing campaigns and engage customers efficiently.",
+    "zoho_marketing_more_info": "Zoho Marketing enables you to create, execute, and track your marketing campaigns with ease. Utilize email marketing, social media integration, and comprehensive analytics to reach and engage your target audience effectively.",
+
+    "finance": "Finance",
+    "finance_description": "Manage your finances, billing, and invoicing all in one place.",
+    "finance_more_info": "Our Finance solutions provide comprehensive tools for managing your company's financial operations. From invoicing and expense tracking to financial reporting and compliance, streamline all your financial processes efficiently.",
+
+    "human_resources": "Human Resources",
+    "human_resources_description": "Streamline HR processes from recruitment to payroll.",
+    "human_resources_more_info": "Zoho Human Resources offers a complete suite for managing your workforce. Handle recruitment, onboarding, performance evaluations, and payroll seamlessly, ensuring your HR operations are both effective and efficient.",
+
     "custom_development": "Custom Development",
-    "zoho_crm_description": "We provide implementation and customization of Zoho CRM to effectively manage your customer relationships.",
-    "zoho_books_description": "Setup and optimization of Zoho Books for seamless financial management and accounting.",
-    "zoho_projects_description": "Integration of Zoho Projects for efficient project planning and collaboration.",
-    "custom_development_description": "Development of customized solutions within the Zoho ecosystem to meet your unique business needs."
+    "custom_development_description": "Tailored solutions built specifically for your business needs.",
+    "custom_development_more_info": "Our Custom Development services provide bespoke software solutions tailored to your unique business requirements. Whether you need a custom CRM, inventory system, or any other application, we deliver scalable and reliable solutions to drive your business forward.",
+
+    "cta_title": "Ready to Transform Your Business?",
+    "cta_description": "Let us help you implement Zoho solutions to maximize growth and efficiency.",
+    "contact_us": "Contact Us",
+    "close": "Close"
   },
   "contact_us": {
     "title": "Get in Touch",
-    "subtitle": "We'd love to hear from you. Please fill out the form below.",
+    "subtitle": "We'd love to hear from you 24/7. Please fill out the form below.",
     "name": "Name",
     "email": "Email",
     "subject": "Subject",
@@ -227,7 +234,10 @@
     "address_line1": "",
     "address_line2": "",
     "phone": "Phone: (+995) 598-707973",
-    "email_contact": "Email: info@cyborg.com"
+    "email_contact": "Email: info@cyborg.com",
+    "follow_us": "Follow Us",
+    "linkedin": "LinkedIn",
+    "whatsapp_24_7": "Available 24/7 on WhatsApp"
   },
   "legal": {
     "title": "Privacy Policy and Terms of Use",
@@ -328,12 +338,17 @@
     "updated_date": "Last updated: November 11, 2024"
   },
   "contact": {
-    "name_placeholder": "Your Name",
-    "email_placeholder": "Your Email",
-    "message_placeholder": "Your Message",
-    "send_button": "Send",
+    "success_message": "Thank you for your message! We will get back to you shortly.",
+    "error_message": "Oops, something went wrong! Please try again later.",
     "sending": "Sending...",
-    "success_message": "Thank you for your message. We will get back to you shortly.",
-    "error_message": "Failed to send message. Please try again later."
+    "name_placeholder": "Name",
+    "email_placeholder": "E-Mai",
+    "message_placeholder": "Message",
+       "send_button": "Send Message"
+
+
+
+
+
   }
 }

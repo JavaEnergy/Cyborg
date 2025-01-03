@@ -180,7 +180,7 @@
     "faq_answer_4": "Wir halten Sie regelmäßig auf dem Laufenden – je nach Projektgröße zum Beispiel durch wöchentliche Meetings oder E-Mail-Updates. So haben Sie immer den Überblick über Fortschritt und nächste Schritte.",
   
     "faq_question_5": "Fallen zusätzliche Gebühren und Steuern an, und warum wird keine Mehrwertsteuer berechnet?",
-    "faq_answer_5": "Nein, der von uns genannte Preis ist Ihr Endpreis. Wir sind in Georgien ansässig und unterliegen nicht der deutschen Umsatzsteuer (Mehrwertsteuer).\n\nKurz gesagt:\n- Privatkunden (B2C) in Deutschland, Österreich oder der Schweiz zahlen keine weiteren Steuern oder Gebühren.\n- Geschäftskunden (B2B) in D-A-CH wenden in manchen Fällen das Reverse-Charge-Verfahren an. Dabei meldet Ihr Unternehmen die Umsatzsteuer selbst an das jeweilige Finanzamt.\n\nAusführlich:\n- Unsere Leistungen werden in Georgien erbracht, daher fällt für Kunden in D-A-CH keine Mehrwertsteuer an. Wir zahlen unsere Steuern nach den Vorgaben des georgischen Rechts.\n- Für Geschäftskunden (B2B) in Deutschland, Österreich und der Schweiz greift üblicherweise das Reverse-Charge-Verfahren: Sie als Leistungsempfänger berechnen die Umsatzsteuer selbst und führen sie an Ihr zuständiges Finanzamt ab. Gleichzeitig können Sie diese meist als Vorsteuer geltend machen, sodass in der Regel keine tatsächliche Steuerlast entsteht.\n\nFalls Sie weitere Fragen haben, sprechen Sie uns gern direkt an."
+    "faq_answer_5": "Nein, der von uns genannte Preis ist Ihr Endpreis. Wir sind in Georgien ansässig und unterliegen nicht der EU Umsatzsteuer (Mehrwertsteuer).\n\nKurz gesagt:\n- Privatkunden (B2C) in Deutschland, Österreich oder der Schweiz zahlen keine weiteren Steuern oder Gebühren.\n- Geschäftskunden (B2B) in D-A-CH wenden das Reverse-Charge-Verfahren an. Dabei meldet Ihr Unternehmen die Umsatzsteuer selbst an das jeweilige Finanzamt.\n\nAusführlich:\n- Unsere Leistungen werden in Georgien erbracht, daher fällt für Kunden in D-A-CH keine Mehrwertsteuer an. Wir zahlen unsere Steuern nach den Vorgaben des georgischen Rechts.\n- Für Geschäftskunden (B2B) in Deutschland, Österreich und der Schweiz greift das Reverse-Charge-Verfahren: Sie als Leistungsempfänger berechnen die Umsatzsteuer selbst und führen sie an Ihr zuständiges Finanzamt ab. Gleichzeitig können Sie diese meist als Vorsteuer geltend machen, sodass in der Regel keine tatsächliche Steuerlast entsteht.\n\nFalls Sie weitere Fragen haben, sprechen Sie uns gern direkt an."
   
     ,"faq_question_6": "Bieten Sie Wartungs- und Supportleistungen nach Projektabschluss an?",
     "faq_answer_6": "Ja, wir bieten laufende Wartungs- und Supportleistungen an, um sicherzustellen, dass Ihre Systeme reibungslos funktionieren. Dazu gehören Fehlerbehebungen, Sicherheitsupdates und auf Wunsch regelmäßige Optimierungen.",
@@ -194,27 +194,35 @@
     "title": "Zoho-Beratung",
     "intro_title": "Was ist Zoho?",
     "intro_description": "Zoho ist eine umfassende Suite von cloudbasierten Anwendungen, die darauf abzielen, Ihre Geschäftsprozesse zu optimieren. Mit über 40 integrierten Apps bietet Zoho Lösungen für CRM, Finanzen, Projektmanagement, Zusammenarbeit und vieles mehr.",
-    "services_title": "Unsere Zoho-Beratungsdienste",
-    "services_description": "Wir sind spezialisiert auf die Implementierung und Anpassung von Zoho-Anwendungen, um Ihre spezifischen Geschäftsanforderungen zu erfüllen. Unsere Dienstleistungen umfassen:",
-    "service_1": "Implementierung und Anpassung von Zoho CRM",
-    "service_2": "Einrichtung von Zoho Books für effizientes Rechnungswesen",
-    "service_3": "Integration von Zoho Projects für effektives Projektmanagement",
-    "service_4": "Entwicklung kundenspezifischer Anwendungen innerhalb des Zoho-Ökosystems",
-    "cta_title": "Bereit, Ihr Geschäft mit Zoho zu transformieren?",
-    "cta_description": "Kontaktieren Sie uns noch heute, um zu besprechen, wie wir Ihnen helfen können, die leistungsstarke Suite von Zoho-Anwendungen zu nutzen.",
-    "contact_us": "Kontaktieren Sie uns",
     "zoho_crm": "Zoho CRM",
-    "zoho_books": "Zoho Books",
-    "zoho_projects": "Zoho Projects",
-    "custom_development": "Kundenspezifische Entwicklung",
-    "zoho_crm_description": "Wir bieten Implementierung und Anpassung von Zoho CRM, um Ihre Kundenbeziehungen effektiv zu verwalten.",
-    "zoho_books_description": "Einrichtung und Optimierung von Zoho Books für ein nahtloses Finanzmanagement und Buchhaltung.",
-    "zoho_projects_description": "Integration von Zoho Projects für eine effiziente Projektplanung und Zusammenarbeit.",
-    "custom_development_description": "Entwicklung maßgeschneiderter Lösungen innerhalb des Zoho-Ökosystems, um Ihre einzigartigen Geschäftsanforderungen zu erfüllen."
-  },
+    "zoho_crm_description": "Optimieren Sie Ihren Verkaufsprozess und verwalten Sie Kundenbeziehungen effektiv.",
+    "zoho_crm_more_info": "Zoho CRM hilft Ihnen, sich mit Ihren Kunden zu verbinden, Verkaufsprozesse zu automatisieren und Ihre Geschäftsbeziehungen zu verbessern. Es bietet leistungsstarke Tools für Lead-Management, Vertriebsautomatisierung und Analysen, um das Wachstum Ihres Unternehmens voranzutreiben.",
+
+    "zoho_marketing": "Zoho Marketing",
+    "zoho_marketing_description": "Automatisieren Sie Ihre Marketingkampagnen und binden Sie Kunden effizient ein.",
+    "zoho_marketing_more_info": "Zoho Marketing ermöglicht es Ihnen, Ihre Marketingkampagnen mühelos zu erstellen, auszuführen und zu verfolgen. Nutzen Sie E-Mail-Marketing, Social-Media-Integration und umfassende Analysen, um Ihre Zielgruppe effektiv zu erreichen und zu engagieren.",
+
+    "finance": "Finanzen",
+    "finance_description": "Verwalten Sie Ihre Finanzen, Abrechnung und Rechnungsstellung an einem Ort.",
+    "finance_more_info": "Unsere Finanzlösungen bieten umfassende Werkzeuge zur Verwaltung der finanziellen Abläufe Ihres Unternehmens. Von Rechnungsstellung und Ausgabenverfolgung bis hin zu Finanzberichten und Compliance optimieren Sie alle Ihre Finanzprozesse effizient.",
+
+    "human_resources": "Personalwesen",
+    "human_resources_description": "Vereinfachen Sie Personalprozesse von der Einstellung bis zur Gehaltsabrechnung.",
+    "human_resources_more_info": "Zoho Personalwesen bietet eine vollständige Suite zur Verwaltung Ihrer Belegschaft. Verwalten Sie Rekrutierung, Onboarding, Leistungsbewertungen und Gehaltsabrechnung nahtlos und stellen Sie sicher, dass Ihre HR-Abläufe sowohl effektiv als auch effizient sind.",
+
+    "custom_development": "Individuelle Entwicklung",
+    "custom_development_description": "Maßgeschneiderte Lösungen, die speziell für die Bedürfnisse Ihres Unternehmens entwickelt werden.",
+    "custom_development_more_info": "Unsere individuellen Entwicklungsdienstleistungen bieten maßgeschneiderte Softwarelösungen, die auf Ihre einzigartigen Geschäftsanforderungen zugeschnitten sind. Egal, ob Sie ein benutzerdefiniertes CRM, ein Inventarsystem oder eine andere Anwendung benötigen, wir liefern skalierbare und zuverlässige Lösungen, um Ihr Unternehmen voranzubringen.",
+
+    "cta_title": "Bereit, Ihr Unternehmen zu transformieren?",
+    "cta_description": "Wir unterstützen Sie bei der Implementierung von Zoho-Lösungen für maximales Wachstum und Effizienz.",
+    "contact_us": "Kontaktieren Sie uns",
+    "close": "Schließen" },
+
+    
   "contact_us": {
     "title": "Kontaktieren Sie uns",
-    "subtitle": "Wir würden uns freuen, von Ihnen zu hören. Bitte füllen Sie das untenstehende Formular aus.",
+    "subtitle": "Wir würden uns freuen, von Ihnen 24/7 zu hören. Bitte füllen Sie das untenstehende Formular aus.",
     "name": "Name",
     "email": "E-Mail",
     "subject": "Betreff",
@@ -224,7 +232,8 @@
     "address_line1": "",
     "address_line2": "",
     "phone": "Telefon: (+995) 598-707973",
-    "email_contact": "E-Mail: info@cyborg.de"
+    "email_contact": "E-Mail: info@cyborg.de",
+       "follow_us": "Folgen Sie uns"
   },
   "legal": {
     "title": "Datenschutzerklärung und Nutzungsbedingungen",
@@ -324,13 +333,13 @@
     
     "updated_date": "Zuletzt aktualisiert: 11. November 2024"
   },
-  "contact": {
-    "name_placeholder": "Ihr Name",
-    "email_placeholder": "Ihre E-Mail",
-    "message_placeholder": "Ihre Nachricht",
-    "send_button": "Senden",
-    "sending": "Senden...",
-    "success_message": "Vielen Dank für Ihre Nachricht. Wir werden uns in Kürze bei Ihnen melden.",
-    "error_message": "Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es später erneut."
+ "contact": {
+    "success_message": "Vielen Dank für Ihre Nachricht! Wir melden uns bald bei Ihnen.",
+    "error_message": "Oh nein, etwas ist schief gelaufen! Bitte versuchen Sie es später noch einmal.",
+    "sending": "Wird gesendet...",
+    "name_placeholder": "Name",
+    "email_placeholder": "E-Mai",
+    "message_placeholder": "Nachricht",
+    "send_button": "Nachricht senden"
   }
 }

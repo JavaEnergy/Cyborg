@@ -11,8 +11,12 @@ import {
   Button,
   Accordion,
   AccordionSummary,
-  AccordionDetails,
+  AccordionDetails
 } from '@mui/material';
+
+import {
+  Email, // Import Email icon
+} from '@mui/icons-material';
 import {
   Web as WebIcon,
   Code as CodeIcon,
@@ -291,34 +295,33 @@ const WebDevelopment = () => {
             </div>
           </motion.section>
 
-          {/* CTA Section */}
           <motion.div
             className="cta-section"
             variants={sectionVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            custom={5}
+            custom={3}
           >
-            <div className="cta-content">
-              <Typography variant="h4" align="center" gutterBottom>
-                {t('web_development.ready_to_transform')}
-              </Typography>
-              <Typography variant="h6" align="center" paragraph>
-                {t('web_development.cta_description')}
-              </Typography>
+            <Typography variant="h5" align="center" gutterBottom>
+              {t('it_consulting.ready_to_transform')}
+            </Typography>
+            <Typography variant="body1" align="center" paragraph>
+              {t('it_consulting.take_next_step')}
+            </Typography>
+            <div className="cta-button">
               <Button
                 variant="contained"
-                color="secondary"
+                color="secondary" // Changed to secondary for better contrast
                 size="large"
+                startIcon={<Email />} // Use the Email icon here
                 onClick={handleCTAButtonClick} // Updated onClick handler
-                className="cta-button"
                 component={motion.button}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                aria-label={t('web_development.contact_us')}
+                aria-label={t('it_consulting.contact_us')}
               >
-                {t('web_development.contact_us')}
+                {t('it_consulting.contact_us')}
               </Button>
             </div>
           </motion.div>
@@ -330,7 +333,7 @@ const WebDevelopment = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            custom={6}
+            custom={2}
             ref={contactRef} // Assign ref to Contact Us section
           >
             <Typography variant="h2" component="h2" gutterBottom>

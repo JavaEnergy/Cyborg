@@ -195,7 +195,7 @@
 }
 
 .cta-button .MuiButton-root:hover {
-  background-color: #7b1fa2; /* Darker Purple on Hover */
+  background-color: #7b1fa2;
   color: #ffffff; /* White Text on Hover */
 }
 
@@ -227,7 +227,7 @@
 }
 
 .contact-form button {
-  background-color: #9c27b0; /* Match CTA Button Color */
+  background-color: #d4b051 ; /* Match CTA Button Color */
   color: white;
   padding: 12px 30px;
   border: none;
@@ -237,7 +237,7 @@
 }
 
 .contact-form button:hover {
-  background-color: #7b1fa2; /* Darker Purple on Hover */
+  background-color: #b89242 !important;
 }
 
 /* Responsive Adjustments */

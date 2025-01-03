@@ -1,41 +1,120 @@
 // src/pages/ZohoConsulting.jsx
-import React, { useRef } from 'react'; // **Updated Line:** Import useRef
+import React, { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Container, Typography, Grid, Button } from '@mui/material';
+import {
+  Container,
+  Typography,
+  Grid,
+  Button,
+  Card,
+  CardContent,
+  CardMedia,
+  Modal,
+} from '@mui/material';
 import { motion } from 'framer-motion';
 import Layout from '../components/Layout';
 import './ZohoConsulting.css';
 
-import ContactForm from '../components/ContactForm'; // Import ContactForm
+import {
+  Email, // Import Email icon
+} from '@mui/icons-material';
+import ContactForm from '../components/ContactForm';
 
-// Import images
-import zohoHeroImage from '../assets/images/bg.jpg'; // Replace with your actual image
-import zohoAppsImage from '../assets/images/bg.jpg'; // Image representing Zoho apps
-import zohoImplementationImage from '../assets/images/bg.jpg'; // Image for implementation services
+// Example images (update paths accordingly)
+import zohoHeroImage from '../assets/images/ZOHO.png';
+import zohoCRMImage from '../assets/images/crm.png';;
+import zohoMarketingImage from '../assets/images/marketing.png';;
+import zohoFinanceImage from '../assets/images/finance.png';;
+import zohoHRImage from '../assets/images/people.png';;
+import zohoCustomDevImage from '../assets/images/zoho.jpg';;
 
 const ZohoConsulting = () => {
   const { t, i18n } = useTranslation();
   const currentLang = i18n.language;
-
-  // **Added Line:** Define contactRef inside the component
   const contactRef = useRef(null);
 
-  // Animation variants
+  // Modal states
+  const [openModal, setOpenModal] = useState(false);
+  const [selectedService, setSelectedService] = useState(null);
+
+  // Animation for page sections
   const sectionVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: (custom) => ({
       opacity: 1,
       y: 0,
       transition: {
-        delay: custom * 0.3,
+        delay: custom * 0.2,
         duration: 0.6,
         ease: 'easeOut',
       },
     }),
   };
 
-  // **Removed Redundant handleSubmit Function**
-  // The ContactForm component handles form submissions internally.
+  // Card hover animation
+  const cardVariants = {
+    rest: {
+      scale: 1,
+      boxShadow: '0px 2px 10px rgba(0,0,0,0.1)',
+    },
+    hover: {
+      scale: 1.05,
+      boxShadow: '0px 8px 20px rgba(0,0,0,0.2)',
+      transition: {
+        duration: 0.3,
+        ease: 'easeOut',
+      },
+    },
+  };
+
+  // Services array, including "moreInfo" for modal content
+  const services = [
+    {
+      title: t('zoho_consulting.zoho_crm'),
+      description: t('zoho_consulting.zoho_crm_description'),
+      image: zohoCRMImage,
+      alt: 'Zoho CRM',
+      moreInfo: t('zoho_consulting.zoho_crm_more_info'),
+    },
+    {
+      title: t('zoho_consulting.zoho_marketing'),
+      description: t('zoho_consulting.zoho_marketing_description'),
+      image: zohoMarketingImage,
+      alt: 'Zoho Marketing',
+      moreInfo: t('zoho_consulting.zoho_marketing_more_info'),
+    },
+    {
+      title: t('zoho_consulting.finance'),
+      description: t('zoho_consulting.finance_description'),
+      image: zohoFinanceImage,
+      alt: 'Finance',
+      moreInfo: t('zoho_consulting.finance_more_info'),
+    },
+    {
+      title: t('zoho_consulting.human_resources'),
+      description: t('zoho_consulting.human_resources_description'),
+      image: zohoHRImage,
+      alt: 'Human Resources',
+      moreInfo: t('zoho_consulting.human_resources_more_info'),
+    },
+    {
+      title: t('zoho_consulting.custom_development'),
+      description: t('zoho_consulting.custom_development_description'),
+      image: zohoCustomDevImage,
+      alt: 'Custom Development',
+      moreInfo: t('zoho_consulting.custom_development_more_info'),
+    },
+  ];
+
+  // Open/close modal logic
+  const handleOpenModal = (service) => {
+    setSelectedService(service);
+    setOpenModal(true);
+  };
+  const handleCloseModal = () => {
+    setOpenModal(false);
+    setSelectedService(null);
+  };
 
   return (
     <Layout>
@@ -73,82 +152,61 @@ const ZohoConsulting = () => {
               {t('zoho_consulting.intro_description')}
             </Typography>
             <img
-              src={zohoAppsImage}
+              src={zohoHeroImage}
               alt="Zoho Applications"
               className="section-image"
             />
           </motion.section>
 
-          {/* Zoho CRM Section */}
+          {/* Services Grid */}
           <motion.section
-            id="zoho-crm"
-            className="zoho-service-section"
+            className="zoho-services-grid"
             variants={sectionVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             custom={2}
           >
-            <Typography variant="h4" component="h2" gutterBottom>
-              {t('zoho_consulting.zoho_crm')}
-            </Typography>
-            <Typography variant="body1" paragraph>
-              {t('zoho_consulting.zoho_crm_description')}
-            </Typography>
-          </motion.section>
-
-          {/* Zoho Books Section */}
-          <motion.section
-            id="zoho-books"
-            className="zoho-service-section"
-            variants={sectionVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            custom={3}
-          >
-            <Typography variant="h4" component="h2" gutterBottom>
-              {t('zoho_consulting.zoho_books')}
-            </Typography>
-            <Typography variant="body1" paragraph>
-              {t('zoho_consulting.zoho_books_description')}
-            </Typography>
-          </motion.section>
-
-          {/* Zoho Projects Section */}
-          <motion.section
-            id="zoho-projects"
-            className="zoho-service-section"
-            variants={sectionVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            custom={4}
-          >
-            <Typography variant="h4" component="h2" gutterBottom>
-              {t('zoho_consulting.zoho_projects')}
-            </Typography>
-            <Typography variant="body1" paragraph>
-              {t('zoho_consulting.zoho_projects_description')}
-            </Typography>
-          </motion.section>
-
-          {/* Custom Development Section */}
-          <motion.section
-            id="custom-development"
-            className="zoho-service-section"
-            variants={sectionVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            custom={5}
-          >
-            <Typography variant="h4" component="h2" gutterBottom>
-              {t('zoho_consulting.custom_development')}
-            </Typography>
-            <Typography variant="body1" paragraph>
-              {t('zoho_consulting.custom_development_description')}
-            </Typography>
+            <Grid container spacing={4}>
+              {services.map((service, index) => (
+                <Grid
+                  key={service.title}
+                  item
+                  xs={12}
+                  /* 
+                    First row (index 0 and 1) => md={6} 
+                    Second row (index 2, 3, 4) => md={4} 
+                  */
+                  md={index < 2 ? 6 : 4}
+                >
+                  <motion.div
+                    className="zoho-service-card"
+                    variants={cardVariants}
+                    initial="rest"
+                    whileHover="hover"
+                    animate="rest"
+                    onClick={() => handleOpenModal(service)}
+                  >
+                    <Card className="card">
+                      <CardMedia
+                        component="img"
+                        height="140"
+                        image={service.image}
+                        alt={service.alt}
+                      />
+                      <CardContent>
+                        <Typography variant="h5" gutterBottom>
+                          {service.title}
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+                          {service.description}
+                        </Typography>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                </Grid>
+              ))}
+            </Grid>
           </motion.section>
 
           {/* CTA Section */}
@@ -158,7 +216,7 @@ const ZohoConsulting = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            custom={6}
+            custom={3}
           >
             <div className="cta-content">
               <Typography variant="h4" align="center" gutterBottom>
@@ -170,6 +228,7 @@ const ZohoConsulting = () => {
               <Button
                 variant="contained"
                 color="secondary"
+                startIcon={<Email />} // Use the Email icon here
                 size="large"
                 href={`/${currentLang}/contact-us`}
                 className="cta-button"
@@ -179,22 +238,74 @@ const ZohoConsulting = () => {
             </div>
           </motion.div>
 
-          {/* **Added Block: Contact Section** */}
+          {/* Contact Section */}
           <motion.section
             className="contact-section"
             variants={sectionVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            custom={7}
-            ref={contactRef} // Assign ref to Contact Us section
+            custom={4}
+            ref={contactRef}
           >
-            <Typography variant="h2" component="h2" gutterBottom align="center">
+            <Typography variant="h2" gutterBottom align="center">
               {t('home.contact_title')}
             </Typography>
             <ContactForm />
           </motion.section>
         </Container>
+
+        {/* Modal for More Information */}
+        <Modal
+          open={openModal}
+          onClose={handleCloseModal} 
+          /* 
+            By setting onClose to handleCloseModal,
+            clicking the backdrop (outside the card) will close the modal.
+          */
+          aria-labelledby="service-modal-title"
+          aria-describedby="service-modal-description"
+        >
+          {/* We can wrap content in a Framer Motion div for animations */}
+          <motion.div
+            className="modal-content"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            transition={{ duration: 0.3 }}
+            onClick={(e) => e.stopPropagation()} 
+            /* 
+              Stop propagation so clicking inside the card doesn't close the modal,
+              but clicking outside (on backdrop) will.
+            */
+          >
+            {selectedService && (
+              <>
+                <Typography
+                  id="service-modal-title"
+                  variant="h4"
+                  gutterBottom
+                >
+                  {selectedService.title}
+                </Typography>
+                <Typography
+                  id="service-modal-description"
+                  variant="body1"
+                  paragraph
+                >
+                  {selectedService.moreInfo}
+                </Typography>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={handleCloseModal}
+                >
+                  {t('zoho_consulting.close')}
+                </Button>
+              </>
+            )}
+          </motion.div>
+        </Modal>
       </div>
     </Layout>
   );

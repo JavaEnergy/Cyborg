@@ -134,7 +134,7 @@
 }
 
 #zoho {
-  width: 100%;
+  width: 70%;
 }
 
 .service-item h3 {
@@ -453,6 +453,6 @@
 }
 @media (max-width: 450px) {
   #zoho {
-    width: 100%;
+    width: 60%;
   }
 }
