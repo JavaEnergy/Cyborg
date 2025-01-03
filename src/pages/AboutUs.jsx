@@ -2,7 +2,7 @@
 import React, { useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import './AboutUs.css';
-import image1 from '../assets/images/abus.png'; // Ersetze mit deinen tatsächlichen Bildpfaden
+import image1 from '../assets/images/laptop.jpg'; // Ersetze mit deinen tatsächlichen Bildpfaden
 import image2 from '../assets/images/abus.png'; // Verwende ein anderes Bild, falls nötig
 import { motion } from 'framer-motion';
 import Layout from '../components/Layout'; // Importiere das Layout-Komponente
