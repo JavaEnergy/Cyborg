@@ -21,12 +21,11 @@ import {
 import ContactForm from '../components/ContactForm';
 
 // Example images (update paths accordingly)
-// import zohoHeroImage from '../assets/images/ZOHO.png';
 import zohoCRMImage from '../assets/images/crm.png';
 import zohoMarketingImage from '../assets/images/marketing.png';
 import zohoFinanceImage from '../assets/images/finance.png';
 import zohoHRImage from '../assets/images/people.png';
-import zohoCustomDevImage from '../assets/images/Zoho.jpg';
+import zohoCustomDevImage from '../assets/images/Zoho.png';
 
 const ZohoConsulting = () => {
   const { t, i18n } = useTranslation();
