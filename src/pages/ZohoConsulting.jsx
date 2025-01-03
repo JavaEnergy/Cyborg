@@ -21,7 +21,7 @@ import {
 import ContactForm from '../components/ContactForm';
 
 // Example images (update paths accordingly)
-import zohoHeroImage from '../assets/images/ZOHO.png';
+// import zohoHeroImage from '../assets/images/ZOHO.png';
 import zohoCRMImage from '../assets/images/crm.png';;
 import zohoMarketingImage from '../assets/images/marketing.png';;
 import zohoFinanceImage from '../assets/images/finance.png';;
