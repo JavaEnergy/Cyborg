@@ -5,7 +5,7 @@
   position: relative;
   height: 50vh;
   /* Hintergrundbild für die Hero-Sektion */
-  background-image: url('../assets/images/abus.png'); /* Pfad ggf. anpassen */
+  background-image: url('../assets/images/robot.jpg'); /* Pfad ggf. anpassen */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

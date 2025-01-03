@@ -333,7 +333,7 @@ const WebDevelopment = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            custom={2}
+            custom={1}
             ref={contactRef} // Assign ref to Contact Us section
           >
             <Typography variant="h2" component="h2" gutterBottom>

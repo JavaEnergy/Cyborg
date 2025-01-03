@@ -151,11 +151,7 @@ const ZohoConsulting = () => {
             <Typography variant="body1" align="center" paragraph>
               {t('zoho_consulting.intro_description')}
             </Typography>
-            <img
-              src={zohoHeroImage}
-              alt="Zoho Applications"
-              className="section-image"
-            />
+         
           </motion.section>
 
           {/* Services Grid */}
@@ -245,7 +241,7 @@ const ZohoConsulting = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            custom={4}
+            custom={1}
             ref={contactRef}
           >
             <Typography variant="h2" gutterBottom align="center">
