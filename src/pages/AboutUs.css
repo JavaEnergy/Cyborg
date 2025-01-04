@@ -11,29 +11,23 @@
   background-repeat: no-repeat;
 }
 
-.about-hero-content-wrapper {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
+
+.mission-title {
   text-align: center;
+  font-size: 18px;
+  padding: 0 20px
 }
 
-.about-hero-content h1 {
-  color: #fff;
-  font-size: 3rem; /* Größer für bessere Sichtbarkeit */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  font-weight: bold;
-}
 
 /*    CONTENT SECTIONS */
 .about-content-section {
-  padding: 60px 20px; /* Genug Abstand für bessere Lesbarkeit */
+  padding:  10px 20px /* Genug Abstand für bessere Lesbarkeit */
 }
 
+
 .second {
-  padding-left: 150px; /* Beispielweise etwas zusätzlicher Platz */
+  /* padding-left: 150px;  */
+  /* Beispielweise etwas zusätzlicher Platz */
 }
 
 .about-content-container {
@@ -43,9 +37,6 @@
   margin-bottom: 40px;
 }
 
-.about-content-container.reverse {
-  flex-direction: row;
-}
 
 #firstimg {
   border-radius: 50px;
@@ -366,4 +357,5 @@
     padding: 10px 20px;
     font-size: 0.9rem;
   }
+
 }

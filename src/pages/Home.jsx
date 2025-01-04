@@ -313,7 +313,7 @@ const Home = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        custom={5}
+        custom={2}
         ref={contactRef} // Assign ref to Contact Us section
       >
         <h2>{t('home.contact_title')}</h2>

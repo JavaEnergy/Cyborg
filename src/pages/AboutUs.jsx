@@ -3,7 +3,7 @@ import React, { useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import './AboutUs.css';
 import image1 from '../assets/images/laptop.jpg'; // Ersetze mit deinen tatsächlichen Bildpfaden
-import image2 from '../assets/images/abus.png'; // Verwende ein anderes Bild, falls nötig
+import image2 from '../assets/images/hand.png';         
 import { motion } from 'framer-motion';
 import Layout from '../components/Layout'; // Importiere das Layout-Komponente
 import ContactForm from '../components/ContactForm'; // Importiere das ContactForm-Komponente
@@ -75,7 +75,13 @@ const AboutUs = () => {
           </div>
         </div>
       </motion.section>
-
+ {/* Mission Title */}
+ <motion.h2
+      className="mission-title"
+    >
+      {t('about_us.mission_title')}
+    </motion.h2>
+    
       {/* Zweite Content-Sektion: Bild rechts, Text links */}
       <motion.section
         className="about-content-section"
@@ -93,7 +99,6 @@ const AboutUs = () => {
             <br />
             <p>{t('about_us.mission_text3')}</p>
             <br />
-            <h2>{t('about_us.mission_title')}</h2>
           </div>
           <div className="about-image-content">
             <img src={image2} alt="Our Mission" className="circle-image" />
@@ -148,7 +153,7 @@ const AboutUs = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        custom={5}
+        custom={2}
         ref={contactRef}
       >
         <h2>{t('home.contact_title')}</h2>

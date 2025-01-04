@@ -24,15 +24,15 @@ import './ITConsulting.css';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 // Import images
-import heroImage from '../assets/images/abus.png';
-import ideaToImplementationImage from '../assets/images/abus.png';
-import itStrategyImage from '../assets/images/abus.png';
-import itSecurityImage from '../assets/images/abus.png';
-import softwareDevelopmentImage from '../assets/images/abus.png';
-import webConsultingImage from '../assets/images/abus.png';
-import mobileConsultingImage from '../assets/images/abus.png';
-import saasConsultingImage from '../assets/images/abus.png';
-import cloudConsultingImage from '../assets/images/abus.png';
+import heroImage from '../assets/images/b1.png';
+import ideaToImplementationImage from '../assets/images/b3.png';
+import itStrategyImage from '../assets/images/b2.png';
+import itSecurityImage from '../assets/images/secr.png';
+import softwareDevelopmentImage from '../assets/images/soft.png';
+import webConsultingImage from '../assets/images/bbb.png';
+import mobileConsultingImage from '../assets/images/mob.png';
+import saasConsultingImage from '../assets/images/saas.png';
+import cloudConsultingImage from '../assets/images/clod.png';
 import ContactForm from '../components/ContactForm'; // Import ContactForm
 
 const ITConsulting = () => {
@@ -118,7 +118,7 @@ const ITConsulting = () => {
       title: t('it_consulting.cloud_consulting'),
       description: t('it_consulting.cloud_consulting_description'),
       image: cloudConsultingImage,
-      icon: <Cloud fontSize="large" color="primary" />,
+      icon: <Cloud fontSize="large" color="primary" />
     },
   ];
 
@@ -238,6 +238,10 @@ const ITConsulting = () => {
                           height="140"
                           image={service.image}
                           alt={service.title}
+                          /* Only apply 'objectFit: contain' if this is the cloudConsultingImage */
+                style={{
+                  objectFit: service.image === cloudConsultingImage ? 'contain' : 'cover',
+                }}
                         />
                         <CardContent>
                           <Typography variant="h6" component="h3" gutterBottom>
