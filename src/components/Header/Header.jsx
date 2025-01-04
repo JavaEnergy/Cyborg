@@ -367,41 +367,52 @@ const Header = forwardRef((props, ref) => {
                         >
                           {t('zoho_consulting.zoho_crm')}
                         </HashLink>
-                      </li>
-                      <li>
-                        <HashLink
-                          smooth
-                          to={`/${currentLang}/zoho-consulting#zoho-books`}
-                          className={
-                            isActiveSubmenuLink(`/${currentLang}/zoho-consulting#zoho-books`) ? 'active' : ''
-                          }
-                        >
-                          {t('zoho_consulting.zoho_books')}
-                        </HashLink>
-                      </li>
-                      <li>
-                        <HashLink
-                          smooth
-                          to={`/${currentLang}/zoho-consulting#zoho-projects`}
-                          className={
-                            isActiveSubmenuLink(`/${currentLang}/zoho-consulting#zoho-projects`) ? 'active' : ''
-                          }
-                        >
-                          {t('zoho_consulting.zoho_projects')}
-                        </HashLink>
-                      </li>
-                      <li>
-                        <HashLink
-                          smooth
-                          to={`/${currentLang}/zoho-consulting#custom-development`}
-                          className={
-                            isActiveSubmenuLink(`/${currentLang}/zoho-consulting#custom-development`) ? 'active' : ''
-                          }
-                        >
-                          {t('zoho_consulting.custom_development')}
-                        </HashLink>
-                      </li>
-                    </ul>
+                        </li>
+  <li>
+    <HashLink
+      smooth
+      to={`/${currentLang}/zoho-consulting#zoho-marketing`}
+      className={
+        isActiveSubmenuLink(`/${currentLang}/zoho-consulting#zoho-marketing`) ? 'active' : ''
+      }
+    >
+      {t('zoho_consulting.zoho_marketing')}
+    </HashLink>
+  </li>
+  <li>
+    <HashLink
+      smooth
+      to={`/${currentLang}/zoho-consulting#zoho-finance`}
+      className={
+        isActiveSubmenuLink(`/${currentLang}/zoho-consulting#zoho-finance`) ? 'active' : ''
+      }
+    >
+      {t('zoho_consulting.zoho_finance')}
+    </HashLink>
+  </li>
+  <li>
+    <HashLink
+      smooth
+      to={`/${currentLang}/zoho-consulting#zoho-human-resources`}
+      className={
+        isActiveSubmenuLink(`/${currentLang}/zoho-consulting#zoho-human-resources`) ? 'active' : ''
+      }
+    >
+      {t('zoho_consulting.zoho_human_resources')}
+    </HashLink>
+  </li>
+  <li>
+    <HashLink
+      smooth
+      to={`/${currentLang}/zoho-consulting#custom-development`}
+      className={
+        isActiveSubmenuLink(`/${currentLang}/zoho-consulting#custom-development`) ? 'active' : ''
+      }
+    >
+      {t('zoho_consulting.custom_development')}
+    </HashLink>
+  </li>
+</ul>
                   </li>
 
                   <li>

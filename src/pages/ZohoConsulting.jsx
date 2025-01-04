@@ -69,6 +69,7 @@ const ZohoConsulting = () => {
   // Services array, including "moreInfo" for modal content
   const services = [
     {
+      id: 'zoho-crm',
       title: t('zoho_consulting.zoho_crm'),
       description: t('zoho_consulting.zoho_crm_description'),
       image: zohoCRMImage,
@@ -76,6 +77,7 @@ const ZohoConsulting = () => {
       moreInfo: t('zoho_consulting.zoho_crm_more_info'),
     },
     {
+      id: 'zoho-marketing',
       title: t('zoho_consulting.zoho_marketing'),
       description: t('zoho_consulting.zoho_marketing_description'),
       image: zohoMarketingImage,
@@ -83,6 +85,7 @@ const ZohoConsulting = () => {
       moreInfo: t('zoho_consulting.zoho_marketing_more_info'),
     },
     {
+      id: 'zoho-finance',
       title: t('zoho_consulting.finance'),
       description: t('zoho_consulting.finance_description'),
       image: zohoFinanceImage,
@@ -90,6 +93,7 @@ const ZohoConsulting = () => {
       moreInfo: t('zoho_consulting.finance_more_info'),
     },
     {
+      id: 'zoho-human-resources',
       title: t('zoho_consulting.human_resources'),
       description: t('zoho_consulting.human_resources_description'),
       image: zohoHRImage,
@@ -97,6 +101,7 @@ const ZohoConsulting = () => {
       moreInfo: t('zoho_consulting.human_resources_more_info'),
     },
     {
+      id: 'custom-development',
       title: t('zoho_consulting.custom_development'),
       description: t('zoho_consulting.custom_development_description'),
       image: zohoCustomDevImage,
@@ -150,7 +155,6 @@ const ZohoConsulting = () => {
             <Typography variant="body1" align="center" paragraph>
               {t('zoho_consulting.intro_description')}
             </Typography>
-         
           </motion.section>
 
           {/* Services Grid */}
@@ -165,7 +169,7 @@ const ZohoConsulting = () => {
             <Grid container spacing={4}>
               {services.map((service, index) => (
                 <Grid
-                  key={service.title}
+                  key={service.id} // Updated key to use service.id for uniqueness
                   item
                   xs={12}
                   /* 
@@ -174,31 +178,39 @@ const ZohoConsulting = () => {
                   */
                   md={index < 2 ? 6 : 4}
                 >
-                  <motion.div
-                    className="zoho-service-card"
-                    variants={cardVariants}
-                    initial="rest"
-                    whileHover="hover"
-                    animate="rest"
-                    onClick={() => handleOpenModal(service)}
-                  >
-                    <Card className="card">
-                      <CardMedia
-                        component="img"
-                        height="140"
-                        image={service.image}
-                        alt={service.alt}
-                      />
-                      <CardContent>
-                        <Typography variant="h5" gutterBottom>
-                          {service.title}
-                        </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                          {service.description}
-                        </Typography>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
+                  {/* Assigning id to the service section for anchoring */}
+                  <div id={service.id} className="service-section">
+                    <motion.div
+                      className="zoho-service-card"
+                      variants={cardVariants}
+                      initial="rest"
+                      whileHover="hover"
+                      animate="rest"
+                      onClick={() => handleOpenModal(service)}
+                      role="button"
+                      tabIndex={0}
+                      onKeyPress={(e) => {
+                        if (e.key === 'Enter') handleOpenModal(service);
+                      }}
+                    >
+                      <Card className="card">
+                        <CardMedia
+                          component="img"
+                          height="140"
+                          image={service.image}
+                          alt={service.alt}
+                        />
+                        <CardContent>
+                          <Typography variant="h5" gutterBottom>
+                            {service.title}
+                          </Typography>
+                          <Typography variant="body2" color="text.secondary">
+                            {service.description}
+                          </Typography>
+                        </CardContent>
+                      </Card>
+                    </motion.div>
+                  </div>
                 </Grid>
               ))}
             </Grid>
@@ -253,7 +265,7 @@ const ZohoConsulting = () => {
         {/* Modal for More Information */}
         <Modal
           open={openModal}
-          onClose={handleCloseModal} 
+          onClose={handleCloseModal}
           /* 
             By setting onClose to handleCloseModal,
             clicking the backdrop (outside the card) will close the modal.

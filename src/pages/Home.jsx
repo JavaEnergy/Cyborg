@@ -6,7 +6,7 @@ import image from '../assets/images/bg.jpg';
 import { NavLink } from 'react-router-dom';
 import itConsultingIcon from '../assets/images/it Consulting.png';
 import webDevelopmentIcon from '../assets/images/web Development.png';
-import itServicesIcon from '../assets/images/Zoho.png';
+import itServicesIcon from '../assets/images/zoho-hm.png';
 import initSpiderEffect from '../assets/codes/interactive spider'; // Correct path for import
 import { motion } from 'framer-motion'; // Import Framer Motion
 import ContactForm from '../components/ContactForm'; // Import ContactForm

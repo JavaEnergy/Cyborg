@@ -194,6 +194,8 @@
     "title": "Zoho-Beratung",
     "intro_title": "Was ist Zoho?",
     "intro_description": "Zoho ist eine umfassende Suite von cloudbasierten Anwendungen, die darauf abzielen, Ihre Geschäftsprozesse zu optimieren. Mit über 40 integrierten Apps bietet Zoho Lösungen für CRM, Finanzen, Projektmanagement, Zusammenarbeit und vieles mehr.",
+    "zoho_finance": "Zoho Finanzen",
+    "zoho_human_resources": "Zoho HR",
     "zoho_crm": "Zoho CRM",
     "zoho_crm_description": "Optimieren Sie Ihren Verkaufsprozess und verwalten Sie Kundenbeziehungen effektiv.",
     "zoho_crm_more_info": "Zoho CRM hilft Ihnen, sich mit Ihren Kunden zu verbinden, Verkaufsprozesse zu automatisieren und Ihre Geschäftsbeziehungen zu verbessern. Es bietet leistungsstarke Tools für Lead-Management, Vertriebsautomatisierung und Analysen, um das Wachstum Ihres Unternehmens voranzutreiben.",
@@ -339,7 +341,7 @@
     "sending": "Wird gesendet...",
     "name_placeholder": "Name",
     "email_placeholder": "E-Mai",
-    "message_placeholder": "Nachricht",
-    "send_button": "Nachricht senden"
+    "message_placeholder": "Nachricht"
+ 
   }
 }
