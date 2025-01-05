@@ -7,6 +7,7 @@
     "contact_us": "Contact",
     "zoho_consulting": "Zoho Software"
 
+
   },
   "footer_copyright": "All rights reserved.",
   "common": {
@@ -85,8 +86,17 @@
     "cloud_consulting": "Cloud Consulting",
     "cloud_consulting_description": "Cloud solutions, simplified.",
     "ready_to_transform": "Ready to Transform Your Business?",
-    "take_next_step": "Take the next step towards digital excellence with our expert IT consulting services."
-
+    "take_next_step": "Take the next step towards digital excellence with our expert IT consulting services.",
+    "software_development_consulting_more_info": "Our experienced developers help you plan, build, and integrate custom software that aligns with your business goals. From small internal tools to large-scale platforms, we ensure scalability, top security, and seamless support throughout the entire lifecycle.",
+    "web_consulting_more_info": "Our web consulting covers platform selection, performance optimization, and security best practices. With a focus on user experience, we guide you in building modern websites that convert visitors into customers. Our experts guarantee smooth deployment and ongoing maintenance.",
+    "mobile_consulting_more_info": "We specialize in building mobile apps that stand out. From native to cross-platform solutions, we focus on intuitive design, high performance, and seamless integration with your existing systems. Let us handle the technical details so you can focus on delivering value to your users.",
+    "cloud_consulting_more_info": "Our cloud experts handle everything from migration planning to continuous optimization. We design architectures that are scalable, cost-effective, and secure—enabling you to innovate faster and outperform competitors. Enjoy peace of mind knowing your data is safeguarded and accessible anywhere.",
+    "it_security_audits_more_info": "Protect your organization’s reputation and sensitive data with comprehensive security audits. We identify vulnerabilities, apply best-in-class safeguards, and ensure ongoing compliance. Our certified specialists promise safer systems, minimal risk, and total peace of mind.",
+    "close": "Close",
+    "contact_us": "Contact Us",
+    "ai_consulting": "AI Consulting",
+    "ai_consulting_description": "We integrate AI to create new possibilities at lower costs.",
+    "ai_consulting_more_info": "Our AI Consulting service leverages cutting-edge platforms (like 10Web.io) to build intelligent web solutions quickly and cost-effectively. Whether you need AI-assisted website creation, chatbots, or personalized content recommendations, we offer end-to-end guidance. Our experts ensure robust performance and security so your business can thrive in the AI era."
   
   },
  "web_development": {
@@ -99,8 +109,8 @@
     "content_for_react_applications": "We develop dynamic React applications.",
     "angular_development": "Angular Development",
     "content_for_angular_development": "Our team builds robust Angular applications.",
-    "e_commerce": "E-Commerce Solutions",
-    "content_for_e_commerce": "We provide comprehensive e-commerce solutions.",
+    "e_commerce": "Product Configurator",
+    "content_for_e_commerce": "We design intuitive product configurators that let customers customize and preview their products in real time.",
     "custom_software": "Custom Software Solutions",
     "content_for_custom_software": "We develop software tailored to your specific requirements.",
     "technologies_tools": "Technologies & Tools",
@@ -116,7 +126,14 @@
     "faq_react_content": "Great for building interactive, dynamic single-page apps requiring high performance.",
     "faq_angular_title": "When to Use Angular?",
     "faq_angular_content": "Perfect for large-scale, enterprise applications where strong structure is essential.",
-    "contact_us": "Contact Us"
+    "contact_us": "Contact Us",
+    "wordpress_more_info": "Leverage the world’s most popular CMS with our WordPress experts. We offer seamless theme customizations, performance optimizations, and robust security measures. Our team guarantees a worry-free setup and long-term support, ensuring your website scales with your business.",
+    "react_more_info": "Our React specialists build modern, efficient, and highly interactive applications. Whether you need a dynamic user interface or a scalable single-page app, we ensure top performance and maintainability. We stand by you from concept to deployment, guaranteeing a smooth, on-time implementation.",
+    "angular_more_info": "Get enterprise-grade solutions backed by our Angular pros. We design complex, data-rich applications that remain user-friendly and stable at scale. From architecture planning to final rollout, we provide full support and guarantee reliable performance for every use case.",
+    "ecommerce_more_info": "Empower customers to personalize and visualize products in real time with our advanced product configurators. Our team crafts intuitive user flows and seamless integrations, guaranteeing a boost in sales and overall customer satisfaction. We handle every technical detail so you can focus on growth.",
+    "custom_software_more_info": "Transform your unique ideas into powerful custom software solutions. Our experts analyze your requirements, design scalable architectures, and implement cutting-edge functionalities. We promise a secure, future-proof product, tailored to your business goals and guaranteed to meet your exact needs.",
+    "close": "Close"
+
   
   },
   "it_services": {

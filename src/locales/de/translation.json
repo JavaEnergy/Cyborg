@@ -6,11 +6,13 @@
     "it_services": "IT-Services",
     "contact_us": "Kontakt",
     "zoho_consulting": "Zoho Software"
+    
 
   },
   "footer_copyright": "All rights reserved.",
   "common": {
     "get_started": "Jetzt Starten",
+  
     "learn_more": "Mehr Erfahren",
     "contact_us": "Kontaktieren Sie Uns"
   },
@@ -84,7 +86,17 @@
     "cloud_consulting_description": "Optimieren Sie Ihre Infrastruktur mit Cloud-Technologien.",
     "ready_to_transform": "Bereit, Ihr Geschäft zu transformieren?",
     "contact_us": "Kontaktieren Sie uns",
-    "take_next_step": "Machen Sie den nächsten Schritt zur digitalen Exzellenz mit unseren Experten für IT-Beratung."
+    "take_next_step": "Machen Sie den nächsten Schritt zur digitalen Exzellenz mit unseren Experten für IT-Beratung.",
+    "software_development_consulting_more_info": "Unsere erfahrenen Entwickler helfen Ihnen dabei, maßgeschneiderte Software zu planen, zu bauen und zu integrieren, die mit Ihren Geschäftszielen übereinstimmt. Von kleinen internen Tools bis hin zu groß angelegten Plattformen sorgen wir für Skalierbarkeit, höchste Sicherheit und nahtlosen Support während des gesamten Lebenszyklus.",
+    "web_consulting_more_info": "Unsere Webberatung umfasst die Auswahl der richtigen Plattform, Leistungsoptimierung und Sicherheitsbestimmungen. Mit einem Fokus auf Benutzererfahrung führen wir Sie beim Aufbau moderner Websites, die Besucher in Kunden umwandeln. Unsere Experten garantieren eine reibungslose Einführung und laufende Wartung.",
+    "mobile_consulting_more_info": "Wir spezialisieren uns auf den Aufbau von mobilen Apps, die herausstechen. Von nativen bis zu plattformübergreifenden Lösungen konzentrieren wir uns auf intuitive Designs, hohe Leistung und nahtlose Integration in Ihre bestehenden Systeme. Lassen Sie uns die technischen Details übernehmen, damit Sie sich auf den Mehrwert für Ihre Nutzer konzentrieren können.",
+    "ai_consulting_more_info": "Unser KI-Beratungsservice nutzt modernste Plattformen (wie 10Web.io), um intelligente Weblösungen schnell und kosteneffektiv zu entwickeln. Ob KI-gestützte Website-Erstellung, Chatbots oder personalisierte Inhaltsvorschläge – wir bieten umfassende Anleitung. Unsere Experten sorgen für robuste Leistung und Sicherheit, damit Ihr Unternehmen in der KI-Ära florieren kann.",
+    "cloud_consulting_more_info": "Unsere Cloud-Experten kümmern sich um alles, von der Migrationsplanung bis zur kontinuierlichen Optimierung. Wir entwerfen Architekturen, die skalierbar, kosteneffektiv und sicher sind – damit Sie schneller innovieren und die Konkurrenz übertreffen können. Genießen Sie die Sicherheit, dass Ihre Daten geschützt und überall zugänglich sind.",
+    "it_security_audits_more_info": "Schützen Sie den Ruf Ihres Unternehmens und sensible Daten mit umfassenden Sicherheitsaudits. Wir identifizieren Schwachstellen, implementieren erstklassige Schutzmaßnahmen und gewährleisten die Einhaltung aller relevanten Richtlinien. Unsere zertifizierten Spezialisten versprechen sicherere Systeme, minimales Risiko und völlige Ruhe für Ihr gesamtes Team.",
+    "close": "Schließen",
+    "ai_consulting": "KI-Beratung",
+    "ai_consulting_description": "Wir integrieren KI, um neue Möglichkeiten zu schaffen und Kosten zu senken."
+  
   },
   "web_development": {
     "web_development": "Webentwicklung",
@@ -96,8 +108,8 @@
     "content_for_react_applications": "Wir entwickeln dynamische React-Anwendungen.",
     "angular_development": "Angular-Entwicklung",
     "content_for_angular_development": "Unser Team entwickelt robuste Angular-Anwendungen.",
-    "e_commerce": "E-Commerce-Lösungen",
-    "content_for_e_commerce": "Wir bieten umfassende E-Commerce-Lösungen.",
+    "e_commerce": "Produktkonfigurator",
+    "content_for_e_commerce": "Wir entwickeln benutzerfreundliche Produktkonfiguratoren, mit denen Kunden ihre Produkte in Echtzeit anpassen und visualisieren können.",
     "custom_software": "Individuelle Softwarelösungen",
     "content_for_custom_software": "Wir entwickeln Software, die auf Ihre Bedürfnisse zugeschnitten ist.",
     "technologies_tools": "Technologien & Tools",
@@ -113,7 +125,13 @@
      "faq_react_title": "Wann sollte man React verwenden?",
      "faq_react_content": "Perfekt für interaktive, dynamische Single-Page-Apps, die hohe Leistung erfordern.",
      "faq_angular_title": "Wann sollte man Angular verwenden?",
-     "faq_angular_content": "Optimal für groß angelegte Unternehmensanwendungen, bei denen eine starke Struktur entscheidend ist."
+     "faq_angular_content": "Optimal für groß angelegte Unternehmensanwendungen, bei denen eine starke Struktur entscheidend ist.",
+     "wordpress_more_info": "Nutzen Sie das weltweit führende CMS mit unseren WordPress-Experten. Wir kümmern uns um nahtlose Theme-Anpassungen, Performance-Optimierungen und zuverlässige Sicherheitsmaßnahmen. Unser Team garantiert Ihnen eine sorgenfreie Einrichtung und langfristige Betreuung, damit Ihre Website mit Ihrem Unternehmen wachsen kann.",
+     "react_more_info": "Unsere React-Spezialisten entwickeln moderne, effiziente und hochinteraktive Anwendungen. Ob dynamische Benutzeroberfläche oder skalierbare Single-Page-App – wir sorgen für beste Performance und Wartbarkeit. Von der Konzeption bis zum Deployment begleiten wir Sie und garantieren eine reibungslose, termingerechte Umsetzung.",
+     "angular_more_info": "Setzen Sie auf unternehmensorientierte Lösungen mit unseren Angular-Profis. Wir entwickeln komplexe, datenintensive Anwendungen, die dennoch benutzerfreundlich und stabil bleiben. Von der Architekturplanung bis zur Fertigstellung bieten wir umfassende Unterstützung und gewährleisten eine zuverlässige Performance für alle Einsatzzwecke.",
+     "ecommerce_more_info": "Bieten Sie Ihren Kunden die Möglichkeit, Produkte in Echtzeit anzupassen und zu visualisieren – mit unseren fortschrittlichen Produktkonfiguratoren. Wir entwickeln intuitive Benutzerabläufe und integrieren alle Funktionen nahtlos, um Ihre Verkaufszahlen zu steigern und die Kundenzufriedenheit zu erhöhen. Konzentrieren Sie sich auf Ihr Wachstum, während wir alle technischen Details übernehmen.",
+     "custom_software_more_info": "Verwandeln Sie Ihre Ideen in leistungsstarke, maßgeschneiderte Softwarelösungen. Unsere Experten analysieren Ihren Bedarf, entwerfen skalierbare Architekturen und setzen modernste Funktionen um. Wir versprechen ein sicheres, zukunftssicheres Produkt, das genau auf Ihre Geschäftsziele zugeschnitten ist und Ihre Anforderungen garantiert erfüllt.",
+     "close": "Schließen"
 
   },
   "it_services": {
@@ -341,7 +359,8 @@
     "sending": "Wird gesendet...",
     "name_placeholder": "Name",
     "email_placeholder": "E-Mai",
-    "message_placeholder": "Nachricht"
- 
+    "message_placeholder": "Nachricht",
+    "send_button": "Nachricht senden"
+
   }
 }

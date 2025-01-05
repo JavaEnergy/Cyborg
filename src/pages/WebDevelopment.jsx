@@ -1,5 +1,5 @@
 // src/pages/WebDevelopment.jsx
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
   Container,
@@ -11,7 +11,8 @@ import {
   Button,
   Accordion,
   AccordionSummary,
-  AccordionDetails
+  AccordionDetails,
+  Modal, // <-- Import Modal
 } from '@mui/material';
 
 import {
@@ -36,15 +37,18 @@ import ContactForm from '../components/ContactForm'; // Import ContactForm
 import wordpressImage from '../assets/images/wordpress.jpg';
 import reactImage from '../assets/images/react.png';
 import angularImage from '../assets/images/angular.png';
-import ecommerceImage from '../assets/images/e commerce.png'; // Corrected filename
+import ecommerceImage from '../assets/images/conf.png'; // "conf.png" representing Product Configurator
 import customSoftwareImage from '../assets/images/custom.png';
-// Removed technologiesImage as the section is being replaced
 
 const WebDevelopment = () => {
   const { t, i18n } = useTranslation();
   const currentLang = i18n.language;
 
-  const navigate = useNavigate(); // Initialize useNavigate
+  // Modal state for card details
+  const [openModal, setOpenModal] = useState(false);
+  const [selectedService, setSelectedService] = useState(null);
+
+  const navigate = useNavigate(); 
 
   // Define the sections for scroll spy
   const sectionIds = [
@@ -53,7 +57,7 @@ const WebDevelopment = () => {
     'angular-development',
     'e-commerce',
     'custom-software',
-    'tool-comparison-faq', // Updated section ID
+    'tool-comparison-faq',
   ];
 
   useScrollSpy(sectionIds);
@@ -85,10 +89,21 @@ const WebDevelopment = () => {
     },
   };
 
+  // Handlers for opening/closing the card modal
+  const handleOpenModal = (service) => {
+    setSelectedService(service);
+    setOpenModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setOpenModal(false);
+    setSelectedService(null);
+  };
+
   // Define contactRef for smooth scrolling
   const contactRef = useRef(null);
 
-  // Services data
+  // Services data (with "moreInfo" for modal content)
   const services = [
     {
       title: t('web_development.wordpress'),
@@ -96,6 +111,7 @@ const WebDevelopment = () => {
       image: wordpressImage,
       icon: <WebIcon fontSize="large" color="primary" />,
       id: 'wordpress',
+      moreInfo: t('web_development.wordpress_more_info'),
     },
     {
       title: t('web_development.react_applications'),
@@ -103,6 +119,7 @@ const WebDevelopment = () => {
       image: reactImage,
       icon: <CodeIcon fontSize="large" color="primary" />,
       id: 'react-applications',
+      moreInfo: t('web_development.react_more_info'),
     },
     {
       title: t('web_development.angular_development'),
@@ -110,13 +127,15 @@ const WebDevelopment = () => {
       image: angularImage,
       icon: <CodeIcon fontSize="large" color="primary" />,
       id: 'angular-development',
+      moreInfo: t('web_development.angular_more_info'),
     },
     {
-      title: t('web_development.e_commerce'),
+      title: t('web_development.e_commerce'), // "Product Configurator"
       description: t('web_development.content_for_e_commerce'),
       image: ecommerceImage,
       icon: <ECommerceIcon fontSize="large" color="primary" />,
       id: 'e-commerce',
+      moreInfo: t('web_development.ecommerce_more_info'),
     },
     {
       title: t('web_development.custom_software'),
@@ -124,13 +143,14 @@ const WebDevelopment = () => {
       image: customSoftwareImage,
       icon: <BuildIcon fontSize="large" color="primary" />,
       id: 'custom-software',
+      moreInfo: t('web_development.custom_software_more_info'),
     },
   ];
 
   // Contact form submission handler
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Handle form submission logic here (e.g., send data to API)
+    // Handle form submission logic here
   };
 
   // CTA button click handler
@@ -174,7 +194,11 @@ const WebDevelopment = () => {
                     id={service.id}
                     style={{ display: 'flex' }}
                   >
-                    <motion.div variants={cardVariants} style={{ flex: 1 }}>
+                    <motion.div
+                      variants={cardVariants}
+                      style={{ flex: 1 }}
+                      onClick={() => handleOpenModal(service)} // Open modal
+                    >
                       <Card
                         component={motion.div}
                         whileHover={{ scale: 1.02 }}
@@ -201,6 +225,41 @@ const WebDevelopment = () => {
                     </motion.div>
                   </Grid>
                 ))}
+
+                {/* Modal for More Information */}
+                <Modal
+                  open={openModal}
+                  onClose={handleCloseModal}
+                  aria-labelledby="service-modal-title"
+                  aria-describedby="service-modal-description"
+                >
+                  <motion.div
+                    className="modal-content"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.8 }}
+                    transition={{ duration: 0.3 }}
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    {selectedService && (
+                      <>
+                        <Typography id="service-modal-title" variant="h4" gutterBottom>
+                          {selectedService.title}
+                        </Typography>
+                        <Typography id="service-modal-description" variant="body1" paragraph>
+                          {selectedService.moreInfo}
+                        </Typography>
+                        <Button
+                          variant="contained"
+                          color="primary"
+                          onClick={handleCloseModal}
+                        >
+                          {t('web_development.close')}
+                        </Button>
+                      </>
+                    )}
+                  </motion.div>
+                </Modal>
               </Grid>
             </motion.div>
           </motion.section>
@@ -222,7 +281,7 @@ const WebDevelopment = () => {
               {t('web_development.which_tool_intro')}
             </Typography>
 
-            {/* FAQ Accordions with Animations */}
+            {/* FAQ Accordions */}
             <div className="faq-section">
               {/* WordPress Accordion */}
               <Accordion className="faq-accordion">
@@ -231,7 +290,9 @@ const WebDevelopment = () => {
                   aria-controls="wordpress-content"
                   id="wordpress-header"
                 >
-                  <Typography variant="h6">{t('web_development.faq_wordpress_title')}</Typography>
+                  <Typography variant="h6">
+                    {t('web_development.faq_wordpress_title')}
+                  </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                   <motion.div
@@ -254,7 +315,9 @@ const WebDevelopment = () => {
                   aria-controls="react-content"
                   id="react-header"
                 >
-                  <Typography variant="h6">{t('web_development.faq_react_title')}</Typography>
+                  <Typography variant="h6">
+                    {t('web_development.faq_react_title')}
+                  </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                   <motion.div
@@ -277,7 +340,9 @@ const WebDevelopment = () => {
                   aria-controls="angular-content"
                   id="angular-header"
                 >
-                  <Typography variant="h6">{t('web_development.faq_angular_title')}</Typography>
+                  <Typography variant="h6">
+                    {t('web_development.faq_angular_title')}
+                  </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                   <motion.div
@@ -295,6 +360,7 @@ const WebDevelopment = () => {
             </div>
           </motion.section>
 
+          {/* CTA Section */}
           <motion.div
             className="cta-section"
             variants={sectionVariants}
@@ -312,10 +378,10 @@ const WebDevelopment = () => {
             <div className="cta-button">
               <Button
                 variant="contained"
-                color="secondary" // Changed to secondary for better contrast
+                color="secondary"
                 size="large"
-                startIcon={<Email />} // Use the Email icon here
-                onClick={handleCTAButtonClick} // Updated onClick handler
+                startIcon={<Email />}
+                onClick={handleCTAButtonClick}
                 component={motion.button}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

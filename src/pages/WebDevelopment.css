@@ -87,6 +87,10 @@
   margin-top: 10px;
 }
 
+.service-card:hover{
+  cursor:pointer
+}
+
 .card-media  {
   transition: transform 0.3s ease-in-out;
   object-fit: contain !important; /* Added object-fit: contain */
@@ -239,7 +243,18 @@
 .contact-form button:hover {
   background-color: #b89242 !important;
 }
-
+/* Example modal-content class */
+.modal-content {
+  background-color: #fff;
+  max-width: 600px;
+  width: 90%;
+  margin: 100px auto; /* center on large screens */
+  border-radius: 12px;
+  padding: 30px;
+  outline: none; /* remove default outline */
+  max-height: 80vh; /* allow some scrolling if content is tall */
+  overflow-y: auto;
+}
 /* Responsive Adjustments */
 @media (max-width: 768px) {
   .webdev-section {

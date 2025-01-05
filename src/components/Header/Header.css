@@ -476,6 +476,10 @@ nav a.active {
     width: 40px;
     height: 40px;
   }
+  .image-container ,.text-container {
+flex: 0;
+
+  }
 }
 
 @media (max-width: 768px) {
@@ -507,7 +511,7 @@ nav a.active {
 
   /* Prevent menu items from turning white on scroll */
   .header.scrolled .mobile-main-menu a {
-    color: #222 !important;
+    color: #ffffff !important;
   }
 
   /* Adjust logo size for very small screens */
@@ -561,4 +565,21 @@ nav a.active {
   .topbar-hr {
     z-index: 1002; /* Just below the top bar */
   }
+
+  @media (max-width: 424px) {
+    .top-bar-content {
+      padding: 0;
+    }
+
+  }
+
+
+  @media (max-width: 352px) {
+    .header , .header.scrolled {
+      padding: 0;
+    }
+
+
+  }
+
 }

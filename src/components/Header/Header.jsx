@@ -326,19 +326,7 @@ const Header = forwardRef((props, ref) => {
                           {t('web_development.custom_software')}
                         </HashLink>
                       </li>
-                      <li>
-                        <HashLink
-                          smooth
-                          to={`/${currentLang}/web-development#technologies-tools`}
-                          className={
-                            isActiveSubmenuLink(`/${currentLang}/web-development#technologies-tools`)
-                              ? 'active'
-                              : ''
-                          }
-                        >
-                          {t('web_development.technologies_tools')}
-                        </HashLink>
-                      </li>
+                      
                     </ul>
                   </li>
 

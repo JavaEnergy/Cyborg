@@ -1,7 +1,7 @@
 // src/pages/ITConsulting.jsx
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import {
   Container,
   Typography,
@@ -10,40 +10,44 @@ import {
   CardContent,
   CardMedia,
   Button,
+  Modal,
 } from '@mui/material';
 import {
   Cloud,
+  SmartToy,
   Web,
   PhoneIphone,
   Code,
-  Email, // Import Email icon
+  Email,
+  Security, // Import Security icon for IT Security & Audits
 } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 import Layout from '../components/Layout';
 import './ITConsulting.css';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import ContactForm from '../components/ContactForm';
 
-// Import images
+// Import images (ensure the paths are correct)
 import heroImage from '../assets/images/b1.png';
 import ideaToImplementationImage from '../assets/images/b3.png';
 import itStrategyImage from '../assets/images/b2.png';
-import itSecurityImage from '../assets/images/secr.png';
 import softwareDevelopmentImage from '../assets/images/soft.png';
 import webConsultingImage from '../assets/images/bbb.png';
 import mobileConsultingImage from '../assets/images/mob.png';
-import saasConsultingImage from '../assets/images/saas.png';
 import cloudConsultingImage from '../assets/images/clod.png';
-import ContactForm from '../components/ContactForm'; // Import ContactForm
+import aiConsultingImage from '../assets/images/ai3k.png';        // <-- Correct AI image
+import itSecurityImage from '../assets/images/secr.png';        // <-- IT Security & Audits image
 
 const ITConsulting = () => {
   const { t, i18n } = useTranslation();
   const location = useLocation();
+  const navigate = useNavigate();
   const currentLang = i18n.language;
+    const contactRef = useRef(null);
+  
 
-  // Store the previous pathname to detect changes
-  const prevPathnameRef = React.useRef(location.pathname);
+  // Track the previous pathname to detect changes (for scroll-to-top)
+  const prevPathnameRef = useRef(location.pathname);
 
-  // Scroll to top when the pathname changes (excluding language changes)
   useEffect(() => {
     const prevPathname = prevPathnameRef.current;
     const currentPathname = location.pathname;
@@ -61,77 +65,99 @@ const ITConsulting = () => {
     prevPathnameRef.current = currentPathname;
   }, [location]);
 
-  // Animation variants
+  // Framer Motion animation variants
   const sectionVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: (custom) => ({
       opacity: 1,
       y: 0,
-      transition: { delay: custom * 0.3 },
+      transition: { delay: custom * 0.3, duration: 0.6, ease: 'easeOut' },
     }),
   };
 
   const cardVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: 'easeOut' },
+    },
   };
 
+  // State for the modal
+  const [openModal, setOpenModal] = useState(false);
+  const [selectedService, setSelectedService] = useState(null);
 
-    const navigate = useNavigate(); // Initialize useNavigate
-  
-  // Define contactRef
-  const contactRef = useRef(null);
+  // Handlers for modal
+  const handleOpenModal = (service) => {
+    setSelectedService(service);
+    setOpenModal(true);
+  };
+  const handleCloseModal = () => {
+    setSelectedService(null);
+    setOpenModal(false);
+  };
 
-    // CTA button click handler
-    const handleCTAButtonClick = () => {
-      navigate(`/${currentLang}/contact-us`);
-    };
-  
+  // CTA button click handler
+  const handleCTAButtonClick = () => {
+    navigate(`/${currentLang}/contact-us`);
+  };
 
-  // Services data
+  // Services data (5 Consulting Cards)
   const services = [
     {
+      id: 'software-development-consulting',
       title: t('it_consulting.software_development_consulting'),
       description: t('it_consulting.software_development_consulting_description'),
       image: softwareDevelopmentImage,
       icon: <Code fontSize="large" color="primary" />,
+      moreInfo: t('it_consulting.software_development_consulting_more_info'),
     },
     {
+      id: 'web-consulting',
       title: t('it_consulting.web_consulting'),
       description: t('it_consulting.web_consulting_description'),
       image: webConsultingImage,
       icon: <Web fontSize="large" color="primary" />,
+      moreInfo: t('it_consulting.web_consulting_more_info'),
     },
     {
+      id: 'mobile-consulting',
       title: t('it_consulting.mobile_consulting'),
       description: t('it_consulting.mobile_consulting_description'),
       image: mobileConsultingImage,
       icon: <PhoneIphone fontSize="large" color="primary" />,
+      moreInfo: t('it_consulting.mobile_consulting_more_info'),
     },
     {
-      title: t('it_consulting.saas_consulting'),
-      description: t('it_consulting.saas_consulting_description'),
-      image: saasConsultingImage,
-      icon: <Cloud fontSize="large" color="primary" />,
+      id: 'ai-consulting',
+      title: t('it_consulting.ai_consulting'),
+      description: t('it_consulting.ai_consulting_description'),
+      image: aiConsultingImage,
+      icon: <SmartToy fontSize="large" color="primary" />,
+      moreInfo: t('it_consulting.ai_consulting_more_info'),
     },
     {
+      id: 'cloud-consulting',
       title: t('it_consulting.cloud_consulting'),
       description: t('it_consulting.cloud_consulting_description'),
       image: cloudConsultingImage,
-      icon: <Cloud fontSize="large" color="primary" />
+      icon: <Cloud fontSize="large" color="primary" />,
+      moreInfo: t('it_consulting.cloud_consulting_more_info'),
     },
   ];
 
-  // Contact form submission handler
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Handle form submission logic here
+  // Separate IT Security & Audits Service
+  const itSecurityAuditsService = {
+    id: 'it-security-audits',
+    title: t('it_consulting.it_security'),
+    moreInfo: t('it_consulting.it_security_audits_more_info'),
   };
 
   return (
     <Layout>
       <div className="it-consulting">
-        {/* Hero Section with Parallax Effect */}
+        {/* Hero Section */}
         <div
           className="it-consulting-hero"
           style={{ backgroundImage: `url(${heroImage})` }}
@@ -164,7 +190,7 @@ const ITConsulting = () => {
               <Grid item xs={12} md={6}>
                 <img
                   src={ideaToImplementationImage}
-                  alt="Idea to Implementation"
+                  alt={t('it_consulting.from_idea_to_implementation')}
                   className="section-image"
                 />
               </Grid>
@@ -193,14 +219,14 @@ const ITConsulting = () => {
               <Grid item xs={12} md={6}>
                 <img
                   src={itStrategyImage}
-                  alt="IT Strategy"
+                  alt={t('it_consulting.it_strategy')}
                   className="section-image"
                 />
               </Grid>
             </Grid>
           </motion.section>
 
-          {/* Software Consulting */}
+          {/* Consulting Services (5 Cards) */}
           <motion.section
             id="software-consulting"
             className="consulting-section"
@@ -216,21 +242,24 @@ const ITConsulting = () => {
             <Typography variant="body1" align="center" paragraph>
               {t('it_consulting.content_for_software_consulting')}
             </Typography>
-            {/* Services Cards */}
+
+            {/* Services Cards (5) */}
             <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
             >
               <Grid container spacing={4} justifyContent="center">
-                {services.map((service, index) => (
-                  <Grid item xs={12} sm={6} md={4} key={index}>
+                {services.map((service) => (
+                  <Grid item xs={12} sm={6} md={4} key={service.id}>
                     <motion.div variants={cardVariants}>
                       <Card
                         component={motion.div}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         className="service-card"
+                        onClick={() => handleOpenModal(service)}
+                        style={{ cursor: 'pointer' }}
                       >
                         <div className="service-icon">{service.icon}</div>
                         <CardMedia
@@ -238,16 +267,16 @@ const ITConsulting = () => {
                           height="140"
                           image={service.image}
                           alt={service.title}
-                          /* Only apply 'objectFit: contain' if this is the cloudConsultingImage */
-                style={{
-                  objectFit: service.image === cloudConsultingImage ? 'contain' : 'cover',
-                }}
-                        />
+                          style={{
+                            objectFit: service.image === cloudConsultingImage ? 'contain' : 'cover',
+                          }}                        />
                         <CardContent>
                           <Typography variant="h6" component="h3" gutterBottom>
                             {service.title}
                           </Typography>
-                          <Typography variant="body2">{service.description}</Typography>
+                          <Typography variant="body2">
+                            {service.description}
+                          </Typography>
                         </CardContent>
                       </Card>
                     </motion.div>
@@ -255,9 +284,52 @@ const ITConsulting = () => {
                 ))}
               </Grid>
             </motion.div>
+
+            {/* Modal for Consulting Cards */}
+            <Modal
+              open={openModal}
+              onClose={handleCloseModal}
+              aria-labelledby="service-modal-title"
+              aria-describedby="service-modal-description"
+            >
+              <motion.div
+                className="modal-content"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.3 }}
+                onClick={(e) => e.stopPropagation()}
+              >
+                {selectedService && (
+                  <>
+                    <Typography
+                      id="service-modal-title"
+                      variant="h4"
+                      gutterBottom
+                    >
+                      {selectedService.title}
+                    </Typography>
+                    <Typography
+                      id="service-modal-description"
+                      variant="body1"
+                      paragraph
+                    >
+                      {selectedService.moreInfo}
+                    </Typography>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      onClick={handleCloseModal}
+                    >
+                      {t('it_consulting.close')}
+                    </Button>
+                  </>
+                )}
+              </motion.div>
+            </Modal>
           </motion.section>
 
-          {/* IT Security & Audits */}
+          {/* IT Security & Audits (Separate Clickable Section) */}
           <motion.section
             id="it-security"
             className="consulting-section"
@@ -277,11 +349,39 @@ const ITConsulting = () => {
                 </Typography>
               </Grid>
               <Grid item xs={12} md={6}>
-                <img
-                  src={itSecurityImage}
-                  alt="IT Security"
-                  className="section-image"
-                />
+                {/* Clickable image to open modal */}
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => handleOpenModal(itSecurityAuditsService)}
+                  style={{ cursor: 'pointer' }}
+                  aria-label={t('it_consulting.it_security')}
+                >
+                  <Card
+                    component={motion.div}
+                    className="service-card"
+                    style={{ cursor: 'pointer' }}
+                  >
+                    <div className="service-icon">
+                      <Security fontSize="large" color="primary" />
+                    </div>
+                    <CardMedia
+                      component="img"
+                      height="140"
+                      image={itSecurityImage}
+                      alt={t('it_consulting.it_security')}
+                      style={{ objectFit: 'contain' }}
+                    />
+                    <CardContent>
+                      <Typography variant="h6" component="h3" gutterBottom>
+                        {t('it_consulting.it_security')}
+                      </Typography>
+                      <Typography variant="body2">
+                        {t('it_consulting.content_for_it_security')}
+                      </Typography>
+                    </CardContent>
+                  </Card>
+                </motion.div>
               </Grid>
             </Grid>
           </motion.section>
@@ -304,10 +404,10 @@ const ITConsulting = () => {
             <div className="cta-button">
               <Button
                 variant="contained"
-                color="secondary" // Changed to secondary for better contrast
+                color="secondary"
                 size="large"
-                startIcon={<Email />} // Use the Email icon here
-                onClick={handleCTAButtonClick} // Updated onClick handler
+                startIcon={<Email />}
+                onClick={handleCTAButtonClick}
                 component={motion.button}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -326,7 +426,7 @@ const ITConsulting = () => {
             whileInView="visible"
             viewport={{ once: true }}
             custom={1}
-            ref={contactRef} // Assign ref to Contact Us section
+            ref={contactRef}
           >
             <Typography variant="h2" component="h2" gutterBottom>
               {t('home.contact_title')}
