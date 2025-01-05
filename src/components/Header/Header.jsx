@@ -56,16 +56,19 @@ const Header = forwardRef((props, ref) => {
   const goToHome = () => {
     navigate(`/${currentLang}`, { replace: true });
   };
-
   const isActiveLink = (link) => {
-    const linkPathname = link.split('#')[0];
-    const currentPathname = pathname.replace(/\/$/, '');
-    const linkPath = linkPathname.replace(/\/$/, '');
-    return currentPathname === linkPath;
+    // Remove any trailing slash on both sides
+    const linkPathname = link.split('#')[0].replace(/\/$/, '');
+    const currentPathnameCleaned = pathname.replace(/\/$/, '');
+  
+    // If the base path is the same (ignoring any #hash), mark it active
+    return currentPathnameCleaned === linkPathname;
   };
-
+  
   const isActiveSubmenuLink = (link) => {
+    // Extract the hash from the "to" prop
     const linkHash = link.split('#')[1] ? `#${link.split('#')[1]}` : '';
+    // Submenu is active if both the path and the hash match
     return hash === linkHash && isActiveLink(link);
   };
 

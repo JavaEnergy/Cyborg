@@ -295,6 +295,12 @@ nav a.active {
   font-weight: bold;
 }
 
+.submenu li a.active {
+  background-color: #ffffff; /* or whatever you like */
+  color: #D4B051;
+  font-weight: bold;
+}
+
 .dropdown:hover .submenu,
 .dropdown.open .submenu {
   opacity: 1;
@@ -574,11 +580,20 @@ flex: 0;
   }
 
 
-  @media (max-width: 352px) {
+  @media (max-width: 385px) {
+
+    .top-bar-content {
+      gap: 2px;
+    }
+
+  }
+  @media (max-width: 370px) {
     .header , .header.scrolled {
       padding: 0;
     }
-
+    .top-bar-contact-group, .top-bar-content {
+      gap: 2px;
+    }
 
   }
 
