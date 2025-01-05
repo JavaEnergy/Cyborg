@@ -101,6 +101,11 @@
   text-align: center;
 }
 
+.projects-section h2 {
+  margin-top: 30px;
+}
+
+
 .services-list {
   display: flex;
   flex-wrap: wrap;
@@ -330,7 +335,9 @@
   .text-container h2 {
     font-size: 2rem;
   }
-
+  .text-container {
+    flex: 0;
+      }
   .home-main-content {
     flex-direction: column;
     padding: 50px;
@@ -359,9 +366,26 @@
   .contact-section h2 {
     margin-top: 150px;
   }
+  .image-container {
+    flex: 0;
+  }
+
+  
+  .projects-section h2 {
+    margin-top: 0px;
+  }
+  
+  
+
 }
 
 @media (max-width: 768px) {
+
+  .hero {
+    background-image: url('../assets/images/codesurfmob.jpg');
+    min-height: 50vh;
+  }
+
   .hero-content h1, .hero-content h1.de {
     font-size: 3rem;
   }
@@ -375,11 +399,20 @@
     font-size: 1.8rem;
   }
 
-  /* On small screens, all projects in single column */
-  .project-item {
-    flex: 1 1 100%;
+  .projects-section {
+    padding: 20px;
   }
+/* Force each project onto its own row. */
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; /* ensure full width */
+}
 
+.project-item {
+  flex: 0 0 100% !important; /* each item is 100% wide */
+  max-width: 100%;
+}
   .service-item img {
     width: 60px;
     height: 60px;
@@ -409,6 +442,10 @@
 
   .text-container h2 {
     font-size: 1.5rem;
+  }
+
+  .projects-section {
+    padding: 5px;
   }
 
   .text-container p {

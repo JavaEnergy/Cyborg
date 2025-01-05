@@ -176,6 +176,7 @@
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
+
   .consulting-section {
     margin-top: 40px;
   }
@@ -185,7 +186,7 @@
   }
 
   .it-consulting-hero {
-    height: 70vh; /* Reduce height for smaller screens */
+    height: 50vh; /* Reduce height for smaller screens */
     background-position: top; /* Adjust positioning */
   }
 
