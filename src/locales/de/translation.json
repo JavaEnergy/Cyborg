@@ -362,5 +362,13 @@
     "message_placeholder": "Nachricht",
     "send_button": "Nachricht senden"
 
+  },
+  "cookieConsent": {
+    "message": "Wir verwenden Cookies, um Ihre Erfahrung zu verbessern. Durch die Weiterführung akzeptieren Sie unsere Verwendung von Cookies.",
+    "button": "Ich verstehe",
+    "learnMore": "Mehr erfahren"
+  },
+  "privacyPolicy": {
+    "title": "Datenschutzerklärung"
   }
 }

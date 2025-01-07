@@ -362,10 +362,14 @@
     "email_placeholder": "E-Mai",
     "message_placeholder": "Message",
        "send_button": "Send Message"
-
-
-
-
-
+  },
+  "cookieConsent": {
+    "message": "We use cookies to enhance your experience. By continuing, you accept our use of cookies.",
+    "button": "I Understand",
+    "learnMore": "Learn More"
+  },
+  "privacyPolicy": {
+    "title": "Privacy Policy"
   }
+
 }

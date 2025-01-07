@@ -1,4 +1,5 @@
 // src/App.jsx
+
 import React, { useEffect } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Header from './components/Header/Header';
@@ -8,15 +9,18 @@ import ITConsulting from './pages/ITConsulting';
 import WebDevelopment from './pages/WebDevelopment';
 import ZohoConsulting from './pages/ZohoConsulting';
 import ContactUs from './pages/ContactUs';
-import Legal from './pages/legal'; // Import Legal page
+import Legal from './pages/Legal'; // Ensure correct capitalization
 import Footer from './components/Footer/Footer';
 import './i18n'; // Import i18n setup
 import { useTranslation } from 'react-i18next';
 import ScrollToTop from './components/ScrollToTop';
+import CookieConsent from 'react-cookie-consent'; // Import CookieConsent
+// import LanguageSwitcher from './components/LanguageSwitcher'; // Import LanguageSwitcher
+import { analytics } from './firebase'; // Import analytics instance
 
 const App = () => {
   const { pathname } = useLocation();
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation(); // Destructure t and i18n
 
   useEffect(() => {
     // Determine the language from the path
@@ -35,6 +39,7 @@ const App = () => {
     <>
       <Header />
       <ScrollToTop /> {/* Ensures scrolling to top on route change */}
+      {/* <LanguageSwitcher />  */}
       <div>
         <Routes>
           <Route path="/:lang" element={<Home />} />
@@ -49,6 +54,23 @@ const App = () => {
         </Routes>
       </div>
       <Footer />
+      {/* Optional: Remove CookieConsent if no longer needed */}
+      {/* 
+      <CookieConsent
+        location="bottom"
+        buttonText={t('cookieConsent.button')}
+        cookieName="cyborgCookieConsent"
+        style={{ background: "#2B373B", fontSize: "16px" }}
+        buttonStyle={{ color: "#ffffff", background: "#f4b400", fontSize: "13px" }}
+        expires={150}
+        onAccept={() => {}}
+      >
+        {t('cookieConsent.message')}
+        <a href={`/${i18n.language}/legal`} style={{ marginLeft: '10px', color: '#FFD700' }}>
+          {t('cookieConsent.learnMore')}
+        </a>
+      </CookieConsent>
+      */}
     </>
   );
 };
