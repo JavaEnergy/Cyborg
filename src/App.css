@@ -1,0 +1,46 @@
+/* CookieConsent container */
+.cookie-consent {
+  background: #2b373b;
+  font-size: 16px;
+  color: #ffffff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Message styling */
+.cookie-message {
+  line-height: 1.6;
+  color: #ffffff;
+}
+
+/* Learn more link */
+.cookie-learn-more {
+  margin-left: 10px;
+  color: #ffd700;
+  text-decoration: underline;
+  transition: color 0.3s ease-in-out;
+}
+
+.cookie-learn-more:hover {
+  color: #ffa500; /* Hover effect */
+}
+
+/* Button styling */
+#rcc-confirm-button.cookie-consent-button {
+    background: #f4b400 !important; /* Override background color */
+    color: #ffffff !important; /* Override text color */
+    border: none !important; /* Remove border */
+    border-radius: 8px !important; /* Apply rounded corners */
+    padding: 10px 20px !important; /* Override padding */
+    cursor: pointer !important;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out !important;
+  }
+  
+  #rcc-confirm-button.cookie-consent-button:hover {
+    background-color: #c79400 !important; /* Darker shade on hover */
+    transform: scale(1.05) !important; /* Scale on hover */
+    color: #2B373B !important; /* Optional: Text color change on hover */
+  }
+

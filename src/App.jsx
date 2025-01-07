@@ -12,6 +12,7 @@ import ContactUs from './pages/ContactUs';
 import Legal from './pages/Legal'; // Ensure correct capitalization
 import Footer from './components/Footer/Footer';
 import './i18n'; // Import i18n setup
+import './App.css';
 import { useTranslation } from 'react-i18next';
 import ScrollToTop from './components/ScrollToTop';
 import CookieConsent from 'react-cookie-consent'; // Import CookieConsent
@@ -55,22 +56,23 @@ const App = () => {
       </div>
       <Footer />
       {/* Optional: Remove CookieConsent if no longer needed */}
-      {/* 
+      
       <CookieConsent
-        location="bottom"
-        buttonText={t('cookieConsent.button')}
-        cookieName="cyborgCookieConsent"
-        style={{ background: "#2B373B", fontSize: "16px" }}
-        buttonStyle={{ color: "#ffffff", background: "#f4b400", fontSize: "13px" }}
-        expires={150}
-        onAccept={() => {}}
-      >
-        {t('cookieConsent.message')}
-        <a href={`/${i18n.language}/legal`} style={{ marginLeft: '10px', color: '#FFD700' }}>
-          {t('cookieConsent.learnMore')}
-        </a>
-      </CookieConsent>
-      */}
+  location="bottom"
+  buttonText={t('cookieConsent.button')}
+  cookieName="cyborgCookieConsent"
+  className="cookie-consent"
+  buttonClasses="cookie-consent-button"
+  expires={150}
+  onAccept={() => {}}
+>
+  <span className="cookie-message">
+    {t('cookieConsent.message')}
+    <a href={`/${i18n.language}/legal`} className="cookie-learn-more">
+      {t('cookieConsent.learnMore')}
+    </a>
+  </span>
+</CookieConsent>
     </>
   );
 };
