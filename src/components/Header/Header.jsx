@@ -24,7 +24,7 @@ const Header = forwardRef((props, ref) => {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   
   // **ADDED**: New state variable for small screen detection (<= 388px)
-  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 388);
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 400);
   
   const [openDropdown, setOpenDropdown] = useState(null);
 
@@ -39,7 +39,7 @@ const Header = forwardRef((props, ref) => {
     // **MODIFIED**: Updated handleResize to include isSmallScreen
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
-      setIsSmallScreen(window.innerWidth <= 388); // **ADDED**
+      setIsSmallScreen(window.innerWidth <= 400); // **ADDED**
       if (window.innerWidth > 768) {
         setIsMobileMenuOpen(false);
       }
@@ -101,9 +101,9 @@ const Header = forwardRef((props, ref) => {
   // **MODIFIED**: Use useMemo to optimize topBarMessage calculation
   const topBarMessage = useMemo(() => {
     if (isGerman) {
-      return isSmallScreen ? "24/7 für Sie da" : "Wir sind 24/7 für Sie da!";
+      return isSmallScreen ? "24/7 für Sie da!" : "Wir sind 24/7 für Sie da!";
     } else {
-      return isSmallScreen ? "Available 24/7" : "We are available 24/7!";
+      return isSmallScreen ? "Available 24/7!" : "We are available 24/7!";
     }
   }, [isGerman, isSmallScreen]);
 
