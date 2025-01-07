@@ -383,7 +383,7 @@
 
   .hero {
     background-image: url('../assets/images/codesurfmob.jpg');
-    min-height: 50vh;
+    min-height: 70vh;
   }
 
   .hero-content h1, .hero-content h1.de {
@@ -430,6 +430,14 @@
     background-image: url('../assets/images/codesurfmob.jpg');
   }
 }
+
+@media (max-width: 640px) {
+  .hero-content h1{
+    margin-bottom: 0;
+  }
+
+}
+
 
 @media (max-width: 576px) {
   .hero-content h1, .hero-content h1.de {
@@ -491,4 +499,10 @@
   #zoho {
     width: 60%;
   }
+  @media (max-width: 290px) {
+ 
+  /* .hero {
+    min-height: 70vh;
+  } */
+}
 }

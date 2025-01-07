@@ -245,7 +245,7 @@
     "subtitle": "Wir würden uns freuen, von Ihnen 24/7 zu hören. Bitte füllen Sie das untenstehende Formular aus.",
     "name": "Name",
     "email": "E-Mail",
-    "subject": "Betreff",
+"subject": "Betreff\u0020(optional)",
     "message": "Nachricht",
     "submit": "Nachricht senden",
     "address_title": "",

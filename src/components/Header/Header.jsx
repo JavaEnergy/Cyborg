@@ -1,5 +1,5 @@
 // src/components/Header/Header.jsx
-import { useState, useEffect, forwardRef } from 'react';
+import { useState, useEffect, forwardRef, useMemo } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import { useTranslation } from 'react-i18next';
@@ -22,6 +22,10 @@ const Header = forwardRef((props, ref) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  
+  // **ADDED**: New state variable for small screen detection (<= 388px)
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 388);
+  
   const [openDropdown, setOpenDropdown] = useState(null);
 
   const currentLang = i18n.language;
@@ -32,8 +36,10 @@ const Header = forwardRef((props, ref) => {
       setIsScrolled(window.scrollY > 50);
     };
 
+    // **MODIFIED**: Updated handleResize to include isSmallScreen
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
+      setIsSmallScreen(window.innerWidth <= 388); // **ADDED**
       if (window.innerWidth > 768) {
         setIsMobileMenuOpen(false);
       }
@@ -56,6 +62,7 @@ const Header = forwardRef((props, ref) => {
   const goToHome = () => {
     navigate(`/${currentLang}`, { replace: true });
   };
+  
   const isActiveLink = (link) => {
     // Remove any trailing slash on both sides
     const linkPathname = link.split('#')[0].replace(/\/$/, '');
@@ -91,10 +98,14 @@ const Header = forwardRef((props, ref) => {
     };
   }, [isMobileMenuOpen, ref]);
 
-  // Top bar message based on language
-  const topBarMessage = isGerman
-    ? "Wir sind 24/7 für Sie da!"
-    : "We are available 24/7!";
+  // **MODIFIED**: Use useMemo to optimize topBarMessage calculation
+  const topBarMessage = useMemo(() => {
+    if (isGerman) {
+      return isSmallScreen ? "24/7 für Sie da" : "Wir sind 24/7 für Sie da!";
+    } else {
+      return isSmallScreen ? "Available 24/7" : "We are available 24/7!";
+    }
+  }, [isGerman, isSmallScreen]);
 
   return (
     <>
@@ -105,7 +116,7 @@ const Header = forwardRef((props, ref) => {
           <div className="top-bar-contact-group">
             <span className="top-bar-contact">
               <EmailIcon fontSize="small" className="top-bar-icon email-icon" />
-              <a href="mailto:info@cyborg.com">info@cyborg.com</a>
+              <a href="mailto:info@cyborg-it.de">info@cyborg-it.de</a>
             </span>
             <span className="top-bar-contact">
               <a href="https://wa.me/995598707973" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
@@ -358,52 +369,52 @@ const Header = forwardRef((props, ref) => {
                         >
                           {t('zoho_consulting.zoho_crm')}
                         </HashLink>
-                        </li>
-  <li>
-    <HashLink
-      smooth
-      to={`/${currentLang}/zoho-consulting#zoho-marketing`}
-      className={
-        isActiveSubmenuLink(`/${currentLang}/zoho-consulting#zoho-marketing`) ? 'active' : ''
-      }
-    >
-      {t('zoho_consulting.zoho_marketing')}
-    </HashLink>
-  </li>
-  <li>
-    <HashLink
-      smooth
-      to={`/${currentLang}/zoho-consulting#zoho-finance`}
-      className={
-        isActiveSubmenuLink(`/${currentLang}/zoho-consulting#zoho-finance`) ? 'active' : ''
-      }
-    >
-      {t('zoho_consulting.zoho_finance')}
-    </HashLink>
-  </li>
-  <li>
-    <HashLink
-      smooth
-      to={`/${currentLang}/zoho-consulting#zoho-human-resources`}
-      className={
-        isActiveSubmenuLink(`/${currentLang}/zoho-consulting#zoho-human-resources`) ? 'active' : ''
-      }
-    >
-      {t('zoho_consulting.zoho_human_resources')}
-    </HashLink>
-  </li>
-  <li>
-    <HashLink
-      smooth
-      to={`/${currentLang}/zoho-consulting#custom-development`}
-      className={
-        isActiveSubmenuLink(`/${currentLang}/zoho-consulting#custom-development`) ? 'active' : ''
-      }
-    >
-      {t('zoho_consulting.custom_development')}
-    </HashLink>
-  </li>
-</ul>
+                      </li>
+                      <li>
+                        <HashLink
+                          smooth
+                          to={`/${currentLang}/zoho-consulting#zoho-marketing`}
+                          className={
+                            isActiveSubmenuLink(`/${currentLang}/zoho-consulting#zoho-marketing`) ? 'active' : ''
+                          }
+                        >
+                          {t('zoho_consulting.zoho_marketing')}
+                        </HashLink>
+                      </li>
+                      <li>
+                        <HashLink
+                          smooth
+                          to={`/${currentLang}/zoho-consulting#zoho-finance`}
+                          className={
+                            isActiveSubmenuLink(`/${currentLang}/zoho-consulting#zoho-finance`) ? 'active' : ''
+                          }
+                        >
+                          {t('zoho_consulting.zoho_finance')}
+                        </HashLink>
+                      </li>
+                      <li>
+                        <HashLink
+                          smooth
+                          to={`/${currentLang}/zoho-consulting#zoho-human-resources`}
+                          className={
+                            isActiveSubmenuLink(`/${currentLang}/zoho-consulting#zoho-human-resources`) ? 'active' : ''
+                          }
+                        >
+                          {t('zoho_consulting.zoho_human_resources')}
+                        </HashLink>
+                      </li>
+                      <li>
+                        <HashLink
+                          smooth
+                          to={`/${currentLang}/zoho-consulting#custom-development`}
+                          className={
+                            isActiveSubmenuLink(`/${currentLang}/zoho-consulting#custom-development`) ? 'active' : ''
+                          }
+                        >
+                          {t('zoho_consulting.custom_development')}
+                        </HashLink>
+                      </li>
+                    </ul>
                   </li>
 
                   <li>

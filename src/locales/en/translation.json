@@ -244,7 +244,7 @@
     "subtitle": "We'd love to hear from you 24/7. Please fill out the form below.",
     "name": "Name",
     "email": "Email",
-    "subject": "Subject",
+    "subject": "Subject\u0020(optional)",
     "message": "Message",
     "submit": "Send Message",
     "address_title": "Our Office",

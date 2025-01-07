@@ -39,6 +39,9 @@
 .top-bar-message {
   font-weight: bold;
   color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .top-bar-contact-group {
@@ -522,6 +525,12 @@ flex: 0;
 
   /* Adjust logo size for very small screens */
   @media (max-width: 448px) {
+
+    .top-bar-content {
+justify-content: space-around;
+}
+
+
     .logo-container img {
       width: 150px; /* Reduce logo size */
     }
@@ -572,7 +581,7 @@ flex: 0;
     z-index: 1002; /* Just below the top bar */
   }
 
-  @media (max-width: 424px) {
+  @media (max-width: 428px) {
     .top-bar-content {
       padding: 0;
     }
@@ -584,16 +593,19 @@ flex: 0;
 
     .top-bar-content {
       gap: 2px;
+justify-content: space-around;
+}
+
+    .top-bar-message {
+      font-size: 0.9em; /* **ADJUSTED**: Smaller font for shorter message */
     }
 
   }
   @media (max-width: 370px) {
     .header , .header.scrolled {
-      padding: 0;
+      padding: 1rem 0.5rem;
     }
-    .top-bar-contact-group, .top-bar-content {
-      gap: 2px;
-    }
+
 
   }
 

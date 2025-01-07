@@ -24,7 +24,7 @@ const Footer = () => {
           <p>+995 598 70 79 73</p> <p>(WhatsApp)</p>
           <p>
             Email:{' '}
-            <a href="mailto:info@cyborg.com">info@cyborg.com</a>
+            <a href="mailto:info@cyborg-it.de">info@cyborg-it.de</a>
           </p>
           {/* 24/7 Contactable Notice */}
           <p className="contactable-notice">
@@ -53,7 +53,7 @@ const Footer = () => {
               <WhatsAppIcon fontSize="large" />
             </a>
             <a
-              href="mailto:info@cyborg.com"
+              href="mailto:info@cyborg-it.de"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Email"
