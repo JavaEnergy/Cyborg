@@ -3,14 +3,14 @@ import { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 import './Home.css';
-
-// Spider effect import
-import initSpiderEffect from '../assets/codes/interactive spider'; 
+import initSpiderEffect from '../assets/codes/interactive spider';
 import { motion } from 'framer-motion';
+import { useLocation } from 'react-router-dom'; // Import useLocation
 
 // Components
-import Header from '../components/Header/Header';  // <--- Import your Header
+import Header from '../components/Header/Header';
 import ContactForm from '../components/ContactForm';
+import { Helmet } from 'react-helmet';
 
 // Images
 import image from '../assets/images/bg.jpg';
@@ -22,23 +22,18 @@ const Home = () => {
   const { t, i18n } = useTranslation();
   const [hovered, setHovered] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
+  const location = useLocation(); // Initialize useLocation
 
-  // Refs for excluded sections
   const headerRef = useRef(null);
   const contactRef = useRef(null);
   const faqRef = useRef(null);
 
   useEffect(() => {
     const handleMouseMove = (event) => {
-      const header = headerRef.current;
-      const contact = contactRef.current;
-      const faq = faqRef.current;
-
-      // Check if mouse is over Contact, FAQ, or Header
       if (
-        (header && header.contains(event.target)) ||
-        (contact && contact.contains(event.target)) ||
-        (faq && faq.contains(event.target))
+        headerRef.current?.contains(event.target) ||
+        contactRef.current?.contains(event.target) ||
+        faqRef.current?.contains(event.target)
       ) {
         setHovered(false);
       } else {
@@ -50,7 +45,7 @@ const Home = () => {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  // Initialize or cleanup spider effect based on hovered state
+  // Initialize/cleanup spider effect
   useEffect(() => {
     let cleanup;
     if (hovered) {
@@ -75,9 +70,7 @@ const Home = () => {
       if (canvas) canvas.style.display = 'none';
       if (cleanup) cleanup();
     }
-
     return () => {
-      // Cleanup on unmount or when hovered changes
       if (cleanup) cleanup();
       const canvas = document.getElementById('spider-canvas');
       if (canvas) {
@@ -109,6 +102,19 @@ const Home = () => {
 
   return (
     <>
+      {/* React Helmet for SEO */}
+      <Helmet>
+        <title>{t('home.page_title')}</title>
+        <meta name="description" content={t('home.page_description')} />
+        
+        {/* Open Graph Tags */}
+        <meta property="og:title" content={t('home.page_title')} />
+        <meta property="og:description" content={t('home.page_description')} />
+        <meta property="og:image" content="https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png" />
+        <meta property="og:url" content={`https://cyborg-it.de${location.pathname}`} />
+        <meta property="og:type" content="website" />
+      </Helmet>
+
       {/* Pass the ref to Header so we can detect mouse over the header */}
       <Header ref={headerRef} />
 
@@ -135,7 +141,7 @@ const Home = () => {
             variants={sectionVariants}
             custom={1}
           >
-            <img src={image} alt="Coding Surf" />
+            <img src={image} alt={t('home.image_alt')} />
           </motion.div>
 
           <motion.div
@@ -149,9 +155,7 @@ const Home = () => {
             <h2>{t('home.subtitle')}</h2>
             <section className="vision-section">
               <p>{t('home.vision_content')}</p>
-              <br />
               <p>{t('home.vision_content2')}</p>
-              <br />
               <p>{t('home.wish_content')}</p>
             </section>
           </motion.div>
@@ -169,29 +173,38 @@ const Home = () => {
         >
           <h2>{t('home.services_title')}</h2>
           <div className="services-list">
-            <NavLink to={`/${currentLang}/it-consulting`} className="service-item">
+            <NavLink
+              to={`/${currentLang}/it-consulting`}
+              className="service-item"
+            >
               <img
                 src={itConsultingIcon}
-                alt={t('home.service_it_consulting_title')}
+                alt={t('home.service_it_consulting_alt')}
               />
               <h3>{t('home.service_it_consulting_title')}</h3>
               <p>{t('home.service_it_consulting_description')}</p>
             </NavLink>
 
-            <NavLink to={`/${currentLang}/web-development`} className="service-item">
+            <NavLink
+              to={`/${currentLang}/web-development`}
+              className="service-item"
+            >
               <img
                 src={webDevelopmentIcon}
-                alt={t('home.service_web_development_title')}
+                alt={t('home.service_web_development_alt')}
               />
               <h3>{t('home.service_web_development_title')}</h3>
               <p>{t('home.service_web_development_description')}</p>
             </NavLink>
 
-            <NavLink to={`/${currentLang}/zoho-consulting`} className="service-item">
+            <NavLink
+              to={`/${currentLang}/zoho-consulting`}
+              className="service-item"
+            >
               <img
                 id="zoho"
                 src={itServicesIcon}
-                alt={t('home.service_it_services_title')}
+                alt={t('home.service_it_services_alt')}
               />
               <h3>{t('home.service_it_services_title')}</h3>
               <p>{t('home.service_it_services_description')}</p>
@@ -210,68 +223,66 @@ const Home = () => {
         >
           <h2>{t('home.projects_title')}</h2>
           <div className="projects-list">
-            {[1, 2, 3].map((item) => (
-              <div className={`project-item project-${item}`} key={item}>
-                <div className="project-content">
-                  <h3>{t(`home.project_${item}_title`)}</h3>
-                  <p>{t(`home.project_${item}_description`)}</p>
+            {/* First Project - Single Column */}
+            <div className="project-item project-1">
+              <div className="project-content">
+                <h3>{t('home.project_1_title')}</h3>
+                <p>{t('home.project_1_description')}</p>
 
-                  {item === 1 && (
-                    <div
-                      className="project-iframe-container"
-                      style={{ marginTop: '1rem' }}
-                    >
-                      <iframe
-                        src="https://product-card-plum-mu.vercel.app"
-                        width="100%"
-                        height="700"
-                        style={{ border: 'none' }}
-                        title="Product Card Preview"
-                      ></iframe>
-                    </div>
-                  )}
-
-                  {item === 3 && (
-                    <div
-                      className="project-iframe-container"
-                      style={{ marginTop: '1rem' }}
-                    >
-                      <iframe
-                        src="https://clock-teal-tau.vercel.app/"
-                        width="100%"
-                        height="400"
-                        style={{ border: 'none' }}
-                        title="Quiz App Preview"
-                      ></iframe>
-                    </div>
-                  )}
-
-                  {item === 1 && (
-                    <a
-                      href="https://product-card-plum-mu.vercel.app"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <button>{t('home.project_view_more')}</button>
-                    </a>
-                  )}
-
-                  {item === 3 && (
-                    <a
-                      href="https://clock-teal-tau.vercel.app/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <button>{t('home.project_view_more')}</button>
-                    </a>
-                  )}
-
-                  {item !== 1 && item !== 3 && (
-                    <button>{t('home.project_view_more')}</button>
-                  )}
+                <div className="project-iframe-container">
+                  <iframe
+                    src="https://product-card-plum-mu.vercel.app"
+                    width="100%"
+                    height="700"
+                    style={{ border: 'none' }}
+                    title="Product Card Preview"
+                  ></iframe>
                 </div>
+
+                <a
+                  href="https://product-card-plum-mu.vercel.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button>{t('home.project_view_more')}</button>
+                </a>
               </div>
-            ))}
+            </div>
+
+            {/* Second and Third Projects - Two Columns */}
+            <div className="project-item project-2">
+              <div className="project-content">
+                <h3>{t('home.project_2_title')}</h3>
+                <p>{t('home.project_2_description')}</p>
+
+                <button>{t('home.project_view_more')}</button>
+              </div>
+            </div>
+
+            <div className="project-item project-3">
+              <div className="project-content">
+                <h3>{t('home.project_3_title')}</h3>
+                <p>{t('home.project_3_description')}</p>
+
+                <div className="project-iframe-container">
+                  <iframe
+                    src="https://clock-teal-tau.vercel.app/"
+                    width="100%"
+                    height="400"
+                    style={{ border: 'none' }}
+                    title="Quiz App Preview"
+                  ></iframe>
+                </div>
+
+                <a
+                  href="https://clock-teal-tau.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button>{t('home.project_view_more')}</button>
+                </a>
+              </div>
+            </div>
           </div>
         </motion.section>
 
@@ -283,22 +294,18 @@ const Home = () => {
           whileInView="visible"
           viewport={{ once: true }}
           custom={2}
-          ref={faqRef}  // <-- Add ref for FAQ
+          ref={faqRef}
         >
           <h2>{t('about_us.faq_title')}</h2>
           <div className="about-faq-list">
             {[1, 2, 3, 4, 5, 6, 7].map((item, index) => (
               <div
-                className={`about-faq-item ${
-                  openFaqIndex === index ? 'open' : ''
-                }`}
+                className={`about-faq-item ${openFaqIndex === index ? 'open' : ''}`}
                 key={index}
               >
                 <h3 onClick={() => toggleFaq(index)}>
                   <span>{t(`about_us.faq_question_${item}`)}</span>
-                  <span className="faq-icon">
-                    {openFaqIndex === index ? '−' : '+'}
-                  </span>
+                  <span className="faq-icon">{openFaqIndex === index ? '−' : '+'}</span>
                 </h3>
                 <motion.p
                   initial={{ height: 0, opacity: 0 }}
@@ -325,7 +332,7 @@ const Home = () => {
           whileInView="visible"
           viewport={{ once: true }}
           custom={2}
-          ref={contactRef}  // <-- Add ref for Contact
+          ref={contactRef}
         >
           <h2>{t('home.contact_title')}</h2>
           <ContactForm />

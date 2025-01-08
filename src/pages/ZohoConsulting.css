@@ -1,6 +1,8 @@
 /* src/pages/ZohoConsulting.css */
 
-/* Hero Section */
+/* =======================================
+   HERO SECTION
+======================================= */
 .zoho-hero {
   position: relative;
   height: 60vh;
@@ -45,28 +47,29 @@
   }
 }
 
-/* Introduction Section */
+/* =======================================
+   INTRODUCTION SECTION
+======================================= */
 .zoho-intro-section {
   margin-top: 40px;
   margin-bottom: 40px;
   text-align: center;
 }
 
-.section-image {
-  width: 100%;
-  max-width: 800px;
-  height: auto;
-  border-radius: 12px;
-  margin-top: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out;
+.zoho-intro-section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
 }
 
-.section-image:hover {
-  transform: scale(1.02);
+.zoho-intro-section p {
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.8;
 }
 
-/* Services Grid */
+/* =======================================
+   SERVICES GRID
+======================================= */
 .zoho-services-grid {
   margin-top: 40px;
   margin-bottom: 40px;
@@ -107,7 +110,9 @@
   flex-grow: 1;
 }
 
-/* CTA Section */
+/* =======================================
+   CTA SECTION
+======================================= */
 .cta-section {
   position: relative;
   padding: 80px 20px;
@@ -146,8 +151,23 @@
   transition: background-color 0.3s ease-in-out;
 }
 
+.cta-button .MuiButton-root {
+  background-color: #9c27b0; /* Purple Button Background */
+  color: #ffffff; /* White Text for Contrast */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
 
-/* Contact Section */
+.cta-button .MuiButton-root:hover {
+  background-color: #7b1fa2;
+  color: #ffffff; /* White Text on Hover */
+}
+
+/* =======================================
+   CONTACT SECTION
+======================================= */
 .contact-section {
   margin-top: 60px;
   margin-bottom: 60px;
@@ -157,7 +177,45 @@
   margin-bottom: 20px;
 }
 
-/* Modal Content */
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+.contact-form button {
+  background-color: #d4b051; /* Match CTA Button Color */
+  color: white;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #b89242 !important;
+}
+
+/* =======================================
+   MODAL CONTENT
+======================================= */
 .modal-content {
   /* 
     Material-UI's Modal places this in a portal, 
@@ -166,23 +224,17 @@
   background-color: #fff;
   max-width: 600px;
   width: 90%;
-  margin: 100px auto; /* Helps center it on large screens */
+  margin: 100px auto; /* center on large screens */
   border-radius: 12px;
   padding: 30px;
-  outline: none;
-  /* Overflow and scroll for tall content */
-  max-height: 80vh;
+  outline: none; /* remove default outline */
+  max-height: 80vh; /* allow some scrolling if content is tall */
   overflow-y: auto;
 }
 
-/* Button in Modal */
-.modal-content button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  border-radius: 25px;
-}
-
-/* Responsive Adjustments */
+/* =======================================
+   RESPONSIVE DESIGN
+======================================= */
 @media (max-width: 960px) {
   .zoho-hero {
     height: 40vh;

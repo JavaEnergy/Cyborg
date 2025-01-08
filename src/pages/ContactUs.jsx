@@ -1,3 +1,4 @@
+// src/pages/ContactUs.jsx
 import React, { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
@@ -7,12 +8,13 @@ import {
   Paper,
   IconButton,
   Box,
-  CircularProgress
+  CircularProgress,
 } from '@mui/material';
 import { motion } from 'framer-motion';
 import emailjs from 'emailjs-com';
 import Layout from '../components/Layout';
 import './ContactUs.css';
+import { Helmet } from 'react-helmet';
 
 // Import Material UI Icons
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
@@ -21,16 +23,20 @@ import SubjectIcon from '@mui/icons-material/Subject';
 import ChatIcon from '@mui/icons-material/Chat';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import { useLocation } from 'react-router-dom'; // Import useLocation
+
 
 const ContactUs = () => {
   const { t } = useTranslation();
   const formRef = useRef(null);
+  const location = useLocation(); // Initialize useLocation
+
 
   const [status, setStatus] = useState('');
-  const [isSuccess, setIsSuccess] = useState(false); // Tracks success state
+  const [isSuccess, setIsSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  // Animation variants
+  // Animation variants for framer-motion
   const sectionVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: {
@@ -44,9 +50,9 @@ const ContactUs = () => {
     e.preventDefault();
     setLoading(true);
     setStatus('');
-    setIsSuccess(false); // Reset before submission
+    setIsSuccess(false);
 
-    console.time('EmailJS Submission Time'); // Start timer
+    console.time('EmailJS Submission Time');
 
     try {
       const result = await emailjs.sendForm(
@@ -56,34 +62,36 @@ const ContactUs = () => {
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
       console.log('Email successfully sent!', result.text);
-      setStatus(t('contact.success_message')); // e.g., "Thank you for your message!"
-      setIsSuccess(true); // Set success state to true
+      setStatus(t('contact.success_message'));
+      setIsSuccess(true);
       formRef.current.reset();
     } catch (error) {
       console.log('Email sending failed:', error.text);
-      setStatus(t('contact.error_message')); // e.g., "Oops, something went wrong."
-      setIsSuccess(false); // Ensure error state
+      setStatus(t('contact.error_message'));
+      setIsSuccess(false);
     } finally {
       setLoading(false);
-      console.timeEnd('EmailJS Submission Time'); // End timer
+      console.timeEnd('EmailJS Submission Time');
     }
   };
 
   return (
     <Layout>
+      {/* React Helmet for SEO */}
+      <Helmet>
+        <title>{t('contact_us.page_title')}</title>
+        <meta name="description" content={t('contact_us.page_description')} />
+        
+        {/* Open Graph Tags */}
+        <meta property="og:title" content={t('contact_us.page_title')} />
+        <meta property="og:description" content={t('contact_us.page_description')} />
+        <meta property="og:image" content="https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png" />
+        <meta property="og:url" content={`https://cyborg-it.de${location.pathname}`} />
+        <meta property="og:type" content="website" />
+      </Helmet>
+
       {/* Hero Section */}
       <div className="contact-hero">
-        <Typography
-          variant="h2"
-          component={motion.h1}
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          align="center"
-          color="white"
-        >
-          {/* Optional: Add a title here */}
-        </Typography>
       </div>
 
       {/* Contact Form Section */}
@@ -112,12 +120,13 @@ const ContactUs = () => {
                 viewport={{ once: true }}
                 className="input-wrapper"
               >
-                <PersonOutlineIcon className="input-icon" />
+                <PersonOutlineIcon className="input-icon" aria-hidden="true" />
                 <input
                   type="text"
                   name="user_name"
                   placeholder={t('contact_us.name')}
                   required
+                  aria-label={t('contact_us.name')}
                 />
               </Box>
 
@@ -129,14 +138,14 @@ const ContactUs = () => {
                 viewport={{ once: true }}
                 className="input-wrapper"
               >
-                <EmailIcon className="input-icon" />
+                <EmailIcon className="input-icon" aria-hidden="true" />
                 <input
                   type="email"
                   name="user_email"
                   placeholder={t('contact_us.email')}
                   required
-                  // pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
-                  title="Please enter a valid email address."
+                  aria-label={t('contact_us.email')}
+                  title={t('contact_us.email_title')}
                 />
               </Box>
 
@@ -148,11 +157,12 @@ const ContactUs = () => {
                 viewport={{ once: true }}
                 className="input-wrapper"
               >
-                <SubjectIcon className="input-icon" />
+                <SubjectIcon className="input-icon" aria-hidden="true" />
                 <input
                   type="text"
                   name="user_subject"
                   placeholder={t('contact_us.subject')}
+                  aria-label={t('contact_us.subject')}
                 />
               </Box>
 
@@ -164,12 +174,13 @@ const ContactUs = () => {
                 viewport={{ once: true }}
                 className="input-wrapper"
               >
-                <ChatIcon className="input-icon" />
+                <ChatIcon className="input-icon" aria-hidden="true" />
                 <textarea
                   rows="5"
                   name="user_message"
                   placeholder={t('contact_us.message')}
                   required
+                  aria-label={t('contact_us.message')}
                 />
               </Box>
 
@@ -202,7 +213,7 @@ const ContactUs = () => {
                 className="social-icon"
                 aria-label="LinkedIn"
               >
-                <LinkedInIcon fontSize="large" color="primary" />
+                <LinkedInIcon fontSize="large" />
               </IconButton>
               <IconButton
                 component="a"
@@ -217,12 +228,11 @@ const ContactUs = () => {
             </Box>
           </Paper>
 
-          {/* Show status message below the form */}
+          {/* Status Message */}
           {status && (
             <Typography
               variant="body1"
               align="center"
-              style={{ marginTop: '1rem' }}
               className={`status-message ${isSuccess ? 'success' : 'error'}`}
             >
               {status}
@@ -231,7 +241,7 @@ const ContactUs = () => {
         </motion.section>
       </Container>
 
-      {/* Additional Info or Map Section */}
+      {/* Additional Info or Map Section (Optional) */}
       <Container maxWidth="lg">
         <motion.section
           className="additional-info-section"
@@ -244,6 +254,6 @@ const ContactUs = () => {
       </Container>
     </Layout>
   );
-
 };
+
 export default ContactUs;

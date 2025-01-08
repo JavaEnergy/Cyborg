@@ -25,6 +25,7 @@ import { motion } from 'framer-motion';
 import Layout from '../components/Layout';
 import './ITConsulting.css';
 import ContactForm from '../components/ContactForm';
+import { Helmet } from 'react-helmet';
 
 // Import images (ensure the paths are correct)
 import heroImage from '../assets/images/b1.png';
@@ -42,8 +43,7 @@ const ITConsulting = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const currentLang = i18n.language;
-    const contactRef = useRef(null);
-  
+  const contactRef = useRef(null);
 
   // Track the previous pathname to detect changes (for scroll-to-top)
   const prevPathnameRef = useRef(location.pathname);
@@ -156,6 +156,19 @@ const ITConsulting = () => {
 
   return (
     <Layout>
+      {/* React Helmet for SEO */}
+      <Helmet>
+        <title>{t('it_consulting.page_title')}</title>
+        <meta name="description" content={t('it_consulting.page_description')} />
+        
+        {/* Open Graph Tags */}
+        <meta property="og:title" content={t('it_consulting.page_title')} />
+        <meta property="og:description" content={t('it_consulting.page_description')} />
+        <meta property="og:image" content="https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png" />
+        <meta property="og:url" content={`https://cyborg-it.de${location.pathname}`} />
+        <meta property="og:type" content="website" />
+      </Helmet>
+
       <div className="it-consulting">
         {/* Hero Section */}
         <div
@@ -190,7 +203,7 @@ const ITConsulting = () => {
               <Grid item xs={12} md={6}>
                 <img
                   src={ideaToImplementationImage}
-                  alt={t('it_consulting.from_idea_to_implementation')}
+                  alt={t('it_consulting.from_idea_to_implementation_alt')}
                   className="section-image"
                 />
               </Grid>
@@ -219,7 +232,7 @@ const ITConsulting = () => {
               <Grid item xs={12} md={6}>
                 <img
                   src={itStrategyImage}
-                  alt={t('it_consulting.it_strategy')}
+                  alt={t('it_consulting.it_strategy_alt')}
                   className="section-image"
                 />
               </Grid>
@@ -269,7 +282,8 @@ const ITConsulting = () => {
                           alt={service.title}
                           style={{
                             objectFit: service.image === cloudConsultingImage ? 'contain' : 'cover',
-                          }}                        />
+                          }}
+                        />
                         <CardContent>
                           <Typography variant="h6" component="h3" gutterBottom>
                             {service.title}
@@ -369,7 +383,7 @@ const ITConsulting = () => {
                       component="img"
                       height="140"
                       image={itSecurityImage}
-                      alt={t('it_consulting.it_security')}
+                      alt={t('it_consulting.it_security_alt')}
                       style={{ objectFit: 'contain' }}
                     />
                     <CardContent>

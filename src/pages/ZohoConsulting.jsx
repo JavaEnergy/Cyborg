@@ -14,9 +14,10 @@ import {
 import { motion } from 'framer-motion';
 import Layout from '../components/Layout';
 import './ZohoConsulting.css';
+import { useLocation } from 'react-router-dom'; // Import useLocation
 
 import {
-  Email, // Import Email icon
+  Email,
 } from '@mui/icons-material';
 import ContactForm from '../components/ContactForm';
 
@@ -27,10 +28,13 @@ import zohoFinanceImage from '../assets/images/finance.png';
 import zohoHRImage from '../assets/images/people.png';
 import zohoCustomDevImage from '../assets/images/Zoho.png';
 
+import { Helmet } from 'react-helmet'; // <-- Import Helmet
+
 const ZohoConsulting = () => {
   const { t, i18n } = useTranslation();
   const currentLang = i18n.language;
   const contactRef = useRef(null);
+  const location = useLocation(); // Initialize useLocation
 
   // Modal states
   const [openModal, setOpenModal] = useState(false);
@@ -122,6 +126,19 @@ const ZohoConsulting = () => {
 
   return (
     <Layout>
+      {/* React Helmet for SEO */}
+      <Helmet>
+        <title>{t('zoho_consulting.page_title')}</title>
+        <meta name="description" content={t('zoho_consulting.page_description')} />
+        
+        {/* Open Graph Tags */}
+        <meta property="og:title" content={t('zoho_consulting.page_title')} />
+        <meta property="og:description" content={t('zoho_consulting.page_description')} />
+        <meta property="og:image" content="https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png" />
+        <meta property="og:url" content={`https://cyborg-it.de${location.pathname}`} />
+        <meta property="og:type" content="website" />
+      </Helmet>
+
       <div className="zoho-consulting">
         {/* Hero Section */}
         <div className="zoho-hero">
@@ -266,10 +283,6 @@ const ZohoConsulting = () => {
         <Modal
           open={openModal}
           onClose={handleCloseModal}
-          /* 
-            By setting onClose to handleCloseModal,
-            clicking the backdrop (outside the card) will close the modal.
-          */
           aria-labelledby="service-modal-title"
           aria-describedby="service-modal-description"
         >
@@ -281,10 +294,6 @@ const ZohoConsulting = () => {
             exit={{ opacity: 0, scale: 0.8 }}
             transition={{ duration: 0.3 }}
             onClick={(e) => e.stopPropagation()} 
-            /* 
-              Stop propagation so clicking inside the card doesn't close the modal,
-              but clicking outside (on backdrop) will.
-            */
           >
             {selectedService && (
               <>

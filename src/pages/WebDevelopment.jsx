@@ -12,11 +12,12 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
-  Modal, // <-- Import Modal
+  Modal,
 } from '@mui/material';
+import { useLocation } from 'react-router-dom'; // Import useLocation
 
 import {
-  Email, // Import Email icon
+  Email,
 } from '@mui/icons-material';
 import {
   Web as WebIcon,
@@ -26,23 +27,26 @@ import {
 } from '@mui/icons-material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom';
 
 import Layout from '../components/Layout';
 import './WebDevelopment.css';
-import useScrollSpy from '../hooks/useScrollSpy'; // Import the custom hook
-import ContactForm from '../components/ContactForm'; // Import ContactForm
+import useScrollSpy from '../hooks/useScrollSpy';
+import ContactForm from '../components/ContactForm';
 
 // Import images (ensure these paths are correct)
 import wordpressImage from '../assets/images/wordpress.jpg';
 import reactImage from '../assets/images/react.png';
 import angularImage from '../assets/images/angular.png';
-import ecommerceImage from '../assets/images/conf.png'; // "conf.png" representing Product Configurator
+import ecommerceImage from '../assets/images/conf.png';
 import customSoftwareImage from '../assets/images/custom.png';
+
+import { Helmet } from 'react-helmet'; // <-- Import Helmet
 
 const WebDevelopment = () => {
   const { t, i18n } = useTranslation();
   const currentLang = i18n.language;
+  const location = useLocation(); // Initialize useLocation
 
   // Modal state for card details
   const [openModal, setOpenModal] = useState(false);
@@ -96,8 +100,8 @@ const WebDevelopment = () => {
   };
 
   const handleCloseModal = () => {
-    setOpenModal(false);
     setSelectedService(null);
+    setOpenModal(false);
   };
 
   // Define contactRef for smooth scrolling
@@ -160,6 +164,19 @@ const WebDevelopment = () => {
 
   return (
     <Layout>
+      {/* React Helmet for SEO */}
+      <Helmet>
+        <title>{t('web_development.page_title')}</title>
+        <meta name="description" content={t('web_development.page_description')} />
+        
+        {/* Open Graph Tags */}
+        <meta property="og:title" content={t('web_development.page_title')} />
+        <meta property="og:description" content={t('web_development.page_description')} />
+        <meta property="og:image" content="https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png" />
+        <meta property="og:url" content={`https://cyborg-it.de${location.pathname}`} />
+        <meta property="og:type" content="website" />
+      </Helmet>
+
       <div className="web-development">
         {/* Hero Section */}
         <div className="web-development-hero">
@@ -243,10 +260,18 @@ const WebDevelopment = () => {
                   >
                     {selectedService && (
                       <>
-                        <Typography id="service-modal-title" variant="h4" gutterBottom>
+                        <Typography
+                          id="service-modal-title"
+                          variant="h4"
+                          gutterBottom
+                        >
                           {selectedService.title}
                         </Typography>
-                        <Typography id="service-modal-description" variant="body1" paragraph>
+                        <Typography
+                          id="service-modal-description"
+                          variant="body1"
+                          paragraph
+                        >
                           {selectedService.moreInfo}
                         </Typography>
                         <Button
@@ -369,25 +394,22 @@ const WebDevelopment = () => {
             viewport={{ once: true }}
             custom={3}
           >
-            <Typography variant="h5" align="center" gutterBottom>
-              {t('it_consulting.ready_to_transform')}
-            </Typography>
-            <Typography variant="body1" align="center" paragraph>
-              {t('it_consulting.take_next_step')}
-            </Typography>
-            <div className="cta-button">
+            <div className="cta-content">
+              <Typography variant="h4" align="center" gutterBottom>
+                {t('zoho_consulting.cta_title')}
+              </Typography>
+              <Typography variant="h6" align="center" paragraph>
+                {t('zoho_consulting.cta_description')}
+              </Typography>
               <Button
                 variant="contained"
                 color="secondary"
-                size="large"
                 startIcon={<Email />}
-                onClick={handleCTAButtonClick}
-                component={motion.button}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                aria-label={t('it_consulting.contact_us')}
+                size="large"
+                href={`/${currentLang}/contact-us`}
+                className="cta-button"
               >
-                {t('it_consulting.contact_us')}
+                {t('zoho_consulting.contact_us')}
               </Button>
             </div>
           </motion.div>
@@ -402,12 +424,56 @@ const WebDevelopment = () => {
             custom={1}
             ref={contactRef} // Assign ref to Contact Us section
           >
-            <Typography variant="h2" component="h2" gutterBottom>
+            <Typography variant="h2" gutterBottom align="center">
               {t('home.contact_title')}
             </Typography>
             <ContactForm />
           </motion.section>
         </Container>
+
+        {/* Modal for More Information */}
+        <Modal
+          open={openModal}
+          onClose={handleCloseModal}
+          aria-labelledby="service-modal-title"
+          aria-describedby="service-modal-description"
+        >
+          {/* We can wrap content in a Framer Motion div for animations */}
+          <motion.div
+            className="modal-content"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            transition={{ duration: 0.3 }}
+            onClick={(e) => e.stopPropagation()} 
+          >
+            {selectedService && (
+              <>
+                <Typography
+                  id="service-modal-title"
+                  variant="h4"
+                  gutterBottom
+                >
+                  {selectedService.title}
+                </Typography>
+                <Typography
+                  id="service-modal-description"
+                  variant="body1"
+                  paragraph
+                >
+                  {selectedService.moreInfo}
+                </Typography>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={handleCloseModal}
+                >
+                  {t('zoho_consulting.close')}
+                </Button>
+              </>
+            )}
+          </motion.div>
+        </Modal>
       </div>
     </Layout>
   );

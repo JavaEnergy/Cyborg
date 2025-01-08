@@ -1,15 +1,15 @@
-/* Global Box Sizing */
-*, *::before, *::after {
-  box-sizing: border-box;
-}
+/* src/pages/ContactUs.css */
 
+/* =======================================
+   HERO SECTION
+======================================= */
 .contact-hero {
   position: relative;
   height: 60vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url('../assets/images/contact.png'); /* Update path if needed */
+  background-image: url('../assets/images/contact.png');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -24,7 +24,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(17, 1, 42, 0.301);
+  background-color: rgba(17, 1, 42, 0.3);
   z-index: 1;
 }
 
@@ -33,10 +33,9 @@
   z-index: 2;
   font-family: 'Overpass', sans-serif;
   font-size: 3.5rem;
-  animation: fadeIn 2s ease-in-out;
   color: hsl(44, 80%, 57%);
-  font-weight: bold !important;
-  margin-bottom: 1rem; /* Adds space below the heading */
+  font-weight: bold;
+  margin-bottom: 1rem;
 }
 
 .contact-hero h1,
@@ -45,50 +44,18 @@
   z-index: 2;
   font-family: 'Overpass-black', sans-serif;
   font-size: 3.5rem;
-  margin: 0; /* Removes default margin */
+  margin: 0;
 }
 
-/* Status Message */
-.status-message {
-  margin-top: 10px;
-  font-size: 1rem;
-  text-align: center;
-  font-weight: bold;
-}
-
-.status-message.success {
-  color: green; /* Success messages in green */
-}
-
-.status-message.error {
-  color: red; /* Error messages in red */
-}
-
-@media (max-width: 768px) {
-  .contact-hero {
-    height: 30vh;
-    margin-bottom: 40px; /* Adjusted for smaller screens */
-  }
-
-  .contact-hero h1,
-  .contact-hero h2 {
-    font-size: 2rem;
-  }
-
-  .h3 {
-    font-size: 2.5rem;
-  }
-}
-
-/* Contact Form Section */
+/* =======================================
+   CONTACT FORM SECTION
+======================================= */
 .contact-section {
-  margin: 30px auto; /* Balanced top/bottom margin */
-  max-width: 1200px; /* Prevent overly wide content on large screens */
-  padding: 0 20px; /* Horizontal padding for smaller devices */
-  /* Optional: Ensure contact-section is positioned below contact-hero */
+  margin: 30px auto;
+  max-width: 1200px;
+  padding: 0 20px;
 }
 
-/* Container Flex Layout */
 .contact-container {
   display: flex;
   flex-direction: column;
@@ -96,7 +63,6 @@
   justify-content: center;
 }
 
-/* Social Icons Box */
 .social-links-box {
   margin: 1rem 0;
 }
@@ -110,25 +76,20 @@
   transform: scale(1.2);
 }
 
-/* Modern Form Container */
 .modern-form-container {
   margin-top: 40px;
   padding: 2rem;
   border-radius: 12px;
   background-color: #ffffff;
-  position: relative;
-  overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Modern Contact Form */
 .modern-contact-form {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
 
-/* Input Wrapper + Icons */
 .input-wrapper {
   position: relative;
   display: flex;
@@ -145,7 +106,7 @@
 .input-wrapper input,
 .input-wrapper textarea {
   width: 100%;
-  padding: 0.75rem 0.75rem 0.75rem 3.5rem; 
+  padding: 0.75rem 0.75rem 0.75rem 3.5rem;
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -156,19 +117,18 @@
 .input-wrapper input:focus,
 .input-wrapper textarea:focus {
   outline: none;
-  border-color: #d4b051; /* Accent color */
+  border-color: #d4b051;
   box-shadow: 0 0 5px rgba(212, 176, 81, 0.5);
 }
 
-/* Submit Button */
 .submit-button {
   background-color: #d4b051 !important;
   transition: background-color 0.3s ease, transform 0.3s ease !important;
   font-weight: bold !important;
-  padding: 0.5rem 2rem !important;
+  padding: 0.75rem 2rem !important;
   border-radius: 8px !important;
   text-transform: none !important;
-  font-size: 18px !important;
+  font-size: 1.125rem !important;
 }
 
 .submit-button:hover {
@@ -176,39 +136,123 @@
   transform: translateY(-2px) !important;
 }
 
-/* Additional Info / Map Section */
+.status-message {
+  margin-top: 10px;
+  font-size: 1rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.status-message.success {
+  color: green;
+}
+
+.status-message.error {
+  color: red;
+}
+
+/* =======================================
+   ADDITIONAL INFO / MAP SECTION
+======================================= */
 .additional-info-section {
   margin-bottom: 60px;
-  margin-top: 40px; /* Optional top spacing */
+  margin-top: 40px;
 }
 
-.map-container {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  border-radius: 8px;
-}
-
-/* Responsive Adjustments */
+/* =======================================
+   RESPONSIVE DESIGN
+======================================= */
 @media (max-width: 768px) {
-  .contact-section {
-    margin-top: 40px;
+  .contact-hero {
+    height: 30vh;
     margin-bottom: 40px;
-    padding: 0 10px; /* Slightly narrower padding on very small screens */
   }
 
-  .input-wrapper input,
-  .input-wrapper textarea {
-    font-size: 0.9rem;
+  .contact-hero-content h1,
+  .contact-hero-content h2 {
+    font-size: 2rem;
   }
 
   .h3 {
     font-size: 2.5rem;
   }
+
+  .about-text-content h2 {
+    font-size: 1.6rem;
+  }
+
+  .about-text-content p {
+    font-size: 0.95rem;
+  }
+
+  .mission-title {
+    font-size: 1.5rem;
+    margin: 30px 0;
+  }
+
+  .circle-image {
+    width: 200px;
+    height: 200px;
+  }
+
+  .about-text-content h2 {
+    font-size: 1.6rem;
+  }
+
+  .about-text-content p {
+    font-size: 0.95rem;
+  }
+
+  .cta-section {
+    padding: 40px 15px;
+  }
+
+  .cta-section h5 {
+    font-size: 1.5rem;
+  }
+
+  .cta-section p {
+    font-size: 1rem;
+  }
+
+  .cta-section .cta-button .MuiButton-root {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 1rem;
+  }
 }
 
-/* Optional: FadeIn Animation */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+@media (max-width: 576px) {
+  .contact-hero {
+    height: 25vh;
+  }
+
+  .contact-hero-content h1,
+  .contact-hero-content h2 {
+    font-size: 1.8rem;
+  }
+
+  .about-text-content h2 {
+    font-size: 1.4rem;
+  }
+
+  .about-text-content p {
+    font-size: 0.9rem;
+  }
+
+  .circle-image {
+    width: 150px;
+    height: 150px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
+  .contact-form button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
 }

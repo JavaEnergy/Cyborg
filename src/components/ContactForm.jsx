@@ -8,6 +8,7 @@ const ContactForm = () => {
   const { t } = useTranslation();
   const formRef = useRef();
   const [status, setStatus] = useState('');
+  const [statusType, setStatusType] = useState(''); // 'success' or 'error'
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = (e) => {
@@ -25,12 +26,14 @@ const ContactForm = () => {
         (result) => {
           console.log('Email successfully sent!', result.text);
           setStatus(t('contact.success_message'));
+          setStatusType('success');
           formRef.current.reset();
           setLoading(false);
         },
         (error) => {
           console.log('Email sending failed:', error.text);
           setStatus(t('contact.error_message'));
+          setStatusType('error');
           setLoading(false);
         }
       );
@@ -59,7 +62,11 @@ const ContactForm = () => {
         <button type="submit" disabled={loading}>
           {loading ? t('contact.sending') : t('contact.send_button')}
         </button>
-        {status && <p className="status-message">{status}</p>}
+        {status && (
+          <p className={`status-message ${statusType}`}>
+            {status}
+          </p>
+        )}
       </form>
     </div>
   );

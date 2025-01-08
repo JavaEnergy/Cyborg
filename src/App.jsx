@@ -1,5 +1,4 @@
 // src/App.jsx
-
 import React, { useEffect } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Header from './components/Header/Header';
@@ -9,29 +8,46 @@ import ITConsulting from './pages/ITConsulting';
 import WebDevelopment from './pages/WebDevelopment';
 import ZohoConsulting from './pages/ZohoConsulting';
 import ContactUs from './pages/ContactUs';
-import Legal from './pages/Legal'; // Ensure correct capitalization
+import Legal from './pages/Legal';
 import Footer from './components/Footer/Footer';
-import './i18n'; // Import i18n setup
+import './i18n';
 import './App.css';
+
 import { useTranslation } from 'react-i18next';
 import ScrollToTop from './components/ScrollToTop';
-import CookieConsent from 'react-cookie-consent'; // Import CookieConsent
-// import LanguageSwitcher from './components/LanguageSwitcher'; // Import LanguageSwitcher
-import { analytics } from './firebase'; // Import analytics instance
+import CookieConsent from 'react-cookie-consent';
+
+// Firebase Analytics
+import { analytics } from './firebase';
+import { logEvent } from 'firebase/analytics';
 
 const App = () => {
   const { pathname } = useLocation();
-  const { t, i18n } = useTranslation(); // Destructure t and i18n
+  const { t, i18n } = useTranslation();
 
+  // Update language from path
   useEffect(() => {
-    // Determine the language from the path
     const languageFromPath = pathname.startsWith('/en') ? 'en' : 'de';
     if (i18n.language !== languageFromPath) {
       i18n.changeLanguage(languageFromPath);
     }
   }, [pathname, i18n]);
 
-  // Redirect root to default language (e.g., German)
+  // Log page view event
+  useEffect(() => {
+    logEvent(analytics, 'page_view', {
+      page_path: pathname,
+      page_title: document.title || 'No Title',
+      language: i18n.language,
+    });
+  }, [pathname, i18n.language]);
+
+  // Dynamically set the lang attribute
+  useEffect(() => {
+    document.documentElement.lang = i18n.language;
+  }, [i18n.language]);
+
+  // Redirect root ("/") to default language route (German: "/de")
   if (pathname === '/') {
     return <Navigate to="/de" replace />;
   }
@@ -39,8 +55,8 @@ const App = () => {
   return (
     <>
       <Header />
-      <ScrollToTop /> {/* Ensures scrolling to top on route change */}
-      {/* <LanguageSwitcher />  */}
+      <ScrollToTop />
+
       <div>
         <Routes>
           <Route path="/:lang" element={<Home />} />
@@ -49,30 +65,30 @@ const App = () => {
           <Route path="/:lang/web-development" element={<WebDevelopment />} />
           <Route path="/:lang/zoho-consulting" element={<ZohoConsulting />} />
           <Route path="/:lang/contact-us" element={<ContactUs />} />
-          <Route path="/:lang/legal" element={<Legal />} /> {/* Added Legal route */}
+          <Route path="/:lang/legal" element={<Legal />} />
           {/* Fallback route */}
           <Route path="*" element={<Navigate to="/de" replace />} />
         </Routes>
       </div>
+
       <Footer />
-      {/* Optional: Remove CookieConsent if no longer needed */}
-      
+
+      {/* Cookie Consent Banner */}
       <CookieConsent
-  location="bottom"
-  buttonText={t('cookieConsent.button')}
-  cookieName="cyborgCookieConsent"
-  className="cookie-consent"
-  buttonClasses="cookie-consent-button"
-  expires={150}
-  onAccept={() => {}}
->
-  <span className="cookie-message">
-    {t('cookieConsent.message')}
-    <a href={`/${i18n.language}/legal`} className="cookie-learn-more">
-      {t('cookieConsent.learnMore')}
-    </a>
-  </span>
-</CookieConsent>
+        location="bottom"
+        buttonText={t('cookieConsent.button')}
+        cookieName="cyborgCookieConsent"
+        className="cookie-consent"
+        buttonClasses="cookie-consent-button"
+        expires={150}
+      >
+        <span className="cookie-message">
+          {t('cookieConsent.message')}{' '}
+          <a href={`/${i18n.language}/legal`} className="cookie-learn-more">
+            {t('cookieConsent.learnMore')}
+          </a>
+        </span>
+      </CookieConsent>
     </>
   );
 };

@@ -5,7 +5,7 @@
     "web_development": "Web Development",
     "it_services": "IT Services",
     "contact_us": "Contact",
-    "zoho_consulting": "Zoho Software"
+    "zoho_consulting": "ZOHO Software"
 
 
   },
@@ -63,9 +63,14 @@
     "faq_question_2": "How can I contact you?",
     "faq_answer_2": "You can use the contact form on this page or email us directly.",
     "faq_question_3": "Do you offer custom solutions?",
-    "faq_answer_3": "Yes, we tailor our services to your specific needs."
+    "faq_answer_3": "Yes, we tailor our services to your specific needs.",
+    "page_title": "Home - Cyborg IT Technology",
+    "page_description": "Welcome to Cyborg IT Technology. We provide top-notch IT consulting and development services."
+ 
   },
   "it_consulting": {
+    "page_title": "IT Consulting - Cyborg IT Technology",
+    "page_description": "Professional IT consulting services to help your business thrive in the digital age.",
     "it_consulting": "IT Consulting",
     "from_idea_to_implementation": "From Idea to Reality",
 "content_for_from_idea_to_implementation": "Got an idea? We'll bring it to life. \n\n From websites to mobile apps, we've got you covered.",
@@ -100,6 +105,8 @@
   
   },
  "web_development": {
+  "page_title": "Web Development - Cyborg IT Technology",
+    "page_description": "Expert web development services tailored to your business needs.",
     "web_development": "Web Development",
     "our_services": "Our Services",
     "services_intro": "We offer a wide range of web development services:",
@@ -208,9 +215,14 @@
     "faq_question_7": "How can I reach you?",
     "faq_answer_7": "You can reach us by email at info@cyborg.com, via WhatsApp at +995 598 70 79 73, or using the contact form on our website."
 ,"faq_contact_btn": "Contact Us",
-    "faq_offer_btn": "Request a Quote"
+    "faq_offer_btn": "Request a Quote",
+    "page_title": "About Us - Cyborg IT Technology",
+    "page_description": "Learn more about Cyborg IT Technology, our mission, vision, and the team behind our success."
+ 
     },
   "zoho_consulting": {
+    "page_title": "Zoho Consulting - Cyborg IT Technology",
+    "page_description": "Comprehensive Zoho consulting services to optimize your business processes.",
     "title": "Zoho Consulting",
     "intro_title": "What is Zoho?",
     "intro_description": "Zoho is a comprehensive suite of cloud-based applications designed to enhance your business operations. With over 40 integrated apps, Zoho provides solutions for CRM, finance, project management, collaboration, and much more.",
@@ -240,6 +252,8 @@
     "close": "Close"
   },
   "contact_us": {
+    "page_title": "Contact Us - Cyborg IT Technology",
+    "page_description": "Get in touch with Cyborg IT Technology for any inquiries, support, or business opportunities.",
     "title": "Get in Touch",
     "subtitle": "We'd love to hear from you 24/7. Please fill out the form below.",
     "name": "Name",
@@ -257,6 +271,8 @@
     "whatsapp_24_7": "Available 24/7 on WhatsApp"
   },
   "legal": {
+    "page_title": "Legal - Cyborg IT Technology",
+    "page_description": "Legal information and policies related to Cyborg IT Technology.",
     "title": "Privacy Policy and Terms of Use",
     
     "privacy_policy_title": "Privacy Policy",

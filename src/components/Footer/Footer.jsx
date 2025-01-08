@@ -1,16 +1,15 @@
 // src/components/Footer.jsx
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import './Footer.css'; // Ensure you have this CSS file
+import './Footer.css';
 import { NavLink } from 'react-router-dom';
-import { HashLink } from 'react-router-hash-link'; // Import HashLink for anchor links
+import { HashLink } from 'react-router-hash-link';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import EmailIcon from '@mui/icons-material/Email';
 
 const Footer = () => {
   const { t, i18n } = useTranslation();
-
   const currentLang = i18n.language;
 
   return (
@@ -19,14 +18,12 @@ const Footer = () => {
         {/* Contact Information */}
         <div className="footer-section contact-info">
           <h3>{t('footer.contact_info')}</h3>
-          {/* <p>Jordan – Amman</p>
-          <p>Q.Mesbah St. Building 14</p> */}
-          <p>+995 598 70 79 73</p> <p>(WhatsApp)</p>
+          <p>+995 598 70 79 73</p>
+          <p>(WhatsApp)</p>
           <p>
             Email:{' '}
             <a href="mailto:info@cyborg-it.de">info@cyborg-it.de</a>
           </p>
-          {/* 24/7 Contactable Notice */}
           <p className="contactable-notice">
             {t('footer.contactable_24_7')}
           </p>
@@ -45,7 +42,7 @@ const Footer = () => {
               <LinkedInIcon fontSize="large" />
             </a>
             <a
-              href="https://wa.me/995598707973" // Replace with your WhatsApp number
+              href="https://wa.me/995598707973"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="WhatsApp"

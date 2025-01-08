@@ -3,9 +3,12 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import './legal.css'; 
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet';
+import { useLocation } from 'react-router-dom'; // Import useLocation
 
 const Legal = () => {
   const { t } = useTranslation();
+  const location = useLocation(); // Initialize useLocation
 
   // Animation variants
   const containerVariants = {
@@ -27,6 +30,19 @@ const Legal = () => {
       animate="visible"
       variants={containerVariants}
     >
+      {/* React Helmet for SEO */}
+      <Helmet>
+        <title>{t('legal.page_title')}</title>
+        <meta name="description" content={t('legal.page_description')} />
+        
+        {/* Open Graph Tags */}
+        <meta property="og:title" content={t('legal.page_title')} />
+        <meta property="og:description" content={t('legal.page_description')} />
+        <meta property="og:image" content="https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png" />
+        <meta property="og:url" content={`https://cyborg-it.de${location.pathname}`} />
+        <meta property="og:type" content="website" />
+      </Helmet>
+
       <h1>{t('legal.title')}</h1>
       
       {/* Privacy Policy Section */}

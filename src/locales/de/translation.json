@@ -5,7 +5,7 @@
     "web_development": "Webentwicklung",
     "it_services": "IT-Services",
     "contact_us": "Kontakt",
-    "zoho_consulting": "Zoho Software"
+    "zoho_consulting": "ZOHO Software"
     
 
   },
@@ -17,6 +17,8 @@
     "contact_us": "Kontaktieren Sie Uns"
   },
   "home": {
+    "page_title": "Startseite - Cyborg IT Technology",
+    "page_description": "Willkommen bei Cyborg IT Technology. Wir bieten erstklassige IT-Beratung und Entwicklungsdienstleistungen.",
     "title":  "CYBORG\nHochwertige, kostengünstige IT-Lösungen, rund um die Uhr",
     "subtitle": "Ihre Vision, unsere Expertise",
     "vision_content": "Wir sind Cyborg, eine Fusion aus menschlicher Kreativität und maschineller Präzision.",
@@ -65,6 +67,8 @@
     "contactable_24_7": "Wir sind 24/7 für Sie da!"
   },
   "it_consulting": {
+    "page_title": "IT-Beratung - Cyborg IT Technology",
+    "page_description": "Professionelle IT-Beratung, um Ihr Unternehmen im digitalen Zeitalter zum Erfolg zu führen.",
     "it_consulting": "IT-Beratung",
     "from_idea_to_implementation": "Von der Idee zur Realität",
     "content_for_from_idea_to_implementation": "Haben Sie eine Idee?\n\n Wir verwirklichen sie. Von Websites bis hin zu mobilen Apps - wir haben alles im Griff.",
@@ -99,6 +103,8 @@
   
   },
   "web_development": {
+    "page_title": "Webentwicklung - Cyborg IT Technology",
+    "page_description": "Experten für Webentwicklungsdienstleistungen, zugeschnitten auf Ihre Geschäftsbedürfnisse.",
     "web_development": "Webentwicklung",
     "our_services": "Unsere Dienstleistungen",
     "services_intro": "Wir bieten eine breite Palette an Webentwicklungsdiensten an:",
@@ -145,6 +151,8 @@
     "content_for_user_support": "Wir unterstützen Ihre Benutzer."
   },
   "about_us": {
+    "page_title": "Über Uns - Cyborg IT Technology",
+    "page_description": "Erfahren Sie mehr über Cyborg IT Technology, unsere Mission, Vision und das Team hinter unserem Erfolg.",
     "hero_title": "Willkommen bei Cyborg",
     "hero_subtitle": "Innovative IT-Lösungen für Sie maßgeschneidert",
     "who_we_are_title": "Wer wir sind",
@@ -209,6 +217,8 @@
     "faq_offer_btn": "Angebot anfragen"
     },
   "zoho_consulting": {
+    "page_title": "Zoho-Beratung - Cyborg IT Technology",
+    "page_description": "Umfassende Zoho-Beratungsdienstleistungen zur Optimierung Ihrer Geschäftsprozesse.",
     "title": "Zoho-Beratung",
     "intro_title": "Was ist Zoho?",
     "intro_description": "Zoho ist eine umfassende Suite von cloudbasierten Anwendungen, die darauf abzielen, Ihre Geschäftsprozesse zu optimieren. Mit über 40 integrierten Apps bietet Zoho Lösungen für CRM, Finanzen, Projektmanagement, Zusammenarbeit und vieles mehr.",
@@ -241,6 +251,8 @@
 
     
   "contact_us": {
+    "page_title": "Kontaktieren Sie Uns - Cyborg IT Technology",
+    "page_description": "Nehmen Sie Kontakt mit Cyborg IT Technology für Anfragen, Support oder Geschäftsmöglichkeiten auf.",
     "title": "Kontaktieren Sie uns",
     "subtitle": "Wir würden uns freuen, von Ihnen 24/7 zu hören. Bitte füllen Sie das untenstehende Formular aus.",
     "name": "Name",
@@ -256,14 +268,13 @@
        "follow_us": "Folgen Sie uns"
   },
   "legal": {
+    "page_title": "Rechtliches - Cyborg IT Technology",
+    "page_description": "Rechtliche Informationen und Richtlinien von Cyborg IT Technology.",
     "title": "Datenschutzerklärung und Nutzungsbedingungen",
-    
-    "privacy_policy_title": "Datenschutzerklärung",
+        "privacy_policy_title": "Datenschutzerklärung",
     "privacy_policy_aim": "DATENSCHUTZRICHTLINIE\n\nZWECK DER DATENSCHUTZRICHTLINIE\nCyborg verpflichtet sich voll und ganz zur Einhaltung der geltenden Datenschutzgesetze, da wir glauben, dass die Gewährleistung des Datenschutzes die Grundlage für vertrauenswürdige Geschäftsbeziehungen ist.\n\nWir arbeiten ständig daran, konform zu bleiben - fördern Audits, Zertifizierungen und bieten branchenübliche vertragliche Schutzmaßnahmen an.\n\nDiese Datenschutzerklärung stellt sicher, dass das vom Europäischen Parlament und dem Rat der Europäischen Union im Rahmen der Datenschutz-Grundverordnung festgelegte Datenschutzniveau eingehalten wird und bildet eine der notwendigen Rahmenbedingungen für grenzüberschreitende Datenübermittlungen.\n\nDiese Datenschutzerklärung gilt für alle Unternehmen der Cyborg-Gruppe, angeschlossene Unternehmen und deren Mitarbeiter und basiert auf weltweit anerkannten Grundsätzen des Datenschutzes.",
-    
-    "privacy_policy_commitment": "PRINZIPIEN DER VERARBEITUNG VON PERSONENBEZOGENEN DATEN\n\nWir sammeln und verwenden (verarbeiten) bestimmte Arten von Informationen (personenbezogene Daten), die sich auf die Personen (Betroffene) beziehen, mit denen wir in Kontakt treten, um unser Geschäft durchzuführen.\n\nWir sind zuversichtlich, dass bei der Verarbeitung personenbezogener Daten die individuellen Rechte geschützt werden müssen, was bedeutet, dass alle personenbezogenen Daten auf rechtmäßige und faire Weise gesammelt und verarbeitet werden müssen.\n\nDaher nehmen wir an und stimmen zu, dass personenbezogene Daten:",
-    
-    "privacy_policy_principles_title": "Prinzipien der Verarbeitung personenbezogener Daten",
+        "privacy_policy_commitment": "PRINZIPIEN DER VERARBEITUNG VON PERSONENBEZOGENEN DATEN\n\nWir sammeln und verwenden (verarbeiten) bestimmte Arten von Informationen (personenbezogene Daten), die sich auf die Personen (Betroffene) beziehen, mit denen wir in Kontakt treten, um unser Geschäft durchzuführen.\n\nWir sind zuversichtlich, dass bei der Verarbeitung personenbezogener Daten die individuellen Rechte geschützt werden müssen, was bedeutet, dass alle personenbezogenen Daten auf rechtmäßige und faire Weise gesammelt und verarbeitet werden müssen.\n\nDaher nehmen wir an und stimmen zu, dass personenbezogene Daten:",
+        "privacy_policy_principles_title": "Prinzipien der Verarbeitung personenbezogener Daten",
     "privacy_policy_principles_intro": "Personenbezogene Daten sollen:",
     "privacy_policy_principles.a": "Rechtmäßig, fair und in transparenter Weise im Verhältnis zur betroffenen Person ('Rechtmäßigkeit, Fairness und Transparenz') verarbeitet werden;",
     "privacy_policy_principles.b": "Für festgelegte, eindeutige und legitime Zwecke erhoben und nicht in einer Weise weiterverarbeitet werden, die mit diesen Zwecken unvereinbar ist ('Zweckbindung');",

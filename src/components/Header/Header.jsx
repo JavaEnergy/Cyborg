@@ -22,10 +22,7 @@ const Header = forwardRef((props, ref) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-  
-  // **ADDED**: New state variable for small screen detection (<= 388px)
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 400);
-  
   const [openDropdown, setOpenDropdown] = useState(null);
 
   const currentLang = i18n.language;
@@ -36,10 +33,9 @@ const Header = forwardRef((props, ref) => {
       setIsScrolled(window.scrollY > 50);
     };
 
-    // **MODIFIED**: Updated handleResize to include isSmallScreen
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
-      setIsSmallScreen(window.innerWidth <= 400); // **ADDED**
+      setIsSmallScreen(window.innerWidth <= 400);
       if (window.innerWidth > 768) {
         setIsMobileMenuOpen(false);
       }
@@ -62,24 +58,18 @@ const Header = forwardRef((props, ref) => {
   const goToHome = () => {
     navigate(`/${currentLang}`, { replace: true });
   };
-  
+
   const isActiveLink = (link) => {
-    // Remove any trailing slash on both sides
     const linkPathname = link.split('#')[0].replace(/\/$/, '');
     const currentPathnameCleaned = pathname.replace(/\/$/, '');
-  
-    // If the base path is the same (ignoring any #hash), mark it active
     return currentPathnameCleaned === linkPathname;
   };
-  
+
   const isActiveSubmenuLink = (link) => {
-    // Extract the hash from the "to" prop
     const linkHash = link.split('#')[1] ? `#${link.split('#')[1]}` : '';
-    // Submenu is active if both the path and the hash match
     return hash === linkHash && isActiveLink(link);
   };
 
-  // Close mobile menu when clicking outside the header
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
@@ -98,7 +88,7 @@ const Header = forwardRef((props, ref) => {
     };
   }, [isMobileMenuOpen, ref]);
 
-  // **MODIFIED**: Use useMemo to optimize topBarMessage calculation
+  // Short heading for small screens vs. normal heading
   const topBarMessage = useMemo(() => {
     if (isGerman) {
       return isSmallScreen ? "24/7 für Sie da!" : "Wir sind 24/7 für Sie da!";
@@ -115,12 +105,24 @@ const Header = forwardRef((props, ref) => {
           <span className="top-bar-message">{topBarMessage}</span>
           <div className="top-bar-contact-group">
             <span className="top-bar-contact">
-              <EmailIcon fontSize="small" className="top-bar-icon email-icon" />
+              <EmailIcon
+                fontSize="small"
+                className="top-bar-icon email-icon"
+                aria-hidden="true"
+              />
               <a href="mailto:info@cyborg-it.de">info@cyborg-it.de</a>
             </span>
             <span className="top-bar-contact">
-              <a href="https://wa.me/995598707973" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-                <WhatsAppIcon fontSize="small" className="top-bar-icon whatsapp-icon" />
+              <a
+                href="https://wa.me/995598707973"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp"
+              >
+                <WhatsAppIcon
+                  fontSize="small"
+                  className="top-bar-icon whatsapp-icon"
+                />
               </a>
             </span>
           </div>
@@ -141,14 +143,20 @@ const Header = forwardRef((props, ref) => {
                 onClick={() => changeLanguage('de')}
                 aria-label="German Language"
               >
-                <img src={logode} alt="German Flag" />
+                <img
+                  src={logode}
+                  alt="German flag for language selection"
+                />
               </button>
               <button
                 className={currentLang === 'en' ? 'active' : ''}
                 onClick={() => changeLanguage('en')}
                 aria-label="English Language"
               >
-                <img src={logouk} alt="UK Flag" />
+                <img
+                  src={logouk}
+                  alt="English flag for language selection"
+                />
               </button>
             </div>
           )}
@@ -167,17 +175,15 @@ const Header = forwardRef((props, ref) => {
           )}
 
           {/* Logo */}
-          <div className="logo-container" onClick={goToHome} style={{ cursor: 'pointer' }}>
-            <img src={isScrolled ? logoDark : logo} alt="Logo" />
-            <h1 className="it-title">
-              IT Solutions
-              <div className="it-aurora">
-                <div className="it-aurora__item"></div>
-                <div className="it-aurora__item"></div>
-                <div className="it-aurora__item"></div>
-                <div className="it-aurora__item"></div>
-              </div>
-            </h1>
+          <div
+            className="logo-container"
+            onClick={goToHome}
+            style={{ cursor: 'pointer' }}
+          >
+            <img
+              src={isScrolled ? logoDark : logo}
+              alt="Cyborg Automation logo"
+            />
           </div>
 
           {/* Desktop Navigation and Language Switcher */}
@@ -196,13 +202,19 @@ const Header = forwardRef((props, ref) => {
 
                   {/* IT Consulting Dropdown */}
                   <li
-                    className={`dropdown ${openDropdown === 'it-consulting' ? 'open' : ''}`}
+                    className={`dropdown ${
+                      openDropdown === 'it-consulting' ? 'open' : ''
+                    }`}
                     onMouseEnter={() => setOpenDropdown('it-consulting')}
                     onMouseLeave={() => setOpenDropdown(null)}
                   >
                     <NavLink
                       to={`/${currentLang}/it-consulting`}
-                      className={isActiveLink(`/${currentLang}/it-consulting`) ? 'active' : ''}
+                      className={
+                        isActiveLink(`/${currentLang}/it-consulting`)
+                          ? 'active'
+                          : ''
+                      }
                       aria-haspopup="true"
                       aria-expanded={openDropdown === 'it-consulting'}
                     >
@@ -214,7 +226,9 @@ const Header = forwardRef((props, ref) => {
                           smooth
                           to={`/${currentLang}/it-consulting#from-idea-to-implementation`}
                           className={
-                            isActiveSubmenuLink(`/${currentLang}/it-consulting#from-idea-to-implementation`)
+                            isActiveSubmenuLink(
+                              `/${currentLang}/it-consulting#from-idea-to-implementation`
+                            )
                               ? 'active'
                               : ''
                           }
@@ -227,7 +241,9 @@ const Header = forwardRef((props, ref) => {
                           smooth
                           to={`/${currentLang}/it-consulting#it-strategy`}
                           className={
-                            isActiveSubmenuLink(`/${currentLang}/it-consulting#it-strategy`)
+                            isActiveSubmenuLink(
+                              `/${currentLang}/it-consulting#it-strategy`
+                            )
                               ? 'active'
                               : ''
                           }
@@ -240,7 +256,9 @@ const Header = forwardRef((props, ref) => {
                           smooth
                           to={`/${currentLang}/it-consulting#software-consulting`}
                           className={
-                            isActiveSubmenuLink(`/${currentLang}/it-consulting#software-consulting`)
+                            isActiveSubmenuLink(
+                              `/${currentLang}/it-consulting#software-consulting`
+                            )
                               ? 'active'
                               : ''
                           }
@@ -253,7 +271,9 @@ const Header = forwardRef((props, ref) => {
                           smooth
                           to={`/${currentLang}/it-consulting#it-security`}
                           className={
-                            isActiveSubmenuLink(`/${currentLang}/it-consulting#it-security`)
+                            isActiveSubmenuLink(
+                              `/${currentLang}/it-consulting#it-security`
+                            )
                               ? 'active'
                               : ''
                           }
@@ -266,13 +286,19 @@ const Header = forwardRef((props, ref) => {
 
                   {/* Web Development Dropdown */}
                   <li
-                    className={`dropdown ${openDropdown === 'web-development' ? 'open' : ''}`}
+                    className={`dropdown ${
+                      openDropdown === 'web-development' ? 'open' : ''
+                    }`}
                     onMouseEnter={() => setOpenDropdown('web-development')}
                     onMouseLeave={() => setOpenDropdown(null)}
                   >
                     <NavLink
                       to={`/${currentLang}/web-development`}
-                      className={isActiveLink(`/${currentLang}/web-development`) ? 'active' : ''}
+                      className={
+                        isActiveLink(`/${currentLang}/web-development`)
+                          ? 'active'
+                          : ''
+                      }
                       aria-haspopup="true"
                       aria-expanded={openDropdown === 'web-development'}
                     >
@@ -284,7 +310,11 @@ const Header = forwardRef((props, ref) => {
                           smooth
                           to={`/${currentLang}/web-development#wordpress`}
                           className={
-                            isActiveSubmenuLink(`/${currentLang}/web-development#wordpress`) ? 'active' : ''
+                            isActiveSubmenuLink(
+                              `/${currentLang}/web-development#wordpress`
+                            )
+                              ? 'active'
+                              : ''
                           }
                         >
                           {t('web_development.wordpress')}
@@ -295,7 +325,9 @@ const Header = forwardRef((props, ref) => {
                           smooth
                           to={`/${currentLang}/web-development#react-applications`}
                           className={
-                            isActiveSubmenuLink(`/${currentLang}/web-development#react-applications`)
+                            isActiveSubmenuLink(
+                              `/${currentLang}/web-development#react-applications`
+                            )
                               ? 'active'
                               : ''
                           }
@@ -308,7 +340,9 @@ const Header = forwardRef((props, ref) => {
                           smooth
                           to={`/${currentLang}/web-development#angular-development`}
                           className={
-                            isActiveSubmenuLink(`/${currentLang}/web-development#angular-development`)
+                            isActiveSubmenuLink(
+                              `/${currentLang}/web-development#angular-development`
+                            )
                               ? 'active'
                               : ''
                           }
@@ -321,7 +355,11 @@ const Header = forwardRef((props, ref) => {
                           smooth
                           to={`/${currentLang}/web-development#e-commerce`}
                           className={
-                            isActiveSubmenuLink(`/${currentLang}/web-development#e-commerce`) ? 'active' : ''
+                            isActiveSubmenuLink(
+                              `/${currentLang}/web-development#e-commerce`
+                            )
+                              ? 'active'
+                              : ''
                           }
                         >
                           {t('web_development.e_commerce')}
@@ -332,7 +370,9 @@ const Header = forwardRef((props, ref) => {
                           smooth
                           to={`/${currentLang}/web-development#custom-software`}
                           className={
-                            isActiveSubmenuLink(`/${currentLang}/web-development#custom-software`)
+                            isActiveSubmenuLink(
+                              `/${currentLang}/web-development#custom-software`
+                            )
                               ? 'active'
                               : ''
                           }
@@ -340,19 +380,24 @@ const Header = forwardRef((props, ref) => {
                           {t('web_development.custom_software')}
                         </HashLink>
                       </li>
-                      
                     </ul>
                   </li>
 
                   {/* Zoho Consulting Dropdown */}
                   <li
-                    className={`dropdown ${openDropdown === 'zoho-consulting' ? 'open' : ''}`}
+                    className={`dropdown ${
+                      openDropdown === 'zoho-consulting' ? 'open' : ''
+                    }`}
                     onMouseEnter={() => setOpenDropdown('zoho-consulting')}
                     onMouseLeave={() => setOpenDropdown(null)}
                   >
                     <NavLink
                       to={`/${currentLang}/zoho-consulting`}
-                      className={isActiveLink(`/${currentLang}/zoho-consulting`) ? 'active' : ''}
+                      className={
+                        isActiveLink(`/${currentLang}/zoho-consulting`)
+                          ? 'active'
+                          : ''
+                      }
                       aria-haspopup="true"
                       aria-expanded={openDropdown === 'zoho-consulting'}
                     >
@@ -364,7 +409,11 @@ const Header = forwardRef((props, ref) => {
                           smooth
                           to={`/${currentLang}/zoho-consulting#zoho-crm`}
                           className={
-                            isActiveSubmenuLink(`/${currentLang}/zoho-consulting#zoho-crm`) ? 'active' : ''
+                            isActiveSubmenuLink(
+                              `/${currentLang}/zoho-consulting#zoho-crm`
+                            )
+                              ? 'active'
+                              : ''
                           }
                         >
                           {t('zoho_consulting.zoho_crm')}
@@ -375,7 +424,11 @@ const Header = forwardRef((props, ref) => {
                           smooth
                           to={`/${currentLang}/zoho-consulting#zoho-marketing`}
                           className={
-                            isActiveSubmenuLink(`/${currentLang}/zoho-consulting#zoho-marketing`) ? 'active' : ''
+                            isActiveSubmenuLink(
+                              `/${currentLang}/zoho-consulting#zoho-marketing`
+                            )
+                              ? 'active'
+                              : ''
                           }
                         >
                           {t('zoho_consulting.zoho_marketing')}
@@ -386,7 +439,11 @@ const Header = forwardRef((props, ref) => {
                           smooth
                           to={`/${currentLang}/zoho-consulting#zoho-finance`}
                           className={
-                            isActiveSubmenuLink(`/${currentLang}/zoho-consulting#zoho-finance`) ? 'active' : ''
+                            isActiveSubmenuLink(
+                              `/${currentLang}/zoho-consulting#zoho-finance`
+                            )
+                              ? 'active'
+                              : ''
                           }
                         >
                           {t('zoho_consulting.zoho_finance')}
@@ -397,7 +454,11 @@ const Header = forwardRef((props, ref) => {
                           smooth
                           to={`/${currentLang}/zoho-consulting#zoho-human-resources`}
                           className={
-                            isActiveSubmenuLink(`/${currentLang}/zoho-consulting#zoho-human-resources`) ? 'active' : ''
+                            isActiveSubmenuLink(
+                              `/${currentLang}/zoho-consulting#zoho-human-resources`
+                            )
+                              ? 'active'
+                              : ''
                           }
                         >
                           {t('zoho_consulting.zoho_human_resources')}
@@ -408,7 +469,11 @@ const Header = forwardRef((props, ref) => {
                           smooth
                           to={`/${currentLang}/zoho-consulting#custom-development`}
                           className={
-                            isActiveSubmenuLink(`/${currentLang}/zoho-consulting#custom-development`) ? 'active' : ''
+                            isActiveSubmenuLink(
+                              `/${currentLang}/zoho-consulting#custom-development`
+                            )
+                              ? 'active'
+                              : ''
                           }
                         >
                           {t('zoho_consulting.custom_development')}
@@ -427,6 +492,7 @@ const Header = forwardRef((props, ref) => {
                   </li>
                 </ul>
               </nav>
+
               {/* Language Switcher for Desktop */}
               <div className="language-switch desktop-language-switch">
                 <button
@@ -434,14 +500,20 @@ const Header = forwardRef((props, ref) => {
                   onClick={() => changeLanguage('de')}
                   aria-label="German Language"
                 >
-                  <img src={logode} alt="German Flag" />
+                  <img
+                    src={logode}
+                    alt="German flag for language selection"
+                  />
                 </button>
                 <button
                   className={currentLang === 'en' ? 'active' : ''}
                   onClick={() => changeLanguage('en')}
                   aria-label="English Language"
                 >
-                  <img src={logouk} alt="UK Flag" />
+                  <img
+                    src={logouk}
+                    alt="English flag for language selection"
+                  />
                 </button>
               </div>
             </>

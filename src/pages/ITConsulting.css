@@ -212,3 +212,21 @@
     font-size: 1rem;
   }
 }
+
+@media (max-width: 576px) {
+  .it-consulting-hero {
+    height: 40vh;
+  }
+
+  .it-consulting-hero h1 {
+    font-size: 2rem;
+  }
+
+  .section-image {
+    width: 100%;
+  }
+}
+
+@media (max-width: 450px) {
+  /* Additional small screen adjustments if needed */
+}
