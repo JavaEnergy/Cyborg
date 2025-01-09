@@ -88,35 +88,38 @@
     opacity: 1;
   }
   
-  /* Modal Styles */
-  .accordion-modal-box {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #fff;
-    padding: 24px;
-    border-radius: 8px;
-    outline: none;
-    width: 50vw;
-    max-width: 600px;
-    max-height: 80vh;
-    overflow-y: auto;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    text-align: center;
-  }
-  
-  .accordion-full-image {
-    width: 100%;
-    height: auto;
-    margin-top: 16px;
-    border-radius: 4px;
-  }
+ /* Modal Styles */
+.accordion-modal-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 0 24px 10px;
+  border-radius: 8px;
+  outline: none;
+  max-width: 800px; /* Increased max-width for larger images */
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.accordion-full-image {
+  width: auto; /* Remove width: 100% to maintain natural size */
+  max-width: 100%; /* Ensure image doesn't exceed container's width */
+  height: auto; /* Maintain aspect ratio */
+  margin-top: 16px;
+  border-radius: 4px;
+  object-fit: contain; /* Prevent image distortion */
+}
   
   /* Responsive adjustments */
   @media (max-width: 768px) {
     .accordion-modal-box {
-      width: 90vw;
+      width: 80%;
       padding: 16px;
     }
   }

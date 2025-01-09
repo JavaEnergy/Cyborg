@@ -42,10 +42,12 @@ const AccordionComponent = ({ items }) => {
         <Box className="accordion-modal-box">
           {selectedItem && (
             <>
-              <Typography id="accordion-item-modal-title" variant="h5" gutterBottom>
-                {selectedItem.name} - {selectedItem.role}
-              </Typography>
-              <img src={selectedItem.img} alt={selectedItem.name} className="accordion-full-image" />
+              <img
+                src={selectedItem.img}
+                alt={selectedItem.name}
+                className="accordion-full-image"
+              />
+              {/* Optional: Add additional details or descriptions here if needed */}
               <Button
                 variant="contained"
                 color="secondary"

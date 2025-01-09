@@ -213,8 +213,8 @@ const ContactUs = () => {
                 className="social-icon"
                 aria-label="LinkedIn"
               >
-                <LinkedInIcon fontSize="large" />
-              </IconButton>
+    <LinkedInIcon fontSize="large" style={{ color: '#0A66C2' }} /> {/* Added inline style */}
+    </IconButton>
               <IconButton
                 component="a"
                 href="https://wa.me/995598707973"
