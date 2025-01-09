@@ -1,5 +1,5 @@
 // src/pages/Home.jsx
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink, useLocation } from 'react-router-dom';
 import './Home.css';
@@ -10,6 +10,8 @@ import AccordionComponent from '../components/AccordionComponent'; // Import the
 // Components
 import Header from '../components/Header/Header';
 import ContactForm from '../components/ContactForm';
+// Remove Footer import since it's rendered globally in App.jsx
+
 import { Helmet } from 'react-helmet';
 
 // MUI Components
@@ -35,36 +37,42 @@ import project2Img4 from '../assets/images/project/4.png';
 import project2Img5 from '../assets/images/project/5.png';
 import project2Img6 from '../assets/images/project/6.png';
 
-
-
 const Home = () => {
   const { t, i18n } = useTranslation();
   const [hovered, setHovered] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
   const location = useLocation(); // Initialize useLocation
 
-  const headerRef = useRef(null);
-  const contactRef = useRef(null);
-  const faqRef = useRef(null);
+  // State to track if the device is mobile
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  // Update isMobile state on window resize
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     const handleMouseMove = (event) => {
-      if (
-        headerRef.current?.contains(event.target) ||
-        contactRef.current?.contains(event.target) ||
-        faqRef.current?.contains(event.target)
-      ) {
+      if (isMobile) {
+        // Do not activate spider effect on mobile
         setHovered(false);
-      } else {
-        setHovered(true);
+        return;
       }
+
+      const isOverExcluded = event.target.closest('.exclude-spider');
+      setHovered(!isOverExcluded);
     };
 
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
+  }, [isMobile]);
 
-  // Initialize/cleanup spider effect
+  // Initialize/cleanup spider effect based on hovered state
   useEffect(() => {
     let cleanup;
     if (hovered) {
@@ -121,10 +129,10 @@ const Home = () => {
 
   // Data for AccordionComponent
   const accordionItems = [
-    { id: 1,  img: accImage1 },
-    { id: 2,  img: accImage2 },
+    { id: 1, img: accImage1 },
+    { id: 2, img: accImage2 },
     { id: 3, img: accImage3 },
-    { id: 4,  img: accImage4 },
+    { id: 4, img: accImage4 },
   ];
 
   // Modal state for Project 2
@@ -149,7 +157,6 @@ const Home = () => {
       project2Img5,
       project2Img3,
       project2Img4,
-
       // Add more image imports as needed
     ],
   };
@@ -164,13 +171,19 @@ const Home = () => {
         {/* Open Graph Tags */}
         <meta property="og:title" content={t('home.page_title')} />
         <meta property="og:description" content={t('home.page_description')} />
-        <meta property="og:image" content="https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png" />
-        <meta property="og:url" content={`https://cyborg-it.de${location.pathname}`} />
+        <meta
+          property="og:image"
+          content="https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png"
+        />
+        <meta
+          property="og:url"
+          content={`https://cyborg-it.de${location.pathname}`}
+        />
         <meta property="og:type" content="website" />
       </Helmet>
 
-      {/* Pass the ref to Header so we can detect mouse over the header */}
-      <Header ref={headerRef} />
+      {/* Pass the className to Header */}
+      <Header className="exclude-spider" />
 
       <div className="home-page">
         {/* Hero Section */}
@@ -228,19 +241,29 @@ const Home = () => {
           <h2>{t('home.services_title')}</h2>
           <div className="services-list">
             <NavLink to={`/${currentLang}/it-consulting`} className="service-item">
-              <img src={itConsultingIcon} alt={t('home.service_it_consulting_alt')} />
+              <img
+                src={itConsultingIcon}
+                alt={t('home.service_it_consulting_alt')}
+              />
               <h3>{t('home.service_it_consulting_title')}</h3>
               <p>{t('home.service_it_consulting_description')}</p>
             </NavLink>
 
             <NavLink to={`/${currentLang}/web-development`} className="service-item">
-              <img src={webDevelopmentIcon} alt={t('home.service_web_development_alt')} />
+              <img
+                src={webDevelopmentIcon}
+                alt={t('home.service_web_development_alt')}
+              />
               <h3>{t('home.service_web_development_title')}</h3>
               <p>{t('home.service_web_development_description')}</p>
             </NavLink>
 
             <NavLink to={`/${currentLang}/zoho-consulting`} className="service-item">
-              <img id="zoho" src={itServicesIcon} alt={t('home.service_it_services_alt')} />
+              <img
+                id="zoho"
+                src={itServicesIcon}
+                alt={t('home.service_it_services_alt')}
+              />
               <h3>{t('home.service_it_services_title')}</h3>
               <p>{t('home.service_it_services_description')}</p>
             </NavLink>
@@ -249,7 +272,7 @@ const Home = () => {
 
         {/* Projects Section */}
         <motion.section
-          className="projects-section"
+          className="projects-section exclude-spider" // Added exclude-spider class
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -274,7 +297,11 @@ const Home = () => {
                   ></iframe>
                 </div>
 
-                <a href="https://product-card-plum-mu.vercel.app" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://product-card-plum-mu.vercel.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Button variant="contained" color="primary">
                     {t('home.project_view_more')}
                   </Button>
@@ -283,7 +310,7 @@ const Home = () => {
             </div>
 
             {/* Second Project - Project 2 */}
-            <div className="project-item project-2">
+            <div className="project-item project-2 exclude-spider"> {/* Added exclude-spider class */}
               <div className="project-content">
                 <h3>{t('home.project_2_title')}</h3>
                 <p>{t('home.project_2_description')}</p>
@@ -319,7 +346,11 @@ const Home = () => {
                   ></iframe>
                 </div>
 
-                <a href="https://clock-teal-tau.vercel.app/" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://clock-teal-tau.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Button variant="contained" color="primary">
                     {t('home.project_view_more')}
                   </Button>
@@ -371,25 +402,35 @@ const Home = () => {
 
         {/* FAQ Section */}
         <motion.section
-          className="about-faq-section"
+          className="about-faq-section exclude-spider" // Added exclude-spider class
           variants={sectionVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           custom={2}
-          ref={faqRef}
         >
           <h2>{t('about_us.faq_title')}</h2>
           <div className="about-faq-list">
             {[1, 2, 3, 4, 5, 6, 7].map((item, index) => (
-              <div className={`about-faq-item ${openFaqIndex === index ? 'open' : ''}`} key={index}>
+              <div
+                className={`about-faq-item ${
+                  openFaqIndex === index ? 'open' : ''
+                }`}
+                key={index}
+              >
                 <h3 onClick={() => toggleFaq(index)}>
                   <span>{t(`about_us.faq_question_${item}`)}</span>
-                  <span className="faq-icon">{openFaqIndex === index ? '−' : '+'}</span>
+                  <span className="faq-icon">
+                    {openFaqIndex === index ? '−' : '+'}
+                  </span>
                 </h3>
                 <motion.p
                   initial={{ height: 0, opacity: 0 }}
-                  animate={openFaqIndex === index ? { height: 'auto', opacity: 1 } : { height: 0, opacity: 0 }}
+                  animate={
+                    openFaqIndex === index
+                      ? { height: 'auto', opacity: 1 }
+                      : { height: 0, opacity: 0 }
+                  }
                   transition={{ duration: 0.3 }}
                   className="faq-answer"
                 >
@@ -402,18 +443,20 @@ const Home = () => {
 
         {/* Contact Section */}
         <motion.section
-          className="contact-section"
+          className="contact-section exclude-spider" // Added exclude-spider class
           variants={sectionVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           custom={2}
-          ref={contactRef}
         >
           <h2>{t('home.contact_title')}</h2>
           <ContactForm />
         </motion.section>
       </div>
+
+      {/* Remove Footer from Home.jsx since it's rendered globally in App.jsx */}
+      {/* <Footer ref={footerRef1} /> */}
     </>
   );
 };

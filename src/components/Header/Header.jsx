@@ -15,7 +15,7 @@ import logoDark from '../../assets/images/logo/Cyborg-logo 10-10.png'; // Dark l
 import logode from '../../assets/images/germany_round_icon_640.png';
 import logouk from '../../assets/images/united_kingdom_round_icon_640.png';
 
-const Header = forwardRef((props, ref) => {
+const Header = forwardRef(({ className = '' }, ref) => { // Added className prop
   const { t, i18n } = useTranslation();
   const { pathname, hash } = useLocation();
   const navigate = useNavigate();
@@ -91,16 +91,16 @@ const Header = forwardRef((props, ref) => {
   // Short heading for small screens vs. normal heading
   const topBarMessage = useMemo(() => {
     if (isGerman) {
-      return isSmallScreen ? "24/7 für Sie da!" : "Wir sind 24/7 für Sie da!";
+      return isSmallScreen ? '24/7 für Sie da!' : 'Wir sind 24/7 für Sie da!';
     } else {
-      return isSmallScreen ? "Available 24/7!" : "We are available 24/7!";
+      return isSmallScreen ? 'Available 24/7!' : 'We are available 24/7!';
     }
   }, [isGerman, isSmallScreen]);
 
   return (
     <>
       {/* Top Bar */}
-      <div className="top-bar">
+      <div className={`top-bar ${className}`}> {/* Added className */}
         <div className="top-bar-content">
           <span className="top-bar-message">{topBarMessage}</span>
           <div className="top-bar-contact-group">
@@ -130,14 +130,14 @@ const Header = forwardRef((props, ref) => {
       </div>
 
       {/* Horizontal Rule between Top Bar and Header */}
-      <hr className="topbar-hr" />
+      <hr className={`topbar-hr ${className}`} /> {/* Added className */}
 
       {/* Main Header */}
-      <header ref={ref} className={`header ${isScrolled ? 'scrolled' : ''}`}>
+      <header ref={ref} className={`header ${isScrolled ? 'scrolled' : ''} ${className}`}> {/* Added className */}
         <div className="header-container">
           {/* Mobile Language Switcher */}
           {isMobile && (
-            <div className="language-switch mobile-language-switch">
+            <div className="language-switch mobile-language-switch exclude-spider"> {/* Added exclude-spider */}
               <button
                 className={currentLang === 'de' ? 'active' : ''}
                 onClick={() => changeLanguage('de')}
@@ -494,7 +494,7 @@ const Header = forwardRef((props, ref) => {
               </nav>
 
               {/* Language Switcher for Desktop */}
-              <div className="language-switch desktop-language-switch">
+              <div className="language-switch desktop-language-switch exclude-spider"> {/* Added exclude-spider class */}
                 <button
                   className={currentLang === 'de' ? 'active' : ''}
                   onClick={() => changeLanguage('de')}

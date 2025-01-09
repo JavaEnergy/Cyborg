@@ -71,7 +71,8 @@ const App = () => {
         </Routes>
       </div>
 
-      <Footer />
+      {/* Pass className="exclude-spider" to Footer */}
+      <Footer className="exclude-spider" />
 
       {/* Cookie Consent Banner */}
       <CookieConsent

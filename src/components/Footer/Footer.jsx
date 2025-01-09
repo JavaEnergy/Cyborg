@@ -1,5 +1,5 @@
-// src/components/Footer.jsx
-import React from 'react';
+// src/components/Footer/Footer.jsx
+import React, { forwardRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import './Footer.css';
 import { NavLink } from 'react-router-dom';
@@ -8,12 +8,13 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import EmailIcon from '@mui/icons-material/Email';
 
-const Footer = () => {
+// Use forwardRef to allow refs to be passed to the Footer component
+const Footer = forwardRef(({ className = '' }, ref) => { // Added className prop
   const { t, i18n } = useTranslation();
   const currentLang = i18n.language;
 
   return (
-    <footer className="footer">
+    <footer ref={ref} className={`footer ${className} exclude-spider`}> {/* Added exclude-spider class */}
       <div className="footer-container">
         {/* Contact Information */}
         <div className="footer-section contact-info">
@@ -104,6 +105,9 @@ const Footer = () => {
       </div>
     </footer>
   );
-};
+});
+
+// Assign a display name for better debugging
+Footer.displayName = 'Footer';
 
 export default Footer;
