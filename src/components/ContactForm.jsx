@@ -1,6 +1,6 @@
 // src/components/ContactForm.jsx
 import React, { useRef, useState } from 'react';
-import emailjs from 'emailjs-com';
+import emailjs from '@emailjs/browser';
 import { useTranslation } from 'react-i18next';
 import './ContactForm.css'; // Ensure this file is properly referenced
 

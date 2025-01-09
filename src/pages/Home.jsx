@@ -1,22 +1,41 @@
 // src/pages/Home.jsx
-import { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import './Home.css';
 import initSpiderEffect from '../assets/codes/interactive spider';
 import { motion } from 'framer-motion';
-import { useLocation } from 'react-router-dom'; // Import useLocation
+import AccordionComponent from '../components/AccordionComponent'; // Import the accordion component
 
 // Components
 import Header from '../components/Header/Header';
 import ContactForm from '../components/ContactForm';
 import { Helmet } from 'react-helmet';
 
+// MUI Components
+import { Modal, Box, Typography, Button } from '@mui/material';
+
 // Images
-import image from '../assets/images/bg.jpg';
+import backgroundImage from '../assets/images/bg.jpg';
 import itConsultingIcon from '../assets/images/it Consulting.png';
 import webDevelopmentIcon from '../assets/images/web Development.png';
 import itServicesIcon from '../assets/images/zoho-hm.png';
+
+// Import accordion images
+import accImage1 from '../assets/images/project/1.png';
+import accImage2 from '../assets/images/project/2.png';
+import accImage3 from '../assets/images/project/3.png';
+import accImage4 from '../assets/images/project/4.png';
+
+// Import images for Project 2 modal
+import project2Img1 from '../assets/images/project/1.png';
+import project2Img2 from '../assets/images/project/2.png';
+import project2Img3 from '../assets/images/project/3.png';
+import project2Img4 from '../assets/images/project/4.png';
+import project2Img5 from '../assets/images/project/5.png';
+import project2Img6 from '../assets/images/project/6.png';
+
+
 
 const Home = () => {
   const { t, i18n } = useTranslation();
@@ -100,13 +119,48 @@ const Home = () => {
     }),
   };
 
+  // Data for AccordionComponent
+  const accordionItems = [
+    { id: 1,  img: accImage1 },
+    { id: 2,  img: accImage2 },
+    { id: 3, img: accImage3 },
+    { id: 4,  img: accImage4 },
+  ];
+
+  // Modal state for Project 2
+  const [openProjectModal, setOpenProjectModal] = useState(false);
+
+  const handleOpenProjectModal = () => {
+    setOpenProjectModal(true);
+  };
+
+  const handleCloseProjectModal = () => {
+    setOpenProjectModal(false);
+  };
+
+  // Data for Project 2's modal
+  const project2MoreInfo = {
+    title: t('home.project_2_title'),
+    description: t('home.project_2_more_info'), // Ensure this key exists in your translation files
+    images: [
+      project2Img6,
+      project2Img2,
+      project2Img1,
+      project2Img5,
+      project2Img3,
+      project2Img4,
+
+      // Add more image imports as needed
+    ],
+  };
+
   return (
     <>
       {/* React Helmet for SEO */}
       <Helmet>
         <title>{t('home.page_title')}</title>
         <meta name="description" content={t('home.page_description')} />
-        
+
         {/* Open Graph Tags */}
         <meta property="og:title" content={t('home.page_title')} />
         <meta property="og:description" content={t('home.page_description')} />
@@ -141,7 +195,7 @@ const Home = () => {
             variants={sectionVariants}
             custom={1}
           >
-            <img src={image} alt={t('home.image_alt')} />
+            <img src={backgroundImage} alt={t('home.image_alt')} />
           </motion.div>
 
           <motion.div
@@ -173,39 +227,20 @@ const Home = () => {
         >
           <h2>{t('home.services_title')}</h2>
           <div className="services-list">
-            <NavLink
-              to={`/${currentLang}/it-consulting`}
-              className="service-item"
-            >
-              <img
-                src={itConsultingIcon}
-                alt={t('home.service_it_consulting_alt')}
-              />
+            <NavLink to={`/${currentLang}/it-consulting`} className="service-item">
+              <img src={itConsultingIcon} alt={t('home.service_it_consulting_alt')} />
               <h3>{t('home.service_it_consulting_title')}</h3>
               <p>{t('home.service_it_consulting_description')}</p>
             </NavLink>
 
-            <NavLink
-              to={`/${currentLang}/web-development`}
-              className="service-item"
-            >
-              <img
-                src={webDevelopmentIcon}
-                alt={t('home.service_web_development_alt')}
-              />
+            <NavLink to={`/${currentLang}/web-development`} className="service-item">
+              <img src={webDevelopmentIcon} alt={t('home.service_web_development_alt')} />
               <h3>{t('home.service_web_development_title')}</h3>
               <p>{t('home.service_web_development_description')}</p>
             </NavLink>
 
-            <NavLink
-              to={`/${currentLang}/zoho-consulting`}
-              className="service-item"
-            >
-              <img
-                id="zoho"
-                src={itServicesIcon}
-                alt={t('home.service_it_services_alt')}
-              />
+            <NavLink to={`/${currentLang}/zoho-consulting`} className="service-item">
+              <img id="zoho" src={itServicesIcon} alt={t('home.service_it_services_alt')} />
               <h3>{t('home.service_it_services_title')}</h3>
               <p>{t('home.service_it_services_description')}</p>
             </NavLink>
@@ -239,26 +274,36 @@ const Home = () => {
                   ></iframe>
                 </div>
 
-                <a
-                  href="https://product-card-plum-mu.vercel.app"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <button>{t('home.project_view_more')}</button>
+                <a href="https://product-card-plum-mu.vercel.app" target="_blank" rel="noopener noreferrer">
+                  <Button variant="contained" color="primary">
+                    {t('home.project_view_more')}
+                  </Button>
                 </a>
               </div>
             </div>
 
-            {/* Second and Third Projects - Two Columns */}
+            {/* Second Project - Project 2 */}
             <div className="project-item project-2">
               <div className="project-content">
                 <h3>{t('home.project_2_title')}</h3>
                 <p>{t('home.project_2_description')}</p>
 
-                <button>{t('home.project_view_more')}</button>
+                {/* Accordion Component */}
+                <AccordionComponent items={accordionItems} />
+
+                {/* "View More" Button */}
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={handleOpenProjectModal}
+                  style={{ marginTop: '16px' }}
+                >
+                  {t('home.project_view_more')}
+                </Button>
               </div>
             </div>
 
+            {/* Third Project - Two Columns */}
             <div className="project-item project-3">
               <div className="project-content">
                 <h3>{t('home.project_3_title')}</h3>
@@ -274,17 +319,55 @@ const Home = () => {
                   ></iframe>
                 </div>
 
-                <a
-                  href="https://clock-teal-tau.vercel.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <button>{t('home.project_view_more')}</button>
+                <a href="https://clock-teal-tau.vercel.app/" target="_blank" rel="noopener noreferrer">
+                  <Button variant="contained" color="primary">
+                    {t('home.project_view_more')}
+                  </Button>
                 </a>
               </div>
             </div>
           </div>
         </motion.section>
+
+        {/* Project 2 Modal */}
+        <Modal
+          open={openProjectModal}
+          onClose={handleCloseProjectModal}
+          aria-labelledby="project-modal-title"
+          aria-describedby="project-modal-description"
+        >
+          <Box className="project-modal-box">
+            <Typography id="project-modal-title" variant="h4" gutterBottom>
+              {project2MoreInfo.title}
+            </Typography>
+            <Typography id="project-modal-description" variant="body1" paragraph>
+              {project2MoreInfo.description}
+            </Typography>
+
+            {/* Display additional images if available */}
+            {project2MoreInfo.images && project2MoreInfo.images.length > 0 && (
+              <Box className="project-modal-images">
+                {project2MoreInfo.images.map((img, idx) => (
+                  <img
+                    key={idx}
+                    src={img}
+                    alt={`${project2MoreInfo.title} detail ${idx + 1}`}
+                    className="project-modal-image"
+                  />
+                ))}
+              </Box>
+            )}
+
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={handleCloseProjectModal}
+              style={{ marginTop: '16px' }}
+            >
+              {t('home.close')}
+            </Button>
+          </Box>
+        </Modal>
 
         {/* FAQ Section */}
         <motion.section
@@ -299,21 +382,14 @@ const Home = () => {
           <h2>{t('about_us.faq_title')}</h2>
           <div className="about-faq-list">
             {[1, 2, 3, 4, 5, 6, 7].map((item, index) => (
-              <div
-                className={`about-faq-item ${openFaqIndex === index ? 'open' : ''}`}
-                key={index}
-              >
+              <div className={`about-faq-item ${openFaqIndex === index ? 'open' : ''}`} key={index}>
                 <h3 onClick={() => toggleFaq(index)}>
                   <span>{t(`about_us.faq_question_${item}`)}</span>
                   <span className="faq-icon">{openFaqIndex === index ? '−' : '+'}</span>
                 </h3>
                 <motion.p
                   initial={{ height: 0, opacity: 0 }}
-                  animate={
-                    openFaqIndex === index
-                      ? { height: 'auto', opacity: 1 }
-                      : { height: 0, opacity: 0 }
-                  }
+                  animate={openFaqIndex === index ? { height: 'auto', opacity: 1 } : { height: 0, opacity: 0 }}
                   transition={{ duration: 0.3 }}
                   className="faq-answer"
                 >

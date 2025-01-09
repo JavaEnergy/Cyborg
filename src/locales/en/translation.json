@@ -47,8 +47,8 @@
     "project_one_description": "A brief description of Project One.",
     "project_1_title": "Responsive Animated Shop Card",
     "project_1_description": "Designed and developed an interactive, fully responsive shop card with smooth animations, ensuring optimal presentation across all devices.",
-    "project_2_title": "Project Two",
-    "project_2_description": "Description for Project Two.",
+    "project_2_title": "Bookly",
+    "project_2_description": "Flutter-based mobile application for managing your book collection and orders.",
     "project_3_title":  "Neon Tube Clock Project",
     "project_3_description": "A stylish neon tube clock showing real time with dynamic lighting and toggle.",
     "project_view_more": "Learn More",
@@ -65,10 +65,13 @@
     "faq_question_3": "Do you offer custom solutions?",
     "faq_answer_3": "Yes, we tailor our services to your specific needs.",
     "page_title": "Home - Cyborg IT Technology",
-    "page_description": "Welcome to Cyborg IT Technology. We provide top-notch IT consulting and development services."
- 
+    "page_description": "Welcome to Cyborg IT Technology. We provide top-notch IT consulting and development services.",
+    "project_2_more_info": "Bookly, developed by Cyborg, is a feature-rich Flutter mobile app that allows users to securely register and log in, manage their passwords, browse and search through various book categories, filter books based on preferences, add books to their wish lists, make secure credit card payments, store delivery addresses, place and track orders, access frequently asked questions, and subscribe to newsletters."  ,
+    "close": "View More"
+
   },
-  "it_consulting": {
+  
+    "it_consulting": {
     "page_title": "IT Consulting - Cyborg IT Technology",
     "page_description": "Professional IT consulting services to help your business thrive in the digital age.",
     "it_consulting": "IT Consulting",

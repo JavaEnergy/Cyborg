@@ -36,11 +36,12 @@
     "project_one_description": "Eine kurze Beschreibung von Projekt Eins.",
     "project_1_title": "Responsiver Animierter Shop-Karte",
     "project_1_description": "Entwickelt und umgesetzt eine interaktive, vollständig responsive Shop-Karte mit flüssigen Animationen, die eine optimale Darstellung auf allen Geräten gewährleistet.",
-    "project_2_title": "Projekt Zwei",
-    "project_2_description": "Beschreibung für Projekt Zwei.",
+    "project_2_title": "Bookly",
+    "project_2_description": "Flutter-basierte mobile App zur Verwaltung Ihrer Büchersammlung und Bestellungen.",
     "project_3_title": "Neonröhren-Uhr Projekt",
     "project_3_description": "Eine elegante Neonröhren-Uhr, die Echtzeit anzeigt, mit dynamischer Beleuchtung und interaktivem Umschalter.",
     "project_view_more": "Mehr Erfahren",
+    "close": "Schließen",
     "contact_title": "Kontaktieren Sie uns",
     "contact_name_placeholder": "Ihr Name",
     "contact_email_placeholder": "Ihre E-Mail",
@@ -52,8 +53,8 @@
     "faq_question_2": "Wie kann ich Sie kontaktieren?",
     "faq_answer_2": "Sie können das Kontaktformular auf dieser Seite verwenden oder uns direkt eine E-Mail senden.",
     "faq_question_3": "Bieten Sie kundenspezifische Lösungen an?",
-    "faq_answer_3": "Ja, wir passen unsere Dienstleistungen an Ihre spezifischen Bedürfnisse an."
-    
+    "faq_answer_3": "Ja, wir passen unsere Dienstleistungen an Ihre spezifischen Bedürfnisse an.",
+    "project_2_more_info": "Bookly, entwickelt von Cyborg, ist eine funktionsreiche Flutter-Mobile-App, die es Benutzern ermöglicht, sich sicher zu registrieren und anzumelden, Passwörter zu verwalten, durch verschiedene Buchkategorien zu stöbern und zu suchen, Bücher basierend auf Präferenzen zu filtern, Bücher zu Wunschlisten hinzuzufügen, sichere Kreditkartenzahlungen durchzuführen, Lieferadressen zu speichern, Bestellungen aufzugeben und zu verfolgen, häufig gestellte Fragen zu beantworten und sich für Newsletter anzumelden."    
   },
   "footer": {
     "contact_info": "Kontaktinformationen",
