@@ -14,7 +14,8 @@ import { motion } from 'framer-motion';
 import emailjs from "@emailjs/browser";
 import Layout from '../components/Layout';
 import './ContactUs.css';
-import { Helmet } from 'react-helmet';
+import HelmetManager from '../components/HelmetManager'; // Import HelmetManager
+import { useLocation } from 'react-router-dom'; // Import useLocation
 
 // Import Material UI Icons
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
@@ -23,14 +24,11 @@ import SubjectIcon from '@mui/icons-material/Subject';
 import ChatIcon from '@mui/icons-material/Chat';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import { useLocation } from 'react-router-dom'; // Import useLocation
-
 
 const ContactUs = () => {
   const { t } = useTranslation();
   const formRef = useRef(null);
   const location = useLocation(); // Initialize useLocation
-
 
   const [status, setStatus] = useState('');
   const [isSuccess, setIsSuccess] = useState(false);
@@ -77,21 +75,43 @@ const ContactUs = () => {
 
   return (
     <Layout>
-      {/* React Helmet for SEO */}
-      <Helmet>
-        <title>{t('contact_us.page_title')}</title>
-        <meta name="description" content={t('contact_us.page_description')} />
-        
-        {/* Open Graph Tags */}
-        <meta property="og:title" content={t('contact_us.page_title')} />
-        <meta property="og:description" content={t('contact_us.page_description')} />
-        <meta property="og:image" content="https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png" />
-        <meta property="og:url" content={`https://cyborg-it.de${location.pathname}`} />
-        <meta property="og:type" content="website" />
-      </Helmet>
+      {/* HelmetManager Component for SEO */}
+      <HelmetManager
+        title={t('contact_us.page_title')}
+        description={t('contact_us.page_description')}
+        openGraph={{
+          title: t('contact_us.page_title'),
+          description: t('contact_us.page_description'),
+          image: 'https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png',
+          url: `https://cyborg-it.de${location.pathname}`,
+          type: 'website',
+        }}
+        twitter={{
+          card: 'summary_large_image',
+          title: t('contact_us.page_title'),
+          description: t('contact_us.page_description'),
+          image: 'https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png',
+        }}
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Cyborg IT",
+          "url": "https://cyborg-it.de",
+          "logo": "https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png",
+          "sameAs": [
+            "https://www.linkedin.com/company/cyborg-it-l%C3%B6sungen/"
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+995-598-70-79-79",
+            "contactType": "Customer Service"
+          }
+        }}
+      />
 
       {/* Hero Section */}
       <div className="contact-hero">
+        {/* You can add background image or other content here */}
       </div>
 
       {/* Contact Form Section */}
@@ -213,8 +233,8 @@ const ContactUs = () => {
                 className="social-icon"
                 aria-label="LinkedIn"
               >
-    <LinkedInIcon fontSize="large" style={{ color: '#0A66C2' }} /> {/* Added inline style */}
-    </IconButton>
+                <LinkedInIcon fontSize="large" style={{ color: '#0A66C2' }} /> {/* Added inline style */}
+              </IconButton>
               <IconButton
                 component="a"
                 href="https://wa.me/995598707973"

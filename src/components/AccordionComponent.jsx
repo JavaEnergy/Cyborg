@@ -1,7 +1,8 @@
 // src/components/AccordionComponent.jsx
 import React, { useState } from 'react';
-import { Modal, Box, Typography, Button } from '@mui/material';
+import { Modal, Box, Button } from '@mui/material';
 import './AccordionComponent.css'; // Ensure this file exists with necessary styles
+import PropTypes from 'prop-types'; // Import PropTypes for type checking
 
 const AccordionComponent = ({ items }) => {
   const [openModal, setOpenModal] = useState(false);
@@ -21,14 +22,13 @@ const AccordionComponent = ({ items }) => {
     <>
       <ul className="accordion">
         {items.map((item) => (
-          <li key={item.id} onClick={() => handleOpenModal(item)}>
-            <img src={item.img} alt={item.name} />
-            <div className="content">
-              <span>
-                <h2>{item.name}</h2>
-                <p>{item.role}</p>
-              </span>
-            </div>
+          <li
+            key={item.id}
+            onClick={() => handleOpenModal(item)}
+            className="accordion-item"
+          >
+            <img src={item.img} alt={item.alt} loading="lazy" />
+            {/* Removed the content div since `name` and `role` are no longer needed */}
           </li>
         ))}
       </ul>
@@ -44,8 +44,9 @@ const AccordionComponent = ({ items }) => {
             <>
               <img
                 src={selectedItem.img}
-                alt={selectedItem.name}
+                alt={selectedItem.alt}
                 className="accordion-full-image"
+                loading="lazy"
               />
               {/* Optional: Add additional details or descriptions here if needed */}
               <Button
@@ -62,6 +63,18 @@ const AccordionComponent = ({ items }) => {
       </Modal>
     </>
   );
+};
+
+// Updated PropTypes for type checking
+AccordionComponent.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      img: PropTypes.string.isRequired,
+      alt: PropTypes.string.isRequired,
+      // Removed `name` and `role` since they're no longer needed
+    })
+  ).isRequired,
 };
 
 export default AccordionComponent;

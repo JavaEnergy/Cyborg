@@ -6,13 +6,9 @@ import './Home.css';
 import initSpiderEffect from '../assets/codes/interactive spider';
 import { motion } from 'framer-motion';
 import AccordionComponent from '../components/AccordionComponent'; // Import the accordion component
-
-// Components
-import Header from '../components/Header/Header';
+import Layout from '../components/Layout';
 import ContactForm from '../components/ContactForm';
-// Remove Footer import since it's rendered globally in App.jsx
-
-import { Helmet } from 'react-helmet';
+import HelmetManager from '../components/HelmetManager'; // Import HelmetManager
 
 // MUI Components
 import { Modal, Box, Typography, Button } from '@mui/material';
@@ -39,9 +35,10 @@ import project2Img6 from '../assets/images/project/6.png';
 
 const Home = () => {
   const { t, i18n } = useTranslation();
+  const { pathname } = useLocation();
   const [hovered, setHovered] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
-  const location = useLocation(); // Initialize useLocation
+  const [openProjectModal, setOpenProjectModal] = useState(false);
 
   // State to track if the device is mobile
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
@@ -56,10 +53,14 @@ const Home = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Update hovered state based on mouse movement and modal state
   useEffect(() => {
     const handleMouseMove = (event) => {
-      if (isMobile) {
-        // Do not activate spider effect on mobile
+      // Detect if any modal is open by checking for elements with role="dialog" and aria-modal="true"
+      const anyModalOpen = document.querySelector('[role="dialog"][aria-modal="true"]') !== null;
+
+      if (isMobile || openProjectModal || anyModalOpen) {
+        // Do not activate spider effect on mobile, when Project 2 modal is open, or when any modal is open
         setHovered(false);
         return;
       }
@@ -70,7 +71,7 @@ const Home = () => {
 
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, [isMobile]);
+  }, [isMobile, openProjectModal]);
 
   // Initialize/cleanup spider effect based on hovered state
   useEffect(() => {
@@ -86,7 +87,7 @@ const Home = () => {
         canvas.style.width = '100%';
         canvas.style.height = '100%';
         canvas.style.pointerEvents = 'none';
-        canvas.style.zIndex = '9999';
+        canvas.style.zIndex = '999'; // Reduced z-index from 9999 to 999
         document.body.appendChild(canvas);
       } else {
         canvas.style.display = 'block';
@@ -129,15 +130,13 @@ const Home = () => {
 
   // Data for AccordionComponent
   const accordionItems = [
-    { id: 1, img: accImage1 },
-    { id: 2, img: accImage2 },
-    { id: 3, img: accImage3 },
-    { id: 4, img: accImage4 },
+    { id: 1, img: accImage1, alt: t('home.accordion_image_alt_1') },
+    { id: 2, img: accImage2, alt: t('home.accordion_image_alt_2') },
+    { id: 3, img: accImage3, alt: t('home.accordion_image_alt_3') },
+    { id: 4, img: accImage4, alt: t('home.accordion_image_alt_4') },
   ];
 
-  // Modal state for Project 2
-  const [openProjectModal, setOpenProjectModal] = useState(false);
-
+  // Handlers for Project 2 Modal
   const handleOpenProjectModal = () => {
     setOpenProjectModal(true);
   };
@@ -162,32 +161,46 @@ const Home = () => {
   };
 
   return (
-    <>
-      {/* React Helmet for SEO */}
-      <Helmet>
-        <title>{t('home.page_title')}</title>
-        <meta name="description" content={t('home.page_description')} />
-
-        {/* Open Graph Tags */}
-        <meta property="og:title" content={t('home.page_title')} />
-        <meta property="og:description" content={t('home.page_description')} />
-        <meta
-          property="og:image"
-          content="https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png"
-        />
-        <meta
-          property="og:url"
-          content={`https://cyborg-it.de${location.pathname}`}
-        />
-        <meta property="og:type" content="website" />
-      </Helmet>
+    <Layout>
+      <HelmetManager
+        title={t('home.page_title')}
+        description={t('home.page_description')}
+        openGraph={{
+          title: t('home.page_title'),
+          description: t('home.page_description'),
+          image: 'https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png',
+          url: `https://cyborg-it.de${pathname}`,
+          type: 'website',
+        }}
+        twitter={{
+          card: 'summary_large_image',
+          title: t('home.page_title'),
+          description: t('home.page_description'),
+          image: 'https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png',
+        }}
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Cyborg IT",
+          "url": "https://cyborg-it.de",
+          "logo": "https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png",
+          "sameAs": [
+            "https://www.linkedin.com/company/cyborg-it-l%C3%B6sungen/"
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+995-598-70-79-79",
+            "contactType": "Customer Service"
+          }
+        }}
+      />
 
       {/* Pass the className to Header */}
-      <Header className="exclude-spider" />
+      {/* <Header className="exclude-spider" /> */}
 
-      <div className="home-page">
+      <main className="home-page">
         {/* Hero Section */}
-        <div className="hero">
+        <section className="hero">
           <motion.div
             className="hero-content"
             initial={{ opacity: 0, y: -20 }}
@@ -196,10 +209,10 @@ const Home = () => {
           >
             <h1 className={isGerman ? 'de' : ''}>{t('home.title')}</h1>
           </motion.div>
-        </div>
+        </section>
 
         {/* Main Content */}
-        <div className="home-main-content">
+        <section className="home-main-content">
           <motion.div
             className="image-container"
             initial="hidden"
@@ -208,7 +221,7 @@ const Home = () => {
             variants={sectionVariants}
             custom={1}
           >
-            <img src={backgroundImage} alt={t('home.image_alt')} />
+            <img src={backgroundImage} alt={t('home.image_alt')} loading="lazy" />
           </motion.div>
 
           <motion.div
@@ -226,7 +239,7 @@ const Home = () => {
               <p>{t('home.wish_content')}</p>
             </section>
           </motion.div>
-        </div>
+        </section>
 
         {/* Services Overview Section */}
         <motion.section
@@ -244,6 +257,7 @@ const Home = () => {
               <img
                 src={itConsultingIcon}
                 alt={t('home.service_it_consulting_alt')}
+                loading="lazy"
               />
               <h3>{t('home.service_it_consulting_title')}</h3>
               <p>{t('home.service_it_consulting_description')}</p>
@@ -253,6 +267,7 @@ const Home = () => {
               <img
                 src={webDevelopmentIcon}
                 alt={t('home.service_web_development_alt')}
+                loading="lazy"
               />
               <h3>{t('home.service_web_development_title')}</h3>
               <p>{t('home.service_web_development_description')}</p>
@@ -263,6 +278,7 @@ const Home = () => {
                 id="zoho"
                 src={itServicesIcon}
                 alt={t('home.service_it_services_alt')}
+                loading="lazy"
               />
               <h3>{t('home.service_it_services_title')}</h3>
               <p>{t('home.service_it_services_description')}</p>
@@ -282,7 +298,7 @@ const Home = () => {
           <h2>{t('home.projects_title')}</h2>
           <div className="projects-list">
             {/* First Project - Single Column */}
-            <div className="project-item project-1">
+            <article className="project-item project-1">
               <div className="project-content">
                 <h3>{t('home.project_1_title')}</h3>
                 <p>{t('home.project_1_description')}</p>
@@ -307,10 +323,10 @@ const Home = () => {
                   </Button>
                 </a>
               </div>
-            </div>
+            </article>
 
             {/* Second Project - Project 2 */}
-            <div className="project-item project-2 exclude-spider"> {/* Added exclude-spider class */}
+            <article className="project-item project-2 exclude-spider"> {/* Added exclude-spider class */}
               <div className="project-content">
                 <h3>{t('home.project_2_title')}</h3>
                 <p>{t('home.project_2_description')}</p>
@@ -318,7 +334,7 @@ const Home = () => {
                 {/* Accordion Component */}
                 <AccordionComponent items={accordionItems} />
 
-                {/* "View More" Button */}
+                {/* "Learn More" Button */}
                 <Button
                   variant="contained"
                   color="primary"
@@ -328,10 +344,10 @@ const Home = () => {
                   {t('home.project_view_more')}
                 </Button>
               </div>
-            </div>
+            </article>
 
             {/* Third Project - Two Columns */}
-            <div className="project-item project-3">
+            <article className="project-item project-3">
               <div className="project-content">
                 <h3>{t('home.project_3_title')}</h3>
                 <p>{t('home.project_3_description')}</p>
@@ -356,7 +372,7 @@ const Home = () => {
                   </Button>
                 </a>
               </div>
-            </div>
+            </article>
           </div>
         </motion.section>
 
@@ -367,7 +383,7 @@ const Home = () => {
           aria-labelledby="project-modal-title"
           aria-describedby="project-modal-description"
         >
-          <Box className="project-modal-box">
+          <Box className="project-modal-box exclude-spider"> {/* Added exclude-spider class */}
             <Typography id="project-modal-title" variant="h4" gutterBottom>
               {project2MoreInfo.title}
             </Typography>
@@ -383,7 +399,8 @@ const Home = () => {
                     key={idx}
                     src={img}
                     alt={`${project2MoreInfo.title} detail ${idx + 1}`}
-                    className="project-modal-image"
+                    className="project-modal-image exclude-spider" // Added exclude-spider class
+                    loading="lazy"
                   />
                 ))}
               </Box>
@@ -453,11 +470,11 @@ const Home = () => {
           <h2>{t('home.contact_title')}</h2>
           <ContactForm />
         </motion.section>
-      </div>
+      </main>
 
       {/* Remove Footer from Home.jsx since it's rendered globally in App.jsx */}
       {/* <Footer ref={footerRef1} /> */}
-    </>
+    </Layout>
   );
 };
 

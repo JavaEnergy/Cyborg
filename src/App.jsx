@@ -54,7 +54,7 @@ const App = () => {
 
   return (
     <>
-      <Header />
+      <Header className="exclude-spider" /> {/* Added className here */}
       <ScrollToTop />
 
       <div>

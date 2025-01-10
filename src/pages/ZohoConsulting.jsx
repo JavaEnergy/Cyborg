@@ -21,14 +21,14 @@ import {
 } from '@mui/icons-material';
 import ContactForm from '../components/ContactForm';
 
-// Example images (update paths accordingly)
+import HelmetManager from '../components/HelmetManager'; // Import HelmetManager
+
+// Import images (ensure these paths are correct)
 import zohoCRMImage from '../assets/images/crm.png';
 import zohoMarketingImage from '../assets/images/marketing.png';
 import zohoFinanceImage from '../assets/images/finance.png';
 import zohoHRImage from '../assets/images/people.png';
 import zohoCustomDevImage from '../assets/images/Zoho.png';
-
-import { Helmet } from 'react-helmet'; // <-- Import Helmet
 
 const ZohoConsulting = () => {
   const { t, i18n } = useTranslation();
@@ -43,15 +43,14 @@ const ZohoConsulting = () => {
   // Animation for page sections
   const sectionVariants = {
     hidden: { opacity: 0, y: 50 },
-    visible: (custom) => ({
+    visible: {
       opacity: 1,
       y: 0,
       transition: {
-        delay: custom * 0.2,
         duration: 0.6,
         ease: 'easeOut',
       },
-    }),
+    },
   };
 
   // Card hover animation
@@ -120,24 +119,45 @@ const ZohoConsulting = () => {
     setOpenModal(true);
   };
   const handleCloseModal = () => {
-    setOpenModal(false);
     setSelectedService(null);
+    setOpenModal(false);
   };
 
   return (
     <Layout>
-      {/* React Helmet for SEO */}
-      <Helmet>
-        <title>{t('zoho_consulting.page_title')}</title>
-        <meta name="description" content={t('zoho_consulting.page_description')} />
-        
-        {/* Open Graph Tags */}
-        <meta property="og:title" content={t('zoho_consulting.page_title')} />
-        <meta property="og:description" content={t('zoho_consulting.page_description')} />
-        <meta property="og:image" content="https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png" />
-        <meta property="og:url" content={`https://cyborg-it.de${location.pathname}`} />
-        <meta property="og:type" content="website" />
-      </Helmet>
+      {/* HelmetManager Component for SEO */}
+      <HelmetManager
+        title={t('zoho_consulting.page_title')}
+        description={t('zoho_consulting.page_description')}
+        openGraph={{
+          title: t('zoho_consulting.page_title'),
+          description: t('zoho_consulting.page_description'),
+          image: 'https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png',
+          url: `https://cyborg-it.de${location.pathname}`,
+          type: 'website',
+        }}
+        twitter={{
+          card: 'summary_large_image',
+          title: t('zoho_consulting.page_title'),
+          description: t('zoho_consulting.page_description'),
+          image: 'https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png',
+        }}
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Cyborg IT",
+          "url": "https://cyborg-it.de",
+          "logo": "https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png",
+          "sameAs": [
+            "https://www.linkedin.com/company/cyborg-it-l%C3%B6sungen/"
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+995-598-70-79-79",
+            "contactType": "Customer Service"
+          }
+        }}
+      />
 
       <div className="zoho-consulting">
         {/* Hero Section */}
@@ -221,7 +241,7 @@ const ZohoConsulting = () => {
                           <Typography variant="h5" gutterBottom>
                             {service.title}
                           </Typography>
-                          <Typography variant="body2" color="text.secondary">
+                          <Typography variant="body2" className="card-description">
                             {service.description}
                           </Typography>
                         </CardContent>

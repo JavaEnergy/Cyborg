@@ -34,14 +34,14 @@ import './WebDevelopment.css';
 import useScrollSpy from '../hooks/useScrollSpy';
 import ContactForm from '../components/ContactForm';
 
+import HelmetManager from '../components/HelmetManager'; // Import HelmetManager
+
 // Import images (ensure these paths are correct)
 import wordpressImage from '../assets/images/wordpress.jpg';
 import reactImage from '../assets/images/react.png';
 import angularImage from '../assets/images/angular.png';
 import ecommerceImage from '../assets/images/conf.png';
 import customSoftwareImage from '../assets/images/custom.png';
-
-import { Helmet } from 'react-helmet'; // <-- Import Helmet
 
 const WebDevelopment = () => {
   const { t, i18n } = useTranslation();
@@ -52,21 +52,7 @@ const WebDevelopment = () => {
   const [openModal, setOpenModal] = useState(false);
   const [selectedService, setSelectedService] = useState(null);
 
-  const navigate = useNavigate(); 
-
-  // Define the sections for scroll spy
-  const sectionIds = [
-    'wordpress',
-    'react-applications',
-    'angular-development',
-    'e-commerce',
-    'custom-software',
-    'tool-comparison-faq',
-  ];
-
-  useScrollSpy(sectionIds);
-
-  // Animation variants for sections
+  // Framer Motion animation variants
   const sectionVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: (custom) => ({
@@ -80,7 +66,6 @@ const WebDevelopment = () => {
     }),
   };
 
-  // Animation variants for cards
   const cardVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -93,19 +78,20 @@ const WebDevelopment = () => {
     },
   };
 
-  // Handlers for opening/closing the card modal
+  // Handlers for modal
   const handleOpenModal = (service) => {
     setSelectedService(service);
     setOpenModal(true);
   };
-
   const handleCloseModal = () => {
     setSelectedService(null);
     setOpenModal(false);
   };
 
-  // Define contactRef for smooth scrolling
-  const contactRef = useRef(null);
+  // CTA button click handler
+  const handleCTAButtonClick = () => {
+    navigate(`/${currentLang}/contact-us`);
+  };
 
   // Services data (with "moreInfo" for modal content)
   const services = [
@@ -157,25 +143,48 @@ const WebDevelopment = () => {
     // Handle form submission logic here
   };
 
-  // CTA button click handler
-  const handleCTAButtonClick = () => {
-    navigate(`/${currentLang}/contact-us`);
+  // Scroll to contact section
+  const scrollToContact = () => {
+    if (contactRef.current) {
+      contactRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
     <Layout>
-      {/* React Helmet for SEO */}
-      <Helmet>
-        <title>{t('web_development.page_title')}</title>
-        <meta name="description" content={t('web_development.page_description')} />
-        
-        {/* Open Graph Tags */}
-        <meta property="og:title" content={t('web_development.page_title')} />
-        <meta property="og:description" content={t('web_development.page_description')} />
-        <meta property="og:image" content="https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png" />
-        <meta property="og:url" content={`https://cyborg-it.de${location.pathname}`} />
-        <meta property="og:type" content="website" />
-      </Helmet>
+      {/* HelmetManager Component for SEO */}
+      <HelmetManager
+        title={t('web_development.page_title')}
+        description={t('web_development.page_description')}
+        openGraph={{
+          title: t('web_development.page_title'),
+          description: t('web_development.page_description'),
+          image: 'https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png',
+          url: `https://cyborg-it.de${location.pathname}`,
+          type: 'website',
+        }}
+        twitter={{
+          card: 'summary_large_image',
+          title: t('web_development.page_title'),
+          description: t('web_development.page_description'),
+          image: 'https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png',
+        }}
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Cyborg IT",
+          "url": "https://cyborg-it.de",
+          "logo": "https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png",
+          "sameAs": [
+            "https://www.linkedin.com/company/cyborg-it-l%C3%B6sungen/"
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+995-598-70-79-79",
+            "contactType": "Customer Service"
+          }
+        }}
+      />
 
       <div className="web-development">
         {/* Hero Section */}
@@ -200,14 +209,14 @@ const WebDevelopment = () => {
               {t('web_development.services_title')}
             </Typography>
             <motion.div initial="hidden" animate="visible">
-              <Grid container spacing={4} justifyContent="center" alignItems="stretch">
+              <Grid container spacing={4} justifyContent="center">
                 {services.map((service, index) => (
                   <Grid
                     item
                     xs={12}
                     sm={6}
                     md={4}
-                    key={index}
+                    key={service.id} // Updated key to use service.id for uniqueness
                     id={service.id}
                     style={{ display: 'flex' }}
                   >
@@ -230,8 +239,8 @@ const WebDevelopment = () => {
                           alt={service.title}
                           className="card-media"
                         />
-                        <CardContent classes={{ root: 'card-content' }}>
-                          <Typography variant="h6" component="h3" gutterBottom>
+                        <CardContent>
+                          <Typography variant="h5" component="h3" gutterBottom>
                             {service.title}
                           </Typography>
                           <Typography variant="body2" className="card-description">
@@ -242,51 +251,51 @@ const WebDevelopment = () => {
                     </motion.div>
                   </Grid>
                 ))}
-
-                {/* Modal for More Information */}
-                <Modal
-                  open={openModal}
-                  onClose={handleCloseModal}
-                  aria-labelledby="service-modal-title"
-                  aria-describedby="service-modal-description"
-                >
-                  <motion.div
-                    className="modal-content"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.8 }}
-                    transition={{ duration: 0.3 }}
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    {selectedService && (
-                      <>
-                        <Typography
-                          id="service-modal-title"
-                          variant="h4"
-                          gutterBottom
-                        >
-                          {selectedService.title}
-                        </Typography>
-                        <Typography
-                          id="service-modal-description"
-                          variant="body1"
-                          paragraph
-                        >
-                          {selectedService.moreInfo}
-                        </Typography>
-                        <Button
-                          variant="contained"
-                          color="primary"
-                          onClick={handleCloseModal}
-                        >
-                          {t('web_development.close')}
-                        </Button>
-                      </>
-                    )}
-                  </motion.div>
-                </Modal>
               </Grid>
             </motion.div>
+
+            {/* Modal for More Information */}
+            <Modal
+              open={openModal}
+              onClose={handleCloseModal}
+              aria-labelledby="service-modal-title"
+              aria-describedby="service-modal-description"
+            >
+              <motion.div
+                className="modal-content"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.3 }}
+                onClick={(e) => e.stopPropagation()}
+              >
+                {selectedService && (
+                  <>
+                    <Typography
+                      id="service-modal-title"
+                      variant="h4"
+                      gutterBottom
+                    >
+                      {selectedService.title}
+                    </Typography>
+                    <Typography
+                      id="service-modal-description"
+                      variant="body1"
+                      paragraph
+                    >
+                      {selectedService.moreInfo}
+                    </Typography>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      onClick={handleCloseModal}
+                    >
+                      {t('web_development.close')}
+                    </Button>
+                  </>
+                )}
+              </motion.div>
+            </Modal>
           </motion.section>
 
           {/* FAQ/Comparison Section */}
@@ -404,7 +413,7 @@ const WebDevelopment = () => {
               <Button
                 variant="contained"
                 color="secondary"
-                startIcon={<Email />}
+                startIcon={<Email />} // Use the Email icon here
                 size="large"
                 href={`/${currentLang}/contact-us`}
                 className="cta-button"
@@ -422,7 +431,7 @@ const WebDevelopment = () => {
             whileInView="visible"
             viewport={{ once: true }}
             custom={1}
-            ref={contactRef} // Assign ref to Contact Us section
+            ref={contactRef}
           >
             <Typography variant="h2" gutterBottom align="center">
               {t('home.contact_title')}

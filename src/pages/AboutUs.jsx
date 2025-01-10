@@ -7,9 +7,8 @@ import image2 from '../assets/images/hand.png';
 import { motion } from 'framer-motion';
 import Layout from '../components/Layout';
 import ContactForm from '../components/ContactForm';
-import { Helmet } from 'react-helmet';
+import HelmetManager from '../components/HelmetManager'; // Import HelmetManager
 import { useLocation } from 'react-router-dom'; // Import useLocation
-
 
 const AboutUs = () => {
   const { t, i18n } = useTranslation();
@@ -42,18 +41,39 @@ const AboutUs = () => {
 
   return (
     <Layout>
-      {/* React Helmet for SEO */}
-  <Helmet>
-        <title>{t('about_us.page_title')}</title>
-        <meta name="description" content={t('about_us.page_description')} />
-        
-        {/* Open Graph Tags */}
-        <meta property="og:title" content={t('about_us.page_title')} />
-        <meta property="og:description" content={t('about_us.page_description')} />
-        <meta property="og:image" content="https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png" />
-        <meta property="og:url" content={`https://cyborg-it.de${location.pathname}`} />
-        <meta property="og:type" content="website" />
-      </Helmet>
+      {/* HelmetManager Component for SEO */}
+      <HelmetManager
+        title={t('about_us.page_title')}
+        description={t('about_us.page_description')}
+        openGraph={{
+          title: t('about_us.page_title'),
+          description: t('about_us.page_description'),
+          image: 'https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png',
+          url: `https://cyborg-it.de${location.pathname}`,
+          type: 'website',
+        }}
+        twitter={{
+          card: 'summary_large_image',
+          title: t('about_us.page_title'),
+          description: t('about_us.page_description'),
+          image: 'https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png',
+        }}
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Cyborg IT",
+          "url": "https://cyborg-it.de",
+          "logo": "https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png",
+          "sameAs": [
+            "https://www.linkedin.com/company/cyborg-it-l%C3%B6sungen/"
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+995-598-70-79-79",
+            "contactType": "Customer Service"
+          }
+        }}
+      />
 
       {/* Hero Section */}
       <div className="about-hero">

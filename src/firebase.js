@@ -2,6 +2,7 @@
 
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import { getPerformance } from "firebase/performance"; // Import Performance Monitoring
 
 // Your Firebase configuration
 const firebaseConfig = {
@@ -20,4 +21,7 @@ const app = initializeApp(firebaseConfig);
 // Initialize Google Analytics
 const analytics = getAnalytics(app);
 
-export { app, analytics };
+// Initialize Performance Monitoring
+const performance = getPerformance(app);
+
+export { app, analytics, performance };
