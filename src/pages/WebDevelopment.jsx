@@ -1,5 +1,5 @@
 // src/pages/WebDevelopment.jsx
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
   Container,
@@ -14,7 +14,7 @@ import {
   AccordionDetails,
   Modal,
 } from '@mui/material';
-import { useLocation } from 'react-router-dom'; // Import useLocation
+import { useLocation, useNavigate } from 'react-router-dom'; // Import useNavigate
 
 import {
   Email,
@@ -27,7 +27,6 @@ import {
 } from '@mui/icons-material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
 
 import Layout from '../components/Layout';
 import './WebDevelopment.css';
@@ -47,6 +46,7 @@ const WebDevelopment = () => {
   const { t, i18n } = useTranslation();
   const currentLang = i18n.language;
   const location = useLocation(); // Initialize useLocation
+  const navigate = useNavigate(); // Initialize useNavigate
 
   // Modal state for card details
   const [openModal, setOpenModal] = useState(false);
@@ -90,7 +90,7 @@ const WebDevelopment = () => {
 
   // CTA button click handler
   const handleCTAButtonClick = () => {
-    navigate(`/${currentLang}/contact-us`);
+    navigate(`/${currentLang}/contact-us`); // Navigate to Contact Us page
   };
 
   // Services data (with "moreInfo" for modal content)
@@ -137,17 +137,10 @@ const WebDevelopment = () => {
     },
   ];
 
-  // Contact form submission handler
+  // Contact form submission handler (if any within this page)
   const handleSubmit = (event) => {
     event.preventDefault();
     // Handle form submission logic here
-  };
-
-  // Scroll to contact section
-  const scrollToContact = () => {
-    if (contactRef.current) {
-      contactRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
   };
 
   return (
@@ -210,13 +203,13 @@ const WebDevelopment = () => {
             </Typography>
             <motion.div initial="hidden" animate="visible">
               <Grid container spacing={4} justifyContent="center">
-                {services.map((service, index) => (
+                {services.map((service) => (
                   <Grid
                     item
                     xs={12}
                     sm={6}
                     md={4}
-                    key={service.id} // Updated key to use service.id for uniqueness
+                    key={service.id} // Ensure unique key
                     id={service.id}
                     style={{ display: 'flex' }}
                   >
@@ -415,7 +408,7 @@ const WebDevelopment = () => {
                 color="secondary"
                 startIcon={<Email />} // Use the Email icon here
                 size="large"
-                href={`/${currentLang}/contact-us`}
+                onClick={handleCTAButtonClick} // Use onClick to navigate
                 className="cta-button"
               >
                 {t('zoho_consulting.contact_us')}
@@ -423,7 +416,8 @@ const WebDevelopment = () => {
             </div>
           </motion.div>
 
-          {/* Contact Section */}
+          {/* Remove the Contact Section if not needed */}
+          
           <motion.section
             className="contact-section"
             variants={sectionVariants}
@@ -431,58 +425,17 @@ const WebDevelopment = () => {
             whileInView="visible"
             viewport={{ once: true }}
             custom={1}
-            ref={contactRef}
           >
             <Typography variant="h2" gutterBottom align="center">
               {t('home.contact_title')}
             </Typography>
             <ContactForm />
           </motion.section>
+         
         </Container>
 
         {/* Modal for More Information */}
-        <Modal
-          open={openModal}
-          onClose={handleCloseModal}
-          aria-labelledby="service-modal-title"
-          aria-describedby="service-modal-description"
-        >
-          {/* We can wrap content in a Framer Motion div for animations */}
-          <motion.div
-            className="modal-content"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.8 }}
-            transition={{ duration: 0.3 }}
-            onClick={(e) => e.stopPropagation()} 
-          >
-            {selectedService && (
-              <>
-                <Typography
-                  id="service-modal-title"
-                  variant="h4"
-                  gutterBottom
-                >
-                  {selectedService.title}
-                </Typography>
-                <Typography
-                  id="service-modal-description"
-                  variant="body1"
-                  paragraph
-                >
-                  {selectedService.moreInfo}
-                </Typography>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  onClick={handleCloseModal}
-                >
-                  {t('zoho_consulting.close')}
-                </Button>
-              </>
-            )}
-          </motion.div>
-        </Modal>
+        {/* Ensure only one Modal is present */}
       </div>
     </Layout>
   );
