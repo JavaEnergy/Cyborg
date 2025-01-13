@@ -119,4 +119,9 @@
   .awards {
     justify-content: center;
   }
+  .footer-section 
+  {
+
+    flex: auto;
+  }
 }

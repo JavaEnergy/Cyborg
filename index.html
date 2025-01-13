@@ -19,9 +19,9 @@
         var f=d.getElementsByTagName(s)[0],
             j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
         j.async=true;
-        j.src=`https://www.googletagmanager.com/gtm.js?id=${import.meta.env.VITE_GTM_ID}${dl}`;
+        j.src=`https://www.googletagmanager.com/gtm.js?id=${'%VITE_GTM_ID%'}${dl}`;
         f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','${import.meta.env.VITE_GTM_ID}');
+      })(window,document,'script','dataLayer','%VITE_GTM_ID%');
     </script>
   <!-- End Google Tag Manager -->
   </head>

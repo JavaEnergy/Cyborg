@@ -1,6 +1,10 @@
 // src/pages/WebDevelopment.jsx
+
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useLocation, useNavigate } from 'react-router-dom';
+
+// Import Material UI Components
 import {
   Container,
   Typography,
@@ -14,12 +18,9 @@ import {
   AccordionDetails,
   Modal,
 } from '@mui/material';
-import { useLocation, useNavigate } from 'react-router-dom'; // Import useNavigate
 
 import {
   Email,
-} from '@mui/icons-material';
-import {
   Web as WebIcon,
   Code as CodeIcon,
   ShoppingCart as ECommerceIcon,
@@ -30,12 +31,12 @@ import { motion } from 'framer-motion';
 
 import Layout from '../components/Layout';
 import './WebDevelopment.css';
-import useScrollSpy from '../hooks/useScrollSpy';
+// If you use useScrollSpy, ensure it's defined or remove it
+// import useScrollSpy from '../hooks/useScrollSpy';
 import ContactForm from '../components/ContactForm';
+import HelmetManager from '../components/HelmetManager';
 
-import HelmetManager from '../components/HelmetManager'; // Import HelmetManager
-
-// Import images (ensure these paths are correct)
+// Import images
 import wordpressImage from '../assets/images/wordpress.jpg';
 import reactImage from '../assets/images/react.png';
 import angularImage from '../assets/images/angular.png';
@@ -45,17 +46,17 @@ import customSoftwareImage from '../assets/images/custom.png';
 const WebDevelopment = () => {
   const { t, i18n } = useTranslation();
   const currentLang = i18n.language;
-  const location = useLocation(); // Initialize useLocation
-  const navigate = useNavigate(); // Initialize useNavigate
+  const location = useLocation();
+  const navigate = useNavigate();
 
-  // Modal state for card details
+  // State for card modals
   const [openModal, setOpenModal] = useState(false);
   const [selectedService, setSelectedService] = useState(null);
 
   // Framer Motion animation variants
   const sectionVariants = {
     hidden: { opacity: 0, y: 50 },
-    visible: (custom) => ({
+    visible: (custom = 0) => ({
       opacity: 1,
       y: 0,
       transition: {
@@ -71,14 +72,20 @@ const WebDevelopment = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.5,
-        ease: 'easeOut',
-      },
+      transition: { duration: 0.5, ease: 'easeOut' },
     },
   };
 
-  // Handlers for modal
+  // Construct the canonical URL
+  const canonicalUrl = `https://cyborg-it.de${location.pathname}`;
+
+  // Hreflang array (assuming DE/EN)
+  const alternateLanguages = [
+    { lang: 'de', url: 'https://cyborg-it.de/de/web-development' },
+    { lang: 'en', url: 'https://cyborg-it.de/en/web-development' },
+  ];
+
+  // Handler to open/close modal
   const handleOpenModal = (service) => {
     setSelectedService(service);
     setOpenModal(true);
@@ -88,12 +95,12 @@ const WebDevelopment = () => {
     setOpenModal(false);
   };
 
-  // CTA button click handler
+  // CTA button click
   const handleCTAButtonClick = () => {
-    navigate(`/${currentLang}/contact-us`); // Navigate to Contact Us page
+    navigate(`/${currentLang}/contact-us`);
   };
 
-  // Services data (with "moreInfo" for modal content)
+  // Services data
   const services = [
     {
       title: t('web_development.wordpress'),
@@ -120,7 +127,7 @@ const WebDevelopment = () => {
       moreInfo: t('web_development.angular_more_info'),
     },
     {
-      title: t('web_development.e_commerce'), // "Product Configurator"
+      title: t('web_development.e_commerce'),
       description: t('web_development.content_for_e_commerce'),
       image: ecommerceImage,
       icon: <ECommerceIcon fontSize="large" color="primary" />,
@@ -137,23 +144,18 @@ const WebDevelopment = () => {
     },
   ];
 
-  // Contact form submission handler (if any within this page)
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Handle form submission logic here
-  };
-
   return (
     <Layout>
-      {/* HelmetManager Component for SEO */}
+      {/* HelmetManager for SEO */}
       <HelmetManager
         title={t('web_development.page_title')}
         description={t('web_development.page_description')}
+        canonical={canonicalUrl}
         openGraph={{
           title: t('web_development.page_title'),
           description: t('web_development.page_description'),
           image: 'https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png',
-          url: `https://cyborg-it.de${location.pathname}`,
+          url: canonicalUrl,
           type: 'website',
         }}
         twitter={{
@@ -163,20 +165,21 @@ const WebDevelopment = () => {
           image: 'https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png',
         }}
         structuredData={{
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          "name": "Cyborg IT",
-          "url": "https://cyborg-it.de",
-          "logo": "https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png",
-          "sameAs": [
-            "https://www.linkedin.com/company/cyborg-it-l%C3%B6sungen/"
+          '@context': 'https://schema.org',
+          '@type': 'Organization',
+          name: 'Cyborg IT',
+          url: 'https://cyborg-it.de',
+          logo: 'https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png',
+          sameAs: [
+            'https://www.linkedin.com/company/cyborg-it-l%C3%B6sungen/',
           ],
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+995-598-70-79-79",
-            "contactType": "Customer Service"
-          }
+          contactPoint: {
+            '@type': 'ContactPoint',
+            telephone: '+995-598-70-79-79',
+            contactType: 'Customer Service',
+          },
         }}
+        alternateLanguages={alternateLanguages}
       />
 
       <div className="web-development">
@@ -201,6 +204,7 @@ const WebDevelopment = () => {
             <Typography variant="h4" component="h2" gutterBottom align="center">
               {t('web_development.services_title')}
             </Typography>
+
             <motion.div initial="hidden" animate="visible">
               <Grid container spacing={4} justifyContent="center">
                 {services.map((service) => (
@@ -209,14 +213,19 @@ const WebDevelopment = () => {
                     xs={12}
                     sm={6}
                     md={4}
-                    key={service.id} // Ensure unique key
+                    key={service.id}
                     id={service.id}
                     style={{ display: 'flex' }}
                   >
                     <motion.div
                       variants={cardVariants}
                       style={{ flex: 1 }}
-                      onClick={() => handleOpenModal(service)} // Open modal
+                      onClick={() => handleOpenModal(service)}
+                      role="button"
+                      tabIndex={0}
+                      onKeyPress={(e) => {
+                        if (e.key === 'Enter') handleOpenModal(service);
+                      }}
                     >
                       <Card
                         component={motion.div}
@@ -231,6 +240,7 @@ const WebDevelopment = () => {
                           image={service.image}
                           alt={service.title}
                           className="card-media"
+                          loading="lazy"
                         />
                         <CardContent>
                           <Typography variant="h5" component="h3" gutterBottom>
@@ -264,11 +274,7 @@ const WebDevelopment = () => {
               >
                 {selectedService && (
                   <>
-                    <Typography
-                      id="service-modal-title"
-                      variant="h4"
-                      gutterBottom
-                    >
+                    <Typography id="service-modal-title" variant="h4" gutterBottom>
                       {selectedService.title}
                     </Typography>
                     <Typography
@@ -278,11 +284,7 @@ const WebDevelopment = () => {
                     >
                       {selectedService.moreInfo}
                     </Typography>
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      onClick={handleCloseModal}
-                    >
+                    <Button variant="contained" color="primary" onClick={handleCloseModal}>
                       {t('web_development.close')}
                     </Button>
                   </>
@@ -406,9 +408,9 @@ const WebDevelopment = () => {
               <Button
                 variant="contained"
                 color="secondary"
-                startIcon={<Email />} // Use the Email icon here
+                startIcon={<Email />}
                 size="large"
-                onClick={handleCTAButtonClick} // Use onClick to navigate
+                onClick={handleCTAButtonClick}
                 className="cta-button"
               >
                 {t('zoho_consulting.contact_us')}
@@ -416,8 +418,7 @@ const WebDevelopment = () => {
             </div>
           </motion.div>
 
-          {/* Remove the Contact Section if not needed */}
-          
+          {/* Contact Section */}
           <motion.section
             className="contact-section"
             variants={sectionVariants}
@@ -431,11 +432,7 @@ const WebDevelopment = () => {
             </Typography>
             <ContactForm />
           </motion.section>
-         
         </Container>
-
-        {/* Modal for More Information */}
-        {/* Ensure only one Modal is present */}
       </div>
     </Layout>
   );

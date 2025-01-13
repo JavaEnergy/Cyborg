@@ -1,6 +1,10 @@
 // src/pages/ZohoConsulting.jsx
+
 import React, { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useLocation } from 'react-router-dom';
+
+// Import Material UI Components
 import {
   Container,
   Typography,
@@ -11,19 +15,18 @@ import {
   CardMedia,
   Modal,
 } from '@mui/material';
+
 import { motion } from 'framer-motion';
 import Layout from '../components/Layout';
-import './ZohoConsulting.css';
-import { useLocation } from 'react-router-dom'; // Import useLocation
-
-import {
-  Email,
-} from '@mui/icons-material';
 import ContactForm from '../components/ContactForm';
+import HelmetManager from '../components/HelmetManager';
 
-import HelmetManager from '../components/HelmetManager'; // Import HelmetManager
+import './ZohoConsulting.css';
 
-// Import images (ensure these paths are correct)
+// Import icons
+import { Email } from '@mui/icons-material';
+
+// Import images
 import zohoCRMImage from '../assets/images/crm.png';
 import zohoMarketingImage from '../assets/images/marketing.png';
 import zohoFinanceImage from '../assets/images/finance.png';
@@ -34,13 +37,13 @@ const ZohoConsulting = () => {
   const { t, i18n } = useTranslation();
   const currentLang = i18n.language;
   const contactRef = useRef(null);
-  const location = useLocation(); // Initialize useLocation
+  const location = useLocation();
 
   // Modal states
   const [openModal, setOpenModal] = useState(false);
   const [selectedService, setSelectedService] = useState(null);
 
-  // Animation for page sections
+  // Framer Motion variants
   const sectionVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: {
@@ -53,7 +56,6 @@ const ZohoConsulting = () => {
     },
   };
 
-  // Card hover animation
   const cardVariants = {
     rest: {
       scale: 1,
@@ -69,7 +71,16 @@ const ZohoConsulting = () => {
     },
   };
 
-  // Services array, including "moreInfo" for modal content
+  // Construct the canonical URL
+  const canonicalUrl = `https://cyborg-it.de${location.pathname}`;
+
+  // Hreflang array
+  const alternateLanguages = [
+    { lang: 'de', url: 'https://cyborg-it.de/de/zoho-consulting' },
+    { lang: 'en', url: 'https://cyborg-it.de/en/zoho-consulting' },
+  ];
+
+  // Services data
   const services = [
     {
       id: 'zoho-crm',
@@ -113,7 +124,7 @@ const ZohoConsulting = () => {
     },
   ];
 
-  // Open/close modal logic
+  // Modal open/close
   const handleOpenModal = (service) => {
     setSelectedService(service);
     setOpenModal(true);
@@ -125,15 +136,15 @@ const ZohoConsulting = () => {
 
   return (
     <Layout>
-      {/* HelmetManager Component for SEO */}
       <HelmetManager
         title={t('zoho_consulting.page_title')}
         description={t('zoho_consulting.page_description')}
+        canonical={canonicalUrl}
         openGraph={{
           title: t('zoho_consulting.page_title'),
           description: t('zoho_consulting.page_description'),
           image: 'https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png',
-          url: `https://cyborg-it.de${location.pathname}`,
+          url: canonicalUrl,
           type: 'website',
         }}
         twitter={{
@@ -143,20 +154,21 @@ const ZohoConsulting = () => {
           image: 'https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png',
         }}
         structuredData={{
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          "name": "Cyborg IT",
-          "url": "https://cyborg-it.de",
-          "logo": "https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png",
-          "sameAs": [
-            "https://www.linkedin.com/company/cyborg-it-l%C3%B6sungen/"
+          '@context': 'https://schema.org',
+          '@type': 'Organization',
+          name: 'Cyborg IT',
+          url: 'https://cyborg-it.de',
+          logo: 'https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png',
+          sameAs: [
+            'https://www.linkedin.com/company/cyborg-it-l%C3%B6sungen/',
           ],
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+995-598-70-79-79",
-            "contactType": "Customer Service"
-          }
+          contactPoint: {
+            '@type': 'ContactPoint',
+            telephone: '+995-598-70-79-79',
+            contactType: 'Customer Service',
+          },
         }}
+        alternateLanguages={alternateLanguages}
       />
 
       <div className="zoho-consulting">
@@ -206,16 +218,12 @@ const ZohoConsulting = () => {
             <Grid container spacing={4}>
               {services.map((service, index) => (
                 <Grid
-                  key={service.id} // Updated key to use service.id for uniqueness
+                  key={service.id}
                   item
                   xs={12}
-                  /* 
-                    First row (index 0 and 1) => md={6} 
-                    Second row (index 2, 3, 4) => md={4} 
-                  */
+                  // For example: first 2 items take half width (md=6), next 3 items take md=4
                   md={index < 2 ? 6 : 4}
                 >
-                  {/* Assigning id to the service section for anchoring */}
                   <div id={service.id} className="service-section">
                     <motion.div
                       className="zoho-service-card"
@@ -236,6 +244,7 @@ const ZohoConsulting = () => {
                           height="140"
                           image={service.image}
                           alt={service.alt}
+                          loading="lazy"
                         />
                         <CardContent>
                           <Typography variant="h5" gutterBottom>
@@ -272,7 +281,7 @@ const ZohoConsulting = () => {
               <Button
                 variant="contained"
                 color="secondary"
-                startIcon={<Email />} // Use the Email icon here
+                startIcon={<Email />}
                 size="large"
                 href={`/${currentLang}/contact-us`}
                 className="cta-button"
@@ -306,29 +315,20 @@ const ZohoConsulting = () => {
           aria-labelledby="service-modal-title"
           aria-describedby="service-modal-description"
         >
-          {/* We can wrap content in a Framer Motion div for animations */}
           <motion.div
             className="modal-content"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
             transition={{ duration: 0.3 }}
-            onClick={(e) => e.stopPropagation()} 
+            onClick={(e) => e.stopPropagation()}
           >
             {selectedService && (
               <>
-                <Typography
-                  id="service-modal-title"
-                  variant="h4"
-                  gutterBottom
-                >
+                <Typography id="service-modal-title" variant="h4" gutterBottom>
                   {selectedService.title}
                 </Typography>
-                <Typography
-                  id="service-modal-description"
-                  variant="body1"
-                  paragraph
-                >
+                <Typography id="service-modal-description" variant="body1" paragraph>
                   {selectedService.moreInfo}
                 </Typography>
                 <Button

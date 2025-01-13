@@ -160,16 +160,27 @@ const Home = () => {
     ],
   };
 
+  // Construct the canonical URL dynamically with language prefix
+  const canonicalUrl = `https://cyborg-it.de${pathname}`;
+
+  // Define alternate languages for hreflang tags
+  const alternateLanguages = [
+    { lang: 'de', url: 'https://cyborg-it.de/de' },
+    { lang: 'en', url: 'https://cyborg-it.de/en' },
+    // Add more languages as needed
+  ];
+
   return (
     <Layout>
       <HelmetManager
         title={t('home.page_title')}
         description={t('home.page_description')}
+        canonical={canonicalUrl}
         openGraph={{
           title: t('home.page_title'),
           description: t('home.page_description'),
           image: 'https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png',
-          url: `https://cyborg-it.de${pathname}`,
+          url: canonicalUrl,
           type: 'website',
         }}
         twitter={{
@@ -193,11 +204,10 @@ const Home = () => {
             "contactType": "Customer Service"
           }
         }}
+        alternateLanguages={alternateLanguages}
       />
 
-      {/* Pass the className to Header */}
-      {/* <Header className="exclude-spider" /> */}
-
+      {/* Main Content */}
       <main className="home-page">
         {/* Hero Section */}
         <section className="hero">
@@ -435,7 +445,7 @@ const Home = () => {
                 }`}
                 key={index}
               >
-                <h3 onClick={() => toggleFaq(index)}>
+                <h3 onClick={() => toggleFaq(index)} tabIndex={0} role="button">
                   <span>{t(`about_us.faq_question_${item}`)}</span>
                   <span className="faq-icon">
                     {openFaqIndex === index ? '−' : '+'}
@@ -472,6 +482,7 @@ const Home = () => {
         </motion.section>
       </main>
 
+      {/* Project 2 Modal is already included above */}
       {/* Remove Footer from Home.jsx since it's rendered globally in App.jsx */}
       {/* <Footer ref={footerRef1} /> */}
     </Layout>

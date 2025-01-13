@@ -1,7 +1,10 @@
 // src/pages/ITConsulting.jsx
+
 import React, { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate } from 'react-router-dom';
+
+// Import Material UI Components
 import {
   Container,
   Typography,
@@ -12,6 +15,8 @@ import {
   Button,
   Modal,
 } from '@mui/material';
+
+// Import MUI Icons
 import {
   Cloud,
   SmartToy,
@@ -19,15 +24,16 @@ import {
   PhoneIphone,
   Code,
   Email,
-  Security, // Import Security icon for IT Security & Audits
+  Security,
 } from '@mui/icons-material';
+
 import { motion } from 'framer-motion';
 import Layout from '../components/Layout';
 import './ITConsulting.css';
 import ContactForm from '../components/ContactForm';
-import HelmetManager from '../components/HelmetManager'; // Import HelmetManager
+import HelmetManager from '../components/HelmetManager';
 
-// Import images (ensure the paths are correct)
+// Import images
 import heroImage from '../assets/images/b1.png';
 import ideaToImplementationImage from '../assets/images/b3.png';
 import itStrategyImage from '../assets/images/b2.png';
@@ -35,8 +41,8 @@ import softwareDevelopmentImage from '../assets/images/soft.png';
 import webConsultingImage from '../assets/images/bbb.png';
 import mobileConsultingImage from '../assets/images/mob.png';
 import cloudConsultingImage from '../assets/images/clod.png';
-import aiConsultingImage from '../assets/images/ai3k.png';        // <-- Correct AI image
-import itSecurityImage from '../assets/images/secr.png';        // <-- IT Security & Audits image
+import aiConsultingImage from '../assets/images/ai3k.png';
+import itSecurityImage from '../assets/images/secr.png';
 
 const ITConsulting = () => {
   const { t, i18n } = useTranslation();
@@ -45,27 +51,23 @@ const ITConsulting = () => {
   const currentLang = i18n.language;
   const contactRef = useRef(null);
 
-  // Track the previous pathname to detect changes (for scroll-to-top)
+  // Track previous pathname for scroll-to-top logic
   const prevPathnameRef = useRef(location.pathname);
-
   useEffect(() => {
     const prevPathname = prevPathnameRef.current;
     const currentPathname = location.pathname;
 
-    // Function to remove language codes from the path for comparison
     const stripLangFromPath = (path) => path.replace(/^\/(en|de)/, '');
-
     if (
       stripLangFromPath(prevPathname) !== stripLangFromPath(currentPathname) &&
       !location.hash
     ) {
       window.scrollTo(0, 0);
     }
-
     prevPathnameRef.current = currentPathname;
   }, [location]);
 
-  // Framer Motion animation variants
+  // Framer Motion variants
   const sectionVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: (custom) => ({
@@ -84,11 +86,9 @@ const ITConsulting = () => {
     },
   };
 
-  // State for the modal
+  // Modal state and handlers
   const [openModal, setOpenModal] = useState(false);
   const [selectedService, setSelectedService] = useState(null);
-
-  // Handlers for modal
   const handleOpenModal = (service) => {
     setSelectedService(service);
     setOpenModal(true);
@@ -100,10 +100,20 @@ const ITConsulting = () => {
 
   // CTA button click handler
   const handleCTAButtonClick = () => {
+    // Navigate to contact page with language prefix
     navigate(`/${currentLang}/contact-us`);
   };
 
-  // Services data (5 Consulting Cards)
+  // Construct the canonical URL
+  const canonicalUrl = `https://cyborg-it.de${location.pathname}`;
+
+  // Hreflang array
+  const alternateLanguages = [
+    { lang: 'de', url: 'https://cyborg-it.de/de/it-consulting' },
+    { lang: 'en', url: 'https://cyborg-it.de/en/it-consulting' },
+  ];
+
+  // Services data (for the 5 consulting cards)
   const services = [
     {
       id: 'software-development-consulting',
@@ -156,15 +166,15 @@ const ITConsulting = () => {
 
   return (
     <Layout>
-      {/* HelmetManager Component for SEO */}
       <HelmetManager
         title={t('it_consulting.page_title')}
         description={t('it_consulting.page_description')}
+        canonical={canonicalUrl}
         openGraph={{
           title: t('it_consulting.page_title'),
           description: t('it_consulting.page_description'),
           image: 'https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png',
-          url: `https://cyborg-it.de${location.pathname}`,
+          url: canonicalUrl,
           type: 'website',
         }}
         twitter={{
@@ -174,20 +184,21 @@ const ITConsulting = () => {
           image: 'https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png',
         }}
         structuredData={{
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          "name": "Cyborg IT",
-          "url": "https://cyborg-it.de",
-          "logo": "https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png",
-          "sameAs": [
-            "https://www.linkedin.com/company/cyborg-it-l%C3%B6sungen/"
+          '@context': 'https://schema.org',
+          '@type': 'Organization',
+          name: 'Cyborg IT',
+          url: 'https://cyborg-it.de',
+          logo: 'https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png',
+          sameAs: [
+            'https://www.linkedin.com/company/cyborg-it-l%C3%B6sungen/',
           ],
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+995-598-70-79-79",
-            "contactType": "Customer Service"
-          }
+          contactPoint: {
+            '@type': 'ContactPoint',
+            telephone: '+995-598-70-79-79',
+            contactType: 'Customer Service',
+          },
         }}
+        alternateLanguages={alternateLanguages}
       />
 
       <div className="it-consulting">
@@ -226,6 +237,7 @@ const ITConsulting = () => {
                   src={ideaToImplementationImage}
                   alt={t('it_consulting.from_idea_to_implementation_alt')}
                   className="section-image"
+                  loading="lazy"
                 />
               </Grid>
             </Grid>
@@ -255,6 +267,7 @@ const ITConsulting = () => {
                   src={itStrategyImage}
                   alt={t('it_consulting.it_strategy_alt')}
                   className="section-image"
+                  loading="lazy"
                 />
               </Grid>
             </Grid>
@@ -277,12 +290,8 @@ const ITConsulting = () => {
               {t('it_consulting.content_for_software_consulting')}
             </Typography>
 
-            {/* Services Cards (5) */}
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-            >
+            {/* Services Cards */}
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }}>
               <Grid container spacing={4} justifyContent="center">
                 {services.map((service) => (
                   <Grid item xs={12} sm={6} md={4} key={service.id}>
@@ -301,16 +310,16 @@ const ITConsulting = () => {
                           image={service.image}
                           alt={service.title}
                           style={{
-                            objectFit: service.image === cloudConsultingImage ? 'contain' : 'cover',
+                            objectFit:
+                              service.image === cloudConsultingImage ? 'contain' : 'cover',
                           }}
+                          loading="lazy"
                         />
                         <CardContent>
                           <Typography variant="h6" component="h3" gutterBottom>
                             {service.title}
                           </Typography>
-                          <Typography variant="body2">
-                            {service.description}
-                          </Typography>
+                          <Typography variant="body2">{service.description}</Typography>
                         </CardContent>
                       </Card>
                     </motion.div>
@@ -336,25 +345,13 @@ const ITConsulting = () => {
               >
                 {selectedService && (
                   <>
-                    <Typography
-                      id="service-modal-title"
-                      variant="h4"
-                      gutterBottom
-                    >
+                    <Typography id="service-modal-title" variant="h4" gutterBottom>
                       {selectedService.title}
                     </Typography>
-                    <Typography
-                      id="service-modal-description"
-                      variant="body1"
-                      paragraph
-                    >
+                    <Typography id="service-modal-description" variant="body1" paragraph>
                       {selectedService.moreInfo}
                     </Typography>
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      onClick={handleCloseModal}
-                    >
+                    <Button variant="contained" color="primary" onClick={handleCloseModal}>
                       {t('it_consulting.close')}
                     </Button>
                   </>
@@ -363,7 +360,7 @@ const ITConsulting = () => {
             </Modal>
           </motion.section>
 
-          {/* IT Security & Audits (Separate Clickable Section) */}
+          {/* IT Security & Audits Section */}
           <motion.section
             id="it-security"
             className="consulting-section"
@@ -383,7 +380,6 @@ const ITConsulting = () => {
                 </Typography>
               </Grid>
               <Grid item xs={12} md={6}>
-                {/* Clickable image to open modal */}
                 <motion.div
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
@@ -391,11 +387,7 @@ const ITConsulting = () => {
                   style={{ cursor: 'pointer' }}
                   aria-label={t('it_consulting.it_security')}
                 >
-                  <Card
-                    component={motion.div}
-                    className="service-card"
-                    style={{ cursor: 'pointer' }}
-                  >
+                  <Card component={motion.div} className="service-card">
                     <div className="service-icon">
                       <Security fontSize="large" color="primary" />
                     </div>
@@ -405,6 +397,7 @@ const ITConsulting = () => {
                       image={itSecurityImage}
                       alt={t('it_consulting.it_security_alt')}
                       style={{ objectFit: 'contain' }}
+                      loading="lazy"
                     />
                     <CardContent>
                       <Typography variant="h6" component="h3" gutterBottom>

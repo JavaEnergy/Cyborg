@@ -1,23 +1,12 @@
 // src/pages/ContactUs.jsx
+
 import React, { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import {
-  Container,
-  Typography,
-  Button,
-  Paper,
-  IconButton,
-  Box,
-  CircularProgress,
-} from '@mui/material';
+import { Container, Typography, Button, Paper, IconButton, Box, CircularProgress } from '@mui/material';
 import { motion } from 'framer-motion';
-import emailjs from "@emailjs/browser";
-import Layout from '../components/Layout';
-import './ContactUs.css';
-import HelmetManager from '../components/HelmetManager'; // Import HelmetManager
-import { useLocation } from 'react-router-dom'; // Import useLocation
+import emailjs from '@emailjs/browser';
+import { useLocation } from 'react-router-dom';
 
-// Import Material UI Icons
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import EmailIcon from '@mui/icons-material/Email';
 import SubjectIcon from '@mui/icons-material/Subject';
@@ -25,14 +14,21 @@ import ChatIcon from '@mui/icons-material/Chat';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
+import Layout from '../components/Layout';
+import HelmetManager from '../components/HelmetManager'; // SEO
+import './ContactUs.css';
+
 const ContactUs = () => {
   const { t } = useTranslation();
   const formRef = useRef(null);
-  const location = useLocation(); // Initialize useLocation
+  const location = useLocation();
 
   const [status, setStatus] = useState('');
   const [isSuccess, setIsSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  // Construct the canonical URL dynamically
+  const canonicalUrl = `https://cyborg-it.de${location.pathname}`;
 
   // Animation variants for framer-motion
   const sectionVariants = {
@@ -79,11 +75,12 @@ const ContactUs = () => {
       <HelmetManager
         title={t('contact_us.page_title')}
         description={t('contact_us.page_description')}
+        canonical={canonicalUrl}
         openGraph={{
           title: t('contact_us.page_title'),
           description: t('contact_us.page_description'),
           image: 'https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png',
-          url: `https://cyborg-it.de${location.pathname}`,
+          url: canonicalUrl,
           type: 'website',
         }}
         twitter={{
@@ -93,25 +90,29 @@ const ContactUs = () => {
           image: 'https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png',
         }}
         structuredData={{
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          "name": "Cyborg IT",
-          "url": "https://cyborg-it.de",
-          "logo": "https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png",
-          "sameAs": [
-            "https://www.linkedin.com/company/cyborg-it-l%C3%B6sungen/"
+          '@context': 'https://schema.org',
+          '@type': 'Organization',
+          name: 'Cyborg IT',
+          url: 'https://cyborg-it.de',
+          logo: 'https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png',
+          sameAs: [
+            'https://www.linkedin.com/company/cyborg-it-l%C3%B6sungen/',
           ],
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+995-598-70-79-79",
-            "contactType": "Customer Service"
-          }
+          contactPoint: {
+            '@type': 'ContactPoint',
+            telephone: '+995-598-70-79-79',
+            contactType: 'Customer Service',
+          },
         }}
+        alternateLanguages={[
+          { lang: 'de', url: 'https://cyborg-it.de/de/contact-us' },
+          { lang: 'en', url: 'https://cyborg-it.de/en/contact-us' },
+        ]}
       />
 
       {/* Hero Section */}
       <div className="contact-hero">
-        {/* You can add background image or other content here */}
+        {/* Optional background image or content */}
       </div>
 
       {/* Contact Form Section */}
@@ -132,6 +133,7 @@ const ContactUs = () => {
           {/* Modern Contact Form */}
           <Paper elevation={6} className="modern-form-container">
             <form className="modern-contact-form" onSubmit={handleSubmit} ref={formRef}>
+              {/* Name Field */}
               <Box
                 component={motion.div}
                 initial={{ opacity: 0, y: 20 }}
@@ -150,6 +152,7 @@ const ContactUs = () => {
                 />
               </Box>
 
+              {/* Email Field */}
               <Box
                 component={motion.div}
                 initial={{ opacity: 0, y: 20 }}
@@ -169,6 +172,7 @@ const ContactUs = () => {
                 />
               </Box>
 
+              {/* Subject Field */}
               <Box
                 component={motion.div}
                 initial={{ opacity: 0, y: 20 }}
@@ -186,6 +190,7 @@ const ContactUs = () => {
                 />
               </Box>
 
+              {/* Message Field */}
               <Box
                 component={motion.div}
                 initial={{ opacity: 0, y: 20 }}
@@ -204,6 +209,7 @@ const ContactUs = () => {
                 />
               </Box>
 
+              {/* Submit Button */}
               <Box textAlign="center" mt={3}>
                 <Button
                   type="submit"
@@ -214,7 +220,8 @@ const ContactUs = () => {
                 >
                   {loading ? (
                     <>
-                      {t('contact.sending')} <CircularProgress size={20} style={{ marginLeft: '10px' }} />
+                      {t('contact.sending')}{' '}
+                      <CircularProgress size={20} style={{ marginLeft: '10px' }} />
                     </>
                   ) : (
                     t('contact_us.submit')
@@ -224,7 +231,12 @@ const ContactUs = () => {
             </form>
 
             {/* Social Icons at the Bottom of the Form */}
-            <Box className="social-links-box" display="flex" justifyContent="center" mt={2}>
+            <Box
+              className="social-links-box"
+              display="flex"
+              justifyContent="center"
+              mt={2}
+            >
               <IconButton
                 component="a"
                 href="https://www.linkedin.com/company/cyborg-it-l%C3%B6sungen/"
@@ -233,7 +245,7 @@ const ContactUs = () => {
                 className="social-icon"
                 aria-label="LinkedIn"
               >
-                <LinkedInIcon fontSize="large" style={{ color: '#0A66C2' }} /> {/* Added inline style */}
+                <LinkedInIcon fontSize="large" style={{ color: '#0A66C2' }} />
               </IconButton>
               <IconButton
                 component="a"
@@ -258,18 +270,6 @@ const ContactUs = () => {
               {status}
             </Typography>
           )}
-        </motion.section>
-      </Container>
-
-      {/* Additional Info or Map Section (Optional) */}
-      <Container maxWidth="lg">
-        <motion.section
-          className="additional-info-section"
-          variants={sectionVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          {/* ...additional content... */}
         </motion.section>
       </Container>
     </Layout>

@@ -20,7 +20,7 @@ const Footer = forwardRef(({ className = '' }, ref) => { // Added className prop
         <div className="footer-section contact-info">
           <h3>{t('footer.contact_info')}</h3>
           <p>+995 598 70 79 73</p>
-          <p>(WhatsApp)</p>
+          <p>(+ WhatsApp)</p>
           <p>
             Email:{' '}
             <a href="mailto:info@cyborg-it.de">info@cyborg-it.de</a>

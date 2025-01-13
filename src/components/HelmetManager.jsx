@@ -7,22 +7,29 @@ import { Helmet } from 'react-helmet-async';
  * @param {Object} props - Component props.
  * @param {string} props.title - The title of the page.
  * @param {string} props.description - The meta description.
+ * @param {string} [props.canonical] - The canonical URL of the page.
  * @param {Object} [props.openGraph] - Open Graph meta tags.
  * @param {Object} [props.twitter] - Twitter Card meta tags.
  * @param {Object} [props.structuredData] - Structured data scripts.
+ * @param {Array} [props.alternateLanguages] - Array of alternate language URLs for hreflang tags.
  */
 const HelmetManager = ({
   title,
   description,
+  canonical, // Added canonical prop
   openGraph = {},
   twitter = {},
   structuredData = {},
+  alternateLanguages = [], // For hreflang
 }) => {
   return (
     <Helmet>
       {title && <title>{title}</title>}
       {description && <meta name="description" content={description} />}
-
+      
+      {/* Canonical Tag */}
+      {canonical && <link rel="canonical" href={canonical} />}
+      
       {/* Open Graph Tags */}
       {openGraph.title && <meta property="og:title" content={openGraph.title} />}
       {openGraph.description && (
@@ -46,6 +53,16 @@ const HelmetManager = ({
           {JSON.stringify(structuredData)}
         </script>
       )}
+
+      {/* Hreflang Tags */}
+      {alternateLanguages.length > 0 && alternateLanguages.map((lang) => (
+        <link
+          key={lang.lang}
+          rel="alternate"
+          hrefLang={lang.lang}
+          href={lang.url}
+        />
+      ))}
     </Helmet>
   );
 };
