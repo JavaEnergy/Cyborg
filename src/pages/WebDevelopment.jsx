@@ -154,15 +154,9 @@ const WebDevelopment = () => {
         openGraph={{
           title: t('web_development.page_title'),
           description: t('web_development.page_description'),
-          image: 'https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png',
+          image: 'https://cyborg-it.de/assets/og-image.jpg', // Updated OG image URL
           url: canonicalUrl,
           type: 'website',
-        }}
-        twitter={{
-          card: 'summary_large_image',
-          title: t('web_development.page_title'),
-          description: t('web_development.page_description'),
-          image: 'https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png',
         }}
         structuredData={{
           '@context': 'https://schema.org',
@@ -284,7 +278,11 @@ const WebDevelopment = () => {
                     >
                       {selectedService.moreInfo}
                     </Typography>
-                    <Button variant="contained" color="primary" onClick={handleCloseModal}>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      onClick={handleCloseModal}
+                    >
                       {t('web_development.close')}
                     </Button>
                   </>

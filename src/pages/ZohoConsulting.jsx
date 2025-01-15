@@ -2,7 +2,7 @@
 
 import React, { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 // Import Material UI Components
 import {
@@ -16,15 +16,13 @@ import {
   Modal,
 } from '@mui/material';
 
+import { Email } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 import Layout from '../components/Layout';
 import ContactForm from '../components/ContactForm';
 import HelmetManager from '../components/HelmetManager';
 
 import './ZohoConsulting.css';
-
-// Import icons
-import { Email } from '@mui/icons-material';
 
 // Import images
 import zohoCRMImage from '../assets/images/crm.png';
@@ -38,6 +36,7 @@ const ZohoConsulting = () => {
   const currentLang = i18n.language;
   const contactRef = useRef(null);
   const location = useLocation();
+  const navigate = useNavigate();
 
   // Modal states
   const [openModal, setOpenModal] = useState(false);
@@ -134,6 +133,11 @@ const ZohoConsulting = () => {
     setOpenModal(false);
   };
 
+  // CTA button click
+  const handleCTAButtonClick = () => {
+    navigate(`/${currentLang}/contact-us`);
+  };
+
   return (
     <Layout>
       <HelmetManager
@@ -143,15 +147,9 @@ const ZohoConsulting = () => {
         openGraph={{
           title: t('zoho_consulting.page_title'),
           description: t('zoho_consulting.page_description'),
-          image: 'https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png',
+          image: 'https://cyborg-it.de/assets/og-image.jpg', // Updated OG image URL
           url: canonicalUrl,
           type: 'website',
-        }}
-        twitter={{
-          card: 'summary_large_image',
-          title: t('zoho_consulting.page_title'),
-          description: t('zoho_consulting.page_description'),
-          image: 'https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png',
         }}
         structuredData={{
           '@context': 'https://schema.org',
@@ -178,8 +176,8 @@ const ZohoConsulting = () => {
             variant="h2"
             component={motion.h1}
             initial={{ opacity: 0, y: -5 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.3 }}  // shorter duration
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }} // shorter duration
             align="center"
             color="white"
           >
@@ -216,13 +214,13 @@ const ZohoConsulting = () => {
             custom={2}
           >
             <Grid container spacing={4}>
-              {services.map((service, index) => (
+              {services.map((service) => (
                 <Grid
                   key={service.id}
                   item
                   xs={12}
                   // For example: first 2 items take half width (md=6), next 3 items take md=4
-                  md={index < 2 ? 6 : 4}
+                  md={service.id === 'zoho-crm' || service.id === 'zoho-marketing' ? 6 : 4}
                 >
                   <div id={service.id} className="service-section">
                     <motion.div
@@ -283,8 +281,9 @@ const ZohoConsulting = () => {
                 color="secondary"
                 startIcon={<Email />}
                 size="large"
-                href={`/${currentLang}/contact-us`}
+                onClick={handleCTAButtonClick} // Restored onClick handler
                 className="cta-button"
+                aria-label={t('zoho_consulting.contact_us')}
               >
                 {t('zoho_consulting.contact_us')}
               </Button>

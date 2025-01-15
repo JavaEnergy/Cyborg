@@ -1,5 +1,5 @@
 // src/pages/AboutUs.jsx
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import './AboutUs.css';
 import image1 from '../assets/images/laptop.jpg';
@@ -39,6 +39,11 @@ const AboutUs = () => {
     }),
   };
 
+  // Emit 'page-loaded' event after component mounts and meta tags are set
+  useEffect(() => {
+    window.dispatchEvent(new Event('page-loaded'));
+  }, []);
+
   return (
     <Layout>
       {/* HelmetManager Component for SEO */}
@@ -52,25 +57,11 @@ const AboutUs = () => {
           // Add more languages as needed
         ]}
         openGraph={{
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          "name": "Cyborg IT",
-          "url": "https://cyborg-it.de",
-          "logo": "https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png",
-          "sameAs": [
-            "https://www.linkedin.com/company/cyborg-it-l%C3%B6sungen/"
-          ],
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+995-598-70-79-79",
-            "contactType": "Customer Service"
-          }
-        }}
-        twitter={{
-          card: 'summary_large_image',
           title: t('about_us.page_title'),
           description: t('about_us.page_description'),
-          image: 'https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png',
+          image: 'https://cyborg-it.de/assets/Cyborg-og-image.jpg', // Correct OG image URL
+          url: `https://cyborg-it.de/de/about-us`,
+          type: 'website',
         }}
         structuredData={{
           "@context": "https://schema.org",

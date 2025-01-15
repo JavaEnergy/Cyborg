@@ -173,15 +173,9 @@ const ITConsulting = () => {
         openGraph={{
           title: t('it_consulting.page_title'),
           description: t('it_consulting.page_description'),
-          image: 'https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png',
+          image: 'https://cyborg-it.de/assets/og-image.jpg', // Updated OG image URL
           url: canonicalUrl,
           type: 'website',
-        }}
-        twitter={{
-          card: 'summary_large_image',
-          title: t('it_consulting.page_title'),
-          description: t('it_consulting.page_description'),
-          image: 'https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png',
         }}
         structuredData={{
           '@context': 'https://schema.org',
@@ -302,6 +296,11 @@ const ITConsulting = () => {
                         whileTap={{ scale: 0.95 }}
                         className="service-card"
                         onClick={() => handleOpenModal(service)}
+                        role="button"
+                        tabIndex={0}
+                        onKeyPress={(e) => {
+                          if (e.key === 'Enter') handleOpenModal(service);
+                        }}
                       >
                         <div className="service-icon">{service.icon}</div>
                         <CardMedia

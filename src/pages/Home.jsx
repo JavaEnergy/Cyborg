@@ -170,6 +170,11 @@ const Home = () => {
     // Add more languages as needed
   ];
 
+  // Emit 'page-loaded' event after component mounts and meta tags are set
+  useEffect(() => {
+    window.dispatchEvent(new Event('page-loaded'));
+  }, []);
+
   return (
     <Layout>
       <HelmetManager
@@ -179,15 +184,9 @@ const Home = () => {
         openGraph={{
           title: t('home.page_title'),
           description: t('home.page_description'),
-          image: 'https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png',
+          image: 'https://cyborg-it.de/assets/Cyborg-og-image.jpg', // Correct OG image URL
           url: canonicalUrl,
           type: 'website',
-        }}
-        twitter={{
-          card: 'summary_large_image',
-          title: t('home.page_title'),
-          description: t('home.page_description'),
-          image: 'https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png',
         }}
         structuredData={{
           "@context": "https://schema.org",
@@ -445,7 +444,14 @@ const Home = () => {
                 }`}
                 key={index}
               >
-                <h3 onClick={() => toggleFaq(index)} tabIndex={0} role="button">
+                <h3
+                  onClick={() => toggleFaq(index)}
+                  tabIndex={0}
+                  role="button"
+                  onKeyPress={(e) => {
+                    if (e.key === 'Enter') toggleFaq(index);
+                  }}
+                 >
                   <span>{t(`about_us.faq_question_${item}`)}</span>
                   <span className="faq-icon">
                     {openFaqIndex === index ? '−' : '+'}

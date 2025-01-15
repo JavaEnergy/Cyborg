@@ -1,6 +1,5 @@
 // src/pages/ContactUs.jsx
-
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Container, Typography, Button, Paper, IconButton, Box, CircularProgress } from '@mui/material';
 import { motion } from 'framer-motion';
@@ -40,6 +39,11 @@ const ContactUs = () => {
     },
   };
 
+  // Emit 'page-loaded' event after component mounts and meta tags are set
+  useEffect(() => {
+    window.dispatchEvent(new Event('page-loaded'));
+  }, []);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -76,38 +80,32 @@ const ContactUs = () => {
         title={t('contact_us.page_title')}
         description={t('contact_us.page_description')}
         canonical={canonicalUrl}
-        openGraph={{
-          title: t('contact_us.page_title'),
-          description: t('contact_us.page_description'),
-          image: 'https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png',
-          url: canonicalUrl,
-          type: 'website',
-        }}
-        twitter={{
-          card: 'summary_large_image',
-          title: t('contact_us.page_title'),
-          description: t('contact_us.page_description'),
-          image: 'https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png',
-        }}
-        structuredData={{
-          '@context': 'https://schema.org',
-          '@type': 'Organization',
-          name: 'Cyborg IT',
-          url: 'https://cyborg-it.de',
-          logo: 'https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png',
-          sameAs: [
-            'https://www.linkedin.com/company/cyborg-it-l%C3%B6sungen/',
-          ],
-          contactPoint: {
-            '@type': 'ContactPoint',
-            telephone: '+995-598-70-79-79',
-            contactType: 'Customer Service',
-          },
-        }}
         alternateLanguages={[
           { lang: 'de', url: 'https://cyborg-it.de/de/contact-us' },
           { lang: 'en', url: 'https://cyborg-it.de/en/contact-us' },
         ]}
+        openGraph={{
+          title: t('contact_us.page_title'),
+          description: t('contact_us.page_description'),
+          image: 'https://cyborg-it.de/assets/Cyborg-og-image.jpg', // Correct OG image URL
+          url: canonicalUrl,
+          type: 'website',
+        }}
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Cyborg IT",
+          "url": "https://cyborg-it.de",
+          "logo": "https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png",
+          "sameAs": [
+            "https://www.linkedin.com/company/cyborg-it-l%C3%B6sungen/"
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+995-598-70-79-79",
+            "contactType": "Customer Service"
+          }
+        }}
       />
 
       {/* Hero Section */}
