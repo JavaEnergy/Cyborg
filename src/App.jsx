@@ -40,9 +40,11 @@ const App = () => {
   }, [i18n.language]);
 
   // Redirect root ("/") to default language route (German: "/de")
-  if (pathname === '/') {
-    return <Navigate to="/de" replace />;
-  }
+  useEffect(() => {
+    if (pathname === '/') {
+      <Navigate to="/de" replace />;
+    }
+  }, [pathname]);
 
   // Initialize web vitals and log metrics to Firebase Analytics
   useEffect(() => {
