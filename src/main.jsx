@@ -1,12 +1,12 @@
 // src/index.jsx
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import { HelmetProvider } from 'react-helmet-async'; // Import HelmetProvider
 import './index.css';
-import './firebase';
-import { reportWebVitals } from './reportWebVitals'; // Import the report function
+import './firebase'; // Ensure Firebase is initialized
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -20,5 +20,5 @@ root.render(
   </React.StrictMode>
 );
 
-// Start measuring performance
-reportWebVitals();
+// Remove the call to reportWebVitals to prevent early execution
+// reportWebVitals();

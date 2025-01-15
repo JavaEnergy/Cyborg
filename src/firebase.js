@@ -1,7 +1,7 @@
 // src/firebase.js
 
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import { getAnalytics, logEvent as firebaseLogEvent } from "firebase/analytics";
 import { getPerformance } from "firebase/performance"; // Import Performance Monitoring
 
 // Your Firebase configuration
@@ -18,10 +18,17 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-// Initialize Google Analytics
+// Initialize Analytics
 const analytics = getAnalytics(app);
 
 // Initialize Performance Monitoring
 const performance = getPerformance(app);
 
-export { app, analytics, performance };
+// Function to log events
+const logEventCustom = (eventName, eventParams) => {
+  if (analytics) {
+    firebaseLogEvent(analytics, eventName, eventParams);
+  }
+};
+
+export { app, analytics, performance, logEventCustom as logEvent };

@@ -1,4 +1,5 @@
 // src/App.jsx
+
 import React, { useEffect } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Header from './components/Header/Header';
@@ -18,8 +19,8 @@ import ScrollToTop from './components/ScrollToTop';
 import CookieConsent from 'react-cookie-consent';
 
 // Firebase Analytics
-import { analytics } from './firebase';
-import { logEvent } from 'firebase/analytics';
+import { logEvent } from './firebase';
+import { reportWebVitals } from './reportWebVitals';
 
 const App = () => {
   const { pathname } = useLocation();
@@ -33,15 +34,6 @@ const App = () => {
     }
   }, [pathname, i18n]);
 
-  // Log page view event
-  useEffect(() => {
-    logEvent(analytics, 'page_view', {
-      page_path: pathname,
-      page_title: document.title || 'No Title',
-      language: i18n.language,
-    });
-  }, [pathname, i18n.language]);
-
   // Dynamically set the lang attribute
   useEffect(() => {
     document.documentElement.lang = i18n.language;
@@ -52,9 +44,29 @@ const App = () => {
     return <Navigate to="/de" replace />;
   }
 
+  // Initialize web vitals and log metrics to Firebase Analytics
+  useEffect(() => {
+    reportWebVitals(metric => {
+      const { name, value } = metric;
+      console.log(`${name}: ${value}`);
+      logEvent('web_vitals', {
+        metric_name: name,
+        metric_value: value,
+        url: window.location.href,
+      });
+    });
+
+    // Log page view event
+    logEvent('page_view', {
+      page_path: pathname,
+      page_title: document.title || 'No Title',
+      language: i18n.language,
+    });
+  }, [pathname, i18n.language]);
+
   return (
     <>
-      <Header className="exclude-spider" /> {/* Added className here */}
+      <Header className="exclude-spider" />
       <ScrollToTop />
 
       <div>
@@ -71,10 +83,9 @@ const App = () => {
         </Routes>
       </div>
 
-      {/* Pass className="exclude-spider" to Footer */}
       <Footer className="exclude-spider" />
 
-      {/* Cookie Consent Banner */}
+      {/* Cookie Consent Banner (Data Collection Ignored) */}
       <CookieConsent
         location="bottom"
         buttonText={t('cookieConsent.button')}
@@ -82,6 +93,7 @@ const App = () => {
         className="cookie-consent"
         buttonClasses="cookie-consent-button"
         expires={150}
+        // No onAccept handler since consent is ignored
       >
         <span className="cookie-message">
           {t('cookieConsent.message')}{' '}

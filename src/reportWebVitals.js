@@ -1,22 +1,19 @@
+// src/reportWebVitals.js
+
 import { getCLS, getFID, getFCP, getLCP, getTTFB } from 'web-vitals';
-import { logEvent } from 'firebase/analytics';
-import { analytics } from './firebase'; // Ensure correct path
 
-const sendToFirebase = (metric) => {
-  const { name, value } = metric;
-  console.log(`${name}: ${value}`);
-
-  logEvent(analytics, 'web_vitals', {
-    metric_name: name,
-    metric_value: value,
-    url: window.location.href,
-  });
+/**
+ * Reports web vitals metrics.
+ * @param {function} onPerfEntry - Callback function to handle the metric.
+ */
+const reportWebVitals = (onPerfEntry) => {
+  if (onPerfEntry && typeof onPerfEntry === 'function') {
+    getCLS(onPerfEntry);
+    getFID(onPerfEntry);
+    getFCP(onPerfEntry);
+    getLCP(onPerfEntry);
+    getTTFB(onPerfEntry);
+  }
 };
 
-export const reportWebVitals = () => {
-  getCLS(sendToFirebase);
-  getFID(sendToFirebase);
-  getFCP(sendToFirebase);
-  getLCP(sendToFirebase);
-  getTTFB(sendToFirebase);
-};
+export { reportWebVitals };
