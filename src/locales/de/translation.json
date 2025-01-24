@@ -54,7 +54,7 @@
     "faq_answer_2": "Sie können das Kontaktformular auf dieser Seite verwenden oder uns direkt eine E-Mail senden.",
     "faq_question_3": "Bieten Sie kundenspezifische Lösungen an?",
     "faq_answer_3": "Ja, wir passen unsere Dienstleistungen an Ihre spezifischen Bedürfnisse an.",
-    "project_2_more_info": "Bookly, entwickelt von Cyborg, ist eine funktionsreiche Flutter-Mobile-App, die es Benutzern ermöglicht, sich sicher zu registrieren und anzumelden, Passwörter zu verwalten, durch verschiedene Buchkategorien zu stöbern und zu suchen, Bücher basierend auf Präferenzen zu filtern, Bücher zu Wunschlisten hinzuzufügen, sichere Kreditkartenzahlungen durchzuführen, Lieferadressen zu speichern, Bestellungen aufzugeben und zu verfolgen, häufig gestellte Fragen zu finden und sich für Newsletter anzumelden."    
+    "project_2_more_info": "Bookly, entwickelt von 'Cyborg', ist eine funktionsreiche Flutter-Mobile-App, die es Benutzern ermöglicht, sich sicher zu registrieren und anzumelden, Passwörter zu verwalten, durch verschiedene Buchkategorien zu stöbern und zu suchen, Bücher basierend auf Präferenzen zu filtern, Bücher zu Wunschlisten hinzuzufügen, sichere Kreditkartenzahlungen durchzuführen, Lieferadressen zu speichern, Bestellungen aufzugeben und zu verfolgen, häufig gestellte Fragen zu finden und sich für Newsletter anzumelden."    
   },
   "footer": {
     "contact_info": "Kontaktinformationen",
@@ -213,7 +213,7 @@
     "faq_answer_6": "Ja, wir bieten laufende Wartungs- und Supportleistungen an, um sicherzustellen, dass Ihre Systeme reibungslos funktionieren. Dazu gehören Fehlerbehebungen, Sicherheitsupdates und auf Wunsch regelmäßige Optimierungen.",
   
     "faq_question_7": "Wie kann ich Sie erreichen?",
-    "faq_answer_7": "Sie können uns per E-Mail an info@cyborg.com, per WhatsApp unter +995 598 70 79 73 oder über das Formular auf unserer Kontaktseite erreichen. Falls Sie weitere Fragen oder Sonderwünsche haben, melden Sie sich jederzeit – wir helfen Ihnen gerne weiter."
+    "faq_answer_7": "Sie können uns per E-Mail an info@cyborg-it.de, per WhatsApp unter +995 598 70 79 73 oder über das Formular auf unserer Kontaktseite erreichen. Falls Sie weitere Fragen oder Sonderwünsche haben, melden Sie sich jederzeit – wir helfen Ihnen gerne weiter."
   ,"faq_contact_btn": "Jetzt kontaktieren",
     "faq_offer_btn": "Angebot anfragen"
     },
@@ -265,7 +265,7 @@
     "address_line1": "",
     "address_line2": "",
     "phone": "Telefon: (+995) 598-707973",
-    "email_contact": "E-Mail: info@cyborg.de",
+    "email_contact": "E-Mail: info@cyborg-it.de",
        "follow_us": "Folgen Sie uns"
   },
   "legal": {
@@ -319,7 +319,7 @@
     "privacy_policy_rights.restriction": "Recht auf Einschränkung der Verarbeitung: Sie haben das Recht, die Einschränkung der Verarbeitung Ihrer Daten zu verlangen, wenn die in Art. 18 DSGVO festgelegten Anforderungen erfüllt sind. Dies ist beispielsweise der Fall, wenn Sie die Richtigkeit Ihrer Daten bestreiten. Für die Dauer der Überprüfung der Richtigkeit der Daten können Sie die Einschränkung der Verarbeitung verlangen.",
     "privacy_policy_rights.object": "Recht auf Widerspruch: Wenn die Verarbeitung auf einem überwiegenden berechtigten Interesse beruht oder Ihre Daten für Zwecke der Direktwerbung verwendet werden, haben Sie das Recht, der Verarbeitung Ihrer Daten zu widersprechen.",
     "privacy_policy_rights.portability": "Recht auf Datenübertragbarkeit: Soweit die Datenverarbeitung aufgrund Ihrer Einwilligung oder der Erfüllung eines Vertrags erfolgt und dies auch unter Verwendung eines automatisierten Verarbeitungssystems geschieht, haben Sie das Recht, Ihre Daten in einem strukturierten, gängigen und maschinenlesbaren Format zu erhalten und diese Daten an einen anderen Datenverarbeitungsdienstleister zu übertragen.",
-    "privacy_policy_rights.revocation": "Recht auf Widerruf: Wenn die Datenverarbeitung aufgrund einer Einwilligung erfolgt, haben Sie das Recht, Ihre Einwilligung zur Datenverarbeitung mit Wirkung für die Zukunft jederzeit und kostenfrei zu widerrufen, indem Sie die folgende Adresse nutzen: info@cyborg.com.",
+    "privacy_policy_rights.revocation": "Recht auf Widerruf: Wenn die Datenverarbeitung aufgrund einer Einwilligung erfolgt, haben Sie das Recht, Ihre Einwilligung zur Datenverarbeitung mit Wirkung für die Zukunft jederzeit und kostenfrei zu widerrufen, indem Sie die folgende Adresse nutzen: info@cyborg-it.de.",
     "privacy_policy_rights.complain": "Recht auf Beschwerde: Sie haben auch das Recht, sich bei einer staatlichen Aufsichtsbehörde über unsere Verarbeitung Ihrer Daten zu beschweren.",
     
     "privacy_policy_international_transfers_title": "Internationale Übermittlungen",
@@ -361,7 +361,7 @@
     "severability_content": "Wenn eine Bestimmung, Klausel oder Formulierung dieser Nutzungsbedingungen für ungültig, illegal oder nicht durchsetzbar aus irgendeinem Grund befunden wird, hat diese Feststellung keinen Einfluss auf andere Bestimmungen, Klauseln oder Formulierungen dieser Nutzungsbedingungen.",
     
     "contact_us_title": "Kontaktieren Sie uns",
-    "contact_us_content": "Wenn Sie Fragen oder Kommentare zu diesen Nutzungsbedingungen haben, kontaktieren Sie uns bitte unter info@cyborg.com.\n\nWir können die Bedingungen gelegentlich aktualisieren, wobei Änderungen sofort nach der Veröffentlichung wirksam werden, sofern nicht anders angegeben. Wir empfehlen, die Bedingungen regelmäßig auf Aktualisierungen zu überprüfen. Wenn Sie den Bedingungen nicht zustimmen, beenden Sie die Nutzung der Website bitte sofort.\n\nVielen Dank für Ihre Aufmerksamkeit und die Nutzung unserer Website!",
+    "contact_us_content": "Wenn Sie Fragen oder Kommentare zu diesen Nutzungsbedingungen haben, kontaktieren Sie uns bitte unter info@cyborg-it.de.\n\nWir können die Bedingungen gelegentlich aktualisieren, wobei Änderungen sofort nach der Veröffentlichung wirksam werden, sofern nicht anders angegeben. Wir empfehlen, die Bedingungen regelmäßig auf Aktualisierungen zu überprüfen. Wenn Sie den Bedingungen nicht zustimmen, beenden Sie die Nutzung der Website bitte sofort.\n\nVielen Dank für Ihre Aufmerksamkeit und die Nutzung unserer Website!",
     
     "updated_date": "Zuletzt aktualisiert: 11. November 2024"
   },

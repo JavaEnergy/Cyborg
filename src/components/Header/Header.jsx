@@ -114,7 +114,7 @@ const Header = forwardRef(({ className = '' }, ref) => { // Added className prop
             </span>
             <span className="top-bar-contact">
               <a
-                href="https://wa.me/995598707973"
+                href="https://wa.me/995597011309"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"
