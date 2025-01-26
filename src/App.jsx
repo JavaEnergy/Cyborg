@@ -39,14 +39,7 @@ const App = () => {
     document.documentElement.lang = i18n.language;
   }, [i18n.language]);
 
-  // Redirect root ("/") to default language route (German: "/de")
-  useEffect(() => {
-    if (pathname === '/') {
-      <Navigate to="/de" replace />;
-    }
-  }, [pathname]);
-
-  // Initialize web vitals and log metrics to Firebase Analytics
+  // Log web vitals and page view events
   useEffect(() => {
     reportWebVitals(metric => {
       const { name, value } = metric;
@@ -73,6 +66,9 @@ const App = () => {
 
       <div>
         <Routes>
+          {/* Redirect root to default language */}
+          <Route path="/" element={<Navigate to="/de" replace />} />
+
           <Route path="/:lang" element={<Home />} />
           <Route path="/:lang/about-us" element={<AboutUs />} />
           <Route path="/:lang/it-consulting" element={<ITConsulting />} />
@@ -80,6 +76,7 @@ const App = () => {
           <Route path="/:lang/zoho-consulting" element={<ZohoConsulting />} />
           <Route path="/:lang/contact-us" element={<ContactUs />} />
           <Route path="/:lang/legal" element={<Legal />} />
+
           {/* Fallback route */}
           <Route path="*" element={<Navigate to="/de" replace />} />
         </Routes>

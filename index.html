@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cyborg IT Technology</title>
     <meta name="description" content="High-quality IT solutions, consulting, and web development services.">
+    
+    <!-- Corrected favicon path -->
     <link
       rel="shortcut icon"
-      href="/src/assets/images/logo/Cyborg-logo%2011-11.png"
+      href="/assets/images/logo/Cyborg-logo%2011-11.png"
       type="image/x-icon"
     />
     
@@ -20,19 +22,24 @@
         var f=d.getElementsByTagName(s)[0],
             j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
         j.async=true;
-        j.src=`https://www.googletagmanager.com/gtm.js?id=%VITE_GTM_ID%${dl}`;
+        j.src=`https://www.googletagmanager.com/gtm.js?id=GTM-MLKPSBWZ${dl}`;
         f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','%VITE_GTM_ID%');
+      })(window,document,'script','dataLayer','GTM-MLKPSBWZ');
     </script>
     <!-- End Google Tag Manager -->
     
     <!-- Default Open Graph Meta Tags -->
     <meta property="og:title" content="Cyborg IT Technology" />
     <meta property="og:description" content="High-quality IT solutions, consulting, and web development services." />
-    <meta property="og:image" content="https://cyborg-it.de/images/default-og-image.jpg" />
+    <meta property="og:image" content="https://cyborg-it.de/assets/images/default-og-image.jpg" />
     <meta property="og:url" content="https://cyborg-it.de/de" />
     <meta property="og:type" content="website" />
     <link rel="canonical" href="https://cyborg-it.de/de" />
+
+    <!-- Preload Critical Fonts -->
+    <link rel="preload" href="/assets/fonts/Overpass-Medium.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/Syne-Bold.woff2" as="font" type="font/woff2" crossorigin>
+
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->

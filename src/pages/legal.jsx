@@ -1,19 +1,14 @@
-// src/pages/Legal.jsx
-
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
-// (Optionally import MUI Typography/Container if you want MUI styling for text)
-// import { Container, Typography } from '@mui/material';
-
 import './legal.css';
 import HelmetManager from '../components/HelmetManager';
-import Layout from '../components/Layout'; // <-- Added Import
+import Layout from '../components/Layout';
 
 const Legal = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const location = useLocation();
 
   // Construct the canonical URL dynamically with language prefix
@@ -39,7 +34,7 @@ const Legal = () => {
   };
 
   return (
-    <Layout> {/* Ensure Layout is properly imported */}
+    <Layout>
       <HelmetManager
         title={t('legal.page_title')}
         description={t('legal.page_description')}
@@ -47,7 +42,7 @@ const Legal = () => {
         openGraph={{
           title: t('legal.page_title'),
           description: t('legal.page_description'),
-          image: 'https://cyborg-it.de/assets/og-image.jpg', // Updated OG image URL
+          image: 'https://cyborg-it.de/assets/og-image.jpg',
           url: canonicalUrl,
           type: 'website',
         }}
@@ -62,7 +57,7 @@ const Legal = () => {
           ],
           contactPoint: {
             '@type': 'ContactPoint',
-            telephone: '+995-598-70-79-79',
+            telephone: '+995-597-01-13-09',
             contactType: 'Customer Service',
           },
         }}

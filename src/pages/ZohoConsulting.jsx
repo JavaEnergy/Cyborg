@@ -1,10 +1,7 @@
-// src/pages/ZohoConsulting.jsx
-
 import React, { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-// Import Material UI Components
 import {
   Container,
   Typography,
@@ -12,7 +9,6 @@ import {
   Button,
   Card,
   CardContent,
-  CardMedia,
   Modal,
 } from '@mui/material';
 
@@ -147,7 +143,7 @@ const ZohoConsulting = () => {
         openGraph={{
           title: t('zoho_consulting.page_title'),
           description: t('zoho_consulting.page_description'),
-          image: 'https://cyborg-it.de/assets/og-image.jpg', // Updated OG image URL
+          image: 'https://cyborg-it.de/assets/og-image.jpg',
           url: canonicalUrl,
           type: 'website',
         }}
@@ -177,7 +173,7 @@ const ZohoConsulting = () => {
             component={motion.h1}
             initial={{ opacity: 0, y: -5 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }} // shorter duration
+            transition={{ duration: 0.3 }}
             align="center"
             color="white"
           >
@@ -219,8 +215,11 @@ const ZohoConsulting = () => {
                   key={service.id}
                   item
                   xs={12}
-                  // For example: first 2 items take half width (md=6), next 3 items take md=4
-                  md={service.id === 'zoho-crm' || service.id === 'zoho-marketing' ? 6 : 4}
+                  md={
+                    service.id === 'zoho-crm' || service.id === 'zoho-marketing'
+                      ? 6
+                      : 4
+                  }
                 >
                   <div id={service.id} className="service-section">
                     <motion.div
@@ -237,12 +236,18 @@ const ZohoConsulting = () => {
                       }}
                     >
                       <Card className="card">
-                        <CardMedia
-                          component="img"
-                          height="140"
-                          image={service.image}
+                        {/* Plain <img> for explicit dimensions */}
+                        <img
+                          src={service.image}
                           alt={service.alt}
                           loading="lazy"
+                          width="300"
+                          height="180"
+                          style={{
+                            objectFit: 'contain',
+                            width: '300px',
+                            height: '180px',
+                          }}
                         />
                         <CardContent>
                           <Typography variant="h5" gutterBottom>
@@ -281,7 +286,7 @@ const ZohoConsulting = () => {
                 color="secondary"
                 startIcon={<Email />}
                 size="large"
-                onClick={handleCTAButtonClick} // Restored onClick handler
+                onClick={handleCTAButtonClick}
                 className="cta-button"
                 aria-label={t('zoho_consulting.contact_us')}
               >

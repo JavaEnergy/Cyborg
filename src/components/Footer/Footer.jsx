@@ -8,19 +8,19 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import EmailIcon from '@mui/icons-material/Email';
 
-// Use forwardRef to allow refs to be passed to the Footer component
-const Footer = forwardRef(({ className = '' }, ref) => { // Added className prop
+const Footer = forwardRef(({ className = '' }, ref) => {
   const { t, i18n } = useTranslation();
   const currentLang = i18n.language;
 
   return (
-    <footer ref={ref} className={`footer ${className} exclude-spider`}> {/* Added exclude-spider class */}
+    <footer ref={ref} className={`footer ${className} exclude-spider`}>
       <div className="footer-container">
         {/* Contact Information */}
         <div className="footer-section contact-info">
           <h3>{t('footer.contact_info')}</h3>
           <p>+995 597 01 13 09</p>
           <p>(+ WhatsApp, iMessage)</p>
+          <br />
           <p>
             Email:{' '}
             <a href="mailto:info@cyborg-it.de">info@cyborg-it.de</a>
@@ -43,8 +43,8 @@ const Footer = forwardRef(({ className = '' }, ref) => { // Added className prop
               <LinkedInIcon fontSize="large" />
             </a>
             <a
-                href="https://wa.me/995597011309"
-                target="_blank"
+              href="https://wa.me/995597011309"
+              target="_blank"
               rel="noopener noreferrer"
               aria-label="WhatsApp"
             >
@@ -107,7 +107,6 @@ const Footer = forwardRef(({ className = '' }, ref) => { // Added className prop
   );
 });
 
-// Assign a display name for better debugging
 Footer.displayName = 'Footer';
 
 export default Footer;

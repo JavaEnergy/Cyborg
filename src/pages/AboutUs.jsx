@@ -1,4 +1,3 @@
-// src/pages/AboutUs.jsx
 import React, { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import './AboutUs.css';
@@ -7,13 +6,13 @@ import image2 from '../assets/images/hand.png';
 import { motion } from 'framer-motion';
 import Layout from '../components/Layout';
 import ContactForm from '../components/ContactForm';
-import HelmetManager from '../components/HelmetManager'; // Import HelmetManager
-import { useLocation } from 'react-router-dom'; // Import useLocation
+import HelmetManager from '../components/HelmetManager';
+import { useLocation } from 'react-router-dom';
 
 const AboutUs = () => {
   const { t, i18n } = useTranslation();
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
-  const location = useLocation(); // Initialize useLocation
+  const location = useLocation();
 
   // Ref for the contact section (if needed for scrolling)
   const contactRef = useRef(null);
@@ -39,27 +38,26 @@ const AboutUs = () => {
     }),
   };
 
-  // Emit 'page-loaded' event after component mounts and meta tags are set
+  // Emit 'page-loaded' event after component mounts
   useEffect(() => {
     window.dispatchEvent(new Event('page-loaded'));
   }, []);
 
   return (
     <Layout>
-      {/* HelmetManager Component for SEO */}
+      {/* HelmetManager for SEO */}
       <HelmetManager
         title={t('about_us.page_title')}
         description={t('about_us.page_description')}
-        canonical={`https://cyborg-it.de${location.pathname}`} // Added canonical
+        canonical={`https://cyborg-it.de${location.pathname}`}
         alternateLanguages={[
           { lang: 'de', url: 'https://cyborg-it.de/de/about-us' },
           { lang: 'en', url: 'https://cyborg-it.de/en/about-us' },
-          // Add more languages as needed
         ]}
         openGraph={{
           title: t('about_us.page_title'),
           description: t('about_us.page_description'),
-          image: 'https://cyborg-it.de/assets/Cyborg-og-image.jpg', // Correct OG image URL
+          image: 'https://cyborg-it.de/assets/Cyborg-og-image.jpg',
           url: `https://cyborg-it.de/de/about-us`,
           type: 'website',
         }}
@@ -105,7 +103,15 @@ const AboutUs = () => {
       >
         <div className="about-content-container">
           <div className="about-image-content">
-            <img src={image1} alt={t('about_us.image1_alt')} id="firstimg" loading="lazy" />
+            {/* Using explicit dimensions */}
+            <img
+              src={image1}
+              alt={t('about_us.image1_alt')}
+              id="firstimg"
+              loading="lazy"
+              width="500"
+              height="333"
+            />
           </div>
           <div className="about-text-content">
             <h2>{t('about_us.about_title')}</h2>
@@ -142,12 +148,19 @@ const AboutUs = () => {
             <p>{t('about_us.mission_text3')}</p>
           </div>
           <div className="about-image-content">
-            <img src={image2} alt={t('about_us.image2_alt')} className="circle-image" loading="lazy" />
+            <img
+              src={image2}
+              alt={t('about_us.image2_alt')}
+              className="circle-image"
+              loading="lazy"
+              width="250"
+              height="250"
+            />
           </div>
         </div>
       </motion.section>
 
-      {/* FAQ Section */}
+      {/* FAQ Section (Old Design) */}
       <motion.section
         className="about-faq-section"
         variants={sectionVariants}

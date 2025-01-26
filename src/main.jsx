@@ -19,7 +19,3 @@ root.render(
     </HelmetProvider>
   </React.StrictMode>
 );
-
-
-// Remove the call to reportWebVitals to prevent early execution
-// reportWebVitals();

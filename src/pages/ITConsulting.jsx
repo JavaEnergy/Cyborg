@@ -1,5 +1,3 @@
-// src/pages/ITConsulting.jsx
-
 import React, { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -11,12 +9,10 @@ import {
   Grid,
   Card,
   CardContent,
-  CardMedia,
   Button,
   Modal,
 } from '@mui/material';
 
-// Import MUI Icons
 import {
   Cloud,
   SmartToy,
@@ -89,6 +85,7 @@ const ITConsulting = () => {
   // Modal state and handlers
   const [openModal, setOpenModal] = useState(false);
   const [selectedService, setSelectedService] = useState(null);
+
   const handleOpenModal = (service) => {
     setSelectedService(service);
     setOpenModal(true);
@@ -100,7 +97,6 @@ const ITConsulting = () => {
 
   // CTA button click handler
   const handleCTAButtonClick = () => {
-    // Navigate to contact page with language prefix
     navigate(`/${currentLang}/contact-us`);
   };
 
@@ -113,7 +109,7 @@ const ITConsulting = () => {
     { lang: 'en', url: 'https://cyborg-it.de/en/it-consulting' },
   ];
 
-  // Services data (for the 5 consulting cards)
+  // Services data
   const services = [
     {
       id: 'software-development-consulting',
@@ -173,7 +169,7 @@ const ITConsulting = () => {
         openGraph={{
           title: t('it_consulting.page_title'),
           description: t('it_consulting.page_description'),
-          image: 'https://cyborg-it.de/assets/og-image.jpg', // Updated OG image URL
+          image: 'https://cyborg-it.de/assets/og-image.jpg',
           url: canonicalUrl,
           type: 'website',
         }}
@@ -232,6 +228,8 @@ const ITConsulting = () => {
                   alt={t('it_consulting.from_idea_to_implementation_alt')}
                   className="section-image"
                   loading="lazy"
+                  width="600"
+                  height="400"
                 />
               </Grid>
             </Grid>
@@ -262,6 +260,8 @@ const ITConsulting = () => {
                   alt={t('it_consulting.it_strategy_alt')}
                   className="section-image"
                   loading="lazy"
+                  width="600"
+                  height="400"
                 />
               </Grid>
             </Grid>
@@ -284,7 +284,6 @@ const ITConsulting = () => {
               {t('it_consulting.content_for_software_consulting')}
             </Typography>
 
-            {/* Services Cards */}
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }}>
               <Grid container spacing={4} justifyContent="center">
                 {services.map((service) => (
@@ -303,16 +302,19 @@ const ITConsulting = () => {
                         }}
                       >
                         <div className="service-icon">{service.icon}</div>
-                        <CardMedia
-                          component="img"
-                          height="140"
-                          image={service.image}
+                        {/* <img> with explicit dimensions */}
+                        <img
+                          src={service.image}
                           alt={service.title}
+                          loading="lazy"
+                          width="300"
+                          height="200"
                           style={{
                             objectFit:
                               service.image === cloudConsultingImage ? 'contain' : 'cover',
+                            width: '300px',
+                            height: '200px',
                           }}
-                          loading="lazy"
                         />
                         <CardContent>
                           <Typography variant="h6" component="h3" gutterBottom>
@@ -390,13 +392,17 @@ const ITConsulting = () => {
                     <div className="service-icon">
                       <Security fontSize="large" color="primary" />
                     </div>
-                    <CardMedia
-                      component="img"
-                      height="140"
-                      image={itSecurityImage}
+                    <img
+                      src={itSecurityImage}
                       alt={t('it_consulting.it_security_alt')}
-                      style={{ objectFit: 'contain' }}
                       loading="lazy"
+                      width="300"
+                      height="200"
+                      style={{
+                        objectFit: 'contain',
+                        width: '300px',
+                        height: '200px',
+                      }}
                     />
                     <CardContent>
                       <Typography variant="h6" component="h3" gutterBottom>

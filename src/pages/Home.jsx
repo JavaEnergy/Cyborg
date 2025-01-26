@@ -1,22 +1,23 @@
 // src/pages/Home.jsx
+
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink, useLocation } from 'react-router-dom';
 import './Home.css';
 import initSpiderEffect from '../assets/codes/interactive spider';
 import { motion } from 'framer-motion';
-import AccordionComponent from '../components/AccordionComponent'; // Import the accordion component
+import AccordionComponent from '../components/AccordionComponent';
 import Layout from '../components/Layout';
 import ContactForm from '../components/ContactForm';
-import HelmetManager from '../components/HelmetManager'; // Import HelmetManager
+import HelmetManager from '../components/HelmetManager';
 
 // MUI Components
 import { Modal, Box, Typography, Button } from '@mui/material';
 
 // Images
 import backgroundImage from '../assets/images/bg.jpg';
-import itConsultingIcon from '../assets/images/it Consulting.png';
-import webDevelopmentIcon from '../assets/images/web Development.png';
+import itConsultingIcon from '../assets/images/it-consulting.png';
+import webDevelopmentIcon from '../assets/images/web-development.png';
 import itServicesIcon from '../assets/images/zoho-hm.png';
 
 // Import accordion images
@@ -40,40 +41,33 @@ const Home = () => {
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
   const [openProjectModal, setOpenProjectModal] = useState(false);
 
-  // State to track if the device is mobile
+  // Track mobile device
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-
-  // Update isMobile state on window resize
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
     };
-
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Update hovered state based on mouse movement and modal state
+  // Manage spider effect based on mouse movement
   useEffect(() => {
     const handleMouseMove = (event) => {
-      // Detect if any modal is open by checking for elements with role="dialog" and aria-modal="true"
+      // Check if a modal is open
       const anyModalOpen = document.querySelector('[role="dialog"][aria-modal="true"]') !== null;
-
       if (isMobile || openProjectModal || anyModalOpen) {
-        // Do not activate spider effect on mobile, when Project 2 modal is open, or when any modal is open
         setHovered(false);
         return;
       }
-
       const isOverExcluded = event.target.closest('.exclude-spider');
       setHovered(!isOverExcluded);
     };
-
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, [isMobile, openProjectModal]);
 
-  // Initialize/cleanup spider effect based on hovered state
+  // Initialize spider effect if hovered
   useEffect(() => {
     let cleanup;
     if (hovered) {
@@ -87,7 +81,7 @@ const Home = () => {
         canvas.style.width = '100%';
         canvas.style.height = '100%';
         canvas.style.pointerEvents = 'none';
-        canvas.style.zIndex = '999'; // Reduced z-index from 9999 to 999
+        canvas.style.zIndex = '999';
         document.body.appendChild(canvas);
       } else {
         canvas.style.display = 'block';
@@ -128,7 +122,7 @@ const Home = () => {
     }),
   };
 
-  // Data for AccordionComponent
+  // Accordion items
   const accordionItems = [
     { id: 1, img: accImage1, alt: t('home.accordion_image_alt_1') },
     { id: 2, img: accImage2, alt: t('home.accordion_image_alt_2') },
@@ -136,41 +130,27 @@ const Home = () => {
     { id: 4, img: accImage4, alt: t('home.accordion_image_alt_4') },
   ];
 
-  // Handlers for Project 2 Modal
+  // Modal for Project 2
   const handleOpenProjectModal = () => {
     setOpenProjectModal(true);
   };
-
   const handleCloseProjectModal = () => {
     setOpenProjectModal(false);
   };
-
-  // Data for Project 2's modal
   const project2MoreInfo = {
     title: t('home.project_2_title'),
-    description: t('home.project_2_more_info'), // Ensure this key exists in your translation files
-    images: [
-      project2Img6,
-      project2Img2,
-      project2Img1,
-      project2Img5,
-      project2Img3,
-      project2Img4,
-      // Add more image imports as needed
-    ],
+    description: t('home.project_2_more_info'),
+    images: [project2Img6, project2Img2, project2Img1, project2Img5, project2Img3, project2Img4],
   };
 
-  // Construct the canonical URL dynamically with language prefix
+  // Canonical + alternate
   const canonicalUrl = `https://cyborg-it.de${pathname}`;
-
-  // Define alternate languages for hreflang tags
   const alternateLanguages = [
     { lang: 'de', url: 'https://cyborg-it.de/de' },
     { lang: 'en', url: 'https://cyborg-it.de/en' },
-    // Add more languages as needed
   ];
 
-  // Emit 'page-loaded' event after component mounts and meta tags are set
+  // Emit 'page-loaded'
   useEffect(() => {
     window.dispatchEvent(new Event('page-loaded'));
   }, []);
@@ -184,7 +164,7 @@ const Home = () => {
         openGraph={{
           title: t('home.page_title'),
           description: t('home.page_description'),
-          image: 'https://cyborg-it.de/assets/Cyborg-og-image.jpg', // Correct OG image URL
+          image: 'https://cyborg-it.de/assets/Cyborg-og-image.jpg',
           url: canonicalUrl,
           type: 'website',
         }}
@@ -199,7 +179,7 @@ const Home = () => {
           ],
           "contactPoint": {
             "@type": "ContactPoint",
-            "telephone": "+995-598-70-79-79",
+            "telephone": "+995-597-01-13-09",
             "contactType": "Customer Service"
           }
         }}
@@ -230,7 +210,13 @@ const Home = () => {
             variants={sectionVariants}
             custom={1}
           >
-            <img src={backgroundImage} alt={t('home.image_alt')} loading="lazy" />
+            <img
+              src={backgroundImage}
+              alt={t('home.image_alt')}
+              loading="lazy"
+              width="1200"
+              height="800"
+            />
           </motion.div>
 
           <motion.div
@@ -267,6 +253,8 @@ const Home = () => {
                 src={itConsultingIcon}
                 alt={t('home.service_it_consulting_alt')}
                 loading="lazy"
+                width="80"
+                height="80"
               />
               <h3>{t('home.service_it_consulting_title')}</h3>
               <p>{t('home.service_it_consulting_description')}</p>
@@ -277,6 +265,8 @@ const Home = () => {
                 src={webDevelopmentIcon}
                 alt={t('home.service_web_development_alt')}
                 loading="lazy"
+                width="80"
+                height="80"
               />
               <h3>{t('home.service_web_development_title')}</h3>
               <p>{t('home.service_web_development_description')}</p>
@@ -288,6 +278,8 @@ const Home = () => {
                 src={itServicesIcon}
                 alt={t('home.service_it_services_alt')}
                 loading="lazy"
+                width="100"
+                height="100"
               />
               <h3>{t('home.service_it_services_title')}</h3>
               <p>{t('home.service_it_services_description')}</p>
@@ -297,7 +289,7 @@ const Home = () => {
 
         {/* Projects Section */}
         <motion.section
-          className="projects-section exclude-spider" // Added exclude-spider class
+          className="projects-section exclude-spider"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -335,7 +327,7 @@ const Home = () => {
             </article>
 
             {/* Second Project - Project 2 */}
-            <article className="project-item project-2 exclude-spider"> {/* Added exclude-spider class */}
+            <article className="project-item project-2 exclude-spider">
               <div className="project-content">
                 <h3>{t('home.project_2_title')}</h3>
                 <p>{t('home.project_2_description')}</p>
@@ -392,7 +384,7 @@ const Home = () => {
           aria-labelledby="project-modal-title"
           aria-describedby="project-modal-description"
         >
-          <Box className="project-modal-box exclude-spider"> {/* Added exclude-spider class */}
+          <Box className="project-modal-box exclude-spider">
             <Typography id="project-modal-title" variant="h4" gutterBottom>
               {project2MoreInfo.title}
             </Typography>
@@ -400,7 +392,6 @@ const Home = () => {
               {project2MoreInfo.description}
             </Typography>
 
-            {/* Display additional images if available */}
             {project2MoreInfo.images && project2MoreInfo.images.length > 0 && (
               <Box className="project-modal-images">
                 {project2MoreInfo.images.map((img, idx) => (
@@ -408,8 +399,10 @@ const Home = () => {
                     key={idx}
                     src={img}
                     alt={`${project2MoreInfo.title} detail ${idx + 1}`}
-                    className="project-modal-image exclude-spider" // Added exclude-spider class
+                    className="project-modal-image exclude-spider"
                     loading="lazy"
+                    width="600"
+                    height="400"
                   />
                 ))}
               </Box>
@@ -426,9 +419,9 @@ const Home = () => {
           </Box>
         </Modal>
 
-        {/* FAQ Section */}
+        {/* FAQ Section (Old Design) */}
         <motion.section
-          className="about-faq-section exclude-spider" // Added exclude-spider class
+          className="about-faq-section exclude-spider"
           variants={sectionVariants}
           initial="hidden"
           whileInView="visible"
@@ -446,12 +439,12 @@ const Home = () => {
               >
                 <h3
                   onClick={() => toggleFaq(index)}
-                  tabIndex={0}
                   role="button"
+                  tabIndex={0}
                   onKeyPress={(e) => {
                     if (e.key === 'Enter') toggleFaq(index);
                   }}
-                 >
+                >
                   <span>{t(`about_us.faq_question_${item}`)}</span>
                   <span className="faq-icon">
                     {openFaqIndex === index ? '−' : '+'}
@@ -476,7 +469,7 @@ const Home = () => {
 
         {/* Contact Section */}
         <motion.section
-          className="contact-section exclude-spider" // Added exclude-spider class
+          className="contact-section exclude-spider"
           variants={sectionVariants}
           initial="hidden"
           whileInView="visible"
@@ -487,10 +480,6 @@ const Home = () => {
           <ContactForm />
         </motion.section>
       </main>
-
-      {/* Project 2 Modal is already included above */}
-      {/* Remove Footer from Home.jsx since it's rendered globally in App.jsx */}
-      {/* <Footer ref={footerRef1} /> */}
     </Layout>
   );
 };

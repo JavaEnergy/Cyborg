@@ -1,17 +1,13 @@
-// src/pages/WebDevelopment.jsx
-
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-// Import Material UI Components
 import {
   Container,
   Typography,
   Grid,
   Card,
   CardContent,
-  CardMedia,
   Button,
   Accordion,
   AccordionSummary,
@@ -31,8 +27,6 @@ import { motion } from 'framer-motion';
 
 import Layout from '../components/Layout';
 import './WebDevelopment.css';
-// If you use useScrollSpy, ensure it's defined or remove it
-// import useScrollSpy from '../hooks/useScrollSpy';
 import ContactForm from '../components/ContactForm';
 import HelmetManager from '../components/HelmetManager';
 
@@ -53,7 +47,7 @@ const WebDevelopment = () => {
   const [openModal, setOpenModal] = useState(false);
   const [selectedService, setSelectedService] = useState(null);
 
-  // Framer Motion animation variants
+  // Framer Motion variants
   const sectionVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: (custom = 0) => ({
@@ -79,7 +73,7 @@ const WebDevelopment = () => {
   // Construct the canonical URL
   const canonicalUrl = `https://cyborg-it.de${location.pathname}`;
 
-  // Hreflang array (assuming DE/EN)
+  // Hreflang array
   const alternateLanguages = [
     { lang: 'de', url: 'https://cyborg-it.de/de/web-development' },
     { lang: 'en', url: 'https://cyborg-it.de/en/web-development' },
@@ -154,7 +148,7 @@ const WebDevelopment = () => {
         openGraph={{
           title: t('web_development.page_title'),
           description: t('web_development.page_description'),
-          image: 'https://cyborg-it.de/assets/og-image.jpg', // Updated OG image URL
+          image: 'https://cyborg-it.de/assets/og-image.jpg',
           url: canonicalUrl,
           type: 'website',
         }}
@@ -228,13 +222,19 @@ const WebDevelopment = () => {
                         className="service-card"
                       >
                         <div className="service-icon">{service.icon}</div>
-                        <CardMedia
-                          component="img"
-                          height="140"
-                          image={service.image}
+                        {/* <img> with explicit dimensions */}
+                        <img
+                          src={service.image}
                           alt={service.title}
-                          className="card-media"
                           loading="lazy"
+                          width="300"
+                          height="200"
+                          className="card-media"
+                          style={{
+                            objectFit: 'contain',
+                            width: '300px',
+                            height: '200px',
+                          }}
                         />
                         <CardContent>
                           <Typography variant="h5" component="h3" gutterBottom>

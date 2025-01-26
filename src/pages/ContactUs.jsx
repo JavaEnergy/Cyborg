@@ -1,4 +1,3 @@
-// src/pages/ContactUs.jsx
 import React, { useRef, useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Container, Typography, Button, Paper, IconButton, Box, CircularProgress } from '@mui/material';
@@ -247,7 +246,7 @@ const ContactUs = () => {
               </IconButton>
               <IconButton
                 component="a"
-                href="https://wa.me/995598707973"
+                href="https://wa.me/995597011309"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-icon"

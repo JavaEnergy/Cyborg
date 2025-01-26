@@ -1,4 +1,5 @@
 // src/components/Header/Header.jsx
+
 import { useState, useEffect, forwardRef, useMemo } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
@@ -15,7 +16,7 @@ import logoDark from '../../assets/images/logo/Cyborg-logo 10-10.png'; // Dark l
 import logode from '../../assets/images/germany_round_icon_640.png';
 import logouk from '../../assets/images/united_kingdom_round_icon_640.png';
 
-const Header = forwardRef(({ className = '' }, ref) => { // Added className prop
+const Header = forwardRef(({ className = '' }, ref) => {
   const { t, i18n } = useTranslation();
   const { pathname, hash } = useLocation();
   const navigate = useNavigate();
@@ -100,7 +101,7 @@ const Header = forwardRef(({ className = '' }, ref) => { // Added className prop
   return (
     <>
       {/* Top Bar */}
-      <div className={`top-bar ${className}`}> {/* Added className */}
+      <div className={`top-bar ${className}`}>
         <div className="top-bar-content">
           <span className="top-bar-message">{topBarMessage}</span>
           <div className="top-bar-contact-group">
@@ -130,14 +131,14 @@ const Header = forwardRef(({ className = '' }, ref) => { // Added className prop
       </div>
 
       {/* Horizontal Rule between Top Bar and Header */}
-      <hr className={`topbar-hr ${className}`} /> {/* Added className */}
+      <hr className={`topbar-hr ${className}`} />
 
       {/* Main Header */}
-      <header ref={ref} className={`header ${isScrolled ? 'scrolled' : ''} ${className}`}> {/* Added className */}
+      <header ref={ref} className={`header ${isScrolled ? 'scrolled' : ''} ${className}`}>
         <div className="header-container">
           {/* Mobile Language Switcher */}
           {isMobile && (
-            <div className="language-switch mobile-language-switch exclude-spider"> {/* Added exclude-spider */}
+            <div className="language-switch mobile-language-switch exclude-spider">
               <button
                 className={currentLang === 'de' ? 'active' : ''}
                 onClick={() => changeLanguage('de')}
@@ -146,6 +147,8 @@ const Header = forwardRef(({ className = '' }, ref) => { // Added className prop
                 <img
                   src={logode}
                   alt="German flag for language selection"
+                  width="50"
+                  height="50"
                 />
               </button>
               <button
@@ -156,6 +159,8 @@ const Header = forwardRef(({ className = '' }, ref) => { // Added className prop
                 <img
                   src={logouk}
                   alt="English flag for language selection"
+                  width="50"
+                  height="50"
                 />
               </button>
             </div>
@@ -183,6 +188,8 @@ const Header = forwardRef(({ className = '' }, ref) => { // Added className prop
             <img
               src={isScrolled ? logoDark : logo}
               alt="Cyborg Automation logo"
+              width="250"
+              height="90"
             />
           </div>
 
@@ -494,7 +501,7 @@ const Header = forwardRef(({ className = '' }, ref) => { // Added className prop
               </nav>
 
               {/* Language Switcher for Desktop */}
-              <div className="language-switch desktop-language-switch exclude-spider"> {/* Added exclude-spider class */}
+              <div className="language-switch desktop-language-switch exclude-spider">
                 <button
                   className={currentLang === 'de' ? 'active' : ''}
                   onClick={() => changeLanguage('de')}
@@ -503,6 +510,8 @@ const Header = forwardRef(({ className = '' }, ref) => { // Added className prop
                   <img
                     src={logode}
                     alt="German flag for language selection"
+                    width="50"
+                    height="50"
                   />
                 </button>
                 <button
@@ -513,6 +522,8 @@ const Header = forwardRef(({ className = '' }, ref) => { // Added className prop
                   <img
                     src={logouk}
                     alt="English flag for language selection"
+                    width="50"
+                    height="50"
                   />
                 </button>
               </div>

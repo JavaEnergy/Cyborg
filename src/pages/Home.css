@@ -1,16 +1,24 @@
-/* Home Page Styling */
+/* src/pages/Home.css */
+
+/* Existing CSS Reset and other styles remain unchanged */
+
+/* Hero Section */
 .hero {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  /* Try setting a fixed min-height to reserve space before the image loads */
+  min-height: 80vh;
   padding: 20px;
   background-image: url('../assets/images/codesurf-caia_image-alamy.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+
+  /* COMMENT OUT to reduce layout shift issues, especially on mobile 
+     background-attachment: fixed; 
+  */
 }
 
 .hero::before {
@@ -32,16 +40,18 @@
 }
 
 .hero-content h1 {
-  font-family: 'Overpass-black';
+  font-family: 'Overpass', sans-serif; /* Updated from 'Overpass-black' */
   font-size: 6rem;
   line-height: 1.1;
   margin-bottom: 2rem;
   word-break: break-word;
   white-space: pre-line;
-
+  font-weight: 700;
+  width: 800px;
 }
 
 .hero-content h1.de {
+  font-family: 'Overpass', sans-serif; /* Ensure consistent font family */
   font-size: 5.5rem;
   line-height: 1.2;
   word-spacing: -0.02em;
@@ -94,7 +104,8 @@
   background-color: #f9f9f9;
 }
 
-.services-overview h2,.projects-section h2  {
+.services-overview h2,
+.projects-section h2 {
   font-size: 2.5rem;
   margin-bottom: 50px;
   color: #D4B051;
@@ -104,7 +115,6 @@
 .projects-section h2 {
   margin-top: 30px;
 }
-
 
 .services-list {
   display: flex;
@@ -132,7 +142,7 @@
 }
 
 .service-item img {
-  width: 80px;
+  width: 80px; /* May be overridden by inline width/height, but helps fallback */
   height: 80px;
   margin-bottom: 20px;
 }
@@ -162,7 +172,6 @@
   margin: 0 auto;
 }
 
-
 .project-item {
   background-color: #fff;
   border-radius: 10px;
@@ -171,43 +180,13 @@
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-/* Modal Styles */
-.project-modal-box {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: #fff;
-  padding: 24px;
-  border-radius: 8px;
-  outline: none;
-  width: 60vw; /* Adjusted for better fit */
-  max-width: 800px; /* Increased max-width for larger images */
-  max-height: 85vh;
-  overflow-y: auto;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+
+.project-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+  cursor: default;
 }
 
-.project-modal-images {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  margin-top: 16px;
-  justify-content: center; /* Center images horizontally */
-}
-
-.project-modal-image {
-  width: auto; /* Remove width: 100% to maintain natural size */
-  max-width: 100%; /* Ensure image doesn't exceed container's width */
-  height: auto; /* Maintain aspect ratio */
-  border-radius: 4px;
-  object-fit: contain; /* Prevent image distortion */
-}
-
-/* Ensure the accordion section doesn't interfere with other styles */
-.accordion-section {
-  margin: 40px 0;
-}
 /* Desktop Layout:
    - First project: full width on the first row
    - Second and third projects: two columns on the next row
@@ -221,17 +200,12 @@
   flex: 1 1 calc((100% - 40px) / 2);
 }
 
-.project-item:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 6px 10px rgba(0,0,0,0.15);
-  cursor: default;
-}
-
 .project-content h3 {
   font-size: 1.5rem;
   color: #333;
   margin-bottom: 10px;
   text-align: center;
+  
 }
 
 .project-content p {
@@ -239,6 +213,8 @@
   color: #555;
   line-height: 1.5;
   text-align: center;
+  margin-bottom: 10px;
+
 }
 
 .project-content button {
@@ -255,41 +231,37 @@
   background-color: #b89242;
 }
 
-/* Contact section */
-.contact-section h2 {
-  font-size: 2rem;
-  margin-bottom: 30px;
-  color: #D4B051;
-  text-align: center;
+/* Modal Styles */
+.project-modal-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 24px;
+  border-radius: 8px;
+  outline: none;
+  width: 60vw;
+  max-width: 800px;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
-.contact-form {
-  max-width: 600px;
-  margin: 0 auto;
+.project-modal-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 16px;
+  justify-content: center;
 }
 
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 15px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 1rem;
-}
-
-.contact-form button {
-  background-color: #D4B051;
-  color: #fff;
-  padding: 15px 30px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1rem;
-}
-
-.contact-form button:hover {
-  background-color: #b89242;
+.project-modal-image {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  object-fit: contain;
 }
 
 /* FAQ Section */
@@ -347,16 +319,55 @@
   display: block;
 }
 
+.about-faq-item h3 {
+  font-weight: 600;
+}
+
+/* Contact section */
+.contact-section h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #D4B051;
+  text-align: center;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.contact-form button {
+  background-color: #D4B051;
+  color: #fff;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.contact-form button:hover {
+  background-color: #b89242;
+}
+
 /* Responsive Design */
 @media (max-width: 1200px) {
   .hero-content h1 {
     font-size: 5rem;
   }
-
   .text-container h2 {
     font-size: 2.2rem;
   }
-
   .services-overview h2,
   .projects-section h2 {
     font-size: 2.2rem;
@@ -364,223 +375,175 @@
 }
 
 @media (max-width: 992px) {
-  .hero-content h1, .hero-content h1.de {
+  .hero-content h1,
+  .hero-content h1.de {
     font-size: 4rem;
   }
-
   .text-container h2 {
     font-size: 2rem;
   }
   .text-container {
     flex: 0;
-      }
+  }
   .home-main-content {
     flex-direction: column;
     padding: 50px;
   }
-
   .image-container,
   .text-container {
     margin: 0 0 20px 0;
   }
-
   .services-overview h2,
   .projects-section h2 {
     font-size: 2rem;
   }
-
   .services-overview,
   .projects-section,
-  .faq-section {
+  .about-faq-section {
     padding: 40px;
   }
-
   .services-list {
     gap: 30px;
   }
-
   .contact-section h2 {
     margin-top: 150px;
   }
   .image-container {
     flex: 0;
   }
-
-  
   .projects-section h2 {
     margin-top: 0px;
   }
-  
-  
-
 }
 
 @media (max-width: 768px) {
-
+  /* Switch hero background to mobile image */
   .hero {
     background-image: url('../assets/images/codesurfmob.jpg');
-    min-height: 70vh;
+    min-height: 70vh; 
   }
-
-  .hero-content h1, .hero-content h1.de {
+  .hero-content h1,
+  .hero-content h1.de {
     font-size: 3rem;
+    width: 400px;
   }
-
   .text-container h2 {
     font-size: 1.8rem;
   }
-
   .services-overview h2,
   .projects-section h2 {
     font-size: 1.8rem;
   }
-
   .projects-section {
     padding: 20px;
   }
-/* Force each project onto its own row. */
-.projects-list {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch; /* ensure full width */
-}
-
-.project-item {
-  flex: 0 0 100% !important; /* each item is 100% wide */
-  max-width: 100%;
-}
+  /* Force each project onto its own row. */
+  .projects-list {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .project-item {
+    flex: 0 0 100% !important;
+    max-width: 100%;
+  }
   .service-item img {
     width: 60px;
     height: 60px;
   }
-
   .project-content h3 {
     font-size: 1.4rem;
   }
-
   #zoho {
     width: 70%;
-  }
-
-  .hero {
-    background-image: url('../assets/images/codesurfmob.jpg');
   }
   .project-modal-box {
     width: 90vw;
     padding: 16px;
   }
-  
   .project-modal-images {
     flex-direction: column;
-    align-items: center; /* Center images vertically */
+    align-items: center;
   }
 }
 
 @media (max-width: 640px) {
-  .hero-content h1{
+  .hero-content h1 {
     margin-bottom: 0;
   }
-
-  /* .project-modal-box {
-    width: 90vw;
-    padding: 16px;
-  }
-  
-  .project-modal-images {
-    flex-direction: column;
-  } */
-
 }
 
-
 @media (max-width: 576px) {
-  .hero-content h1, .hero-content h1.de {
+  .hero-content h1,
+  .hero-content h1.de {
     font-size: 2.5rem;
   }
-
   .hero {
     padding: 10px;
   }
-
   .text-container h2 {
     font-size: 1.5rem;
   }
-
   .projects-section {
     padding: 5px;
   }
-
   .text-container p {
     font-size: 1rem;
   }
-
   .services-overview h2,
   .projects-section h2,
   .contact-section h2,
-  .faq-section h2 {
+  .about-faq-section h2 {
     font-size: 1.5rem;
   }
-
   #zoho {
     width: 40%;
   }
-
   .service-item h3,
   .project-content h3,
-  .faq-item h3 {
+  .about-faq-item h3 {
     font-size: 1.2rem;
   }
-
   .service-item p,
   .project-content p,
   .text-container p,
-  .faq-item p {
+  .faq-answer {
     font-size: 0.9rem;
   }
-
   .contact-form input,
   .contact-form textarea {
     padding: 10px;
     font-size: 0.9rem;
   }
-
   .contact-form button {
     padding: 10px 20px;
     font-size: 0.9rem;
   }
+  .project-modal-image {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+}
 
-  
-.project-modal-image {
-  width: 100%;
-  height: auto;
-  border-radius: 4px;
-}
-}
 @media (max-width: 450px) {
   #zoho {
     width: 60%;
   }
-
   .project-modal-box {
     width: 95vw;
     padding: 12px;
   }
-  
   .project-modal-images {
     gap: 12px;
   }
-
-
- 
   .project-iframe-container {
     height: auto;
   }
-}
-
-
-  @media (max-width: 290px) {
- 
-  /* .hero {
-    min-height: 70vh;
-  } */
+  .hero-content h1, .hero-content h1.de {
+    
+    width: 300px;
+  }
+  .project-content {
+    overflow: hidden;
+  }
 }
