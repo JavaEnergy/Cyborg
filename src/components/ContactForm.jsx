@@ -29,6 +29,14 @@ const ContactForm = () => {
           setStatusType('success');
           formRef.current.reset();
           setLoading(false);
+
+          // Trigger the conversion event
+          if (window.gtagSendEvent) {
+            window.gtagSendEvent();
+          }
+
+          // Alternatively, if you want to pass a URL or handle navigation:
+          // window.gtagSendEvent('https://your-thank-you-page.com');
         },
         (error) => {
           console.log('Email sending failed:', error.text);

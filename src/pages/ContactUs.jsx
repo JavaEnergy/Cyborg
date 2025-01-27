@@ -1,3 +1,4 @@
+// src/components/ContactUs.jsx
 import React, { useRef, useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Container, Typography, Button, Paper, IconButton, Box, CircularProgress } from '@mui/material';
@@ -62,6 +63,14 @@ const ContactUs = () => {
       setStatus(t('contact.success_message'));
       setIsSuccess(true);
       formRef.current.reset();
+
+      // Trigger the conversion event
+      if (window.gtagSendEvent) {
+        window.gtagSendEvent();
+      }
+
+      // Alternatively, if you want to pass a URL or handle navigation:
+      // window.gtagSendEvent('https://your-thank-you-page.com');
     } catch (error) {
       console.log('Email sending failed:', error.text);
       setStatus(t('contact.error_message'));

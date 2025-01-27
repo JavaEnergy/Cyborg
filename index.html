@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cyborg IT Technology</title>
     <meta name="description" content="High-quality IT solutions, consulting, and web development services.">
-    
+
     <!-- Corrected favicon path -->
     <link
       rel="shortcut icon"
       href="/assets/images/logo/Cyborg-logo%2011-11.png"
       type="image/x-icon"
     />
-    
+
     <!-- Google Tag Manager -->
     <script>
       (function(w,d,s,l,i){
@@ -27,7 +27,26 @@
       })(window,document,'script','dataLayer','GTM-MLKPSBWZ');
     </script>
     <!-- End Google Tag Manager -->
-    
+
+    <!-- Conversion Event Snippet for "SUBMIT_LEAD_FORM (4)" -->
+    <script>
+      // Ensure gtag is available
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      // Define the gtagSendEvent function
+      window.gtagSendEvent = function() {
+        gtag('event', 'conversion_event_submit_lead_form_4', {
+          // Add any additional event parameters here if needed
+          // Example:
+          // 'value': 1.0,
+          // 'currency': 'USD'
+        });
+      };
+    </script>
+    <!-- End Conversion Event Snippet -->
+
     <!-- Default Open Graph Meta Tags -->
     <meta property="og:title" content="Cyborg IT Technology" />
     <meta property="og:description" content="High-quality IT solutions, consulting, and web development services." />
@@ -48,7 +67,7 @@
         height="0" width="0" style="display:none;visibility:hidden"></iframe>
     </noscript>
     <!-- End Google Tag Manager (noscript) -->
-    
+
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

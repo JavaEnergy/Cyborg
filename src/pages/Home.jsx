@@ -294,7 +294,7 @@ const Home = () => {
           whileInView="visible"
           viewport={{ once: true }}
           variants={sectionVariants}
-          custom={4}
+          custom={3}
         >
           <h2>{t('home.projects_title')}</h2>
           <div className="projects-list">
