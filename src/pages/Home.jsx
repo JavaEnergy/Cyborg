@@ -157,34 +157,37 @@ const Home = () => {
 
   return (
     <Layout>
-      <HelmetManager
-        title={t('home.page_title')}
-        description={t('home.page_description')}
-        canonical={canonicalUrl}
-        openGraph={{
-          title: t('home.page_title'),
-          description: t('home.page_description'),
-          image: 'https://cyborg-it.de/assets/Cyborg-og-image.jpg',
-          url: canonicalUrl,
-          type: 'website',
-        }}
-        structuredData={{
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          "name": "Cyborg IT",
-          "url": "https://cyborg-it.de",
-          "logo": "https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png",
-          "sameAs": [
-            "https://www.linkedin.com/company/cyborg-it-l%C3%B6sungen/"
-          ],
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+995-597-01-13-09",
-            "contactType": "Customer Service"
-          }
-        }}
-        alternateLanguages={alternateLanguages}
-      />
+ <HelmetManager
+  title={t('home.page_title')}
+  description={t('home.page_description')}
+  canonical={`https://cyborg-it.de/${i18n.language}/`}
+  openGraph={{
+    title: t('home.page_title'),
+    description: t('home.page_description'),
+    image: 'https://cyborg-it.de/assets/Cyborg-og-image.jpg',
+    url: `https://cyborg-it.de/${i18n.language}/`,
+    type: 'website',
+  }}
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Cyborg IT",
+    "url": "https://cyborg-it.de",
+    "logo": "https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png",
+    "sameAs": [
+      "https://www.linkedin.com/company/cyborg-it-l%C3%B6sungen/"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+995-597-01-13-09",
+      "contactType": "Customer Service"
+    }
+  }}
+  alternateLanguages={[
+    { lang: 'de', url: 'https://cyborg-it.de/de/' },
+    { lang: 'en', url: 'https://cyborg-it.de/en/' }
+  ]}
+/>
 
       {/* Main Content */}
       <main className="home-page">

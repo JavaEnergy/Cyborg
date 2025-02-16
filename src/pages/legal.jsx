@@ -1,3 +1,4 @@
+// src/pages/Legal.jsx
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
@@ -8,19 +9,19 @@ import HelmetManager from '../components/HelmetManager';
 import Layout from '../components/Layout';
 
 const Legal = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation(); // Destructure i18n as well as t
   const location = useLocation();
 
-  // Construct the canonical URL dynamically with language prefix
-  const canonicalUrl = `https://cyborg-it.de${location.pathname}`;
+  // Build a canonical URL based on the current language
+  const canonicalUrl = `https://cyborg-it.de/${i18n.language}/legal/`;
 
-  // Define alternate languages for hreflang tags (assuming you have DE and EN)
+  // Define alternate language URLs
   const alternateLanguages = [
-    { lang: 'de', url: 'https://cyborg-it.de/de/legal' },
-    { lang: 'en', url: 'https://cyborg-it.de/en/legal' },
+    { lang: 'de', url: 'https://cyborg-it.de/de/legal/' },
+    { lang: 'en', url: 'https://cyborg-it.de/en/legal/' },
   ];
 
-  // Animation variants
+  // Framer Motion animation variants
   const containerVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: {
@@ -39,6 +40,7 @@ const Legal = () => {
         title={t('legal.page_title')}
         description={t('legal.page_description')}
         canonical={canonicalUrl}
+        alternateLanguages={alternateLanguages}
         openGraph={{
           title: t('legal.page_title'),
           description: t('legal.page_description'),
@@ -52,16 +54,13 @@ const Legal = () => {
           name: 'Cyborg IT',
           url: 'https://cyborg-it.de',
           logo: 'https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png',
-          sameAs: [
-            'https://www.linkedin.com/company/cyborg-it-l%C3%B6sungen/',
-          ],
+          sameAs: ['https://www.linkedin.com/company/cyborg-it-l%C3%B6sungen/'],
           contactPoint: {
             '@type': 'ContactPoint',
             telephone: '+995-597-01-13-09',
             contactType: 'Customer Service',
           },
         }}
-        alternateLanguages={alternateLanguages}
       />
 
       <motion.div

@@ -42,23 +42,24 @@ const AboutUs = () => {
   useEffect(() => {
     window.dispatchEvent(new Event('page-loaded'));
   }, []);
-
+  const alternateLanguages = [
+    { lang: 'de', url: 'https://cyborg-it.de/de/about-us/' },
+    { lang: 'en', url: 'https://cyborg-it.de/en/about-us/' },
+  ];
+  
   return (
     <Layout>
-      {/* HelmetManager for SEO */}
-      <HelmetManager
+       {/* HelmetManager for SEO */}
+       <HelmetManager
         title={t('about_us.page_title')}
         description={t('about_us.page_description')}
-        canonical={`https://cyborg-it.de${location.pathname}`}
-        alternateLanguages={[
-          { lang: 'de', url: 'https://cyborg-it.de/de/about-us' },
-          { lang: 'en', url: 'https://cyborg-it.de/en/about-us' },
-        ]}
+        canonical={`https://cyborg-it.de/${i18n.language}/about-us/`}
+        alternateLanguages={alternateLanguages}
         openGraph={{
           title: t('about_us.page_title'),
           description: t('about_us.page_description'),
           image: 'https://cyborg-it.de/assets/Cyborg-og-image.jpg',
-          url: `https://cyborg-it.de/de/about-us`,
+          url: `https://cyborg-it.de/${i18n.language}/about-us/`,
           type: 'website',
         }}
         structuredData={{
@@ -67,9 +68,7 @@ const AboutUs = () => {
           "name": "Cyborg IT",
           "url": "https://cyborg-it.de",
           "logo": "https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png",
-          "sameAs": [
-            "https://www.linkedin.com/company/cyborg-it-l%C3%B6sungen/"
-          ],
+          "sameAs": ["https://www.linkedin.com/company/cyborg-it-l%C3%B6sungen/"],
           "contactPoint": {
             "@type": "ContactPoint",
             "telephone": "+995-598-70-79-79",

@@ -28,30 +28,23 @@ const staticRoutes = [
   // Add more routes as needed
 ];
 
-// Optional: Define dynamic routes (e.g., blog posts)
-// const dynamicRoutes = [
-//   '/blog/post-1',
-//   '/blog/post-2',
-//   // Fetch dynamic routes from a CMS or database
-// ];
-
 // Function to generate URLs for all languages
 const generateUrls = () => {
   const urls = [];
 
   languages.forEach(lang => {
     staticRoutes.forEach(route => {
-      // Handle the root route separately
       if (route === '/') {
+        // Always use a language prefix for the homepage.
         urls.push({
-          url: lang === 'en' ? '/' : `/${lang}/`,
+          url: `/${lang}/`,
           changefreq: 'monthly',
-          priority: lang === 'en' ? 1.0 : 0.8,
+          priority: lang === 'de' ? 1.0 : 0.8, // Adjust priorities as needed
           lastmodISO: new Date().toISOString(),
           alternateRefs: languages
             .filter(alternateLang => alternateLang !== lang)
             .map(alternateLang => ({
-              href: `${baseUrl}/${alternateLang}${route === '/' ? '' : route}`,
+              href: `${baseUrl}/${alternateLang}/`,
               hreflang: alternateLang
             }))
         });
@@ -70,22 +63,6 @@ const generateUrls = () => {
         });
       }
     });
-
-    // Handle dynamic routes if any
-    // dynamicRoutes.forEach(route => {
-    //   urls.push({
-    //     url: `/${lang}${route}`,
-    //     changefreq: 'weekly',
-    //     priority: 0.7,
-    //     lastmodISO: new Date().toISOString(),
-    //     alternateRefs: languages
-    //       .filter(alternateLang => alternateLang !== lang)
-    //       .map(alternateLang => ({
-    //         href: `${baseUrl}/${alternateLang}${route}`,
-    //         hreflang: alternateLang
-    //       }))
-    //   });
-    // });
   });
 
   return urls;
@@ -93,7 +70,6 @@ const generateUrls = () => {
 
 async function generateSitemap() {
   const sitemap = new SitemapStream({ hostname: baseUrl });
-
   const urls = generateUrls();
 
   try {

@@ -43,7 +43,6 @@ const App = () => {
   useEffect(() => {
     reportWebVitals(metric => {
       const { name, value } = metric;
-      console.log(`${name}: ${value}`);
       logEvent('web_vitals', {
         metric_name: name,
         metric_value: value,

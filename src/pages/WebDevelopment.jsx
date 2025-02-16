@@ -71,7 +71,7 @@ const WebDevelopment = () => {
   };
 
   // Construct the canonical URL
-  const canonicalUrl = `https://cyborg-it.de${location.pathname}`;
+  const canonicalUrl = `https://cyborg-it.de/${currentLang}/web-development/`;
 
   // Hreflang array
   const alternateLanguages = [
@@ -140,11 +140,11 @@ const WebDevelopment = () => {
 
   return (
     <Layout>
-      {/* HelmetManager for SEO */}
-      <HelmetManager
+        <HelmetManager
         title={t('web_development.page_title')}
         description={t('web_development.page_description')}
         canonical={canonicalUrl}
+        alternateLanguages={alternateLanguages}
         openGraph={{
           title: t('web_development.page_title'),
           description: t('web_development.page_description'),
@@ -155,19 +155,16 @@ const WebDevelopment = () => {
         structuredData={{
           '@context': 'https://schema.org',
           '@type': 'Organization',
-          name: 'Cyborg IT',
-          url: 'https://cyborg-it.de',
-          logo: 'https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png',
-          sameAs: [
-            'https://www.linkedin.com/company/cyborg-it-l%C3%B6sungen/',
-          ],
-          contactPoint: {
+          "name": "Cyborg IT",
+          "url": "https://cyborg-it.de",
+          "logo": "https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png",
+          "sameAs": ["https://www.linkedin.com/company/cyborg-it-l%C3%B6sungen/"],
+          "contactPoint": {
             '@type': 'ContactPoint',
             telephone: '+995-598-70-79-79',
-            contactType: 'Customer Service',
-          },
+            contactType: 'Customer Service'
+          }
         }}
-        alternateLanguages={alternateLanguages}
       />
 
       <div className="web-development">

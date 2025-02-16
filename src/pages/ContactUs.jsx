@@ -18,7 +18,7 @@ import HelmetManager from '../components/HelmetManager'; // SEO
 import './ContactUs.css';
 
 const ContactUs = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const formRef = useRef(null);
   const location = useLocation();
 
@@ -26,8 +26,8 @@ const ContactUs = () => {
   const [isSuccess, setIsSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  // Construct the canonical URL dynamically
-  const canonicalUrl = `https://cyborg-it.de${location.pathname}`;
+  // Build the canonical URL explicitly using the current language
+  const canonicalUrl = `https://cyborg-it.de/${i18n.language}/contact-us/`;
 
   // Animation variants for framer-motion
   const sectionVariants = {
@@ -39,7 +39,7 @@ const ContactUs = () => {
     },
   };
 
-  // Emit 'page-loaded' event after component mounts and meta tags are set
+  // Emit 'page-loaded' event after component mounts
   useEffect(() => {
     window.dispatchEvent(new Event('page-loaded'));
   }, []);
@@ -64,13 +64,10 @@ const ContactUs = () => {
       setIsSuccess(true);
       formRef.current.reset();
 
-      // Trigger the conversion event
+      // Trigger the conversion event if available
       if (window.gtagSendEvent) {
         window.gtagSendEvent();
       }
-
-      // Alternatively, if you want to pass a URL or handle navigation:
-      // window.gtagSendEvent('https://your-thank-you-page.com');
     } catch (error) {
       console.log('Email sending failed:', error.text);
       setStatus(t('contact.error_message'));
@@ -83,19 +80,19 @@ const ContactUs = () => {
 
   return (
     <Layout>
-      {/* HelmetManager Component for SEO */}
+      {/* HelmetManager for SEO */}
       <HelmetManager
         title={t('contact_us.page_title')}
         description={t('contact_us.page_description')}
         canonical={canonicalUrl}
         alternateLanguages={[
-          { lang: 'de', url: 'https://cyborg-it.de/de/contact-us' },
-          { lang: 'en', url: 'https://cyborg-it.de/en/contact-us' },
+          { lang: 'de', url: 'https://cyborg-it.de/de/contact-us/' },
+          { lang: 'en', url: 'https://cyborg-it.de/en/contact-us/' },
         ]}
         openGraph={{
           title: t('contact_us.page_title'),
           description: t('contact_us.page_description'),
-          image: 'https://cyborg-it.de/assets/Cyborg-og-image.jpg', // Correct OG image URL
+          image: 'https://cyborg-it.de/assets/Cyborg-og-image.jpg',
           url: canonicalUrl,
           type: 'website',
         }}
@@ -136,7 +133,6 @@ const ContactUs = () => {
             {t('contact_us.subtitle')}
           </Typography>
 
-          {/* Modern Contact Form */}
           <Paper elevation={6} className="modern-form-container">
             <form className="modern-contact-form" onSubmit={handleSubmit} ref={formRef}>
               {/* Name Field */}
@@ -236,13 +232,8 @@ const ContactUs = () => {
               </Box>
             </form>
 
-            {/* Social Icons at the Bottom of the Form */}
-            <Box
-              className="social-links-box"
-              display="flex"
-              justifyContent="center"
-              mt={2}
-            >
+            {/* Social Icons */}
+            <Box className="social-links-box" display="flex" justifyContent="center" mt={2}>
               <IconButton
                 component="a"
                 href="https://www.linkedin.com/company/cyborg-it-l%C3%B6sungen/"
