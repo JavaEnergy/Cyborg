@@ -36,32 +36,35 @@ const Legal = () => {
 
   return (
     <Layout>
-      <HelmetManager
-        title={t('legal.page_title')}
-        description={t('legal.page_description')}
-        canonical={canonicalUrl}
-        alternateLanguages={alternateLanguages}
-        openGraph={{
-          title: t('legal.page_title'),
-          description: t('legal.page_description'),
-          image: 'https://cyborg-it.de/assets/og-image.jpg',
-          url: canonicalUrl,
-          type: 'website',
-        }}
-        structuredData={{
-          '@context': 'https://schema.org',
-          '@type': 'Organization',
-          name: 'Cyborg IT',
-          url: 'https://cyborg-it.de',
-          logo: 'https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png',
-          sameAs: ['https://www.linkedin.com/company/cyborg-it-l%C3%B6sungen/'],
-          contactPoint: {
-            '@type': 'ContactPoint',
-            telephone: '+995-597-01-13-09',
-            contactType: 'Customer Service',
-          },
-        }}
-      />
+     <HelmetManager
+  title={t('legal.page_title')}
+  description={t('legal.page_description')}
+  canonical={`https://cyborg-it.de/${i18n.language}/legal`}
+  alternateLanguages={[
+    { lang: 'de', url: 'https://cyborg-it.de/de/legal' },
+    { lang: 'en', url: 'https://cyborg-it.de/en/legal' },
+  ]}
+  openGraph={{
+    title: t('legal.page_title'),
+    description: t('legal.page_description'),
+    image: 'https://cyborg-it.de/assets/og-image.jpg',
+    url: `https://cyborg-it.de/${i18n.language}/legal`,
+    type: 'website',
+  }}
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Cyborg IT",
+    "url": "https://cyborg-it.de",
+    "logo": "https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png",
+    "sameAs": ["https://www.linkedin.com/company/cyborg-it-l%C3%B6sungen/"],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+995-597-01-13-09",
+      "contactType": "Customer Service"
+    }
+  }}
+/>
 
       <motion.div
         className="legal-page"

@@ -1,5 +1,3 @@
-// scripts/generate-sitemap.js
-
 import fs from 'fs';
 import path from 'path';
 import { SitemapStream, streamToPromise } from 'sitemap';
@@ -35,16 +33,16 @@ const generateUrls = () => {
   languages.forEach(lang => {
     staticRoutes.forEach(route => {
       if (route === '/') {
-        // Always use a language prefix for the homepage.
+        // Use language prefix for homepage without trailing slash
         urls.push({
-          url: `/${lang}/`,
+          url: `/${lang}`,
           changefreq: 'monthly',
           priority: lang === 'de' ? 1.0 : 0.8, // Adjust priorities as needed
           lastmodISO: new Date().toISOString(),
           alternateRefs: languages
             .filter(alternateLang => alternateLang !== lang)
             .map(alternateLang => ({
-              href: `${baseUrl}/${alternateLang}/`,
+              href: `${baseUrl}/${alternateLang}`,
               hreflang: alternateLang
             }))
         });

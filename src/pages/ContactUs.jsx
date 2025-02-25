@@ -82,36 +82,36 @@ const ContactUs = () => {
     <Layout>
       {/* HelmetManager for SEO */}
       <HelmetManager
-        title={t('contact_us.page_title')}
-        description={t('contact_us.page_description')}
-        canonical={canonicalUrl}
-        alternateLanguages={[
-          { lang: 'de', url: 'https://cyborg-it.de/de/contact-us/' },
-          { lang: 'en', url: 'https://cyborg-it.de/en/contact-us/' },
-        ]}
-        openGraph={{
-          title: t('contact_us.page_title'),
-          description: t('contact_us.page_description'),
-          image: 'https://cyborg-it.de/assets/Cyborg-og-image.jpg',
-          url: canonicalUrl,
-          type: 'website',
-        }}
-        structuredData={{
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          "name": "Cyborg IT",
-          "url": "https://cyborg-it.de",
-          "logo": "https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png",
-          "sameAs": [
-            "https://www.linkedin.com/company/cyborg-it-l%C3%B6sungen/"
-          ],
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+995-598-70-79-79",
-            "contactType": "Customer Service"
-          }
-        }}
-      />
+  title={t('contact_us.page_title')}
+  description={t('contact_us.page_description')}
+  canonical={`https://cyborg-it.de/${i18n.language}/contact-us`}
+  alternateLanguages={[
+    { lang: 'de', url: 'https://cyborg-it.de/de/contact-us' },
+    { lang: 'en', url: 'https://cyborg-it.de/en/contact-us' },
+  ]}
+  openGraph={{
+    title: t('contact_us.page_title'),
+    description: t('contact_us.page_description'),
+    image: 'https://cyborg-it.de/assets/Cyborg-og-image.jpg',
+    url: `https://cyborg-it.de/${i18n.language}/contact-us`,
+    type: 'website',
+  }}
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Cyborg IT",
+    "url": "https://cyborg-it.de",
+    "logo": "https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png",
+    "sameAs": [
+      "https://www.linkedin.com/company/cyborg-it-l%C3%B6sungen/"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+995-598-70-79-79",
+      "contactType": "Customer Service"
+    }
+  }}
+/>
 
       {/* Hero Section */}
       <div className="contact-hero">

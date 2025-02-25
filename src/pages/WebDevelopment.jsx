@@ -140,32 +140,35 @@ const WebDevelopment = () => {
 
   return (
     <Layout>
-        <HelmetManager
-        title={t('web_development.page_title')}
-        description={t('web_development.page_description')}
-        canonical={canonicalUrl}
-        alternateLanguages={alternateLanguages}
-        openGraph={{
-          title: t('web_development.page_title'),
-          description: t('web_development.page_description'),
-          image: 'https://cyborg-it.de/assets/og-image.jpg',
-          url: canonicalUrl,
-          type: 'website',
-        }}
-        structuredData={{
-          '@context': 'https://schema.org',
-          '@type': 'Organization',
-          "name": "Cyborg IT",
-          "url": "https://cyborg-it.de",
-          "logo": "https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png",
-          "sameAs": ["https://www.linkedin.com/company/cyborg-it-l%C3%B6sungen/"],
-          "contactPoint": {
-            '@type': 'ContactPoint',
-            telephone: '+995-598-70-79-79',
-            contactType: 'Customer Service'
-          }
-        }}
-      />
+   <HelmetManager
+  title={t('web_development.page_title')}
+  description={t('web_development.page_description')}
+  canonical={`https://cyborg-it.de/${i18n.language}/web-development`}
+  alternateLanguages={[
+    { lang: 'de', url: 'https://cyborg-it.de/de/web-development' },
+    { lang: 'en', url: 'https://cyborg-it.de/en/web-development' },
+  ]}
+  openGraph={{
+    title: t('web_development.page_title'),
+    description: t('web_development.page_description'),
+    image: 'https://cyborg-it.de/assets/og-image.jpg',
+    url: `https://cyborg-it.de/${i18n.language}/web-development`,
+    type: 'website',
+  }}
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Cyborg IT",
+    "url": "https://cyborg-it.de",
+    "logo": "https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png",
+    "sameAs": ["https://www.linkedin.com/company/cyborg-it-l%C3%B6sungen/"],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+995-598-70-79-79",
+      "contactType": "Customer Service"
+    }
+  }}
+/>
 
       <div className="web-development">
         {/* Hero Section */}

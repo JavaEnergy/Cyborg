@@ -160,12 +160,12 @@ const Home = () => {
  <HelmetManager
   title={t('home.page_title')}
   description={t('home.page_description')}
-  canonical={`https://cyborg-it.de/${i18n.language}/`}
+  canonical={`https://cyborg-it.de/${i18n.language}`}
   openGraph={{
     title: t('home.page_title'),
     description: t('home.page_description'),
     image: 'https://cyborg-it.de/assets/Cyborg-og-image.jpg',
-    url: `https://cyborg-it.de/${i18n.language}/`,
+    url: `https://cyborg-it.de/${i18n.language}`,
     type: 'website',
   }}
   structuredData={{
@@ -184,8 +184,8 @@ const Home = () => {
     }
   }}
   alternateLanguages={[
-    { lang: 'de', url: 'https://cyborg-it.de/de/' },
-    { lang: 'en', url: 'https://cyborg-it.de/en/' }
+    { lang: 'de', url: 'https://cyborg-it.de/de' },
+    { lang: 'en', url: 'https://cyborg-it.de/en' }
   ]}
 />
 

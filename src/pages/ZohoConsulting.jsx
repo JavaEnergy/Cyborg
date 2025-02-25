@@ -136,32 +136,35 @@ const ZohoConsulting = () => {
 
   return (
     <Layout>
-       <HelmetManager
-        title={t('zoho_consulting.page_title')}
-        description={t('zoho_consulting.page_description')}
-        canonical={canonicalUrl}
-        alternateLanguages={alternateLanguages}
-        openGraph={{
-          title: t('zoho_consulting.page_title'),
-          description: t('zoho_consulting.page_description'),
-          image: 'https://cyborg-it.de/assets/og-image.jpg',
-          url: canonicalUrl,
-          type: 'website',
-        }}
-        structuredData={{
-          '@context': 'https://schema.org',
-          '@type': 'Organization',
-          "name": "Cyborg IT",
-          "url": "https://cyborg-it.de",
-          "logo": "https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png",
-          "sameAs": ["https://www.linkedin.com/company/cyborg-it-l%C3%B6sungen/"],
-          "contactPoint": {
-            '@type': 'ContactPoint',
-            telephone: '+995-598-70-79-79',
-            contactType: 'Customer Service'
-          }
-        }}
-      />
+    <HelmetManager
+  title={t('zoho_consulting.page_title')}
+  description={t('zoho_consulting.page_description')}
+  canonical={`https://cyborg-it.de/${i18n.language}/zoho-consulting`}
+  alternateLanguages={[
+    { lang: 'de', url: 'https://cyborg-it.de/de/zoho-consulting' },
+    { lang: 'en', url: 'https://cyborg-it.de/en/zoho-consulting' },
+  ]}
+  openGraph={{
+    title: t('zoho_consulting.page_title'),
+    description: t('zoho_consulting.page_description'),
+    image: 'https://cyborg-it.de/assets/og-image.jpg',
+    url: `https://cyborg-it.de/${i18n.language}/zoho-consulting`,
+    type: 'website',
+  }}
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Cyborg IT",
+    "url": "https://cyborg-it.de",
+    "logo": "https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png",
+    "sameAs": ["https://www.linkedin.com/company/cyborg-it-l%C3%B6sungen/"],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+995-598-70-79-79",
+      "contactType": "Customer Service"
+    }
+  }}
+/>
 
       <div className="zoho-consulting">
         {/* Hero Section */}
