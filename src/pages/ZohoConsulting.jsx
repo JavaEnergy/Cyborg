@@ -66,10 +66,10 @@ const ZohoConsulting = () => {
     },
   };
 
-  // Construct the canonical URL
-  const canonicalUrl = `https://cyborg-it.de/${currentLang}/zoho-consulting/`;
+  // Construct the canonical URL without a trailing slash
+  const canonicalUrl = `https://cyborg-it.de/${currentLang}/zoho-consulting`;
 
-  // Hreflang array
+  // Hreflang array (without trailing slashes)
   const alternateLanguages = [
     { lang: 'de', url: 'https://cyborg-it.de/de/zoho-consulting' },
     { lang: 'en', url: 'https://cyborg-it.de/en/zoho-consulting' },
@@ -119,7 +119,7 @@ const ZohoConsulting = () => {
     },
   ];
 
-  // Modal open/close
+  // Modal open/close handlers
   const handleOpenModal = (service) => {
     setSelectedService(service);
     setOpenModal(true);
@@ -129,42 +129,39 @@ const ZohoConsulting = () => {
     setOpenModal(false);
   };
 
-  // CTA button click
+  // CTA button click handler
   const handleCTAButtonClick = () => {
     navigate(`/${currentLang}/contact-us`);
   };
 
   return (
     <Layout>
-    <HelmetManager
-  title={t('zoho_consulting.page_title')}
-  description={t('zoho_consulting.page_description')}
-  canonical={`https://cyborg-it.de/${i18n.language}/zoho-consulting`}
-  alternateLanguages={[
-    { lang: 'de', url: 'https://cyborg-it.de/de/zoho-consulting' },
-    { lang: 'en', url: 'https://cyborg-it.de/en/zoho-consulting' },
-  ]}
-  openGraph={{
-    title: t('zoho_consulting.page_title'),
-    description: t('zoho_consulting.page_description'),
-    image: 'https://cyborg-it.de/assets/og-image.jpg',
-    url: `https://cyborg-it.de/${i18n.language}/zoho-consulting`,
-    type: 'website',
-  }}
-  structuredData={{
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Cyborg IT",
-    "url": "https://cyborg-it.de",
-    "logo": "https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png",
-    "sameAs": ["https://www.linkedin.com/company/cyborg-it-l%C3%B6sungen/"],
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+995-598-70-79-79",
-      "contactType": "Customer Service"
-    }
-  }}
-/>
+      <HelmetManager
+        title={t('zoho_consulting.page_title')}
+        description={t('zoho_consulting.page_description')}
+        canonical={canonicalUrl}
+        alternateLanguages={alternateLanguages}
+        openGraph={{
+          title: t('zoho_consulting.page_title'),
+          description: t('zoho_consulting.page_description'),
+          image: 'https://cyborg-it.de/assets/og-image.jpg',
+          url: canonicalUrl,
+          type: 'website',
+        }}
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Cyborg IT",
+          "url": "https://cyborg-it.de",
+          "logo": "https://cyborg-it.de/assets/Cyborg-logo-9-09-DqmwUbnN.png",
+          "sameAs": ["https://www.linkedin.com/company/cyborg-it-l%C3%B6sungen/"],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+995-598-70-79-79",
+            "contactType": "Customer Service"
+          }
+        }}
+      />
 
       <div className="zoho-consulting">
         {/* Hero Section */}
@@ -237,7 +234,6 @@ const ZohoConsulting = () => {
                       }}
                     >
                       <Card className="card">
-                        {/* Plain <img> for explicit dimensions */}
                         <img
                           src={service.image}
                           alt={service.alt}
