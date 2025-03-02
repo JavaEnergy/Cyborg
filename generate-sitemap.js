@@ -12,51 +12,50 @@ const __dirname = path.dirname(__filename);
 const baseUrl = 'https://cyborg-it.de';
 
 // Define supported languages
-const languages = ['en', 'de']; // Add more languages as needed
+const languages = ['en', 'de']; // Extend if needed
 
 // Define static routes without language prefixes
 const staticRoutes = [
-  '/',
+  '/',          // Homepage route
   '/about-us',
   '/contact-us',
   '/it-consulting',
   '/legal',
   '/web-development',
   '/zoho-consulting'
-  // Add more routes as needed
 ];
 
-// Function to generate URLs for all languages
 const generateUrls = () => {
   const urls = [];
 
   languages.forEach(lang => {
     staticRoutes.forEach(route => {
       if (route === '/') {
-        // Use language prefix for homepage without trailing slash
+        // Homepage: use a trailing slash to avoid redirect issues
         urls.push({
-          url: `/${lang}`,
+          url: `/${lang}/`, // e.g. "/de/" instead of "/de"
           changefreq: 'monthly',
-          priority: lang === 'de' ? 1.0 : 0.8, // Adjust priorities as needed
+          priority: lang === 'de' ? 1.0 : 0.8,
           lastmodISO: new Date().toISOString(),
           alternateRefs: languages
-            .filter(alternateLang => alternateLang !== lang)
-            .map(alternateLang => ({
-              href: `${baseUrl}/${alternateLang}`,
-              hreflang: alternateLang
+            .filter(aLang => aLang !== lang)
+            .map(aLang => ({
+              href: `${baseUrl}/${aLang}/`, // with trailing slash
+              hreflang: aLang
             }))
         });
       } else {
+        // Other routes remain unchanged
         urls.push({
-          url: `/${lang}${route}`,
+          url: `/${lang}${route}`, // e.g. "/de/about-us"
           changefreq: 'monthly',
           priority: 0.8,
           lastmodISO: new Date().toISOString(),
           alternateRefs: languages
-            .filter(alternateLang => alternateLang !== lang)
-            .map(alternateLang => ({
-              href: `${baseUrl}/${alternateLang}${route}`,
-              hreflang: alternateLang
+            .filter(aLang => aLang !== lang)
+            .map(aLang => ({
+              href: `${baseUrl}/${aLang}${route}`,
+              hreflang: aLang
             }))
         });
       }
