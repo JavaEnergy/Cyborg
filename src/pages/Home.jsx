@@ -15,7 +15,7 @@ import HelmetManager from '../components/HelmetManager';
 import { Modal, Box, Typography, Button } from '@mui/material';
 
 // Images
-import backgroundImage from '../assets/images/bg.jpg';
+import backgroundImage from '../assets/images/bg.webp';
 import itConsultingIcon from '../assets/images/it-consulting.png';
 import webDevelopmentIcon from '../assets/images/web-development.png';
 import itServicesIcon from '../assets/images/zoho-hm.png';

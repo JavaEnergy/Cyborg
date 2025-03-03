@@ -30,8 +30,8 @@ import ContactForm from '../components/ContactForm';
 import HelmetManager from '../components/HelmetManager';
 
 // Import images
-import heroImage from '../assets/images/b1.png';
-import ideaToImplementationImage from '../assets/images/b3.png';
+import heroImage from '../assets/images/consulting.webp';
+import ideaToImplementationImage from '../assets/images/idea.webp';
 import itStrategyImage from '../assets/images/b2.png';
 import softwareDevelopmentImage from '../assets/images/soft.png';
 import webConsultingImage from '../assets/images/bbb.png';

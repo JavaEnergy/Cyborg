@@ -31,30 +31,30 @@ const generateUrls = () => {
   languages.forEach(lang => {
     staticRoutes.forEach(route => {
       if (route === '/') {
-        // Homepage: use a trailing slash to avoid redirect issues
+        // Homepage: add trailing slash (e.g., "/de/")
         urls.push({
-          url: `/${lang}/`, // e.g. "/de/" instead of "/de"
+          url: `/${lang}/`,
           changefreq: 'monthly',
           priority: lang === 'de' ? 1.0 : 0.8,
           lastmodISO: new Date().toISOString(),
           alternateRefs: languages
             .filter(aLang => aLang !== lang)
             .map(aLang => ({
-              href: `${baseUrl}/${aLang}/`, // with trailing slash
+              href: `${baseUrl}/${aLang}/`,
               hreflang: aLang
             }))
         });
       } else {
-        // Other routes remain unchanged
+        // For other routes, add trailing slash (e.g., "/de/about-us/")
         urls.push({
-          url: `/${lang}${route}`, // e.g. "/de/about-us"
+          url: `/${lang}${route}/`,
           changefreq: 'monthly',
           priority: 0.8,
           lastmodISO: new Date().toISOString(),
           alternateRefs: languages
             .filter(aLang => aLang !== lang)
             .map(aLang => ({
-              href: `${baseUrl}/${aLang}${route}`,
+              href: `${baseUrl}/${aLang}${route}/`,
               hreflang: aLang
             }))
         });
