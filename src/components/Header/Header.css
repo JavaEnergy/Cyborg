@@ -363,10 +363,32 @@ nav a.active {
 /* Responsive Styles */
 
 /* For screens between 769px and 1024px */
+@media (min-width: 1024px) and (max-width: 1150px) {
+
+  .header {
+    font-size: 18px;
+  }
+
+  .header-container {
+    gap: 15px;
+  }
+
+  .language-switch img {
+    width: 40px;
+    height: 40px;
+  }
+  .logo-container img {
+    width: 190px;
+  }
+}
+
+
+
+
+
 @media (min-width: 769px) and (max-width: 1024px) {
   .header {
     padding: 1rem 0;
-    font-size: initial;
   }
 
   .header-container {
@@ -374,7 +396,7 @@ nav a.active {
   }
 
   .logo-container img {
-    width: 200px;
+    width: 150px;
   }
 
   .main-menu {
@@ -386,14 +408,26 @@ nav a.active {
   }
 
   .language-switch img {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
   }
 
   .image-container,
   .text-container {
     flex: 0;
   }
+}
+
+@media (min-width: 759px) and (max-width: 900px) {
+
+  .header {
+    padding: 1rem 0;
+    font-size: 16px;
+  }
+  .main-menu {
+    gap: 19px;
+  }
+
 }
 
 /* For screens up to 768px */
