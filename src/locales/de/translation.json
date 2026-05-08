@@ -1,13 +1,11 @@
 {
   "menu": {
     "about_us": "Über Uns",
-    "it_consulting": "IT-Beratung",
+    "it_consulting": "KI & IT-Beratung",
     "web_development": "Webentwicklung",
-    "it_services": "IT-Services",
+    "it_services": "DevOps & Cloud",
     "contact_us": "Kontakt",
     "zoho_consulting": "ZOHO Software"
-    
-
   },
   "footer_copyright": "All rights reserved.",
   "common": {
@@ -17,20 +15,22 @@
     "contact_us": "Kontaktieren Sie Uns"
   },
   "home": {
-    "page_title": "Startseite - Cyborg IT Technology",
-    "page_description": "Willkommen bei Cyborg IT Technology. Wir bieten erstklassige IT-Beratung und Entwicklungsdienstleistungen.",
-    "title":  "Hochwertige, kostengünstige IT-Lösungen, 24/7",
-    "subtitle": "Ihre Vision, unsere Expertise",
-    "vision_content": "Wir sind Cyborg, eine Fusion aus menschlicher Kreativität und maschineller Präzision.",
-    "vision_content2": "Mit Sitz in Georgien bieten wir kostengünstige Lösungen ohne die zusätzlichen Kosten europäischer Steuern.",
-    "wish_content": "Unser Team aus erfahrenen Fachleuten steht Ihnen rund um die Uhr zur Verfügung, um Ihre Ideen Wirklichkeit werden zu lassen.",
+    "page_title": "Startseite - Cyborg IT",
+    "page_description": "Cyborg IT — Ihr deutschsprachiger IT-Partner aus Georgien. React, WordPress, Cloud, DevOps, KI-Agenten und Zoho für DACH-Unternehmen.",
+    "title": "IT aus Georgien — auf Deutsch, präzise, zuverlässig.",
+    "subtitle": "Ihr deutschsprachiger Partner für Web, Cloud und KI im DACH-Markt.",
+    "vision_content": "Wir sind Cyborg IT — ein technisch erfahrenes Team aus Georgien, das auf Deutsch mit Ihnen spricht und DACH-Businesskultur versteht.",
+    "vision_content2": "Mit Sitz in Georgien bieten wir DACH-Unternehmen kosteneffiziente IT-Lösungen ohne EU-Mehrwertsteuer — legal und transparent über Reverse Charge.",
+    "wish_content": "Unser Gründer Beka Chogovadze betreut Sie persönlich — auf Deutsch oder Englisch, 24/7, mit echter Verantwortung für jedes Projekt.",
     "services_title": "Unsere Dienstleistungen",
-    "service_it_consulting_title": "IT-Beratung",
-    "service_it_consulting_description": "Strategische IT-Lösungen zur Förderung Ihres Geschäfts.",
+    "service_it_consulting_title": "KI & IT-Beratung",
+    "service_it_consulting_description": "KI-Agenten, Workflow-Automatisierung und strategische IT-Beratung für DACH-Unternehmen.",
     "service_web_development_title": "Webentwicklung",
-    "service_web_development_description": "Erstellung responsiver und ansprechender Websites, die auf Ihre Bedürfnisse zugeschnitten sind.",
-    "service_it_services_title": "Zoho Software",
-    "service_it_services_description": "Umfassende IT-Unterstützung und Management für reibungslose Abläufe.",
+    "service_web_development_description": "React, Next.js, WordPress, WooCommerce und Shopware — maßgeschneidert und wartungsfreundlich.",
+    "service_it_services_title": "DevOps & Cloud",
+    "service_it_services_description": "AWS, Docker, Terraform, CI/CD und Linux-Server — zuverlässig aufgesetzt und dokumentiert.",
+    "service_zoho_title": "Zoho & Automatisierung",
+    "service_zoho_description": "Zoho CRM, Books und Flow — plus API-Integrationen, die Ihre Prozesse automatisieren.",
     "projects_title": "Unsere Projekte",
     "project_one_title": "Quiz App",
     "project_one_description": "Eine kurze Beschreibung von Projekt Eins.",
@@ -68,7 +68,7 @@
     "contactable_24_7": "Wir sind 24/7 für Sie da!"
   },
   "it_consulting": {
-    "page_title": "IT-Beratung - Cyborg IT Technology",
+    "page_title": "IT-Beratung - Cyborg IT",
     "page_description": "Professionelle IT-Beratung, um Ihr Unternehmen im digitalen Zeitalter zum Erfolg zu führen.",
     "it_consulting": "IT-Beratung",
     "from_idea_to_implementation": "Von der Idee zur Realität",
@@ -104,7 +104,7 @@
   
   },
   "web_development": {
-    "page_title": "Webentwicklung - Cyborg IT Technology",
+    "page_title": "Webentwicklung - Cyborg IT",
     "page_description": "Experten für Webentwicklungsdienstleistungen, zugeschnitten auf Ihre Geschäftsbedürfnisse.",
     "web_development": "Webentwicklung",
     "our_services": "Unsere Dienstleistungen",
@@ -152,8 +152,8 @@
     "content_for_user_support": "Wir unterstützen Ihre Benutzer."
   },
   "about_us": {
-    "page_title": "Über Uns - Cyborg IT Technology",
-    "page_description": "Erfahren Sie mehr über Cyborg IT Technology, unsere Mission, Vision und das Team hinter unserem Erfolg.",
+    "page_title": "Über Uns - Cyborg IT",
+    "page_description": "Erfahren Sie mehr über Cyborg IT, unsere Mission, Vision und das Team hinter unserem Erfolg.",
     "hero_title": "Willkommen bei Cyborg",
     "hero_subtitle": "Innovative IT-Lösungen für Sie maßgeschneidert",
     "who_we_are_title": "Wer wir sind",
@@ -218,7 +218,7 @@
     "faq_offer_btn": "Angebot anfragen"
     },
   "zoho_consulting": {
-    "page_title": "Zoho-Beratung - Cyborg IT Technology",
+    "page_title": "Zoho-Beratung - Cyborg IT",
     "page_description": "Umfassende Zoho-Beratungsdienstleistungen zur Optimierung Ihrer Geschäftsprozesse.",
     "title": "Zoho-Beratung",
     "intro_title": "Was ist Zoho?",
@@ -252,8 +252,8 @@
 
     
   "contact_us": {
-    "page_title": "Kontaktieren Sie Uns - Cyborg IT Technology",
-    "page_description": "Nehmen Sie Kontakt mit Cyborg IT Technology für Anfragen, Support oder Geschäftsmöglichkeiten auf.",
+    "page_title": "Kontaktieren Sie Uns - Cyborg IT",
+    "page_description": "Nehmen Sie Kontakt mit Cyborg IT für Anfragen, Support oder Geschäftsmöglichkeiten auf.",
     "title": "Kontaktieren Sie uns",
     "subtitle": "Wir würden uns freuen, von Ihnen 24/7 zu hören. Bitte füllen Sie das untenstehende Formular aus.",
     "name": "Name",
@@ -269,8 +269,8 @@
        "follow_us": "Folgen Sie uns"
   },
   "legal": {
-    "page_title": "Rechtliches - Cyborg IT Technology",
-    "page_description": "Rechtliche Informationen und Richtlinien von Cyborg IT Technology.",
+    "page_title": "Rechtliches - Cyborg IT",
+    "page_description": "Rechtliche Informationen und Richtlinien von Cyborg IT.",
     "title": "Datenschutzerklärung und Nutzungsbedingungen",
         "privacy_policy_title": "Datenschutzerklärung",
     "privacy_policy_aim": "DATENSCHUTZRICHTLINIE\n\nZWECK DER DATENSCHUTZRICHTLINIE\nCyborg verpflichtet sich voll und ganz zur Einhaltung der geltenden Datenschutzgesetze, da wir glauben, dass die Gewährleistung des Datenschutzes die Grundlage für vertrauenswürdige Geschäftsbeziehungen ist.\n\nWir arbeiten ständig daran, konform zu bleiben - fördern Audits, Zertifizierungen und bieten branchenübliche vertragliche Schutzmaßnahmen an.\n\nDiese Datenschutzerklärung stellt sicher, dass das vom Europäischen Parlament und dem Rat der Europäischen Union im Rahmen der Datenschutz-Grundverordnung festgelegte Datenschutzniveau eingehalten wird und bildet eine der notwendigen Rahmenbedingungen für grenzüberschreitende Datenübermittlungen.\n\nDiese Datenschutzerklärung gilt für alle Unternehmen der Cyborg-Gruppe, angeschlossene Unternehmen und deren Mitarbeiter und basiert auf weltweit anerkannten Grundsätzen des Datenschutzes.",
