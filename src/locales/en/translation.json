@@ -28,7 +28,9 @@
 
 
   "home": {
-    "title": "Georgian IT — German-speaking, precise, reliable.",
+    "title": "IT. For DACH. From Georgia.",
+    "hero_subtitle": "Web Development · Cloud & DevOps · AI Consulting — for DACH companies",
+    "hero_cta": "Free Consultation",
     "subtitle": "Your DACH-focused technology partner for Web, Cloud & AI.",
     "vision_content": "We are Cyborg IT — a technically experienced team from Georgia that communicates in German and understands DACH business culture.",
     "vision_content2": "Based in Georgia, we deliver cost-efficient IT to DACH companies without EU VAT — legally and transparently via reverse charge.",

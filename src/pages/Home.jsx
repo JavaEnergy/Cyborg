@@ -200,6 +200,10 @@ const Home = () => {
             transition={{ duration: 1 }}
           >
             <h1 className={isGerman ? 'de' : ''}>{t('home.title')}</h1>
+            <p className="hero-subtitle">{t('home.hero_subtitle')}</p>
+            <NavLink to={`/${currentLang}/contact`} className="hero-cta">
+              {t('home.hero_cta')}
+            </NavLink>
           </motion.div>
         </section>
 
