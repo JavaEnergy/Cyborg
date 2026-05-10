@@ -200,8 +200,14 @@ const Home = () => {
             transition={{ duration: 1 }}
           >
             <h1 className={isGerman ? 'de' : ''}>{t('home.title')}</h1>
+            <blockquote className="hero-quote">
+              <span className="hero-quote-text">
+                {isGerman ? `„${t('home.hero_quote')}"` : `"${t('home.hero_quote')}"`}
+              </span>
+              <cite className="hero-quote-author">— {t('home.hero_quote_author')}</cite>
+            </blockquote>
             <p className="hero-subtitle">{t('home.hero_subtitle')}</p>
-            <NavLink to={`/${currentLang}/contact`} className="hero-cta">
+            <NavLink to={`/${currentLang}/contact-us`} className="hero-cta">
               {t('home.hero_cta')}
             </NavLink>
           </motion.div>

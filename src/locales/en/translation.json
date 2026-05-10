@@ -28,8 +28,10 @@
 
 
   "home": {
-    "title": "IT. For DACH. From Georgia.",
-    "hero_subtitle": "Web Development · Cloud & DevOps · AI Consulting — for DACH companies",
+    "title": "IT Solutions\nFor DACH\nFrom Georgia",
+    "hero_quote": "The hardest step is the first.",
+    "hero_quote_author": "Reinhold Messner",
+    "hero_subtitle": "Web Projects · AI Automation · Zoho CRM",
     "hero_cta": "Free Consultation",
     "subtitle": "Your DACH-focused technology partner for Web, Cloud & AI.",
     "vision_content": "We are Cyborg IT — a technically experienced team from Georgia that communicates in German and understands DACH business culture.",
@@ -40,8 +42,8 @@
     "service_it_consulting_description": "AI agents, workflow automation, and strategic IT consulting for DACH businesses.",
     "service_web_development_title": "Web Development",
     "service_web_development_description": "React, Next.js, WordPress, WooCommerce, and Shopware — built to last and easy to maintain.",
-    "service_it_services_title": "DevOps & Cloud",
-    "service_it_services_description": "AWS, Docker, Terraform, CI/CD, and Linux — set up reliably with proper documentation.",
+    "service_it_services_title": "Zoho & Automation",
+    "service_it_services_description": "Zoho CRM, Books, and Flow — seamless integration and process automation for DACH companies.",
     "service_zoho_title": "Zoho & Automation",
     "service_zoho_description": "Zoho CRM, Books, and Flow — plus API integrations that automate your business processes.",
     "projects_title": "Our Projects",
