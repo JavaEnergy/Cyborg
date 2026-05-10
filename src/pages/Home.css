@@ -10,7 +10,7 @@
   align-items: center;
   min-height: 90vh;
   padding: 20px 20px 20px 8%;
-  background-image: url('../assets/images/mountain-hero.webp');
+  background-image: url('../assets/images/mountain-hero.jpg');
   background-size: cover;
   background-position: center 38%;
   background-repeat: no-repeat;
@@ -485,7 +485,7 @@
 @media (max-width: 768px) {
   /* Mobile hero — re-center, full width */
   .hero {
-    background-image: url('../assets/images/mountain-hero.webp');
+    background-image: url('../assets/images/mountain-hero.jpg');
     background-position: center 30%;
     min-height: 70vh;
     justify-content: center;

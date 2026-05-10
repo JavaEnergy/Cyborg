@@ -51,55 +51,36 @@ const Home = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Manage spider effect based on mouse movement
-  useEffect(() => {
-    const handleMouseMove = (event) => {
-      // Check if a modal is open
-      const anyModalOpen = document.querySelector('[role="dialog"][aria-modal="true"]') !== null;
-      if (isMobile || openProjectModal || anyModalOpen) {
-        setHovered(false);
-        return;
-      }
-      const isOverExcluded = event.target.closest('.exclude-spider');
-      setHovered(!isOverExcluded);
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, [isMobile, openProjectModal]);
+  // Spider effect temporarily disabled — uncomment to re-enable
+  // useEffect(() => {
+  //   const handleMouseMove = (event) => {
+  //     const anyModalOpen = document.querySelector('[role="dialog"][aria-modal="true"]') !== null;
+  //     if (isMobile || openProjectModal || anyModalOpen) { setHovered(false); return; }
+  //     const isOverExcluded = event.target.closest('.exclude-spider');
+  //     setHovered(!isOverExcluded);
+  //   };
+  //   window.addEventListener('mousemove', handleMouseMove);
+  //   return () => window.removeEventListener('mousemove', handleMouseMove);
+  // }, [isMobile, openProjectModal]);
 
-  // Initialize spider effect if hovered
-  useEffect(() => {
-    let cleanup;
-    if (hovered) {
-      let canvas = document.getElementById('spider-canvas');
-      if (!canvas) {
-        canvas = document.createElement('canvas');
-        canvas.id = 'spider-canvas';
-        canvas.style.position = 'fixed';
-        canvas.style.top = '0';
-        canvas.style.left = '0';
-        canvas.style.width = '100%';
-        canvas.style.height = '100%';
-        canvas.style.pointerEvents = 'none';
-        canvas.style.zIndex = '999';
-        document.body.appendChild(canvas);
-      } else {
-        canvas.style.display = 'block';
-      }
-      cleanup = initSpiderEffect();
-    } else {
-      const canvas = document.getElementById('spider-canvas');
-      if (canvas) canvas.style.display = 'none';
-      if (cleanup) cleanup();
-    }
-    return () => {
-      if (cleanup) cleanup();
-      const canvas = document.getElementById('spider-canvas');
-      if (canvas) {
-        canvas.style.display = 'none';
-      }
-    };
-  }, [hovered]);
+  // useEffect(() => {
+  //   let cleanup;
+  //   if (hovered) {
+  //     let canvas = document.getElementById('spider-canvas');
+  //     if (!canvas) {
+  //       canvas = document.createElement('canvas');
+  //       canvas.id = 'spider-canvas';
+  //       canvas.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:999';
+  //       document.body.appendChild(canvas);
+  //     } else { canvas.style.display = 'block'; }
+  //     cleanup = initSpiderEffect();
+  //   } else {
+  //     const canvas = document.getElementById('spider-canvas');
+  //     if (canvas) canvas.style.display = 'none';
+  //     if (cleanup) cleanup();
+  //   }
+  //   return () => { if (cleanup) cleanup(); const c = document.getElementById('spider-canvas'); if (c) c.style.display = 'none'; };
+  // }, [hovered]);
 
   const toggleFaq = (index) => {
     setOpenFaqIndex(openFaqIndex === index ? null : index);
