@@ -6,11 +6,11 @@
 .hero {
   position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   min-height: 90vh;
-  padding: 20px;
-  background-image: url('../assets/images/mountain-hero.jpg');
+  padding: 20px 20px 20px 8%;
+  background-image: url('../assets/images/mountain-hero.webp');
   background-size: cover;
   background-position: center 38%;
   background-repeat: no-repeat;
@@ -34,22 +34,53 @@
 .hero-content {
   position: relative;
   z-index: 2;
-  text-align: center;
+  text-align: left;
   color: #D4B051;
   cursor: default;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 0;
+  max-width: 50%;
+}
+
+.hero-quote {
+  margin: 1.4rem 0 1.6rem 0;
+  padding-left: 1rem;
+  border-left: 3px solid #D4B051;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.hero-quote-text {
+  font-family: 'Overpass', sans-serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.90);
+  line-height: 1.55;
+  letter-spacing: 0.01em;
+}
+
+.hero-quote-author {
+  font-family: 'Overpass', sans-serif;
+  font-style: normal;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #D4B051;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .hero-subtitle {
   font-family: 'Overpass', sans-serif;
-  font-size: 1.35rem;
+  font-size: 1.1rem;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.88);
-  letter-spacing: 0.04em;
-  margin-top: 0.5rem;
+  color: rgba(255, 255, 255, 0.65);
+  letter-spacing: 0.06em;
+  margin-top: 0;
   margin-bottom: 2rem;
 }
 
@@ -75,19 +106,19 @@
 }
 
 .hero-content h1 {
-  font-family: 'Overpass', sans-serif; /* Updated from 'Overpass-black' */
-  font-size: 6rem;
-  line-height: 1.1;
-  margin-bottom: 2rem;
+  font-family: 'Overpass', sans-serif;
+  font-size: 5.8rem;
+  line-height: 1.15;
+  margin-bottom: 1.2rem;
   word-break: break-word;
   white-space: pre-line;
   font-weight: 700;
-  width: 800px;
+  max-width: 100%;
 }
 
 .hero-content h1.de {
-  font-family: 'Overpass', sans-serif; /* Ensure consistent font family */
-  font-size: 5.5rem;
+  font-family: 'Overpass', sans-serif;
+  font-size: 5.2rem;
   line-height: 1.2;
   word-spacing: -0.02em;
 }
@@ -452,16 +483,38 @@
 }
 
 @media (max-width: 768px) {
-  /* Mobile hero — same mountain, shifted up to show peak + horizon */
+  /* Mobile hero — re-center, full width */
   .hero {
-    background-image: url('../assets/images/mountain-hero.jpg');
+    background-image: url('../assets/images/mountain-hero.webp');
     background-position: center 30%;
     min-height: 70vh;
+    justify-content: center;
+    padding: 20px;
+  }
+  .hero-content {
+    text-align: center;
+    align-items: center;
+    max-width: 90%;
   }
   .hero-content h1,
   .hero-content h1.de {
     font-size: 3rem;
-    width: 400px;
+    max-width: 100%;
+  }
+  .hero-quote {
+    max-width: 100%;
+    border-left: none;
+    border-top: 2px solid #D4B051;
+    padding-left: 0;
+    padding-top: 0.8rem;
+    align-items: center;
+    text-align: center;
+  }
+  .hero-quote-text {
+    font-size: 1.05rem;
+  }
+  .hero-quote-author {
+    font-size: 0.8rem;
   }
   .text-container h2 {
     font-size: 1.8rem;
