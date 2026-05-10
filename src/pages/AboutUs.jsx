@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import './AboutUs.css';
-import image1 from '../assets/images/laptop.jpg';
+import image1 from '../assets/images/laptop.jpg';     
 import image2 from '../assets/images/hand.png';
 import { motion } from 'framer-motion';
 import Layout from '../components/Layout';

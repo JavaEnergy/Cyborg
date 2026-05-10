@@ -1,7 +1,6 @@
 // vite.config.cjs
 const { defineConfig } = require('vite');
 const react = require('@vitejs/plugin-react');
-const prerender = require('vite-plugin-prerender');
 const path = require('path');
 
 module.exports = defineConfig(({ mode }) => {
@@ -10,26 +9,6 @@ module.exports = defineConfig(({ mode }) => {
   return {
     plugins: [
       react(),
-      prerender({
-        staticDir: path.resolve(__dirname, 'dist'),
-        routes: [
-          '/de',
-          '/de/about-us',
-          '/de/contact-us',
-          '/de/it-consulting',
-          '/de/web-development',
-          '/de/zoho-consulting',
-          '/de/legal',
-          '/en',
-          '/en/about-us',
-          '/en/contact-us',
-          '/en/it-consulting',
-          '/en/web-development',
-          '/en/zoho-consulting',
-          '/en/legal',
-        ],
-        renderAfterDocumentEvent: 'page-loaded',
-      }),
     ],
     build: {
       minify: !isDebug,   // Disable minification only in debug
