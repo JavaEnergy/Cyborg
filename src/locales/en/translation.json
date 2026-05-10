@@ -1,13 +1,11 @@
 {
   "menu": {
     "about_us": "About Us",
-    "it_consulting": "IT Consulting",
+    "it_consulting": "AI & IT Consulting",
     "web_development": "Web Development",
-    "it_services": "IT Services",
+    "it_services": "DevOps & Cloud",
     "contact_us": "Contact",
     "zoho_consulting": "ZOHO Software"
-
-
   },
   "footer_copyright": "All rights reserved.",
   "common": {
@@ -30,18 +28,22 @@
 
 
   "home": {
-    "title": "High-Quality, Cost-Effective IT Solutions, 24/7.",
-    "subtitle": "Your Vision, Our Expertise",
-    "vision_content": "We are Cyborg, a fusion of human ingenuity and machine precision.",
-    "vision_content2": "Based in Georgia, we offer cost-effective solutions without the added expense of European taxes.",
-    "wish_content": "Our team of skilled professionals is available 24/7 to bring your ideas to life.",
+    "title": "IT. For DACH. From Georgia.",
+    "hero_subtitle": "Web Development · Cloud & DevOps · AI Consulting — for DACH companies",
+    "hero_cta": "Free Consultation",
+    "subtitle": "Your DACH-focused technology partner for Web, Cloud & AI.",
+    "vision_content": "We are Cyborg IT — a technically experienced team from Georgia that communicates in German and understands DACH business culture.",
+    "vision_content2": "Based in Georgia, we deliver cost-efficient IT to DACH companies without EU VAT — legally and transparently via reverse charge.",
+    "wish_content": "Founder Beka Chogovadze personally manages your project — in German or English, 24/7, with full ownership and accountability.",
     "services_title": "Our Services",
-    "service_it_consulting_title": "IT Consulting",
-    "service_it_consulting_description": "Strategic IT solutions to drive your business.",
+    "service_it_consulting_title": "AI & IT Consulting",
+    "service_it_consulting_description": "AI agents, workflow automation, and strategic IT consulting for DACH businesses.",
     "service_web_development_title": "Web Development",
-    "service_web_development_description": "Creating responsive and engaging websites tailored to your needs.",
-    "service_it_services_title": "Zoho Software",
-    "service_it_services_description": "Comprehensive IT support and management for seamless operations.",
+    "service_web_development_description": "React, Next.js, WordPress, WooCommerce, and Shopware — built to last and easy to maintain.",
+    "service_it_services_title": "DevOps & Cloud",
+    "service_it_services_description": "AWS, Docker, Terraform, CI/CD, and Linux — set up reliably with proper documentation.",
+    "service_zoho_title": "Zoho & Automation",
+    "service_zoho_description": "Zoho CRM, Books, and Flow — plus API integrations that automate your business processes.",
     "projects_title": "Our Projects",
     "project_one_title": "Project One",
     "project_one_description": "A brief description of Project One.",
@@ -64,15 +66,15 @@
     "faq_answer_2": "You can use the contact form on this page or email us directly.",
     "faq_question_3": "Do you offer custom solutions?",
     "faq_answer_3": "Yes, we tailor our services to your specific needs.",
-    "page_title": "Home - Cyborg IT Technology",
-    "page_description": "Welcome to Cyborg IT Technology. We provide top-notch IT consulting and development services.",
+    "page_title": "Home - Cyborg IT",
+    "page_description": "Welcome to Cyborg IT. We provide top-notch IT consulting and development services.",
     "project_2_more_info": "Bookly, developed by Cyborg, is a feature-rich Flutter mobile app that allows users to securely register and log in, manage their passwords, browse and search through various book categories, filter books based on preferences, add books to their wish lists, make secure credit card payments, store delivery addresses, place and track orders, access frequently asked questions, and subscribe to newsletters."  ,
     "close": "Close"
 
   },
   
     "it_consulting": {
-    "page_title": "IT Consulting - Cyborg IT Technology",
+    "page_title": "IT Consulting - Cyborg IT",
     "page_description": "Professional IT consulting services to help your business thrive in the digital age.",
     "it_consulting": "IT Consulting",
     "from_idea_to_implementation": "From Idea to Reality",
@@ -108,7 +110,7 @@
   
   },
  "web_development": {
-  "page_title": "Web Development - Cyborg IT Technology",
+  "page_title": "Web Development - Cyborg IT",
     "page_description": "Expert web development services tailored to your business needs.",
     "web_development": "Web Development",
     "our_services": "Our Services",
@@ -219,12 +221,12 @@
     "faq_answer_7": "You can reach us by email at info@cyborg-it.de, via WhatsApp at +995 597 01 03 09, or using the contact form on our website."
 ,"faq_contact_btn": "Contact Us",
     "faq_offer_btn": "Request a Quote",
-    "page_title": "About Us - Cyborg IT Technology",
-    "page_description": "Learn more about Cyborg IT Technology, our mission, vision, and the team behind our success."
+    "page_title": "About Us - Cyborg IT",
+    "page_description": "Learn more about Cyborg IT, our mission, vision, and the team behind our success."
  
     },
   "zoho_consulting": {
-    "page_title": "Zoho Consulting - Cyborg IT Technology",
+    "page_title": "Zoho Consulting - Cyborg IT",
     "page_description": "Comprehensive Zoho consulting services to optimize your business processes.",
     "title": "Zoho Consulting",
     "intro_title": "What is Zoho?",
@@ -255,8 +257,8 @@
     "close": "Close"
   },
   "contact_us": {
-    "page_title": "Contact Us - Cyborg IT Technology",
-    "page_description": "Get in touch with Cyborg IT Technology for any inquiries, support, or business opportunities.",
+    "page_title": "Contact Us - Cyborg IT",
+    "page_description": "Get in touch with Cyborg IT for any inquiries, support, or business opportunities.",
     "title": "Get in Touch",
     "subtitle": "We'd love to hear from you 24/7. Please fill out the form below.",
     "name": "Name",
@@ -274,8 +276,8 @@
     "whatsapp_24_7": "Available 24/7 on WhatsApp"
   },
   "legal": {
-    "page_title": "Legal - Cyborg IT Technology",
-    "page_description": "Legal information and policies related to Cyborg IT Technology.",
+    "page_title": "Legal - Cyborg IT",
+    "page_description": "Legal information and policies related to Cyborg IT.",
     "title": "Privacy Policy and Terms of Use",
     
     "privacy_policy_title": "Privacy Policy",

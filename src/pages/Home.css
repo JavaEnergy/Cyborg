@@ -8,17 +8,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* Try setting a fixed min-height to reserve space before the image loads */
-  min-height: 80vh;
+  min-height: 90vh;
   padding: 20px;
-  background-image: url('../assets/images/codesurf-caia_image-alamy.jpg');
+  background-image: url('../assets/images/mountain-hero.jpg');
   background-size: cover;
-  background-position: center;
+  background-position: center 38%;
   background-repeat: no-repeat;
-
-  /* COMMENT OUT to reduce layout shift issues, especially on mobile 
-     background-attachment: fixed; 
-  */
 }
 
 .hero::before {
@@ -28,7 +23,12 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.6);
+  background: linear-gradient(
+    to bottom,
+    rgba(5, 5, 20, 0.55) 0%,
+    rgba(5, 5, 20, 0.30) 45%,
+    rgba(5, 5, 20, 0.50) 100%
+  );
 }
 
 .hero-content {
@@ -37,6 +37,41 @@
   text-align: center;
   color: #D4B051;
   cursor: default;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.hero-subtitle {
+  font-family: 'Overpass', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.88);
+  letter-spacing: 0.04em;
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.hero-cta {
+  display: inline-block;
+  background-color: #D4B051;
+  color: #111111;
+  font-family: 'Overpass', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  padding: 16px 40px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+  box-shadow: 0 4px 20px rgba(212, 176, 81, 0.35);
+}
+
+.hero-cta:hover {
+  background-color: #f4c842;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(212, 176, 81, 0.50);
 }
 
 .hero-content h1 {
@@ -417,10 +452,11 @@
 }
 
 @media (max-width: 768px) {
-  /* Switch hero background to mobile image */
+  /* Mobile hero — same mountain, shifted up to show peak + horizon */
   .hero {
-    background-image: url('../assets/images/codesurfmob.jpg');
-    min-height: 70vh; 
+    background-image: url('../assets/images/mountain-hero.jpg');
+    background-position: center 30%;
+    min-height: 70vh;
   }
   .hero-content h1,
   .hero-content h1.de {
